@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>rapport.md</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">rapport.md</h1>
+<p class="date">16/02/2026</p>
+</header>
+<h1 id="introduction">Introduction</h1>
+<p>Ce rapport présente le travail réalisé lors des semaines S07 et S08
+dans le cadre de la SAÉ 2.03 « Installation de services réseaux ».</p>
+<p>Il est rédigé en <strong>Markdown étendu</strong> (Pandoc) et vise à
+montrer une variété de techniques de mise en forme.</p>
+<blockquote>
+<p>[!IMPORTANT] Tous les membres de l’équipe ont participé à la
+rédaction et à la vérification des étapes.</p>
+</blockquote>
+<h2 id="membres-de-léquipe">Membres de l’équipe</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th>Prénom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lefebvre</td>
+<td>Romain</td>
+</tr>
+<tr class="even">
+<td>Plantard</td>
+<td>Kylian</td>
+</tr>
+<tr class="odd">
+<td>Belot</td>
+<td>Emilien</td>
+</tr>
+</tbody>
+</table>
+<h2 id="objectifs-de-la-saé-rappel">Objectifs de la SAÉ (rappel)</h2>
+<blockquote>
+<p>[!NOTE] La problématique professionnelle est de <strong>préparer un
+serveur</strong> pour répondre à un besoin client en installant et
+configurant des services réseau.</p>
+</blockquote>
+<p>Objectifs principaux :</p>
+<ul>
+<li>Maîtriser l’installation et la configuration d’une VM Debian</li>
+<li>Découvrir et utiliser un balisage léger (Markdown + Pandoc)</li>
+<li>Préparer une procédure d’installation automatisée</li>
+<li>Rédiger un compte-rendu technique clair et sourcé</li>
+</ul>
+<h1 id="semaine-s07-préparation-de-la-machine-virtuelle">Semaine S07 –
+Préparation de la machine virtuelle</h1>
+<h2 id="configuration-matérielle-virtualbox">Configuration matérielle
+VirtualBox</h2>
+<p>Nous avons créé une machine virtuelle nommée <strong>sae203</strong>
+avec les caractéristiques suivantes :</p>
+<ul>
+<li>Type : Linux – Debian (64-bit)</li>
+<li>RAM : <strong>2048 Mo</strong></li>
+<li>Disque : 20 Go dynamique</li>
+<li>Réseau par défaut : <strong>NAT</strong></li>
+</ul>
+<h3 id="réponses-aux-questions-posées">Réponses aux questions
+posées</h3>
+<ol type="1">
+<li><p>Que signifie « 64-bit » dans « Debian 64-bit » ?<br />
+→ Cela indique que le système supporte les processeurs 64 bits et peut
+adresser plus de 4 Go de RAM.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>Quelle est la configuration réseau utilisée par défaut ?<br />
+→ <strong>NAT</strong> (Network Address Translation)</p></li>
+<li><p>Pourquoi allouer 2048 Mo de RAM ?<br />
+→ Pour éviter des ralentissements importants avec l’environnement
+graphique MATE. Avec 512 Mo, le système serait très lent voire
+inutilisable pour des tâches graphiques.</p></li>
+<li><p>Quelle est l’adresse IP de la VM ? Comment l’avez-vous obtenue
+?<br />
+→ Exemple : 10.0.2.15 (obtenue via DHCP du réseau NAT de
+VirtualBox)</p></li>
+<li><p>Adresse de la passerelle par défaut ?<br />
+→ 10.0.2.2 – correspond au routeur virtuel fourni par VirtualBox en mode
+NAT</p></li>
+</ol>
+<h2 id="installation-du-système">Installation du système</h2>
+<p>Nous avons utilisé l’ISO <strong>Debian 13</strong> (netinst) avec
+les paramètres suivants :</p>
+<ul>
+<li>Nom machine : <strong>serveur</strong></li>
+<li>Pays : France</li>
+<li>Miroir : http://debian.polytech-lille.fr</li>
+<li>Environnement : <strong>MATE</strong></li>
+</ul>
+<figure>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGUAAAB8CAMAAABHe46uAAAAM1BMVEX////HADbLEEPxv8377/LVQGjjf5rqn7P0z9n43+bOIE/cYILtr8Dmj6fSMFzgcI7ZUHW5Bab+AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9IBAhYGMGxjvlcAAAT3SURBVGjevVpJloUgDAwEwjzc/7S98DujgC1m2f2fJUmlMiDAA0OvED0MMa0BQ8oaQAsYZEoyyxjjiRQGZxEAtHoXwpBlq1nylCOXmfGsXjsWOnZjMbwBhJLVzOF4DMYYkwigEYdiMMZY5Iwx/sB5wrFec8Z0gnjO+i3n1HEeA449Ms5sc3hE5Oy5UaOY2NvXlZPdUK7Fa/riIJEUKdw8AVWK5V/qp2HPBqDAIKNy6bw1GFXEuIupId4LUwTJFfkV1AejyuGuJpuOHTBnEJvIN2VAOlHgiml4+mWHAp7eMF+49xhF11ezeVN6HmOYOjX2BFMKjbfHqPcq+REmVv1lA5ruauGrPtv5i4dnhS8c3HF60a2/onlaw/MVf8SJiA4emzgEd3ldSQAAGyX/VzuH5cgIpgFAvwRyFAE+Byzsj/LfxnTPVb5p231+DWTDsxCISSrBv9FizwQAALvJbHoVZDkMAiheSBX3BsjimpwB4lmzZaNcBSellEld5a5bXUOLYs78si3qaNKGQ7E8wPg1W0wCAAhiTZWGknVqnnkxknwtZBkAhF3TiKfWLirS1JYZn2yxx5sTwwIEDYB5Ba4TTP06+/2oVugjaO6aDZgAYMLqRN4E4sx5zNFXYuY8AO27+1oX7RljvBi7pC9QAk4oq8NqDBP8uu4c/yw2qYFmy7paVNxNi3UyuXmo2GSQrYNwDb0oeKC2qgelY/ciV8GETfWydZ3N0I8i9nKc6kcxD1D8nnNYjUqXXs96Yt2Oc1hlse5BWSrW7zB7B15nfaxptSihzOHek+G6yapJ6X4IyYdwt2gYNtB4j3LMl5YqGRoY5vVNvmALCtVcerJDiccWPe5G+W0/5Fywm1G6pgA15QuJH/NwR+sbFOo6jJybC79FwSpKpYvypfoSAPWLKASq0CBk9SuUM4qpj4t3/6ewf8C0yVAIYYfSMPnc6JgU+6pgFnXpQYHJydd7bbt7BYxzXdTYgyLZrVz6VFiVbI7SiBIaG9ytuqhuFNEzdsillmi9R9EtNwr7wwRH5LIpj2Ic5eYoPzrUvKGQnyIjgmRWX5RJAgMg/EE9K/ohMrVuit1aetVRo2/rLRoIPjYRQORNnMVpoLmTS5IAwfCGDa6YMiXKC0bcyZThGMzUH97D/MpKFOpi0rx1ebBGiinbOF7PtIpfrkWpJfyZVNRC3f1SyXwzzfuWDlZY4zKJaWNYXMwu03z5Qb+Eqdw26QQuZ/Fz/GnqW+62+BWLeOutiYtWi5ks60ZBp7jsPq6X6LlJYwAAAmdhXX9ZSUQkN7s966u7mdSQ19oyqcPF3Y69nbN04xwOACASY1am810Tr16N8p6llZaMZWFUknzjOmzVt8Lu90LVJONTz2gQsXm17ZeNe+Oq2iTLJPmusWmziGmf6nTIU3B4bi3U7uGWV3RdUG92yXzY1w67FX8Yh7Lu+KUdh7LukwnNOBj6Ii6z/DfK2WNbyYzwRWTsyMPQu0v42mHsyPivOROHwsjbnfpbpl+9g6kSYGhmzvNz3xr0gc/4Jz5TrZ+AvCM0Y9ks5tC48IkExG8YgENh/CeHWYiWvoHx38AM9pr6pKSt35C5bwgd8RMVGEyC35hqDXwSHDm2qs3DPfdAI5F++xsWnRx6nPRN6hj3CcyCM5gF8xcdPMBg844zxrhTZjTQ9G0tl0mN7XEAMRARpdzjvD9msSSQSr9q7wAAAABJRU5ErkJggg==" style="width:25.0%" alt="Logo Debian redimensionné" />
+<figcaption aria-hidden="true">Logo Debian redimensionné</figcaption>
+</figure>
+<blockquote>
+<p>[!TIP] Toujours vérifier l’intégrité de l’ISO avec la somme SHA512
+avant utilisation.</p>
+</blockquote>
+<h2 id="post-installation">Post-installation</h2>
+<h3 id="ajout-de-lutilisateur-au-groupe-sudo">Ajout de l’utilisateur au
+groupe sudo</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> <span class="at">-</span> root</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">usermod</span> <span class="at">-aG</span> sudo monlogin</span></code></pre></div>
+<h3 id="installation-des-guest-additions">Installation des <em>Guest
+Additions</em></h3>
+<p>Montage de l’image VBoxGuestAdditions.iso puis :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">-y</span> build-essential dkms linux-headers-<span class="va">$(</span><span class="fu">uname</span> <span class="at">-r</span><span class="va">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sh ./VBoxLinuxAdditions.run</span></code></pre></div>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Source : <a href="https://www.debian.org/releases/stable/amd64/">Documentation
+Debian – Architecture 64 bits</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
