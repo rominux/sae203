@@ -1,0 +1,121 @@
+= SAÉ 2.03 : Rapport Technique
+Votre Prénom et Nom; Prénom Nom Membre 2; Prénom Nom Membre 3
+:date: 2026-03-XX
+:toc: left
+:toc-title: Table des matières
+:sectnums:
+:icons: font
+:source-highlighter: rouge
+
+[NOTE]
+====
+**Présentation** +
+Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous Debian, ainsi que l'étude des outils de gestion de versions Git.
+====
+
+== Préparation de la machine virtuelle
+
+=== Création et caractéristiques de la VM
+
+Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les spécifications suivantes :
+
+* **Nom de la machine** : `sae203`
+* **Type de système** : Linux
+* **Version** : Debian 64-bit
+* **Mémoire vive (RAM)** : 2048 Mo
+* **Disque dur** : 20 Go (une seule partition)
+
+image::chemin/vers/votre/image.png[Configuration de la VM, width=60%]
+
+=== Installation de l'OS de base
+
+Paramètres appliqués lors de l'installation :
+
+. **Nom de la machine** : `serveur`
+. **Miroir réseau** : `http://debian.polytech-lille.fr`
+. **Comptes** : `root` et `user`
+. **Logiciels** : Environnement MATE, serveur Web, serveur SSH et utilitaires usuels.
+
+=== Préparation du système et Suppléments invités
+
+Droits `sudo` accordés à l'utilisateur `user` :
+
+[source,bash]
+----
+usermod -aG sudo user
+----
+
+Installation des **Additions Invité** pour la résolution dynamique :
+
+[source,bash]
+----
+sudo mount /dev/cdrom /mnt
+sudo /mnt/VBoxLinuxAdditions.run
+----
+
+== Réponses aux questions techniques (Semaine 07)
+
+=== Configuration matérielle (Q1)
+* **64-bit** : Architecture traitant les données par blocs de 64 bits, permettant de gérer plus de 4 Go de RAM.
+* **Réseau par défaut** : Mode **NAT** (Network Address Translation).
+* **RAM** : 2048 Mo assurent la fluidité de MATE ; 512 Mo forceraient l'usage intensif du Swap.
+
+=== Installation OS (Q2)
+* **ISO bootable** : Image disque permettant d'amorcer l'installation d'un OS.
+* **MATE/GNOME** : Environnements de bureau Linux (MATE est plus léger).
+* **SSH** : Paquet `openssh-server`. La connexion directe via NAT échoue sans redirection de ports.
+
+== À propos de la distribution Debian (Q4.2)
+
+D'après la https://www.debian.org/doc/[documentation officielle] :
+
+. **Origine** : Nom créé par Ian Murdock (Debra + Ian).
+. **Support** : Standard (~3 ans), LTS (5 ans), ELTS (jusqu'à 10 ans).
+. **Versions** : Stable, Testing, Unstable (Sid).
+. **Noms de code** : Personnages de _Toy Story_.
+
+== Installation préconfigurée (Question 5)
+
+[WARNING]
+====
+Les modifications se font uniquement dans `preseed-fr.cfg`.
+====
+
+* **pkgsel vs tasksel** : `pkgsel/include` installe des paquets précis (ex: `git`) ; `tasksel` installe des groupes de logiciels (ex: `mate-desktop`).
+* **Sécurité** : Le preseed contient des mots de passe ; il doit être protégé par des permissions strictes ou un accès HTTPS sécurisé.
+
+== Étude des applications clientes (Semaine 10)
+
+=== Configuration de Git
+Initialisation de l'identité utilisateur :
+[source,bash]
+----
+git config --global user.name "Votre Nom"
+git config --global user.email "votre@email"
+git config --global init.defaultBranch "master"
+----
+
+=== Concepts de base (Q1)
+* **Git vs GitLab/Forgejo** : Git est l'outil local de versionnage ; GitLab/Forgejo sont des plateformes d'hébergement et de collaboration.
+* **Dépôt Git** : Espace de stockage (local ou distant) contenant l'historique complet d'un projet. Les données locales sont dans le dossier caché `.git`.
+* **Commit, Branche, Tag** : Un **commit** est un instantané du projet ; une **branche** est une ligne de développement parallèle ; un **tag** est un marqueur immuable sur un commit spécifique.
+
+=== Protocoles et Commandes (Q2 & Q3)
+* **Protocoles** : SSH, HTTPS, Git et Local. SSH utilise généralement le port 22.
+* **Commandes** : `git init` crée un dépôt. `git log` affiche l'historique.
+* **Conflit de fusion** : Arrive lorsque deux modifications touchent la même ligne d'un fichier. Résolution manuelle requise avant de valider le merge.
+* **.gitignore** : Fichier listant les fichiers/dossiers à ne pas suivre (ex: `.class`, `.jar`).
+
+=== Interfaces graphiques (Q5 & Q6)
+Installation des outils par défaut :
+[source,bash]
+----
+sudo apt install gitk git-gui
+----
+* **gitk** : Visualiseur d'historique graphique.
+* **git-gui** : Interface pour créer des commits et gérer les branches.
+
+[NOTE]
+====
+Dans un contexte professionnel, la ligne de commande est souvent privilégiée pour sa rapidité et l'automatisation, tandis que l'interface graphique est utile pour visualiser des historiques complexes ou effectuer des `diff` détaillés.
+====
