@@ -184,4 +184,20 @@ d-i tasksel/first multiselect standard, mate-desktop
 d-i pkgsel/include string sudo git sqlite3 curl bash-completion fastfetch
 ----
 
+**Ajout de l'utilisateur user dans root :**
+Nous avons modifié 
+
+[source,plaintext]
+----
+d-i passwd/user-default-groups string audio cdrom video
+----
+
+Pour rajouter sudo
+
+[source,plaintext]
+----
+d-i passwd/user-default-groups string audio cdrom video sudo
+----
+
+
 _(Nous avons ensuite régénéré l'ISO et l'installation s'est déroulée de manière totalement transparente jusqu'au redémarrage)._
