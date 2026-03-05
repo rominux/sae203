@@ -1,5 +1,5 @@
 = SAÉ 2.03 : Rapport Technique Intermédiaire
-Votre Prénom et Nom; Prénom Nom Membre 2; Prénom Nom Membre 3
+Lefebvre Romain; Plantard Kylian; Belot Emilien
 :date: 2026-03-XX
 :toc: left
 :toc-title: Table des matières
@@ -10,7 +10,8 @@ Votre Prénom et Nom; Prénom Nom Membre 2; Prénom Nom Membre 3
 [NOTE]
 ====
 **Présentation** +
-Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous Debian, ainsi que les réponses aux questions techniques associées.
+[.lead]
+Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian#, ainsi que les réponses aux questions techniques associées.
 ====
 
 == Préparation de la machine virtuelle
@@ -199,5 +200,141 @@ Pour rajouter sudo
 d-i passwd/user-default-groups string audio cdrom video sudo
 ----
 
-
 _(Nous avons ensuite régénéré l'ISO et l'installation s'est déroulée de manière totalement transparente jusqu'au redémarrage)._
+
+== Étude des applications clientes (Semaine 10)
+
+=== Configuration globale de git
+
+_[Espace pour expliquer les commandes de configuration initiale comme git config --global user.name, user.email, etc.]_
+
+=== Concepts de base (Question 1)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?**
+| 
+
+| **Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?**
+| 
+
+| **Différence entre un commit, une branche et un tag ?**
+| 
+
+| **Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?**
+| 
+
+| **Différence entre git pull et git fetch ?**
+| 
+|===
+
+=== Protocoles réseau pour git (Question 2)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Quels sont les protocoles supportés par Git pour accéder à un dépôt ?**
+| 
+
+| **Sur quels ports réseau fonctionnent ces protocoles ?**
+| 
+
+| **Comment configurer l'authentification SSH pour Git ?**
+| 
+|===
+
+=== Manipulation pratique de git (Question 3)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée / Commandes
+
+| **Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?**
+| 
+
+| **Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l'historique.**
+| 
+
+| **Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.**
+| 
+
+| **Qu'est-ce qu'un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.**
+| 
+
+| **Utilisez git diff pour comparer deux commits. Expliquez la sortie.**
+| 
+
+| **Qu'est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).**
+| 
+|===
+
+=== Travail collaboratif (Question 4)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée / Commandes
+
+| **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
+| 
+
+| **Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.**
+| 
+
+| **Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.**
+| 
+
+| **Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
+| 
+
+| **Testez la commande git blame. À quoi sert-elle ?**
+| 
+|===
+
+=== Les interfaces graphiques pour git (Question 5)
+
+* **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+* **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+
+=== Installons autre chose et comparons (Questions 6 & 7)
+
+**Choix de l'interface graphique (Question 6)**
+
+* **Pourquoi avez-vous choisi ce logiciel ?** +
+  _[Espace pour répondre]_
+* **Comment l'avez-vous installé ?** +
+  _[Espace pour répondre]_
+* **Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
+  _[Espace pour répondre : fonctionnalités, avantages, inconvénients]_
+
+**Analyse comparative approfondie (Question 7)**
+
+[cols="1,1,1", options="header"]
+|===
+| Opération | En ligne de commande | Avec l'outil graphique choisi
+
+| **Visualiser l'historique des commits**
+| 
+| 
+
+| **Créer une nouvelle branche**
+| 
+| 
+
+| **Comparer deux versions d'un fichier (diff)**
+| 
+| 
+
+| **Résoudre un conflit de fusion**
+| 
+| 
+|===
+
+* **Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l'interface graphique ?** +
+  _[Espace pour répondre]_
+* **Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?** +
+  _[Espace pour répondre]_
