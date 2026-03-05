@@ -11,7 +11,7 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 ====
 **Présentation** +
 [.lead]
-Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian#, ainsi que les réponses aux questions techniques associées.
+Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian 13.13#, ainsi que les réponses aux questions techniques associées.
 ====
 
 == Préparation de la machine virtuelle
@@ -26,7 +26,7 @@ Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les 
 * **Mémoire vive (RAM)** : 2048 Mo
 * **Disque dur** : 20 Go (une seule partition de la taille totale)
 
-_[Insérer ici une capture d'écran du récapitulatif de votre VM dans VirtualBox]_ +
+_[capture d'écran du récapitulatif de la VM dans VirtualBox]_ +
 image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=60%]
 
 === Installation de l'OS de base
@@ -40,12 +40,12 @@ Lors de l'installation du système d'exploitation à partir de l'image ISO, nous
   ** Utilisateur standard : `user`
 . **Sélection des logiciels** : 
   ** Environnement de bureau Debian
-  ** MATE (en prenant soin de décocher GNOME)
+  ** MATE
   ** Serveur web
   ** Serveur SSH
   ** Utilitaires usuels du système
 
-_[Insérer ici une capture d'écran de l'étape "Sélection des logiciels" ou de votre bureau MATE]_
+_[capture d'écran de l'étape "Sélection des logiciels"]_ + image::chemin/vers/votre/image.png
 
 === Préparation du système et Suppléments invités
 
@@ -72,7 +72,7 @@ Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footn
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée
+| Question | Réponse
 
 | **Que signifie "64-bit" ?**
 | Cela désigne l'architecture du processeur capable de traiter des données par blocs de 64 bits. Cela permet notamment de gérer plus de 4 Go de mémoire vive (RAM), contrairement au 32-bit.
@@ -97,7 +97,7 @@ Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footn
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée
+| Question | Réponse
 
 | **Fichier iso bootable ?**
 | C'est une image disque (une copie exacte d'un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d'exploitation.
@@ -212,7 +212,7 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée
+| Question | Réponse
 
 | **Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?**
 | 
@@ -234,7 +234,7 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée
+| Question | Réponse
 
 | **Quels sont les protocoles supportés par Git pour accéder à un dépôt ?**
 | 
@@ -250,7 +250,7 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée / Commandes
+| Question | Réponse / Commandes
 
 | **Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?**
 | 
@@ -275,7 +275,7 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 
 [cols="1,2", options="header"]
 |===
-| Question | Réponse justifiée / Commandes
+| Question | Réponse / Commandes
 
 | **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
 | 
