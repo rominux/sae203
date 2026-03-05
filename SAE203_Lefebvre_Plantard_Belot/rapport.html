@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<meta name="author" content="Votre Prénom et Nom, Prénom Nom Membre 2, Prénom Nom Membre 3">
+<meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
 <title>SAÉ 2.03 : Rapport Technique Intermédiaire</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -558,9 +558,9 @@ pre.rouge .gs {
 <div id="header">
 <h1>SAÉ 2.03 : Rapport Technique Intermédiaire</h1>
 <div class="details">
-<span id="author" class="author">Votre Prénom et Nom</span><br>
-<span id="author2" class="author">Prénom Nom Membre 2</span><br>
-<span id="author3" class="author">Prénom Nom Membre 3</span><br>
+<span id="author" class="author">Lefebvre Romain</span><br>
+<span id="author2" class="author">Plantard Kylian</span><br>
+<span id="author3" class="author">Belot Emilien</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
@@ -586,6 +586,17 @@ pre.rouge .gs {
 <li><a href="#_notre_configuration_automatisée">4.2. Notre configuration automatisée</a></li>
 </ul>
 </li>
+<li><a href="#_étude_des_applications_clientes_semaine_10">5. Étude des applications clientes (Semaine 10)</a>
+<ul class="sectlevel2">
+<li><a href="#_configuration_globale_de_git">5.1. Configuration globale de git</a></li>
+<li><a href="#_concepts_de_base_question_1">5.2. Concepts de base (Question 1)</a></li>
+<li><a href="#_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour git (Question 2)</a></li>
+<li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de git (Question 3)</a></li>
+<li><a href="#_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</a></li>
+<li><a href="#_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</a></li>
+<li><a href="#_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -600,8 +611,10 @@ pre.rouge .gs {
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>Présentation</strong><br>
-Ce rapport retrace l&#8217;installation, la configuration et l&#8217;automatisation d&#8217;une machine virtuelle sous Debian, ainsi que les réponses aux questions techniques associées.</p>
+<p><strong>Présentation</strong><br></p>
+</div>
+<div class="paragraph lead">
+<p>Ce rapport retrace l&#8217;installation, la configuration et l&#8217;automatisation d&#8217;une machine virtuelle sous <mark>Debian</mark>, ainsi que les réponses aux questions techniques associées.</p>
 </div>
 </td>
 </tr>
@@ -963,7 +976,267 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </div>
 </div>
 <div class="paragraph">
+<p><strong>Ajout de l&#8217;utilisateur user dans root :</strong>
+Nous avons modifié</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="plaintext">d-i passwd/user-default-groups string audio cdrom video</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pour rajouter sudo</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="plaintext">d-i passwd/user-default-groups string audio cdrom video sudo</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p><em>(Nous avons ensuite régénéré l&#8217;ISO et l&#8217;installation s&#8217;est déroulée de manière totalement transparente jusqu&#8217;au redémarrage).</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_étude_des_applications_clientes_semaine_10">5. Étude des applications clientes (Semaine 10)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configuration_globale_de_git">5.1. Configuration globale de git</h3>
+<div class="paragraph">
+<p><em>[Espace pour expliquer les commandes de configuration initiale comme git config --global user.name, user.email, etc.]</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concepts_de_base_question_1">5.2. Concepts de base (Question 1)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse justifiée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre un commit, une branche et un tag ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre git pull et git fetch ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour git (Question 2)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse justifiée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de git (Question 3)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse justifiée / Commandes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse justifiée / Commandes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Testez la commande git blame. À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</h3>
+<div class="paragraph">
+<p><strong>Choix de l&#8217;interface graphique (Question 6)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pourquoi avez-vous choisi ce logiciel ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Comment l&#8217;avez-vous installé ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
+<em>[Espace pour répondre : fonctionnalités, avantages, inconvénients]</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Analyse comparative approfondie (Question 7)</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Opération</th>
+<th class="tableblock halign-left valign-top">En ligne de commande</th>
+<th class="tableblock halign-left valign-top">Avec l&#8217;outil graphique choisi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Visualiser l&#8217;historique des commits</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer une nouvelle branche</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comparer deux versions d&#8217;un fichier (diff)</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Résoudre un conflit de fusion</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -977,7 +1250,7 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-03 13:14:44 +0100
+Last updated 2026-03-05 19:09:55 +0100
 </div>
 </div>
 </body>
