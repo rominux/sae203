@@ -1,0 +1,340 @@
+= SAÉ 2.03 : Rapport Technique Intermédiaire
+Lefebvre Romain; Plantard Kylian; Belot Emilien
+:date: 2026-03-XX
+:toc: left
+:toc-title: Table des matières
+:sectnums:
+:icons: font
+:source-highlighter: rouge
+
+[NOTE]
+====
+**Présentation** +
+[.lead]
+Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian#, ainsi que les réponses aux questions techniques associées.
+====
+
+== Préparation de la machine virtuelle
+
+=== Création et caractéristiques de la VM
+
+Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les spécifications suivantes :
+
+* **Nom de la machine** : `sae203`
+* **Type de système** : Linux
+* **Version** : Debian 64-bit
+* **Mémoire vive (RAM)** : 2048 Mo
+* **Disque dur** : 20 Go (une seule partition de la taille totale)
+
+_[Insérer ici une capture d'écran du récapitulatif de votre VM dans VirtualBox]_ +
+image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=60%]
+
+=== Installation de l'OS de base
+
+Lors de l'installation du système d'exploitation à partir de l'image ISO, nous avons appliqué les paramètres suivants :
+
+. **Nom de la machine** : `serveur`
+. **Miroir réseau** : `http://debian.polytech-lille.fr`
+. **Comptes créés** : 
+  ** Administrateur : `root`
+  ** Utilisateur standard : `user`
+. **Sélection des logiciels** : 
+  ** Environnement de bureau Debian
+  ** MATE (en prenant soin de décocher GNOME)
+  ** Serveur web
+  ** Serveur SSH
+  ** Utilitaires usuels du système
+
+_[Insérer ici une capture d'écran de l'étape "Sélection des logiciels" ou de votre bureau MATE]_
+
+=== Préparation du système et Suppléments invités
+
+Afin de faciliter l'administration du système, nous avons accordé les droits `sudo` à l'utilisateur `user` via la console tty1 (`Ctrl + Alt + F1`) connecté en tant que root :
+
+[source,bash]
+----
+usermod -aG sudo user
+----
+
+Nous avons ensuite inséré le CD virtuel des **Additions Invité** (Guest Additions) depuis le menu de VirtualBox, puis nous l'avons monté et installé en ligne de commande :
+
+[source,bash]
+----
+sudo mount /dev/cdrom /mnt
+sudo /mnt/VBoxLinuxAdditions.run
+----
+
+Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footnote:[Les suppléments invités requièrent la présence des outils de compilation et des en-têtes du noyau pour s'installer avec succès.].
+
+== Réponses aux questions techniques (Semaine 07)
+
+=== Configuration matérielle dans VirtualBox (Question 1)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Que signifie "64-bit" ?**
+| Cela désigne l'architecture du processeur capable de traiter des données par blocs de 64 bits. Cela permet notamment de gérer plus de 4 Go de mémoire vive (RAM), contrairement au 32-bit.
+
+| **Configuration réseau par défaut ?**
+| Par défaut, VirtualBox utilise le mode **NAT** (Network Address Translation).
+
+| **Pourquoi 2048 Mo de RAM ? Et avec 512 Mo ?**
+| 2048 Mo permettent de faire tourner confortablement l'environnement graphique MATE. Avec seulement 512 Mo, le système utiliserait massivement la partition d'échange (Swap), rendant la machine extrêmement lente, et l'interface graphique pourrait même refuser de se lancer par manque de mémoire.
+
+| **Mode réseau par défaut ?**
+| Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la machine hôte.
+
+| **Adresse IP de la VM ?**
+| L'adresse IP est généralement `10.0.2.15` _(à confirmer avec la commande `ip a` dans votre terminal)_.
+
+| **Adresse de la passerelle ?**
+| La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.
+|===
+
+=== Installation OS de base (Question 2)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Fichier iso bootable ?**
+| C'est une image disque (une copie exacte d'un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d'exploitation.
+
+| **MATE et GNOME ?**
+| Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l'interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger.
+
+| **Serveur mandataire (Proxy) ?**
+| C'est un serveur qui agit comme intermédiaire entre les requêtes d'un client (notre VM) et un autre serveur (Internet). Il peut filtrer, mettre en cache ou sécuriser les connexions.
+
+| **Serveur web ?**
+| Un logiciel (comme Apache ou Nginx) qui répond aux requêtes HTTP/HTTPS pour distribuer des pages web à des clients (navigateurs).
+
+| **Serveur SSH installé ?**
+| Le paquet installé est généralement `openssh-server`. On vérifie son état avec la commande `systemctl status ssh`.
+
+| **Test de connexion SSH ?**
+| Commande : `ssh user@10.0.2.15`. **Problème rencontré** : La connexion échoue ("Connection refused" ou "Timeout"). **Pourquoi ?** Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l'hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.
+|===
+
+=== Sudo et Suppléments invités (Questions 3 & 4)
+
+* **Appartenance aux groupes** : Pour savoir à quels groupes appartient l'utilisateur `user`, on utilise la commande `groups user` ou `id user`.
+* **Différence entre `su` et `sudo`** :
+  ** `su` (substitute user) permet de changer d'utilisateur (souvent pour devenir `root`) et requiert le mot de passe de **l'utilisateur cible**.
+  ** `sudo` (substitute user do) permet d'exécuter une seule commande avec les privilèges d'un autre utilisateur (généralement `root`), mais nécessite le mot de passe de **l'utilisateur courant**.
+* **Version du noyau Linux** : _(Tapez `uname -r` dans votre VM et inscrivez le résultat ici, par exemple : `6.1.0-xx-amd64`)_.
+* **Utilité des suppléments invités** : Ils optimisent la VM. Deux raisons de les installer :
+  . Permettre le redimensionnement dynamique de la fenêtre (ajustement automatique de la résolution).
+  . Activer le presse-papiers partagé entre la machine hôte et la VM.
+* **Commande `mount`** : En général, elle sert à attacher un système de fichiers (disque, clé USB) à l'arborescence du système (point de montage). Dans notre cas, elle a servi à rendre accessible le contenu du lecteur CD-ROM virtuel pour y exécuter le script d'installation.
+
+== À propos de la distribution Debian (Question 4.2)
+
+Pour répondre à ces questions, nous avons consulté la https://www.debian.org/doc/[documentation officielle Debian].
+
+. **Le Projet Debian et son nom** : C'est une association d'individus qui ont pour cause commune de créer un système d'exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l'époque (Debra) et le sien (Ian).
+. **Durées de prise en charge** :
+  * _Minimale (Standard)_ : Environ 3 ans (1 an après la sortie de la version stable suivante).
+  * _LTS (Long Term Support)_ : 5 ans au total.
+  * _ELTS (Extended LTS)_ : Jusqu'à 10 ans (géré par une organisation tierce, Freexian).
+. **Mises à jour de sécurité** : L'équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d'une nouvelle version stable.
+. **Versions activement maintenues** : Il y en a au minimum 3. Leurs noms génériques sont : **Stable**, **Testing** (en test), et **Unstable** (instable, surnommée _Sid_). On peut aussi compter _Oldstable_.
+. **Origine des noms de code** : Tous les noms de code des versions Debian proviennent des personnages des films d'animation _Toy Story_ (ex: Bullseye, Bookworm, Trixie).
+. **Architectures de Trixie (Debian 13)** : La liste exacte peut varier d'ici sa sortie officielle, mais Debian prend historiquement en charge 9 architectures officielles (amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x).
+. **Premier nom de code** : `Buzz` (Debian 1.1), annoncé en juin 1996.
+. **Dernier nom de code annoncé** : _(À l'heure actuelle, la version 14 est `Forky` et la version 15 sera `Mac`). Forky a été annoncé pour faire suite à Trixie._
+
+== Installation préconfigurée (Question 5)
+
+[WARNING]
+====
+**Attention** +
+La modification de l'installation automatisée se fait exclusivement dans le fichier `preseed-fr.cfg`.
+====
+
+=== Ajustement de la pré-configuration
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse
+
+| **Différence `pkgsel/include` et `tasksel`**
+| `d-i pkgsel/include` permet de spécifier une liste de **paquets individuels** précis à installer (ex: `git`, `curl`). `tasksel tasksel/first` installe des **tâches entières** qui regroupent des centaines de paquets (ex: `mate-desktop` ou `web-server`).
+
+| **Sécurité du preseed**
+| Oui, le fichier preseed contient souvent des informations sensibles, comme le mot de passe `root` (en clair ou haché). En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), ou en restreignant drastiquement les droits de lecture du fichier physique.
+|===
+
+=== Notre configuration automatisée
+
+Pour répondre aux consignes de l'installation automatisée, nous avons édité le fichier `preseed-fr.cfg`. Voici les modifications clés apportées :
+
+**Installation de MATE :**
+
+[source,plaintext]
+----
+d-i tasksel/first multiselect standard, mate-desktop
+----
+
+**Ajout des paquets supplémentaires :**
+
+[source,plaintext]
+----
+d-i pkgsel/include string sudo git sqlite3 curl bash-completion fastfetch
+----
+
+**Ajout de l'utilisateur user dans root :**
+Nous avons modifié 
+
+[source,plaintext]
+----
+d-i passwd/user-default-groups string audio cdrom video
+----
+
+Pour rajouter sudo
+
+[source,plaintext]
+----
+d-i passwd/user-default-groups string audio cdrom video sudo
+----
+
+_(Nous avons ensuite régénéré l'ISO et l'installation s'est déroulée de manière totalement transparente jusqu'au redémarrage)._
+
+== Étude des applications clientes (Semaine 10)
+
+=== Configuration globale de git
+
+_[Espace pour expliquer les commandes de configuration initiale comme git config --global user.name, user.email, etc.]_
+
+=== Concepts de base (Question 1)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?**
+| 
+
+| **Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?**
+| 
+
+| **Différence entre un commit, une branche et un tag ?**
+| 
+
+| **Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?**
+| 
+
+| **Différence entre git pull et git fetch ?**
+| 
+|===
+
+=== Protocoles réseau pour git (Question 2)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée
+
+| **Quels sont les protocoles supportés par Git pour accéder à un dépôt ?**
+| 
+
+| **Sur quels ports réseau fonctionnent ces protocoles ?**
+| 
+
+| **Comment configurer l'authentification SSH pour Git ?**
+| 
+|===
+
+=== Manipulation pratique de git (Question 3)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée / Commandes
+
+| **Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?**
+| 
+
+| **Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l'historique.**
+| 
+
+| **Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.**
+| 
+
+| **Qu'est-ce qu'un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.**
+| 
+
+| **Utilisez git diff pour comparer deux commits. Expliquez la sortie.**
+| 
+
+| **Qu'est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).**
+| 
+|===
+
+=== Travail collaboratif (Question 4)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée / Commandes
+
+| **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
+| 
+
+| **Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.**
+| 
+
+| **Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.**
+| 
+
+| **Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
+| 
+
+| **Testez la commande git blame. À quoi sert-elle ?**
+| 
+|===
+
+=== Les interfaces graphiques pour git (Question 5)
+
+* **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+* **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+
+=== Installons autre chose et comparons (Questions 6 & 7)
+
+**Choix de l'interface graphique (Question 6)**
+
+* **Pourquoi avez-vous choisi ce logiciel ?** +
+  _[Espace pour répondre]_
+* **Comment l'avez-vous installé ?** +
+  _[Espace pour répondre]_
+* **Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
+  _[Espace pour répondre : fonctionnalités, avantages, inconvénients]_
+
+**Analyse comparative approfondie (Question 7)**
+
+[cols="1,1,1", options="header"]
+|===
+| Opération | En ligne de commande | Avec l'outil graphique choisi
+
+| **Visualiser l'historique des commits**
+| 
+| 
+
+| **Créer une nouvelle branche**
+| 
+| 
+
+| **Comparer deux versions d'un fichier (diff)**
+| 
+| 
+
+| **Résoudre un conflit de fusion**
+| 
+| 
+|===
+
+* **Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l'interface graphique ?** +
+  _[Espace pour répondre]_
+* **Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?** +
+  _[Espace pour répondre]_

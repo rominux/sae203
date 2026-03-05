@@ -1,0 +1,30 @@
+= SAÉ 2.03 - README
+Lefebvre Romain; Plantard Kylian; Belot Emilien
+
+== Membres de l'équipe
+* Romain Lefebvre
+* Kylian Plantard
+* Emilien Belot
+
+== Procédure de conversion
+Notre rapport a été rédigé au format AsciiDoc. Pour générer les versions HTML et PDF, nous utilisons un script bash nommé `convertdoc.sh`.
+
+Pour lancer la conversion, exécutez la commande suivante dans le terminal :
+[source,bash]
+----
+./convertdoc.sh
+----
+
+== Outils requis
+Afin de pouvoir compiler ce document, les outils suivants doivent être installés sur la machine :
+
+* **Ruby** (nécessaire pour l'écosystème Asciidoctor)
+* **Asciidoctor** : Convertisseur principal (vers HTML)
+* **Asciidoctor-pdf** : Convertisseur vers le format PDF
+* **Rouge** : Bibliothèque permettant la coloration syntaxique des blocs de code.
+
+**Note d'installation sans droits d'administration :**
+Sur les machines de l'IUT, nous avons installé ces outils localement via le gestionnaire de paquets de Ruby (`gem`) avec la commande suivante :
+`gem install --user-install asciidoctor asciidoctor-pdf rouge`
+
+Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.
