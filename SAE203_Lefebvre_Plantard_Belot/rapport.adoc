@@ -4,6 +4,7 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :toc: left
 :toc-title: Table des matières
 :sectnums:
+:experimental:
 :icons: font
 :source-highlighter: rouge
 
@@ -48,13 +49,13 @@ image::image/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=6
 
 === Préparation du système et Suppléments invités
 
-Afin de faciliter l'administration du système, nous avons accordé les droits `sudo` à l'utilisateur `user` via la console tty1 (`Ctrl + Alt + F1`) en étant connecté en tant que `root` :
+Afin de faciliter l'administration du système, nous avons accordé les droits `sudo` à l'utilisateur `user` via la console tty1 (kbd:[Ctrl+Alt+F1]) en étant connecté en tant que `root` :
 
 [source,bash]
 ----
 usermod -aG sudo user
 ----
-man usermod footnote:[https://manpages.debian.org/trixie/passwd/usermod.8.en.html[Page de manuel usermod]]
+man 8 usermod footnote:[https://manpages.debian.org/trixie/passwd/usermod.8.en.html[Page de manuel usermod]]
 
 Nous avons ensuite inséré le CD virtuel des **Additions Invité** (Guest Additions) depuis le menu de VirtualBox, puis nous l'avons monté et installé en ligne de commande :
 
@@ -63,7 +64,7 @@ Nous avons ensuite inséré le CD virtuel des **Additions Invité** (Guest Addit
 sudo mount /dev/cdrom /mnt
 sudo /mnt/VBoxLinuxAdditions.run
 ----
-man mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[Page de manuel mount]]
+man 8 mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[Page de manuel mount]]
 
 Un redémarrage a permis d'activer le redimensionnement dynamique de la fenêtre.
 
