@@ -41,7 +41,6 @@ Afin de pouvoir compiler ce document, les outils suivants doivent être install�
 * **Asciidoctor-pdf** : Convertisseur vers le format PDF
 * **Rouge** : Bibliothèque permettant la coloration syntaxique des blocs de code.
 
-**Note d'installation sans droits d'administration :**
 Sur les machines de l'IUT, nous avons installé ces outils localement avec la commande suivante :
 `gem install --user-install asciidoctor asciidoctor-pdf rouge`
 
