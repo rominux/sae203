@@ -11,7 +11,7 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 ====
 **Présentation** +
 [.lead]
-Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian#, ainsi que les réponses aux questions techniques associées.
+Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian 13#, ainsi que les réponses aux questions techniques associées.
 ====
 
 == Préparation de la machine virtuelle
@@ -26,8 +26,7 @@ Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les 
 * **Mémoire vive (RAM)** : 2048 Mo
 * **Disque dur** : 20 Go (une seule partition de la taille totale)
 
-_[Insérer ici une capture d'écran du récapitulatif de votre VM dans VirtualBox]_ +
-image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=60%]
+image::image/config.png[Configuration de la VM, pdfwidth=60%, width=60%]
 
 === Installation de l'OS de base
 
@@ -40,12 +39,12 @@ Lors de l'installation du système d'exploitation à partir de l'image ISO, nous
   ** Utilisateur standard : `user`
 . **Sélection des logiciels** : 
   ** Environnement de bureau Debian
-  ** MATE (en prenant soin de décocher GNOME)
+  ** MATE
   ** Serveur web
   ** Serveur SSH
   ** Utilitaires usuels du système
 
-_[Insérer ici une capture d'écran de l'étape "Sélection des logiciels" ou de votre bureau MATE]_
+image::image/selection.png[Selection des logiciel, pdfwidth=60%, width=60%]
 
 === Préparation du système et Suppléments invités
 
@@ -55,6 +54,8 @@ Afin de faciliter l'administration du système, nous avons accordé les droits `
 ----
 usermod -aG sudo user
 ----
+man usermod footnote:[https://manpages.debian.org/trixie/passwd/usermod.8.en.html[usermod Manpage]]
+
 
 Nous avons ensuite inséré le CD virtuel des **Additions Invité** (Guest Additions) depuis le menu de VirtualBox, puis nous l'avons monté et installé en ligne de commande :
 
@@ -63,8 +64,9 @@ Nous avons ensuite inséré le CD virtuel des **Additions Invité** (Guest Addit
 sudo mount /dev/cdrom /mnt
 sudo /mnt/VBoxLinuxAdditions.run
 ----
+man mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[mount Manpage]]
 
-Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footnote:[Les suppléments invités requièrent la présence des outils de compilation et des en-têtes du noyau pour s'installer avec succès.].
+Un redémarrage a permis d'activer la redimension dynamique de la fenêtre.
 
 == Réponses aux questions techniques (Semaine 07)
 
@@ -87,10 +89,12 @@ Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footn
 | Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la machine hôte.
 
 | **Adresse IP de la VM ?**
-| L'adresse IP est généralement `10.0.2.15` _(à confirmer avec la commande `ip a` dans votre terminal)_.
+|`ip address` footnote:[https://manpages.debian.org/trixie/iproute2/ip.8.en.html[IP manpage]] +
+L'adresse IP est `10.0.2.15`.
 
 | **Adresse de la passerelle ?**
-| La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.
+|`ip route` +
+La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.
 |===
 
 === Installation OS de base (Question 2)
@@ -102,7 +106,7 @@ Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footn
 | **Fichier iso bootable ?**
 | C'est une image disque (une copie exacte d'un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d'exploitation.
 
-| **MATE et GNOME ?**
+| **https://wiki.debian.org/MATE[MATE] et https://wiki.debian.org/Gnome[GNOME] ?**
 | Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l'interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger.
 
 | **Serveur mandataire (Proxy) ?**
@@ -112,19 +116,23 @@ Un redémarrage a permis d'activer la redimension dynamique de la fenêtre footn
 | Un logiciel (comme Apache ou Nginx) qui répond aux requêtes HTTP/HTTPS pour distribuer des pages web à des clients (navigateurs).
 
 | **Serveur SSH installé ?**
-| Le paquet installé est généralement `openssh-server`. On vérifie son état avec la commande `systemctl status ssh`.
+| Le paquet installé est `openssh-server`. On vérifie son état avec la commande `systemctl status ssh`.
 
 | **Test de connexion SSH ?**
-| Commande : `ssh user@10.0.2.15`. **Problème rencontré** : La connexion échoue ("Connection refused" ou "Timeout"). **Pourquoi ?** Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l'hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.
+| Commande : `ssh user@10.0.2.15`. + 
+**Problème rencontré** : La connexion échoue ("Timeout"). +
+**Pourquoi ?** Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l'hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.
 |===
 
 === Sudo et Suppléments invités (Questions 3 & 4)
 
-* **Appartenance aux groupes** : Pour savoir à quels groupes appartient l'utilisateur `user`, on utilise la commande `groups user` ou `id user`.
+* **Appartenance aux groupes** : Pour savoir à quels groupes appartient l'utilisateur `user`, on utilise la commande `groups user`   footnote:[https://manpages.debian.org/trixie/coreutils/groups.1.en.html[group manpage]]  ou `id user`  footnote:[https://manpages.debian.org/trixie/coreutils/groups.1.en.html[id manpage]].
+
 * **Différence entre `su` et `sudo`** :
-  ** `su` (substitute user) permet de changer d'utilisateur (souvent pour devenir `root`) et requiert le mot de passe de **l'utilisateur cible**.
-  ** `sudo` (substitute user do) permet d'exécuter une seule commande avec les privilèges d'un autre utilisateur (généralement `root`), mais nécessite le mot de passe de **l'utilisateur courant**.
-* **Version du noyau Linux** : _(Tapez `uname -r` dans votre VM et inscrivez le résultat ici, par exemple : `6.1.0-xx-amd64`)_.
+  ** `su`   footnote:[https://manpages.debian.org/trixie/util-linux/su.1.en.html[su manpage]] (substitute user) permet de changer d'utilisateur (souvent pour devenir `root`) et requiert le mot de passe de **l'utilisateur cible**.
+  ** `sudo` footnote:[https://manpages.debian.org/trixie/sudo/sudo.8.en.html[sudo manpage]] (substitute user do) permet d'exécuter une seule commande avec les privilèges d'un autre utilisateur (généralement `root`), mais nécessite le mot de passe de **l'utilisateur courant**.
+* **Version du noyau Linux** : `uname -r`  footnote:[https://manpages.debian.org/trixie/coreutils/uname.1.en.html[uname manpage]] : 6.12.73+deb13-amd64
+
 * **Utilité des suppléments invités** : Ils optimisent la VM. Deux raisons de les installer :
   . Permettre le redimensionnement dynamique de la fenêtre (ajustement automatique de la résolution).
   . Activer le presse-papiers partagé entre la machine hôte et la VM.
@@ -161,7 +169,8 @@ La modification de l'installation automatisée se fait exclusivement dans le fic
 | Question | Réponse
 
 | **Différence `pkgsel/include` et `tasksel`**
-| `d-i pkgsel/include` permet de spécifier une liste de **paquets individuels** précis à installer (ex: `git`, `curl`). `tasksel tasksel/first` installe des **tâches entières** qui regroupent des centaines de paquets (ex: `mate-desktop` ou `web-server`).
+| `d-i pkgsel/include` permet de spécifier une liste de **paquets individuels** précis à installer (ex: `git`, `curl`). +
+ `tasksel tasksel/first` installe des **tâches entières** qui regroupent des centaines de paquets (ex: `mate-desktop` ou `web-server`).
 
 | **Sécurité du preseed**
 | Oui, le fichier preseed contient souvent des informations sensibles, comme le mot de passe `root` (en clair ou haché). En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), ou en restreignant drastiquement les droits de lecture du fichier physique.
@@ -206,7 +215,7 @@ _(Nous avons ensuite régénéré l'ISO et l'installation s'est déroulée de ma
 
 === Configuration globale de git
 
-_[Espace pour expliquer les commandes de configuration initiale comme git config --global user.name, user.email, etc.]_
+`git config --global`  footnote:[https://git-scm.com/docs/git-config[git config docs]]   permet de definir des varible pour l'ordinateur qui sont utiliser lors des commit
 
 === Concepts de base (Question 1)
 
@@ -215,19 +224,23 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 | Question | Réponse justifiée
 
 | **Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?**
-| 
+| git est l'outil de controle de version, alors que GitHub/GitLab/Forgejo sont des forge permettant de collaborer et de stoker les depot git en ligne.
 
 | **Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?**
-| 
+| Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers de votre projet, ainsi que pour l'ensemble de l'historique des modifications apportées à ces fichiers. Elle sont stocker dans le .git
 
 | **Différence entre un commit, une branche et un tag ?**
-| 
+| commit: c'est un paquet qui contient les difference de chaque fichier par rapport au commit precedent +
+branche: liste de commit +
+tag: etiquette coller sur un commit
 
 | **Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?**
-| 
+| un depot accessible par le reseau via internet par exemple. +
+`git remote`
 
 | **Différence entre git pull et git fetch ?**
-| 
+| `git fetch`: recupere du depot distant vers le depot local +
+`git pull`: recupere du depot distant et bascule a la branche branche actuel
 |===
 
 === Protocoles réseau pour git (Question 2)
@@ -237,13 +250,17 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 | Question | Réponse justifiée
 
 | **Quels sont les protocoles supportés par Git pour accéder à un dépôt ?**
-| 
+a|
+- protocole local sans port +
+- protocole git port 9418 +
+- protocole http(s) (mode intelligent et idiot) port 80 ou 443 +
+- protocole ssh footnote:[https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols[Git book - The Protocols]]
 
 | **Sur quels ports réseau fonctionnent ces protocoles ?**
-| 
+| le protocole git fonctionne sur le port 9418, le http sur 80, le https sur 443 et ssh sur 22
 
 | **Comment configurer l'authentification SSH pour Git ?**
-| 
+| il faut générer une clé SSH sur l'ordinateur `ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"` puis l'ajouter sur le compte de la forge.
 |===
 
 === Manipulation pratique de git (Question 3)
@@ -253,88 +270,41 @@ _[Espace pour expliquer les commandes de configuration initiale comme git config
 | Question | Réponse justifiée / Commandes
 
 | **Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?**
-| 
+| `git init` créé un dossier .git dans le repertoire actuel
 
 | **Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l'historique.**
-| 
+a| 
+[source,bash]
+----
+git add fichier1
+git commit -m "commit 1"
+git add fichier2
+git commit -m "commit 2"
+git add fichier3
+git commit -m "commit 3"
+git log
+----
+image::image/log.png[resultat du git log, pdfwidth=100%, width=100%]
+
 
 | **Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.**
-| 
+a| image::image/branche.png[Git branche, pdfwidth=100%, width=100%] 
 
 | **Qu'est-ce qu'un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.**
-| 
+a| image::image/conflit_terminal.png[conflit terminal, pdfwidth=100%, width=100%]
+image::image/conflit_nano.png[conflit nano, pdfwidth=40%, width=40%]
+quand 2 branche modifie dans 2 commit different le meme fichier
 
 | **Utilisez git diff pour comparer deux commits. Expliquez la sortie.**
-| 
+a| image::image/diff_terminal.png[diff terminal, pdfwidth=40%, width=40%]
+les lignes avec un `-` sont des lignes supprimer et les ligne avec un `+` sont les lignes ajouter, le reste sont les lignes autour du code modifié
+ 
 
 | **Qu'est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).**
-| 
+a| les expressions de selection de fichiers ecrit dans le .gitignore ne sont pas pris en compte par git.
+[source,plaintext]
+----
+*.class
+*.jar
+----
 |===
-
-=== Travail collaboratif (Question 4)
-
-[cols="1,2", options="header"]
-|===
-| Question | Réponse justifiée / Commandes
-
-| **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
-| 
-
-| **Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.**
-| 
-
-| **Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.**
-| 
-
-| **Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
-| 
-
-| **Testez la commande git blame. À quoi sert-elle ?**
-| 
-|===
-
-=== Les interfaces graphiques pour git (Question 5)
-
-* **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
-  _[Espace pour répondre]_
-* **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
-  _[Espace pour répondre]_
-
-=== Installons autre chose et comparons (Questions 6 & 7)
-
-**Choix de l'interface graphique (Question 6)**
-
-* **Pourquoi avez-vous choisi ce logiciel ?** +
-  _[Espace pour répondre]_
-* **Comment l'avez-vous installé ?** +
-  _[Espace pour répondre]_
-* **Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
-  _[Espace pour répondre : fonctionnalités, avantages, inconvénients]_
-
-**Analyse comparative approfondie (Question 7)**
-
-[cols="1,1,1", options="header"]
-|===
-| Opération | En ligne de commande | Avec l'outil graphique choisi
-
-| **Visualiser l'historique des commits**
-| 
-| 
-
-| **Créer une nouvelle branche**
-| 
-| 
-
-| **Comparer deux versions d'un fichier (diff)**
-| 
-| 
-
-| **Résoudre un conflit de fusion**
-| 
-| 
-|===
-
-* **Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l'interface graphique ?** +
-  _[Espace pour répondre]_
-* **Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?** +
-  _[Espace pour répondre]_

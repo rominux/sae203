@@ -592,9 +592,6 @@ pre.rouge .gs {
 <li><a href="#_concepts_de_base_question_1">5.2. Concepts de base (Question 1)</a></li>
 <li><a href="#_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour git (Question 2)</a></li>
 <li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de git (Question 3)</a></li>
-<li><a href="#_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</a></li>
-<li><a href="#_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</a></li>
-<li><a href="#_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</a></li>
 </ul>
 </li>
 </ul>
@@ -649,9 +646,10 @@ pre.rouge .gs {
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>[Insérer ici une capture d&#8217;écran du récapitulatif de votre VM dans VirtualBox]</em><br>
-image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=60%]</p>
+<div class="imageblock">
+<div class="content">
+<img src="image/config.png" alt="Configuration de la VM" width="60%">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -704,8 +702,10 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>[Insérer ici une capture d&#8217;écran de l&#8217;étape "Sélection des logiciels" ou de votre bureau MATE]</em></p>
+<div class="imageblock">
+<div class="content">
+<img src="image/selection.png" alt="Selection des logiciel" width="60%">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1048,11 +1048,13 @@ tag: etiquette coller sur un commit</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">un depot accessible par le reseau via internet par exemple.<br>
+<code>git remote</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre git pull et git fetch ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git fetch</code>: recupere du depot distant vers le depot local<br>
+<code>git pull</code>: recupere du depot distant et bascule a la branche branche actuel</p></td>
 </tr>
 </tbody>
 </table>
@@ -1073,15 +1075,36 @@ tag: etiquette coller sur un commit</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>protocole local sans port<br></p>
+</li>
+<li>
+<p>protocole git port 9418<br></p>
+</li>
+<li>
+<p>protocole http(s) (mode intelligent et idiot) port 80 ou 443<br></p>
+</li>
+<li>
+<p>protocole ssh <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
+</li>
+</ul>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_10">
+<a href="#_footnoteref_10">10</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git book - The Protocols</a>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">le protocole git fonctionne sur le port 9418, le http sur 80, le https sur 443 et ssh sur 22</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">il faut générer une clé SSH sur l&#8217;ordinateur <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code> puis l&#8217;ajouter sur le compte de la forge.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1102,155 +1125,76 @@ tag: etiquette coller sur un commit</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git init</code> créé un dossier .git dans le repertoire actuel</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">git add fichier1
+git commit <span class="nt">-m</span> <span class="s2">"commit 1"</span>
+git add fichier2
+git commit <span class="nt">-m</span> <span class="s2">"commit 2"</span>
+git add fichier3
+git commit <span class="nt">-m</span> <span class="s2">"commit 3"</span>
+git log</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="image/log.png" alt="resultat du git log" width="100%">
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="image/branche.png" alt="Git branche" width="100%">
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="image/conflit_terminal.png" alt="conflit terminal" width="100%">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="image/conflit_nano.png" alt="conflit nano" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>quand 2 branche modifie dans 2 commit different le meme fichier</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="image/diff_terminal.png" alt="diff terminal" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>les lignes avec un <code>-</code> sont des lignes supprimer et les ligne avec un <code>+</code> sont les lignes ajouter, le reste sont les lignes autour du code modifié</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>les expressions de selection de fichiers ecrit dans le .gitignore ne sont pas pris en compte par git.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="plaintext">*.class
+*.jar</code></pre>
+</div>
+</div></div></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Question</th>
-<th class="tableblock halign-left valign-top">Réponse justifiée / Commandes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Testez la commande git blame. À quoi sert-elle ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-<li>
-<p><strong>Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</h3>
-<div class="paragraph">
-<p><strong>Choix de l&#8217;interface graphique (Question 6)</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pourquoi avez-vous choisi ce logiciel ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-<li>
-<p><strong>Comment l&#8217;avez-vous installé ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-<li>
-<p><strong>Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
-<em>[Espace pour répondre : fonctionnalités, avantages, inconvénients]</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Analyse comparative approfondie (Question 7)</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Opération</th>
-<th class="tableblock halign-left valign-top">En ligne de commande</th>
-<th class="tableblock halign-left valign-top">Avec l&#8217;outil graphique choisi</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Visualiser l&#8217;historique des commits</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer une nouvelle branche</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comparer deux versions d&#8217;un fichier (diff)</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Résoudre un conflit de fusion</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-<li>
-<p><strong>Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
-<em>[Espace pour répondre]</em></p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1287,7 +1231,7 @@ tag: etiquette coller sur un commit</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-06 15:27:05 +0100
+Last updated 2026-03-06 18:08:32 +0100
 </div>
 </div>
 </body>

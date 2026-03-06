@@ -11,11 +11,11 @@ rm -f rapport.html
 rm -f rapport.pdf
 
 # Génération des nouveaux rendus
-#asciidoctor rapport.adoc -o rapport.html
-#asciidoctor-pdf rapport.adoc -o rapport.pdf
+asciidoctor rapport.adoc -o rapport.html
+asciidoctor-pdf rapport.adoc -o rapport.pdf
 
-asciidoctor ../rapport.adoc -o rapport.html
-asciidoctor-pdf ../rapport.adoc -o rapport.pdf
+#asciidoctor ../rapport.adoc -o rapport.html
+#asciidoctor-pdf ../rapport.adoc -o rapport.pdf
 
 
 echo "Conversion terminée avec succès via l'environnement local !"
