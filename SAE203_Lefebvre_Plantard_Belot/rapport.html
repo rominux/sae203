@@ -614,7 +614,7 @@ pre.rouge .gs {
 <p><strong>Présentation</strong><br></p>
 </div>
 <div class="paragraph lead">
-<p>Ce rapport retrace l&#8217;installation, la configuration et l&#8217;automatisation d&#8217;une machine virtuelle sous <mark>Debian</mark>, ainsi que les réponses aux questions techniques associées.</p>
+<p>Ce rapport retrace l&#8217;installation, la configuration et l&#8217;automatisation d&#8217;une machine virtuelle sous <mark>Debian 13</mark>, ainsi que les réponses aux questions techniques associées.</p>
 </div>
 </td>
 </tr>
@@ -688,7 +688,7 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 <p>Environnement de bureau Debian</p>
 </li>
 <li>
-<p>MATE (en prenant soin de décocher GNOME)</p>
+<p>MATE</p>
 </li>
 <li>
 <p>Serveur web</p>
@@ -719,6 +719,9 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 </div>
 </div>
 <div class="paragraph">
+<p>man usermod <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="paragraph">
 <p>Nous avons ensuite inséré le CD virtuel des <strong>Additions Invité</strong> (Guest Additions) depuis le menu de VirtualBox, puis nous l&#8217;avons monté et installé en ligne de commande :</p>
 </div>
 <div class="listingblock">
@@ -728,7 +731,10 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 </div>
 </div>
 <div class="paragraph">
-<p>Un redémarrage a permis d&#8217;activer la redimension dynamique de la fenêtre <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
+<p>man mount <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>Un redémarrage a permis d&#8217;activer la redimension dynamique de la fenêtre.</p>
 </div>
 </div>
 </div>
@@ -768,11 +774,13 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adresse IP de la VM ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">L&#8217;adresse IP est généralement <code>10.0.2.15</code> <em>(à confirmer avec la commande <code>ip a</code> dans votre terminal)</em>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup><br>
+L&#8217;adresse IP est <code>10.0.2.15</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adresse de la passerelle ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip route</code><br>
+La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.</p></td>
 </tr>
 </tbody>
 </table>
@@ -796,7 +804,7 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 <td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est une image disque (une copie exacte d&#8217;un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d&#8217;exploitation.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MATE et GNOME ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><a href="https://wiki.debian.org/MATE">MATE</a> et <a href="https://wiki.debian.org/Gnome">GNOME</a> ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l&#8217;interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger.</p></td>
 </tr>
 <tr>
@@ -809,11 +817,13 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur SSH installé ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le paquet installé est généralement <code>openssh-server</code>. On vérifie son état avec la commande <code>systemctl status ssh</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le paquet installé est <code>openssh-server</code>. On vérifie son état avec la commande <code>systemctl status ssh</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Test de connexion SSH ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Commande : <code>ssh user@10.0.2.15</code>. <strong>Problème rencontré</strong> : La connexion échoue ("Connection refused" ou "Timeout"). <strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l&#8217;hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commande : <code>ssh user@10.0.2.15</code>.<br>
+<strong>Problème rencontré</strong> : La connexion échoue ("Timeout").<br>
+<strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l&#8217;hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.</p></td>
 </tr>
 </tbody>
 </table>
@@ -823,23 +833,23 @@ image::chemin/vers/votre/image.png[Configuration de la VM, pdfwidth=60%, width=6
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> ou <code>id user</code>.</p>
+<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code>   <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>  ou <code>id user</code>  <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Différence entre <code>su</code> et <code>sudo</code></strong> :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>su</code> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <strong>l&#8217;utilisateur cible</strong>.</p>
+<p><code>su</code>   <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <strong>l&#8217;utilisateur cible</strong>.</p>
 </li>
 <li>
-<p><code>sudo</code> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <strong>l&#8217;utilisateur courant</strong>.</p>
+<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <strong>l&#8217;utilisateur courant</strong>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Version du noyau Linux</strong> : <em>(Tapez <code>uname -r</code> dans votre VM et inscrivez le résultat ici, par exemple : <code>6.1.0-xx-amd64</code>)</em>.</p>
+<p><strong>Version du noyau Linux</strong> : <code>uname -r</code>  <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> : 6.12.73+deb13-amd64</p>
 </li>
 <li>
 <p><strong>Utilité des suppléments invités</strong> : Ils optimisent la VM. Deux raisons de les installer :</p>
@@ -945,7 +955,8 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence <code>pkgsel/include</code> et <code>tasksel</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex: <code>git</code>, <code>curl</code>). <code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex: <code>mate-desktop</code> ou <code>web-server</code>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex: <code>git</code>, <code>curl</code>).<br>
+ <code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex: <code>mate-desktop</code> ou <code>web-server</code>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sécurité du preseed</strong></p></td>
@@ -1004,7 +1015,7 @@ Nous avons modifié</p>
 <div class="sect2">
 <h3 id="_configuration_globale_de_git">5.1. Configuration globale de git</h3>
 <div class="paragraph">
-<p><em>[Espace pour expliquer les commandes de configuration initiale comme git config --global user.name, user.email, etc.]</em></p>
+<p><code>git config --global</code>  <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup>   permet de definir des varible pour l&#8217;ordinateur qui sont utiliser lors des commit</p>
 </div>
 </div>
 <div class="sect2">
@@ -1023,15 +1034,17 @@ Nous avons modifié</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">git est l&#8217;outil de controle de version, alors que GitHub/GitLab/Forgejo sont des forge permettant de collaborer et de stoker les depot git en ligne.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers de votre projet, ainsi que pour l&#8217;ensemble de l&#8217;historique des modifications apportées à ces fichiers. Elle sont stocker dans le .git</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre un commit, une branche et un tag ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">commit: c&#8217;est un paquet qui contient les difference de chaque fichier par rapport au commit precedent<br>
+branche: liste de commit<br>
+tag: etiquette coller sur un commit</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
@@ -1245,12 +1258,36 @@ Nous avons modifié</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Les suppléments invités requièrent la présence des outils de compilation et des en-têtes du noyau pour s&#8217;installer avec succès.
+<a href="#_footnoteref_1">1</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">usermod Manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">mount Manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">IP manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">group manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">id manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">su manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_7">
+<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">sudo manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_8">
+<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">uname manpage</a>
+</div>
+<div class="footnote" id="_footnotedef_9">
+<a href="#_footnoteref_9">9</a>. <a href="https://git-scm.com/docs/git-config">git config docs</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-05 19:09:55 +0100
+Last updated 2026-03-06 15:27:05 +0100
 </div>
 </div>
 </body>
