@@ -27,7 +27,7 @@ Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les 
 * **Mémoire vive (RAM)** : 2048 Mo
 * **Disque dur** : 20 Go (une seule partition de la taille totale)
 
-image::image/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, width=60%]
+image::img/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, width=60%]
 
 === Installation de l'OS de base
 
@@ -45,7 +45,7 @@ Lors de l'installation du système d'exploitation à partir de l'image ISO, nous
   ** Serveur SSH
   ** Utilitaires usuels du système
 
-image::image/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=60%, width=60%]
+image::img/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=60%, width=60%]
 
 === Préparation du système et Suppléments invités
 
@@ -205,7 +205,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 === Configuration globale de Git
 
 La commande `git config --global` footnote:[https://git-scm.com/docs/git-config[Documentation git config]] permet de définir des variables globales pour l'ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail). +
-Elles ne sont évidemment à faire qu'une fois par machine, et pas à chaque projet. Si l'email est différent que celui du compte, les commits seront pas associés au profil.
+Elles ne sont évidemment à faire qu'une fois par machine, et pas à chaque projet. Si l'email est différent que celui du compte, les commits ne seront pas associés au profil.
 
 === Concepts de base (Question 1)
 
@@ -275,18 +275,18 @@ git add fichier3 fichier4
 git commit -m "ajout du fichier 3 et 4"
 git log
 ----
-image::image/git-log-3commits.png[Résultat du git log, pdfwidth=100%, width=100%]
+image::img/git-log-3commits.png[Résultat du git log, pdfwidth=100%, width=100%]
 Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166...), l'auteur, la date et le message de commit.
 
 | **Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.**
 a|
-image::image/git-branch-merge.png[Git branche, pdfwidth=100%, width=100%]
+image::img/git-branch-merge.png[Git branche, pdfwidth=100%, width=100%]
 Une branche est une chaine de commits parallèle aux autres branches (ici `master` et `exemple`). +
 La fusion (merge) permet de combiner les changements d'une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.
 
 | **Qu'est-ce qu'un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.**
 a|
-image::image/git-conflit-terminal.png[Conflit terminal, pdfwidth=100%, width=100%]
+image::img/git-conflit-terminal.png[Conflit terminal, pdfwidth=100%, width=100%]
 Un conflit survient lorsque deux branches modifient le même fichier de façon différente. +
 Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit). +
 Pour résoudre le conflit, on modifie le fichier puis on le `git add` pour le marquer comme résolu, avant de faire un commit de fusion.
