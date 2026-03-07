@@ -266,11 +266,12 @@ a|
 a|
 [source,bash]
 ----
+touch fichier1 fichier2 fichier3 fichier4
 git add fichier1
 git commit -m "ajout du premier fichier"
 git add fichier2
 git commit -m "ajout du second fichier"
-git add fichier3
+git add fichier3 fichier4
 git commit -m "ajout du fichier 3 et 4"
 git log
 ----
