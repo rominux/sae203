@@ -1,3 +1,4 @@
 include::semaine7.adoc[]
+include::semaine8.adoc[]
 include::semaine10.adoc[]
 include::semaine11.adoc[]
