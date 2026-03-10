@@ -1,0 +1,20 @@
+=== LISTE DES CHANGEMENTS APPORTÉS (changement.txt) ===
+
+1. Typographie et syntaxe de base :
+   - Correction systématique des fautes de grammaire, d'accord et d'orthographe (ex: "selection des logiciel" -> "sélection des logiciels", "redimension dynamique" -> "redimensionnement dynamique").
+   - Mise en forme correcte avec des majuscules et de la ponctuation appropriées.
+
+2. Adaptation au cahier des charges (Format AsciiDoc) :
+   - Ajout d'une ancre `[[etude-git]]` et de la référence croisée `<<etude-git,étude des applications clientes>>` dans l'introduction (Admonition) pour répondre à l'exigence "liens internes (références croisées)".
+   - Correction des noms et chemins dans les attributs d'images, et ajustement de leurs textes alternatifs pour qu'ils soient propres.
+   - Les appels des notes de bas de page (`footnote`) contenant des liens externes ont été conservés et harmonisés.
+
+3. Restructuration et enrichissement du contenu technique :
+   - Les réponses très courtes ou mal formulées de la section sur Git ont été retravaillées pour être claires, techniques et justes. 
+     * Ex: "git est l'outil de controle de version, alors que GitHub/GitLab/Forgejo sont des forge permettant de collaborer..." a été enrichi pour expliquer clairement la différence (local/ligne de commande vs forge logicielle web).
+     * Ex: "branche: liste de commit" transformé en "Une branche est une ligne de développement indépendante (une suite de commits)."
+   - Précision sur les protocoles, les numéros de ports réseaux (formatés en code en ligne avec des accents graves).
+   - Ajout de contexte textuel sur la partie expliquant la création et l'ajout de la clé SSH.
+
+4. Blocs de code :
+   - Application d'un label langage systématique pour activer le formatage correct : `[source,bash]` ou `[source,plaintext]` au lieu de blocs de code sans déclaration de coloration syntaxique.

@@ -126,3 +126,73 @@ C'est un fichier texte permettant de lister les motifs des fichiers/dossiers qui
 *.jar
 ----
 |===
+
+=== Travail collaboratif (Question 4)
+
+[cols="1,2", options="header"]
+|===
+| Question | Réponse justifiée / Commandes
+
+| **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
+| 
+
+| **Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.**
+| 
+
+| **Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.**
+| 
+
+| **Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
+| 
+
+| **Testez la commande git blame. À quoi sert-elle ?**
+| 
+|===
+
+=== Les interfaces graphiques pour git (Question 5)
+
+* **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+* **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
+  _[Espace pour répondre]_
+
+=== Installons autre chose et comparons (Questions 6 & 7)
+
+**Choix de l'interface graphique (Question 6)**
+
+image::image/interface.png[ungit, pdfwidth=60%, width=60%]
+
+* **Pourquoi avez-vous choisi ce logiciel ?** +
+  _[Espace pour répondre]_
+* **Comment l'avez-vous installé ?** +
+  _[Espace pour répondre]_
+* **Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
+  _[Espace pour répondre : fonctionnalités, avantages, inconvénients]_
+
+**Analyse comparative approfondie (Question 7)**
+
+[cols="1,1,1", options="header"]
+|===
+| Opération | En ligne de commande | Avec l'outil graphique choisi
+
+| **Visualiser l'historique des commits**
+| 
+| 
+
+| **Créer une nouvelle branche**
+| 
+| 
+
+| **Comparer deux versions d'un fichier (diff)**
+| 
+a| image::image/diff.png[Git diff dans ungit, pdfwidth=100%, width=100%]
+
+| **Résoudre un conflit de fusion**
+| 
+| 
+|===
+
+* **Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l'interface graphique ?** +
+  _[Espace pour répondre]_
+* **Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?** +
+  _[Espace pour répondre]_
