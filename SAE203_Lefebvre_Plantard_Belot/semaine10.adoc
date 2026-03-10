@@ -2,12 +2,12 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-=== Configuration globale de Git
+==== Configuration globale de Git
 
 La commande `git config --global` footnote:[https://git-scm.com/docs/git-config[Documentation git config]] permet de définir des variables globales pour l'ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail). +
 Elles ne sont évidemment à faire qu'une fois par machine, et pas à chaque projet. Si l'email est différent que celui du compte, les commits ne seront pas associés au profil.
 
-=== Concepts de base (Question 1)
+==== Concepts de base (Question 1)
 
 [cols="1,2", options="header"]
 |===
@@ -33,7 +33,7 @@ La commande `git remote -v` permet de lister ceux qui sont configurés sur le pr
 `git pull` : effectue un *fetch* puis fusionne directement ces nouvelles données avec la branche locale actuelle.
 |===
 
-=== Protocoles réseau pour Git (Question 2)
+==== Protocoles réseau pour Git (Question 2)
 
 [cols="1,2", options="header"]
 |===
@@ -53,7 +53,7 @@ a|
 | Il faut générer une paire de clés SSH sur l'ordinateur avec la commande `ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`, puis copier le contenu de la clé publique générée pour l'ajouter dans les paramètres de sécurité du compte sur la forge logicielle.
 |===
 
-=== Manipulation pratique de Git (Question 3)
+==== Manipulation pratique de Git (Question 3)
 
 [cols="1,2", options="header"]
 |===
@@ -125,7 +125,7 @@ C'est un fichier texte permettant de lister les motifs des fichiers/dossiers qui
 ----
 |===
 
-=== Travail collaboratif (Question 4)
+==== Travail collaboratif (Question 4)
 
 [cols="1,2", options="header"]
 |===
@@ -147,14 +147,14 @@ C'est un fichier texte permettant de lister les motifs des fichiers/dossiers qui
 | 
 |===
 
-=== Les interfaces graphiques pour git (Question 5)
+==== Les interfaces graphiques pour git (Question 5)
 
 * **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
   _[Espace pour répondre]_
 * **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
   _[Espace pour répondre]_
 
-=== Installons autre chose et comparons (Questions 6 & 7)
+==== Installons autre chose et comparons (Questions 6 & 7)
 
 **Choix de l'interface graphique (Question 6)**
 

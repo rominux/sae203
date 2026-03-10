@@ -2,7 +2,7 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-== Question 1 : À propos de Forgejo
+=== Question 1 : À propos de Forgejo
 
 **Question :** Qu'est-ce que Forgejo ? Qu'est-ce qu'un fork ? Retracez l'histoire de Forgejo. Qu'est-ce qui différencie sa gouvernance de celle de Gitea ?
 
@@ -20,7 +20,7 @@ wget -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.0/f
 chmod +x forgejo
 ----
 
-== Question 2 : Architecture et protocoles réseau
+=== Question 2 : Architecture et protocoles réseau
 
 **Question :** Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?
 
@@ -31,7 +31,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé `git` ou `forge
 
 En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui, lui, a les droits d'écouter le port 80 ou 443 et qui redirige le trafic de manière sécurisée vers le port 3000 local.
 
-== Question 3 : Base de données
+=== Question 3 : Base de données
 
 **Question :** Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ? Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?
 
@@ -46,7 +46,7 @@ En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache
 ls -l /var/lib/forgejo/data/forgejo.db
 ----
 
-== Question 4 : Gestion du service systemd
+=== Question 4 : Gestion du service systemd
 
 **Question :** Qu'est-ce qu'un service systemd ? Expliquez le fichier de service. Différence entre start, enable et restart ? Comment visualiser les logs ?
 
@@ -73,7 +73,7 @@ sudo systemctl restart forgejo
 sudo journalctl -u forgejo -f
 ----
 
-== Question 5 : Sécurité
+=== Question 5 : Sécurité
 
 **Question :** Examinez les permissions de `/etc/forgejo` et `app.ini`. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?
 
@@ -94,7 +94,7 @@ sudo chmod 640 /etc/forgejo/app.ini
 sudo chown -R forgejo:forgejo /etc/forgejo
 ----
 
-== Question 6 : Tests d'utilisation approfondis
+=== Question 6 : Tests d'utilisation approfondis
 
 **Question :** Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.
 
@@ -117,7 +117,7 @@ git commit -m "Correction du bug d'affichage. Fixes #3"
 git push
 ----
 
-== Question 7 : Intégration et livraison continues (Pour aller plus loin)
+=== Question 7 : Intégration et livraison continues (Pour aller plus loin)
 
 **Question :** Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?
 

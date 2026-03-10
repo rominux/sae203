@@ -3,6 +3,7 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :date: 2026-03-XX
 :toc: left
 :toc-title: Table des matières
+:toclevels: 4
 :sectnums:
 :experimental:
 :icons: font

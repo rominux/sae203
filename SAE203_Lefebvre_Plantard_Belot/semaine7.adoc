@@ -9,9 +9,9 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 Ce rapport retrace l'installation, la configuration et l'automatisation d'une machine virtuelle sous #Debian 13#, ainsi que les réponses aux questions techniques associées.
 ====
 
-== Préparation de la machine virtuelle
+=== Préparation de la machine virtuelle
 
-=== Création et caractéristiques de la VM
+==== Création et caractéristiques de la VM
 
 Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les spécifications suivantes :
 
@@ -23,7 +23,7 @@ Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les 
 
 image::img/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, width=60%]
 
-=== Installation de l'OS de base
+==== Installation de l'OS de base
 
 Lors de l'installation du système d'exploitation à partir de l'image ISO, nous avons appliqué les paramètres suivants :
 
@@ -41,7 +41,7 @@ Lors de l'installation du système d'exploitation à partir de l'image ISO, nous
 
 image::img/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=60%, width=60%]
 
-=== Préparation du système et Suppléments invités
+==== Préparation du système et Suppléments invités
 
 Afin de faciliter l'administration du système, nous avons accordé les droits `sudo` à l'utilisateur `user` via la console tty1 (kbd:[Ctrl+Alt+F1]) en étant connecté en tant que `root` :
 
@@ -62,9 +62,9 @@ man 8 mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[P
 
 Un redémarrage a permis d'activer le redimensionnement dynamique de la fenêtre.
 
-== Réponses aux questions techniques (Semaine 07)
+=== Réponses aux questions techniques (Semaine 07)
 
-=== Configuration matérielle dans VirtualBox (Question 1)
+==== Configuration matérielle dans VirtualBox (Question 1)
 
 [cols="1,2", options="header"]
 |===
@@ -93,7 +93,7 @@ L'adresse IP est `10.0.2.15`.
 La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.
 |===
 
-=== Installation OS de base (Question 2)
+==== Installation OS de base (Question 2)
 
 [cols="1,2", options="header"]
 |===
@@ -120,7 +120,7 @@ La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel cr�
 **Pourquoi ?** Parce que le mode réseau NAT de VirtualBox crée un réseau séparé de celui de l'hôte. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.
 |===
 
-=== Sudo et Suppléments invités (Questions 3 & 4)
+==== Sudo et Suppléments invités (Questions 3 & 4)
 
 * **Appartenance aux groupes** : Pour savoir à quels groupes appartient l'utilisateur `user`, on utilise la commande `groups user` footnote:[https://manpages.debian.org/trixie/coreutils/groups.1.en.html[Page de manuel groups]] ou `id user` footnote:[https://manpages.debian.org/trixie/coreutils/id.1.en.html[Page de manuel id]].
 * **Différence entre `su` et `sudo`** :
@@ -132,7 +132,7 @@ La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel cr�
   ** Activer le presse-papiers partagé entre la machine hôte et la VM.
 * **Commande `mount`** : En général, elle sert à attacher un système de fichiers (disque, clé USB) à l'arborescence du système (point de montage). Dans notre cas, elle a servi à rendre accessible le contenu du lecteur CD-ROM virtuel pour y exécuter le script d'installation.
 
-== À propos de la distribution Debian (Question 4.2)
+=== À propos de la distribution Debian (Question 4.2)
 
 Pour répondre à ces questions, nous avons consulté la https://www.debian.org/doc/[documentation officielle de Debian].
 
@@ -149,7 +149,7 @@ https://www.debian.org/doc/manuals/project-history/intro.en.html[What is the Deb
 . **Premier nom de code** : `Buzz` (Debian 1.1), annoncé le 17 juin 1996. https://www.debian.org/doc/manuals/project-history/releases.en.html[Debian Releases]
 . **Dernier nom de code annoncé** : La version 14 est `Forky` et la version 15 sera `Duke`. https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html[Annonce de Forky - Debian Mailing List]
 
-== Installation préconfigurée (Question 5)
+=== Installation préconfigurée (Question 5)
 
 [WARNING]
 ====
@@ -157,7 +157,7 @@ https://www.debian.org/doc/manuals/project-history/intro.en.html[What is the Deb
 La modification de l'installation automatisée se fait exclusivement dans le fichier `preseed-fr.cfg`.
 ====
 
-=== Ajustement de la pré-configuration
+==== Ajustement de la pré-configuration
 
 [cols="1,2", options="header"]
 |===
@@ -171,7 +171,7 @@ La modification de l'installation automatisée se fait exclusivement dans le fic
 | Oui, le fichier preseed contient les mots de passe de `root` et de `user` en clair. En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), en restreignant drastiquement les droits de lecture du fichier physique ou en écrivant le hash uniquement.
 |===
 
-=== Notre configuration automatisée
+==== Notre configuration automatisée
 
 Pour répondre aux consignes de l'installation automatisée, nous avons édité le fichier `preseed-fr.cfg`. Voici les modifications clés apportées :
 
