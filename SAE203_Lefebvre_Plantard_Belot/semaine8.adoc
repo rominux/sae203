@@ -1,0 +1,133 @@
+= Rapport Semaine 8 : [Titre de votre compte-rendu]
+:toc: left
+:toc-title: Table des matières
+:sectnums:
+:icons: font
+:source-highlighter: rouge
+:experimental:
+
+== Introduction et Formatage de base
+
+Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.
+
+Voici les formatages de texte de base :
+* Un texte peut être mis en **gras** pour insister sur un mot.
+* On peut utiliser l'_italique_ pour du vocabulaire spécifique ou des termes en anglais.
+* Pour indiquer une commande dans un texte, on utilise le format `monospace` (ex: utiliser la commande `ls -la`).
+* On peut également #surligner en jaune# un passage important.
+* Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée].
+
+== Exemples de Listes
+
+=== Listes à puces (Non ordonnées)
+
+Voici une liste classique avec différents niveaux d'indentation :
+* Premier élément principal
+* Deuxième élément **en gras**
+* Troisième élément _en italique_
+** Une sous-liste de niveau 2 (remarquez les deux étoiles)
+*** Une sous-sous-liste de niveau 3 avec des emojis 🚀 ✅ 🐧
+** Retour au niveau 2
+
+=== Listes numérotées (Ordonnées)
+
+Pour décrire une procédure étape par étape :
+. Étape 1 : Mettre à jour les paquets (`apt update`).
+. Étape 2 : Installer le service.
+.. Sous-étape A : configurer le fichier X.
+.. Sous-étape B : redémarrer le service.
+. Étape 3 : Vérifier que le service fonctionne.
+
+=== Liste de tâches (Checklist)
+
+* [*] Tâche terminée (ou `[x]`)
+* [ ] Tâche à faire
+* [ ] Autre tâche à faire
+
+== Blocs d'informations (Admonitions)
+
+Les admonitions sont parfaites pour attirer l'attention du correcteur ou du lecteur sur un élément clé :
+
+[NOTE]
+====
+**Note d'information** +
+Ceci est une note. Utile pour donner une explication supplémentaire ou une remarque de l'équipe.
+====
+
+[WARNING]
+====
+**Attention !** +
+Ceci est un avertissement. Parfait pour indiquer une erreur que vous avez rencontrée et qu'il faut éviter.
+====
+
+[TIP]
+====
+**Astuce** +
+Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande qui vous a fait gagner du temps.
+====
+
+== Insertion de Blocs de Code
+
+AsciiDoc permet d'insérer du code avec une coloration syntaxique adaptée au langage :
+
+.Exemple d'un script Bash
+[source,bash]
+----
+#!/bin/bash
+# Mise à jour du système
+echo "Mise à jour en cours..."
+sudo apt update && sudo apt upgrade -y
+----
+
+.Exemple d'un fichier de configuration
+[source,ini]
+----
+[server]
+DOMAIN = localhost
+HTTP_PORT = 3000
+----
+
+== Les Tableaux
+
+Créer des tableaux est très simple pour comparer des éléments ou lister des configurations :
+
+[cols="1,2,2", options="header"]
+|===
+| Commande | Explication | Exemple d'utilisation
+
+| `systemctl status`
+| Permet de voir l'état d'un service.
+| `systemctl status ssh`
+
+| `ip a`
+| Affiche les adresses IP des interfaces réseau.
+| `ip a`
+
+| `nano`
+| Éditeur de texte en ligne de commande.
+| `nano /etc/ssh/sshd_config`
+|===
+
+== Images et Liens
+
+=== Ajouter des images
+
+Pour illustrer vos propos avec des captures d'écran (le paramètre `pdfwidth` permet de s'assurer que l'image ne dépasse pas de la page en PDF) :
+
+// Décommentez la ligne ci-dessous et ajustez le chemin de l'image
+// image::img/votre-capture.png[Description de l'image, width=80%, pdfwidth=80%, align="center"]
+
+=== Liens et références croisées
+
+* **Lien externe** : Il est important de citer vos sources. Voici la https://docs.asciidoctor.org/[Documentation officielle d'Asciidoctor].
+* **Lien avec texte personnalisé** : https://debian.org[Visiter le site de Debian]
+* **Référence interne (ancre)** : Si vous voulez renvoyer le lecteur vers le début du document, vous pouvez créer un lien vers la section <<_introduction_et_formatage_de_base, Introduction>>.
+
+== Conclusion et citations
+
+Pour finir, vous pouvez inclure une citation technique si cela s'y prête :
+
+[quote, Linus Torvalds, Créateur de Linux]
+____
+Talk is cheap. Show me the code. (Parler ne coûte rien. Montrez-moi le code.)
+____

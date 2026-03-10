@@ -10,7 +10,7 @@
 **Question :** Qu'est-ce que Forgejo ? Qu'est-ce qu'un fork ? Retracez l'histoire de Forgejo. Qu'est-ce qui différencie sa gouvernance de celle de Gitea ?
 
 **Réponse et Explication :**
-* **Forgejo** : C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue. 
+* **Forgejo** : C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue.
 * **Fork** : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine.
 * **Histoire** : L'histoire commence avec **Gogs**, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer **Gitea**. Plus récemment, l'entreprise derrière Gitea a pris un virage commercial (création d'une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l'association Codeberg) a forké Gitea pour créer **Forgejo** (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.
 * **Gouvernance** : La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.
@@ -28,8 +28,9 @@ chmod +x forgejo
 **Question :** Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?
 
 **Réponse et Explication :**
-Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés. 
-Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure (si l'application est compromise, tout le serveur l'est). Forgejo tourne donc sous un utilisateur standard (souvent nommé `git` ou `forgejo`) et utilise un port non privilégié comme le 3000. 
+Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés.
+Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure (si l'application est compromise, tout le serveur l'est).
+Forgejo tourne donc sous un utilisateur standard (souvent nommé `git` ou `forgejo`) et utilise un port non privilégié comme le 3000. 
 
 En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui, lui, a les droits d'écouter le port 80 ou 443 et qui redirige le trafic de manière sécurisée vers le port 3000 local.
 
@@ -56,92 +57,91 @@ ls -l /var/lib/forgejo/data/forgejo.db
 * **Systemd** : C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s'assurer qu'ils redémarrent en cas de crash.
 * **Le fichier de service (`/etc/systemd/system/forgejo.service`)** :
   ** `[Unit]` : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu'après le démarrage du réseau").
-    ** `[Service]` : Définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, le répertoire de travail, etc.).
-      ** `[Install]` : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement `multi-user.target`).
-      * **Commandes systemctl** :
-        ** `start` : Lance le service immédiatement.
-          ** `enable` : Configure le service pour qu'il se lance automatiquement au démarrage de la machine.
-            ** `restart` : Arrête puis redémarre le service (utile après un changement de configuration).
+  ** `[Service]` : Définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, le répertoire de travail, etc.).
+  ** `[Install]` : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement `multi-user.target`).
+* **Commandes systemctl** :
+  ** `start` : Lance le service immédiatement.
+  ** `enable` : Configure le service pour qu'il se lance automatiquement au démarrage de la machine.
+  ** `restart` : Arrête puis redémarre le service (utile après un changement de configuration).
 
-            **Commandes utiles :**
-            [source,bash]
-            ----
-            # Gérer le service
-            sudo systemctl enable forgejo
-            sudo systemctl start forgejo
-            sudo systemctl restart forgejo
+**Commandes utiles :**
+[source,bash]
+----
+# Gérer le service
+sudo systemctl enable forgejo
+sudo systemctl start forgejo
+sudo systemctl restart forgejo
 
-            # Visualiser les logs en direct
-            sudo journalctl -u forgejo -f
-            ----
+# Visualiser les logs en direct
+sudo journalctl -u forgejo -f
+----
 
-            == Question 5 : Sécurité
+== Question 5 : Sécurité
 
-            **Question :** Examinez les permissions de `/etc/forgejo` et `app.ini`. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?
+**Question :** Examinez les permissions de `/etc/forgejo` et `app.ini`. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?
 
-            **Réponse et Explication :**
-            * **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
-            * **Serveur SSH** : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
-            * **Sécurité sur Internet** : Si le serveur était exposé, il faudrait impérativement :
-              . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
-                . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
-                  . Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.
+**Réponse et Explication :**
+* **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
+* **Serveur SSH** : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
+* **Sécurité sur Internet** : Si le serveur était exposé, il faudrait impérativement :
+  . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
+  . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
+  . Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.
 
-                  **Commandes utiles :**
-                  [source,bash]
-                  ----
-                  # Restreindre les permissions
-                  sudo chmod 750 /etc/forgejo
-                  sudo chmod 640 /etc/forgejo/app.ini
-                  sudo chown -R forgejo:forgejo /etc/forgejo
-                  ----
+**Commandes utiles :**
+[source,bash]
+----
+# Restreindre les permissions
+sudo chmod 750 /etc/forgejo
+sudo chmod 640 /etc/forgejo/app.ini
+sudo chown -R forgejo:forgejo /etc/forgejo
+----
 
-                  == Question 6 : Tests d'utilisation approfondis
+== Question 6 : Tests d'utilisation approfondis
 
-                  **Question :** Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.
+**Question :** Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.
 
-                  **Réponse et Explication :**
-                  * **Privé vs Public** : Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité par le propriétaire.
-                  * **Issues et Commits** : Forgejo permet de fermer automatiquement un ticket (issue) lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`).
-                  * **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push`.
+**Réponse et Explication :**
+* **Privé vs Public** : Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité par le propriétaire.
+* **Issues et Commits** : Forgejo permet de fermer automatiquement un ticket (issue) lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`).
+* **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push`.
 
-                  **Commandes utiles :**
-                  [source,bash]
-                  ----
-                  # 1. Créer sa clé SSH (si non existante)
-                  ssh-keygen -t ed25519 -C "mon.email@exemple.com"
+**Commandes utiles :**
+[source,bash]
+----
+# 1. Créer sa clé SSH (si non existante)
+ssh-keygen -t ed25519 -C "mon.email@exemple.com"
 
-                  # 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
-                  git clone ssh://git@localhost:2222/utilisateur/projet.git
+# 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
+git clone ssh://git@localhost:2222/utilisateur/projet.git
 
-                  # 3. Lier un commit à l'issue numéro 3
-                  git commit -m "Correction du bug d'affichage. Fixes #3"
-                  git push
-                  ----
+# 3. Lier un commit à l'issue numéro 3
+git commit -m "Correction du bug d'affichage. Fixes #3"
+git push
+----
 
-                  == Question 7 : Intégration et livraison continues (Pour aller plus loin)
+== Question 7 : Intégration et livraison continues (Pour aller plus loin)
 
-                  **Question :** Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?
+**Question :** Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?
 
-                  **Réponse et Explication :**
-                  * **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application.
-                  * **CD (Continuous Delivery/Deployment)** : Déploiement automatisé de l'application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
-                  * **Avantages** : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives. 
+**Réponse et Explication :**
+* **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application.
+* **CD (Continuous Delivery/Deployment)** : Déploiement automatisé de l'application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
+* **Avantages** : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.
 
-                  **Exemple d'un fichier Workflow Forgejo Actions (`.forgejo/workflows/build.yml`) :**
-                  [source,yaml]
-                  ----
-                  name: Compilation AsciiDoc
-                  on: [push]
-                  jobs:
-                    build:
-                        runs-on: ubuntu-latest
-                            steps:
-                                  - name: Récupération du code
-                                          uses: actions/checkout@v3
-                                                - name: Installation Asciidoctor
-                                                        run: sudo apt-get install -y asciidoctor
-                                                              - name: Compilation HTML
-                                                                      run: asciidoctor rapport.adoc
-                                                                      ----
-                                                                      
+**Exemple d'un fichier Workflow Forgejo Actions (`.forgejo/workflows/build.yml`) :**
+[source,yaml]
+----
+name: Compilation AsciiDoc
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v3
+      - name: Installation Asciidoctor
+        run: sudo apt-get install -y asciidoctor
+      - name: Compilation HTML
+        run: asciidoctor rapport.adoc
+----
