@@ -592,8 +592,15 @@ pre.rouge .gs {
 <li><a href="#_concepts_de_base_question_1">5.2. Concepts de base (Question 1)</a></li>
 <li><a href="#_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour Git (Question 2)</a></li>
 <li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de Git (Question 3)</a></li>
+<li><a href="#_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</a></li>
+<li><a href="#_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</a></li>
+<li><a href="#_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</a></li>
 </ul>
 </li>
+<li><a href="#_question_1_à_propos_de_forgejo">6. Question 1 : À propos de Forgejo</a></li>
+<li><a href="#_question_2_architecture_et_protocoles_réseau">7. Question 2 : Architecture et protocoles réseau</a></li>
+<li><a href="#_question_3_base_de_données">8. Question 3 : Base de données</a></li>
+<li><a href="#_question_4_gestion_du_service_systemd">9. Question 4 : Gestion du service systemd</a></li>
 </ul>
 </div>
 </div>
@@ -762,7 +769,8 @@ pre.rouge .gs {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration réseau par défaut ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Par défaut, VirtualBox émule un adaptateur réseau ethernet <code>Intel PRO/1000 MT Desktop</code> avec un cable virtuel connecté.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Par défaut, VirtualBox émule un adaptateur réseau ethernet <code>Intel PRO/1000 MT Desktop</code> avec un cable virtuel connecté.<br>
+<code>PCNet FAST III</code> est l&#8217;adaptateur par défaut pour les anciennes machines, mais les Debian utilisent le nouvel adaptateur <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pourquoi 2048 Mo de RAM ? Et avec 512 Mo ?</strong></p></td>
@@ -775,7 +783,7 @@ Avec seulement 512 Mo, le système utiliserait massivement la partition d&#8217;
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adresse IP de la VM ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup><br>
 L&#8217;adresse IP est <code>10.0.2.15</code>.</p></td>
 </tr>
 <tr>
@@ -834,23 +842,23 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> ou <code>id user</code> <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p>
+<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> ou <code>id user</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Différence entre <code>su</code> et <code>sudo</code></strong> :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>su</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.</p>
+<p><code>su</code> <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.</p>
 </li>
 <li>
-<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.</p>
+<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Version du noyau Linux</strong> : <code>uname -r</code> <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup> : <code>6.12.73+deb13-amd64</code></p>
+<p><strong>Version du noyau Linux</strong> : <code>uname -r</code> <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup> : <code>6.12.73+deb13-amd64</code></p>
 </li>
 <li>
 <p><strong>Utilité des suppléments invités</strong> : Ils optimisent la VM. Deux raisons de les installer :</p>
@@ -1011,7 +1019,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 <div class="sect2">
 <h3 id="_configuration_globale_de_git">5.1. Configuration globale de Git</h3>
 <div class="paragraph">
-<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
+<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
 Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaque projet. Si l&#8217;email est différent que celui du compte, les commits ne seront pas associés au profil.</p>
 </div>
 </div>
@@ -1081,20 +1089,20 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 <p>Protocole Git</p>
 </li>
 <li>
-<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup></p>
+<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup></p>
 </li>
 <li>
-<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup></p>
+<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup></p>
 </li>
 </ul>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_11">
-<a href="#_footnoteref_11">11</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
-</div>
 <div class="footnote" id="_footnotedef_12">
-<a href="#_footnoteref_12">12</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
+<a href="#_footnoteref_12">12</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
+</div>
+<div class="footnote" id="_footnotedef_13">
+<a href="#_footnoteref_13">13</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
 </div>
 </div></div></td>
 </tr>
@@ -1218,6 +1226,359 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_travail_collaboratif_question_4">5.5. Travail collaboratif (Question 4)</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse justifiée / Commandes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Testez la commande git blame. À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_les_interfaces_graphiques_pour_git_question_5">5.6. Les interfaces graphiques pour git (Question 5)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installons_autre_chose_et_comparons_questions_6_7">5.7. Installons autre chose et comparons (Questions 6 &amp; 7)</h3>
+<div class="paragraph">
+<p><strong>Choix de l&#8217;interface graphique (Question 6)</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="image/interface.png" alt="ungit" width="60%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pourquoi avez-vous choisi ce logiciel ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Comment l&#8217;avez-vous installé ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
+<em>[Espace pour répondre : fonctionnalités, avantages, inconvénients]</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Analyse comparative approfondie (Question 7)</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Opération</th>
+<th class="tableblock halign-left valign-top">En ligne de commande</th>
+<th class="tableblock halign-left valign-top">Avec l&#8217;outil graphique choisi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Visualiser l&#8217;historique des commits</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer une nouvelle branche</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comparer deux versions d&#8217;un fichier (diff)</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="image/diff.png" alt="Git diff dans ungit" width="100%">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Résoudre un conflit de fusion</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
+<em>[Espace pour répondre]</em></p>
+</li>
+<li>
+<p><strong>Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
+  <em>[Espace pour répondre]</em>
+= Réponses aux questions : Installation de Forgejo (Semaine 11)
+:toc: left
+:toc-title: Table des matières
+:sectnums:
+:icons: font
+:source-highlighter: rouge</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_1_à_propos_de_forgejo">6. Question 1 : À propos de Forgejo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Qu&#8217;est-ce que Forgejo ? Qu&#8217;est-ce qu&#8217;un fork ? Retracez l&#8217;histoire de Forgejo. Qu&#8217;est-ce qui différencie sa gouvernance de celle de Gitea ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.
+* <strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine.
+* <strong>Histoire</strong> : L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l&#8217;association Codeberg) a forké Gitea pour créer <strong>Forgejo</strong> (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.
+* <strong>Gouvernance</strong> : La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commandes utiles (pour l&#8217;installation évoquée dans le cours) :</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Téléchargement du binaire officiel</span>
+wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.0/forgejo-1.21.0-linux-amd64
+<span class="nb">chmod</span> +x forgejo</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_2_architecture_et_protocoles_réseau">7. Question 2 : Architecture et protocoles réseau</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés.
+Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure (si l&#8217;application est compromise, tout le serveur l&#8217;est). Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code> ou <code>forgejo</code>) et utilise un port non privilégié comme le 3000.</p>
+</div>
+<div class="paragraph">
+<p>En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui, lui, a les droits d&#8217;écouter le port 80 ou 443 et qui redirige le trafic de manière sécurisée vers le port 3000 local.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_3_base_de_données">8. Question 3 : Base de données</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ? Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo).
+* <strong>Emplacement et Propriétaire</strong> : En général, le fichier se trouve dans le répertoire de travail de l&#8217;application, souvent dans <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier <strong>doit</strong> être l&#8217;utilisateur système qui exécute le service Forgejo (ex: <code>git</code> ou <code>forgejo</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commandes utiles :</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Vérifier l'emplacement et le propriétaire du fichier SQLite</span>
+<span class="nb">ls</span> <span class="nt">-l</span> /var/lib/forgejo/data/forgejo.db</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_4_gestion_du_service_systemd">9. Question 4 : Gestion du service systemd</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Qu&#8217;est-ce qu&#8217;un service systemd ? Expliquez le fichier de service. Différence entre start, enable et restart ? Comment visualiser les logs ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.
+* <strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :
+  <strong> <code>[Unit]</code> : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu&#8217;après le démarrage du réseau").
+    </strong> <code>[Service]</code> : Définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, le répertoire de travail, etc.).
+      <strong> <code>[Install]</code> : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement <code>multi-user.target</code>).
+      * </strong>Commandes systemctl<strong> :
+        </strong> <code>start</code> : Lance le service immédiatement.
+          <strong> <code>enable</code> : Configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine.
+            </strong> <code>restart</code> : Arrête puis redémarre le service (utile après un changement de configuration).</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Commandes utiles :**
+[source,bash]
+----
+# Gérer le service
+sudo systemctl enable forgejo
+sudo systemctl start forgejo
+sudo systemctl restart forgejo</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Visualiser les logs en direct
+sudo journalctl -u forgejo -f
+----</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>== Question 5 : Sécurité</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Question :** Examinez les permissions de `/etc/forgejo` et `app.ini`. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Réponse et Explication :**
+* **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
+* **Serveur SSH** : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
+* **Sécurité sur Internet** : Si le serveur était exposé, il faudrait impérativement :
+  . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
+    . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
+      . Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Commandes utiles :**
+[source,bash]
+----
+# Restreindre les permissions
+sudo chmod 750 /etc/forgejo
+sudo chmod 640 /etc/forgejo/app.ini
+sudo chown -R forgejo:forgejo /etc/forgejo
+----</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>== Question 6 : Tests d'utilisation approfondis</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Question :** Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Réponse et Explication :**
+* **Privé vs Public** : Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité par le propriétaire.
+* **Issues et Commits** : Forgejo permet de fermer automatiquement un ticket (issue) lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`).
+* **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push`.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Commandes utiles :**
+[source,bash]
+----
+# 1. Créer sa clé SSH (si non existante)
+ssh-keygen -t ed25519 -C "mon.email@exemple.com"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
+git clone ssh://git@localhost:2222/utilisateur/projet.git</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># 3. Lier un commit à l'issue numéro 3
+git commit -m "Correction du bug d'affichage. Fixes #3"
+git push
+----</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>== Question 7 : Intégration et livraison continues (Pour aller plus loin)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Question :** Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Réponse et Explication :**
+* **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application.
+* **CD (Continuous Delivery/Deployment)** : Déploiement automatisé de l'application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
+* **Avantages** : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Exemple d'un fichier Workflow Forgejo Actions (`.forgejo/workflows/build.yml`) :**
+[source,yaml]
+----
+name: Compilation AsciiDoc
+on: [push]
+jobs:
+  build:
+      runs-on: ubuntu-latest
+          steps:
+                - name: Récupération du code
+                        uses: actions/checkout@v3
+                              - name: Installation Asciidoctor
+                                      run: sudo apt-get install -y asciidoctor
+                                            - name: Compilation HTML
+                                                    run: asciidoctor rapport.adoc
+                                                    ----</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1233,30 +1594,33 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <a href="#_footnoteref_3">3</a>. <a href="https://fr.wikipedia.org/wiki/Processeur_64_bits">Wikipedia Processeur 64 bits</a>
 </div>
 <div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel IP</a>
+<a href="#_footnoteref_4">4</a>. <a href="https://www.virtualbox.org/manual/ch06.html#nichardware">Manuel VirtualBox</a>
 </div>
 <div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a>
+<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel IP</a>
 </div>
 <div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>
+<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a>
 </div>
 <div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a>
+<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a>
+<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a>
 </div>
 <div class="footnote" id="_footnotedef_9">
-<a href="#_footnoteref_9">9</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a>
+<a href="#_footnoteref_9">9</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a>
 </div>
 <div class="footnote" id="_footnotedef_10">
-<a href="#_footnoteref_10">10</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
+<a href="#_footnoteref_10">10</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a>
+</div>
+<div class="footnote" id="_footnotedef_11">
+<a href="#_footnoteref_11">11</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-10 17:21:25 +0100
+Last updated 2026-03-10 22:36:38 +0100
 </div>
 </div>
 </body>
