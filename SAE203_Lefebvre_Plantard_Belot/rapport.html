@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
 <meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
-<title>SAÉ 2.03 : Rapport Technique Intermédiaire</title>
+<title>SAÉ 2.03 : Rapport Technique</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -556,7 +556,7 @@ pre.rouge .gs {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>SAÉ 2.03 : Rapport Technique Intermédiaire</h1>
+<h1>SAÉ 2.03 : Rapport Technique</h1>
 <div class="details">
 <span id="author" class="author">Lefebvre Romain</span><br>
 <span id="author2" class="author">Plantard Kylian</span><br>
@@ -565,69 +565,76 @@ pre.rouge .gs {
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_préparation_de_la_machine_virtuelle">1. Préparation de la machine virtuelle</a>
+<li><a href="#_semaine_7_préparation_de_la_machine_virtuelle_et_os_de_base">1. Semaine 7 : Préparation de la machine virtuelle et OS de base</a></li>
+<li><a href="#_préparation_de_la_machine_virtuelle">2. Préparation de la machine virtuelle</a>
 <ul class="sectlevel2">
-<li><a href="#_création_et_caractéristiques_de_la_vm">1.1. Création et caractéristiques de la VM</a></li>
-<li><a href="#_installation_de_los_de_base">1.2. Installation de l&#8217;OS de base</a></li>
-<li><a href="#_préparation_du_système_et_suppléments_invités">1.3. Préparation du système et Suppléments invités</a></li>
+<li><a href="#_création_et_caractéristiques_de_la_vm">2.1. Création et caractéristiques de la VM</a></li>
+<li><a href="#_installation_de_los_de_base">2.2. Installation de l&#8217;OS de base</a></li>
+<li><a href="#_préparation_du_système_et_suppléments_invités">2.3. Préparation du système et Suppléments invités</a></li>
 </ul>
 </li>
-<li><a href="#_réponses_aux_questions_techniques_semaine_07">2. Réponses aux questions techniques (Semaine 07)</a>
+<li><a href="#_réponses_aux_questions_techniques_semaine_07">3. Réponses aux questions techniques (Semaine 07)</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration_matérielle_dans_virtualbox_question_1">2.1. Configuration matérielle dans VirtualBox (Question 1)</a></li>
-<li><a href="#_installation_os_de_base_question_2">2.2. Installation OS de base (Question 2)</a></li>
-<li><a href="#_sudo_et_suppléments_invités_questions_3_4">2.3. Sudo et Suppléments invités (Questions 3 &amp; 4)</a></li>
+<li><a href="#_configuration_matérielle_dans_virtualbox_question_1">3.1. Configuration matérielle dans VirtualBox (Question 1)</a></li>
+<li><a href="#_installation_os_de_base_question_2">3.2. Installation OS de base (Question 2)</a></li>
+<li><a href="#_sudo_et_suppléments_invités_questions_3_4">3.3. Sudo et Suppléments invités (Questions 3 &amp; 4)</a></li>
 </ul>
 </li>
-<li><a href="#_à_propos_de_la_distribution_debian_question_4_2">3. À propos de la distribution Debian (Question 4.2)</a></li>
-<li><a href="#_installation_préconfigurée_question_5">4. Installation préconfigurée (Question 5)</a>
+<li><a href="#_à_propos_de_la_distribution_debian_question_4_2">4. À propos de la distribution Debian (Question 4.2)</a></li>
+<li><a href="#_installation_préconfigurée_question_5">5. Installation préconfigurée (Question 5)</a>
 <ul class="sectlevel2">
-<li><a href="#_ajustement_de_la_pré_configuration">4.1. Ajustement de la pré-configuration</a></li>
-<li><a href="#_notre_configuration_automatisée">4.2. Notre configuration automatisée</a></li>
+<li><a href="#_ajustement_de_la_pré_configuration">5.1. Ajustement de la pré-configuration</a></li>
+<li><a href="#_notre_configuration_automatisée">5.2. Notre configuration automatisée</a></li>
 </ul>
 </li>
-<li><a href="#_introduction_et_formatage_de_base">5. Introduction et Formatage de base</a></li>
-<li><a href="#_exemples_de_listes">6. Exemples de Listes</a>
+<li><a href="#_semaine_8_découverte_du_format_asciidoc_adoc">6. Semaine 8 : Découverte du format AsciiDoc (.adoc)</a></li>
+<li><a href="#_introduction_et_formatage_de_base">7. Introduction et Formatage de base</a></li>
+<li><a href="#_exemples_de_listes">8. Exemples de Listes</a>
 <ul class="sectlevel2">
-<li><a href="#_listes_à_puces_non_ordonnées">6.1. Listes à puces (Non ordonnées)</a></li>
-<li><a href="#_listes_numérotées_ordonnées">6.2. Listes numérotées (Ordonnées)</a></li>
-<li><a href="#_liste_de_tâches_checklist">6.3. Liste de tâches (Checklist)</a></li>
+<li><a href="#_listes_à_puces_non_ordonnées">8.1. Listes à puces (Non ordonnées)</a></li>
+<li><a href="#_listes_numérotées_ordonnées">8.2. Listes numérotées (Ordonnées)</a></li>
+<li><a href="#_liste_de_tâches_checklist">8.3. Liste de tâches (Checklist)</a></li>
 </ul>
 </li>
-<li><a href="#_blocs_dinformations_admonitions">7. Blocs d&#8217;informations (Admonitions)</a></li>
-<li><a href="#_insertion_de_blocs_de_code">8. Insertion de Blocs de Code</a></li>
-<li><a href="#_les_tableaux">9. Les Tableaux</a></li>
-<li><a href="#_images_et_liens">10. Images et Liens</a>
+<li><a href="#_blocs_dinformations_admonitions">9. Blocs d&#8217;informations (Admonitions)</a></li>
+<li><a href="#_insertion_de_blocs_de_code">10. Insertion de Blocs de Code</a></li>
+<li><a href="#_les_tableaux">11. Les Tableaux</a></li>
+<li><a href="#_images_et_liens">12. Images et Liens</a>
 <ul class="sectlevel2">
-<li><a href="#_ajouter_des_images">10.1. Ajouter des images</a></li>
-<li><a href="#_liens_et_références_croisées">10.2. Liens et références croisées</a></li>
+<li><a href="#_ajouter_des_images">12.1. Ajouter des images</a></li>
+<li><a href="#_liens_et_références_croisées">12.2. Liens et références croisées</a></li>
 </ul>
 </li>
-<li><a href="#_conclusion_et_citations">11. Conclusion et citations</a></li>
-<li><a href="#_étude_des_applications_clientes_semaine_10">12. Étude des applications clientes (Semaine 10)</a>
+<li><a href="#_conclusion_et_citations">13. Conclusion et citations</a></li>
+<li><a href="#_semaine_10_étude_des_applications_clientes_git">14. Semaine 10 : Étude des applications clientes (Git)</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration_globale_de_git">12.1. Configuration globale de Git</a></li>
-<li><a href="#_concepts_de_base_question_1">12.2. Concepts de base (Question 1)</a></li>
-<li><a href="#_protocoles_réseau_pour_git_question_2">12.3. Protocoles réseau pour Git (Question 2)</a></li>
-<li><a href="#_manipulation_pratique_de_git_question_3">12.4. Manipulation pratique de Git (Question 3)</a></li>
-<li><a href="#_travail_collaboratif_question_4">12.5. Travail collaboratif (Question 4)</a></li>
-<li><a href="#_les_interfaces_graphiques_pour_git_question_5">12.6. Les interfaces graphiques pour git (Question 5)</a></li>
-<li><a href="#_installons_autre_chose_et_comparons_questions_6_7">12.7. Installons autre chose et comparons (Questions 6 &amp; 7)</a></li>
+<li><a href="#_configuration_globale_de_git">14.1. Configuration globale de Git</a></li>
+<li><a href="#_concepts_de_base_question_1">14.2. Concepts de base (Question 1)</a></li>
+<li><a href="#_protocoles_réseau_pour_git_question_2">14.3. Protocoles réseau pour Git (Question 2)</a></li>
+<li><a href="#_manipulation_pratique_de_git_question_3">14.4. Manipulation pratique de Git (Question 3)</a></li>
+<li><a href="#_travail_collaboratif_question_4">14.5. Travail collaboratif (Question 4)</a></li>
+<li><a href="#_les_interfaces_graphiques_pour_git_question_5">14.6. Les interfaces graphiques pour git (Question 5)</a></li>
+<li><a href="#_installons_autre_chose_et_comparons_questions_6_7">14.7. Installons autre chose et comparons (Questions 6 &amp; 7)</a></li>
 </ul>
 </li>
-<li><a href="#_question_1_à_propos_de_forgejo">13. Question 1 : À propos de Forgejo</a></li>
-<li><a href="#_question_2_architecture_et_protocoles_réseau">14. Question 2 : Architecture et protocoles réseau</a></li>
-<li><a href="#_question_3_base_de_données">15. Question 3 : Base de données</a></li>
-<li><a href="#_question_4_gestion_du_service_systemd">16. Question 4 : Gestion du service systemd</a></li>
-<li><a href="#_question_5_sécurité">17. Question 5 : Sécurité</a></li>
-<li><a href="#_question_6_tests_dutilisation_approfondis">18. Question 6 : Tests d&#8217;utilisation approfondis</a></li>
-<li><a href="#_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">19. Question 7 : Intégration et livraison continues (Pour aller plus loin)</a></li>
+<li><a href="#_semaine_11_installation_de_forgejo">15. Semaine 11 : Installation de Forgejo</a></li>
+<li><a href="#_question_1_à_propos_de_forgejo">16. Question 1 : À propos de Forgejo</a></li>
+<li><a href="#_question_2_architecture_et_protocoles_réseau">17. Question 2 : Architecture et protocoles réseau</a></li>
+<li><a href="#_question_3_base_de_données">18. Question 3 : Base de données</a></li>
+<li><a href="#_question_4_gestion_du_service_systemd">19. Question 4 : Gestion du service systemd</a></li>
+<li><a href="#_question_5_sécurité">20. Question 5 : Sécurité</a></li>
+<li><a href="#_question_6_tests_dutilisation_approfondis">21. Question 6 : Tests d&#8217;utilisation approfondis</a></li>
+<li><a href="#_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">22. Question 7 : Intégration et livraison continues (Pour aller plus loin)</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_semaine_7_préparation_de_la_machine_virtuelle_et_os_de_base">1. Semaine 7 : Préparation de la machine virtuelle et OS de base</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -648,10 +655,10 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_préparation_de_la_machine_virtuelle">1. Préparation de la machine virtuelle</h2>
+<h2 id="_préparation_de_la_machine_virtuelle">2. Préparation de la machine virtuelle</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_création_et_caractéristiques_de_la_vm">1.1. Création et caractéristiques de la VM</h3>
+<h3 id="_création_et_caractéristiques_de_la_vm">2.1. Création et caractéristiques de la VM</h3>
 <div class="paragraph">
 <p>Nous avons mis en place une machine virtuelle dans VirtualBox en respectant les spécifications suivantes :</p>
 </div>
@@ -681,7 +688,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installation_de_los_de_base">1.2. Installation de l&#8217;OS de base</h3>
+<h3 id="_installation_de_los_de_base">2.2. Installation de l&#8217;OS de base</h3>
 <div class="paragraph">
 <p>Lors de l&#8217;installation du système d&#8217;exploitation à partir de l&#8217;image ISO, nous avons appliqué les paramètres suivants :</p>
 </div>
@@ -737,7 +744,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_préparation_du_système_et_suppléments_invités">1.3. Préparation du système et Suppléments invités</h3>
+<h3 id="_préparation_du_système_et_suppléments_invités">2.3. Préparation du système et Suppléments invités</h3>
 <div class="paragraph">
 <p>Afin de faciliter l&#8217;administration du système, nous avons accordé les droits <code>sudo</code> à l&#8217;utilisateur <code>user</code> via la console tty1 (<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd></span>) en étant connecté en tant que <code>root</code> :</p>
 </div>
@@ -768,10 +775,10 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_réponses_aux_questions_techniques_semaine_07">2. Réponses aux questions techniques (Semaine 07)</h2>
+<h2 id="_réponses_aux_questions_techniques_semaine_07">3. Réponses aux questions techniques (Semaine 07)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_configuration_matérielle_dans_virtualbox_question_1">2.1. Configuration matérielle dans VirtualBox (Question 1)</h3>
+<h3 id="_configuration_matérielle_dans_virtualbox_question_1">3.1. Configuration matérielle dans VirtualBox (Question 1)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -816,7 +823,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_installation_os_de_base_question_2">2.2. Installation OS de base (Question 2)</h3>
+<h3 id="_installation_os_de_base_question_2">3.2. Installation OS de base (Question 2)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -859,7 +866,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_sudo_et_suppléments_invités_questions_3_4">2.3. Sudo et Suppléments invités (Questions 3 &amp; 4)</h3>
+<h3 id="_sudo_et_suppléments_invités_questions_3_4">3.3. Sudo et Suppléments invités (Questions 3 &amp; 4)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -903,7 +910,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_à_propos_de_la_distribution_debian_question_4_2">3. À propos de la distribution Debian (Question 4.2)</h2>
+<h2 id="_à_propos_de_la_distribution_debian_question_4_2">4. À propos de la distribution Debian (Question 4.2)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.</p>
@@ -953,7 +960,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_préconfigurée_question_5">4. Installation préconfigurée (Question 5)</h2>
+<h2 id="_installation_préconfigurée_question_5">5. Installation préconfigurée (Question 5)</h2>
 <div class="sectionbody">
 <div class="admonitionblock warning">
 <table>
@@ -971,7 +978,7 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_ajustement_de_la_pré_configuration">4.1. Ajustement de la pré-configuration</h3>
+<h3 id="_ajustement_de_la_pré_configuration">5.1. Ajustement de la pré-configuration</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -997,7 +1004,7 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_notre_configuration_automatisée">4.2. Notre configuration automatisée</h3>
+<h3 id="_notre_configuration_automatisée">5.2. Notre configuration automatisée</h3>
 <div class="paragraph">
 <p>Pour répondre aux consignes de l&#8217;installation automatisée, nous avons édité le fichier <code>preseed-fr.cfg</code>. Voici les modifications clés apportées :</p>
 </div>
@@ -1027,40 +1034,38 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </span><span class="gi">+d-i passwd/user-default-groups string audio cdrom video sudo</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>ajouter conclusion de la semaine 1
-= Rapport Semaine 8 : [Titre de votre compte-rendu]
-:toc: left
-:toc-title: Table des matières
-:sectnums:
-:icons: font
-:source-highlighter: rouge
-:experimental:</p>
-</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction_et_formatage_de_base">5. Introduction et Formatage de base</h2>
+<h2 id="_semaine_8_découverte_du_format_asciidoc_adoc">6. Semaine 8 : Découverte du format AsciiDoc (.adoc)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction_et_formatage_de_base">7. Introduction et Formatage de base</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.</p>
 </div>
 <div class="paragraph">
 <p>Voici les formatages de texte de base :
-* Un texte peut être mis en <strong>gras</strong> pour insister sur un mot.
-* On peut utiliser l'<em>italique</em> pour du vocabulaire spécifique ou des termes en anglais.
-* Pour indiquer une commande dans un texte, on utilise le format <code>monospace</code> (ex: utiliser la commande <code>ls -la</code>).
-* On peut également <mark>surligner en jaune</mark> un passage important.
-* Afficher des touches du clavier grâce à l&#8217;attribut experimental : <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>C</kbd></span> ou <kbd>Entrée</kbd>.</p>
+Un texte peut être mis en <strong>gras</strong> pour insister sur un mot.<br>
+On peut utiliser l'<em>italique</em> pour du vocabulaire spécifique ou des termes en anglais.<br>
+Pour indiquer une commande dans un texte, on utilise le format <code>monospace</code> (ex: utiliser la commande <code>ls -la</code>).<br>
+On peut également <mark>surligner en jaune</mark> un passage important.<br>
+Afficher des touches du clavier grâce à l&#8217;attribut experimental : <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>C</kbd></span> ou <kbd>Entrée</kbd>.<br></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exemples_de_listes">6. Exemples de Listes</h2>
+<h2 id="_exemples_de_listes">8. Exemples de Listes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_listes_à_puces_non_ordonnées">6.1. Listes à puces (Non ordonnées)</h3>
+<h3 id="_listes_à_puces_non_ordonnées">8.1. Listes à puces (Non ordonnées)</h3>
 <div class="paragraph">
 <p>Voici une liste classique avec différents niveaux d&#8217;indentation :
 * Premier élément principal
@@ -1072,7 +1077,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listes_numérotées_ordonnées">6.2. Listes numérotées (Ordonnées)</h3>
+<h3 id="_listes_numérotées_ordonnées">8.2. Listes numérotées (Ordonnées)</h3>
 <div class="paragraph">
 <p>Pour décrire une procédure étape par étape :
 . Étape 1 : Mettre à jour les paquets (<code>apt update</code>).
@@ -1083,7 +1088,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_liste_de_tâches_checklist">6.3. Liste de tâches (Checklist)</h3>
+<h3 id="_liste_de_tâches_checklist">8.3. Liste de tâches (Checklist)</h3>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
@@ -1101,7 +1106,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_blocs_dinformations_admonitions">7. Blocs d&#8217;informations (Admonitions)</h2>
+<h2 id="_blocs_dinformations_admonitions">9. Blocs d&#8217;informations (Admonitions)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Les admonitions sont parfaites pour attirer l&#8217;attention du correcteur ou du lecteur sur un élément clé :</p>
@@ -1154,7 +1159,7 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 </div>
 </div>
 <div class="sect1">
-<h2 id="_insertion_de_blocs_de_code">8. Insertion de Blocs de Code</h2>
+<h2 id="_insertion_de_blocs_de_code">10. Insertion de Blocs de Code</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>AsciiDoc permet d&#8217;insérer du code avec une coloration syntaxique adaptée au langage :</p>
@@ -1179,7 +1184,7 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 </div>
 </div>
 <div class="sect1">
-<h2 id="_les_tableaux">9. Les Tableaux</h2>
+<h2 id="_les_tableaux">11. Les Tableaux</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Créer des tableaux est très simple pour comparer des éléments ou lister des configurations :</p>
@@ -1218,16 +1223,16 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 </div>
 </div>
 <div class="sect1">
-<h2 id="_images_et_liens">10. Images et Liens</h2>
+<h2 id="_images_et_liens">12. Images et Liens</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ajouter_des_images">10.1. Ajouter des images</h3>
+<h3 id="_ajouter_des_images">12.1. Ajouter des images</h3>
 <div class="paragraph">
 <p>Pour illustrer vos propos avec des captures d&#8217;écran (le paramètre <code>pdfwidth</code> permet de s&#8217;assurer que l&#8217;image ne dépasse pas de la page en PDF) :</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_liens_et_références_croisées">10.2. Liens et références croisées</h3>
+<h3 id="_liens_et_références_croisées">12.2. Liens et références croisées</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1245,7 +1250,7 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusion_et_citations">11. Conclusion et citations</h2>
+<h2 id="_conclusion_et_citations">13. Conclusion et citations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Pour finir, vous pouvez inclure une citation technique si cela s&#8217;y prête :</p>
@@ -1261,23 +1266,23 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 <cite>Créateur de Linux</cite>
 </div>
 </div>
-<div class="paragraph">
-<p><a href="#semaine10.adoc">#semain10</a></p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_étude_des_applications_clientes_semaine_10">12. Étude des applications clientes (Semaine 10)</h2>
+<h2 id="_semaine_10_étude_des_applications_clientes_git">14. Semaine 10 : Étude des applications clientes (Git)</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
 <div class="sect2">
-<h3 id="_configuration_globale_de_git">12.1. Configuration globale de Git</h3>
+<h3 id="_configuration_globale_de_git">14.1. Configuration globale de Git</h3>
 <div class="paragraph">
 <p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
 Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaque projet. Si l&#8217;email est différent que celui du compte, les commits ne seront pas associés au profil.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_concepts_de_base_question_1">12.2. Concepts de base (Question 1)</h3>
+<h3 id="_concepts_de_base_question_1">14.2. Concepts de base (Question 1)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1318,7 +1323,7 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 </table>
 </div>
 <div class="sect2">
-<h3 id="_protocoles_réseau_pour_git_question_2">12.3. Protocoles réseau pour Git (Question 2)</h3>
+<h3 id="_protocoles_réseau_pour_git_question_2">14.3. Protocoles réseau pour Git (Question 2)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1371,7 +1376,7 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 </table>
 </div>
 <div class="sect2">
-<h3 id="_manipulation_pratique_de_git_question_3">12.4. Manipulation pratique de Git (Question 3)</h3>
+<h3 id="_manipulation_pratique_de_git_question_3">14.4. Manipulation pratique de Git (Question 3)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1480,7 +1485,7 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </table>
 </div>
 <div class="sect2">
-<h3 id="_travail_collaboratif_question_4">12.5. Travail collaboratif (Question 4)</h3>
+<h3 id="_travail_collaboratif_question_4">14.5. Travail collaboratif (Question 4)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1517,7 +1522,7 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </table>
 </div>
 <div class="sect2">
-<h3 id="_les_interfaces_graphiques_pour_git_question_5">12.6. Les interfaces graphiques pour git (Question 5)</h3>
+<h3 id="_les_interfaces_graphiques_pour_git_question_5">14.6. Les interfaces graphiques pour git (Question 5)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1532,7 +1537,7 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installons_autre_chose_et_comparons_questions_6_7">12.7. Installons autre chose et comparons (Questions 6 &amp; 7)</h3>
+<h3 id="_installons_autre_chose_et_comparons_questions_6_7">14.7. Installons autre chose et comparons (Questions 6 &amp; 7)</h3>
 <div class="paragraph">
 <p><strong>Choix de l&#8217;interface graphique (Question 6)</strong></p>
 </div>
@@ -1608,13 +1613,7 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </li>
 <li>
 <p><strong>Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
-  <em>[Espace pour répondre]</em>
-= Réponses aux questions : Installation de Forgejo (Semaine 11)
-:toc: left
-:toc-title: Table des matières
-:sectnums:
-:icons: font
-:source-highlighter: rouge</p>
+<em>[Espace pour répondre]</em></p>
 </li>
 </ul>
 </div>
@@ -1622,7 +1621,15 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_1_à_propos_de_forgejo">13. Question 1 : À propos de Forgejo</h2>
+<h2 id="_semaine_11_installation_de_forgejo">15. Semaine 11 : Installation de Forgejo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_1_à_propos_de_forgejo">16. Question 1 : À propos de Forgejo</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Qu&#8217;est-ce que Forgejo ? Qu&#8217;est-ce qu&#8217;un fork ? Retracez l&#8217;histoire de Forgejo. Qu&#8217;est-ce qui différencie sa gouvernance de celle de Gitea ?</p>
@@ -1647,7 +1654,7 @@ wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/rel
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_2_architecture_et_protocoles_réseau">14. Question 2 : Architecture et protocoles réseau</h2>
+<h2 id="_question_2_architecture_et_protocoles_réseau">17. Question 2 : Architecture et protocoles réseau</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</p>
@@ -1664,7 +1671,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_3_base_de_données">15. Question 3 : Base de données</h2>
+<h2 id="_question_3_base_de_données">18. Question 3 : Base de données</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ? Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?</p>
@@ -1686,7 +1693,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_4_gestion_du_service_systemd">16. Question 4 : Gestion du service systemd</h2>
+<h2 id="_question_4_gestion_du_service_systemd">19. Question 4 : Gestion du service systemd</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Qu&#8217;est-ce qu&#8217;un service systemd ? Expliquez le fichier de service. Différence entre start, enable et restart ? Comment visualiser les logs ?</p>
@@ -1720,7 +1727,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_5_sécurité">17. Question 5 : Sécurité</h2>
+<h2 id="_question_5_sécurité">20. Question 5 : Sécurité</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Examinez les permissions de <code>/etc/forgejo</code> et <code>app.ini</code>. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?</p>
@@ -1748,7 +1755,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_6_tests_dutilisation_approfondis">18. Question 6 : Tests d&#8217;utilisation approfondis</h2>
+<h2 id="_question_6_tests_dutilisation_approfondis">21. Question 6 : Tests d&#8217;utilisation approfondis</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</p>
@@ -1778,7 +1785,7 @@ git push</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">19. Question 7 : Intégration et livraison continues (Pour aller plus loin)</h2>
+<h2 id="_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">22. Question 7 : Intégration et livraison continues (Pour aller plus loin)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Question :</strong> Qu&#8217;est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</p>
@@ -1849,7 +1856,7 @@ git push</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-10 22:50:22 +0100
+Last updated 2026-03-10 23:05:34 +0100
 </div>
 </div>
 </body>
