@@ -1,21 +1,17 @@
-= Rapport Semaine 8 : [Titre de votre compte-rendu]
-:toc: left
-:toc-title: Table des matières
-:sectnums:
-:icons: font
-:source-highlighter: rouge
-:experimental:
+== Semaine 8 : Découverte du format AsciiDoc (.adoc)
+
+_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 == Introduction et Formatage de base
 
 Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.
 
 Voici les formatages de texte de base :
-* Un texte peut être mis en **gras** pour insister sur un mot.
-* On peut utiliser l'_italique_ pour du vocabulaire spécifique ou des termes en anglais.
-* Pour indiquer une commande dans un texte, on utilise le format `monospace` (ex: utiliser la commande `ls -la`).
-* On peut également #surligner en jaune# un passage important.
-* Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée].
+Un texte peut être mis en **gras** pour insister sur un mot. +
+On peut utiliser l'_italique_ pour du vocabulaire spécifique ou des termes en anglais. +
+Pour indiquer une commande dans un texte, on utilise le format `monospace` (ex: utiliser la commande `ls -la`). +
+On peut également #surligner en jaune# un passage important. +
+Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée]. +
 
 == Exemples de Listes
 

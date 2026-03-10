@@ -1,8 +1,6 @@
-<<semaine10.adoc,#semain10>>
+== Semaine 10 : Étude des applications clientes (Git)
 
-
-
-== Étude des applications clientes (Semaine 10)
+_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 === Configuration globale de Git
 

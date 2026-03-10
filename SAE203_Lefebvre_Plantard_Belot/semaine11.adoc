@@ -1,9 +1,6 @@
-= Réponses aux questions : Installation de Forgejo (Semaine 11)
-:toc: left
-:toc-title: Table des matières
-:sectnums:
-:icons: font
-:source-highlighter: rouge
+== Semaine 11 : Installation de Forgejo
+
+_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 == Question 1 : À propos de Forgejo
 

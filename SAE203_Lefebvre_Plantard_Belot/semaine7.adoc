@@ -1,12 +1,6 @@
-= SAÉ 2.03 : Rapport Technique Intermédiaire
-Lefebvre Romain; Plantard Kylian; Belot Emilien
-:date: 2026-03-06
-:toc: left
-:toc-title: Table des matières
-:sectnums:
-:experimental:
-:icons: font
-:source-highlighter: rouge
+== Semaine 7 : Préparation de la machine virtuelle et OS de base
+
+_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 [NOTE]
 ====
@@ -200,6 +194,3 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 -d-i passwd/user-default-groups string audio cdrom video
 +d-i passwd/user-default-groups string audio cdrom video sudo
 ----
-
-
-ajouter conclusion de la semaine 1
