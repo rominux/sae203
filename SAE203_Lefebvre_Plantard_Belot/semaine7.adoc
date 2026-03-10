@@ -202,6 +202,3 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 
 
 ajouter conclusion de la semaine 1
-
-
-include::semaine10.adoc[]

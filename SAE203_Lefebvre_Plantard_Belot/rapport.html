@@ -594,14 +594,6 @@ pre.rouge .gs {
 <li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de Git (Question 3)</a></li>
 </ul>
 </li>
-<li><a href="#_étude_des_applications_clientes_semaine_10_2">6. Étude des applications clientes (Semaine 10)</a>
-<ul class="sectlevel2">
-<li><a href="#_configuration_globale_de_git_2">6.1. Configuration globale de Git</a></li>
-<li><a href="#_concepts_de_base_question_1_2">6.2. Concepts de base (Question 1)</a></li>
-<li><a href="#_protocoles_réseau_pour_git_question_2_2">6.3. Protocoles réseau pour Git (Question 2)</a></li>
-<li><a href="#_manipulation_pratique_de_git_question_3_2">6.4. Manipulation pratique de Git (Question 3)</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -1007,10 +999,8 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 </div>
 <div class="paragraph">
-<p>ajouter conclusion de la semaine 1</p>
-</div>
-<div class="paragraph">
-<p><a href="#semaine10.adoc">#semain10</a></p>
+<p>ajouter conclusion de la semaine 1
+<a href="#semaine10.adoc">#semain10</a></p>
 </div>
 </div>
 </div>
@@ -1227,224 +1217,6 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><a href="#semaine10.adoc">#semain10</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_étude_des_applications_clientes_semaine_10_2">6. Étude des applications clientes (Semaine 10)</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_configuration_globale_de_git_2">6.1. Configuration globale de Git</h3>
-<div class="paragraph">
-<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
-Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaque projet. Si l&#8217;email est différent que celui du compte, les commits ne seront pas associés au profil.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_concepts_de_base_question_1_2">6.2. Concepts de base (Question 1)</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Question</th>
-<th class="tableblock halign-left valign-top">Réponse justifiée</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre un commit, une branche et un tag ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.<br>
-Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).<br>
-Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise).<br>
-La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre git pull et git fetch ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).<br>
-<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_protocoles_réseau_pour_git_question_2_2">6.3. Protocoles réseau pour Git (Question 2)</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Question</th>
-<th class="tableblock halign-left valign-top">Réponse justifiée</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
-<ul>
-<li>
-<p>Protocole Local (accès au système de fichiers sans port)</p>
-</li>
-<li>
-<p>Protocole Git</p>
-</li>
-<li>
-<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup></p>
-</li>
-<li>
-<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup></p>
-</li>
-</ul>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_14">
-<a href="#_footnoteref_14">14</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
-</div>
-<div class="footnote" id="_footnotedef_15">
-<a href="#_footnoteref_15">15</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole Git fonctionne sur le port <code>9418</code>, HTTP sur le port <code>80</code>, HTTPS sur <code>443</code> et SSH sur le port <code>22</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_manipulation_pratique_de_git_question_3_2">6.4. Manipulation pratique de Git (Question 3)</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Question</th>
-<th class="tableblock halign-left valign-top">Réponse justifiée / Commandes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nb">touch </span>fichier1 fichier2 fichier3 fichier4
-git add fichier1
-git commit <span class="nt">-m</span> <span class="s2">"ajout du premier fichier"</span>
-git add fichier2
-git commit <span class="nt">-m</span> <span class="s2">"ajout du second fichier"</span>
-git add fichier3 fichier4
-git commit <span class="nt">-m</span> <span class="s2">"ajout du fichier 3 et 4"</span>
-git log</code></pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/git-log-3commits.png" alt="Résultat du git log" width="100%">
-</div>
-</div>
-<div class="paragraph">
-<p>Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
-<div class="content">
-<img src="img/git-branch-merge.png" alt="Git branche" width="100%">
-</div>
-</div>
-<div class="paragraph">
-<p>Une branche est une chaine de commits parallèle aux autres branches (ici <code>master</code> et <code>exemple</code>).<br>
-La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
-<div class="content">
-<img src="img/git-conflit-terminal.png" alt="Conflit terminal" width="100%">
-</div>
-</div>
-<div class="paragraph">
-<p>Un conflit survient lorsque deux branches modifient le même fichier de façon différente.<br>
-Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit).<br>
-Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-conflit 1
-=======
-conflit 2
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; conflit</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="diff"><span class="gh">diff --git a/texte b/texte
-index 9d600a1..7255def 100644
-</span><span class="gd">--- a/texte
-</span><span class="gi">+++ b/texte
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-dans une branche
-</span><span class="gi">+conflit 1</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Les premières lignes indiquent les fichiers comparés (<code>a/texte</code> et <code>b/texte</code>) et les méta-données de la comparaison. (<code>index 9d600a1..7255def</code>)<br>
-Les lignes précédées d&#8217;un <code>-</code> en rouge sont des suppressions et celles avec un <code>+</code> en vert sont des ajouts.<br>
-Les autres lignes affichées servent de contexte autour du code modifié.<br></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">*.class
-*.jar</code></pre>
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -1480,9 +1252,6 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </div>
 <div class="footnote" id="_footnotedef_10">
 <a href="#_footnoteref_10">10</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
-</div>
-<div class="footnote" id="_footnotedef_13">
-<a href="#_footnoteref_13">13</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
 </div>
 </div>
 <div id="footer">
