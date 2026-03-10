@@ -135,7 +135,6 @@ La passerelle par défaut est `10.0.2.2`. Elle correspond au routeur virtuel cr�
 === À propos de la distribution Debian (Question 4.2)
 
 Pour répondre à ces questions, nous avons consulté la https://www.debian.org/doc/[documentation officielle de Debian].
-
 . **Le Projet Debian et son nom** : C'est une association d'individus qui ont pour cause commune de créer un système d'exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l'époque (Debra) et le sien (Ian). +
 https://www.debian.org/doc/manuals/project-history/intro.en.html[What is the Debian Project?]
 . **Durées de prise en charge** :

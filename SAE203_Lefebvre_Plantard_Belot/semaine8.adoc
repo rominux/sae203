@@ -6,18 +6,19 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.
 
-Voici les formatages de texte de base :
+Voici les formatages de texte de base : +
 Un texte peut être mis en **gras** pour insister sur un mot. +
 On peut utiliser l'_italique_ pour du vocabulaire spécifique ou des termes en anglais. +
 Pour indiquer une commande dans un texte, on utilise le format `monospace` (ex: utiliser la commande `ls -la`). +
 On peut également #surligner en jaune# un passage important. +
-Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée]. +
+Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée].
 
 === Exemples de Listes
 
 ==== Listes à puces (Non ordonnées)
 
 Voici une liste classique avec différents niveaux d'indentation :
+
 * Premier élément principal
 * Deuxième élément **en gras**
 * Troisième élément _en italique_
@@ -28,6 +29,7 @@ Voici une liste classique avec différents niveaux d'indentation :
 ==== Listes numérotées (Ordonnées)
 
 Pour décrire une procédure étape par étape :
+
 . Étape 1 : Mettre à jour les paquets (`apt update`).
 . Étape 2 : Installer le service.
 .. Sous-étape A : configurer le fichier X.
@@ -36,7 +38,7 @@ Pour décrire une procédure étape par étape :
 
 ==== Liste de tâches (Checklist)
 
-* [*] Tâche terminée (ou `[x]`)
+* [x] Tâche terminée (ou `[x]`)
 * [ ] Tâche à faire
 * [ ] Autre tâche à faire
 
