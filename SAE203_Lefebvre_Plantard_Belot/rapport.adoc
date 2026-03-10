@@ -77,7 +77,7 @@ Un redémarrage a permis d'activer le redimensionnement dynamique de la fenêtre
 | Question | Réponse justifiée
 
 | **Que signifie "64-bit" ?**
-| Cela désigne l'architecture du processeur capable de traiter des données par blocs de 64 bits. C'est l'architecture la plus courante pour les systèmes modernes.
+| Cela désigne l'architecture du processeur capable de traiter des données par blocs de 64 bits footnote:[https://fr.wikipedia.org/wiki/Processeur_64_bits[Wikipedia Processeur 64 bits]]. C'est l'architecture la plus courante pour les systèmes modernes.
 
 | **Configuration réseau par défaut ?**
 | Par défaut, VirtualBox émule un adaptateur réseau ethernet `Intel PRO/1000 MT Desktop` avec un cable virtuel connecté.
