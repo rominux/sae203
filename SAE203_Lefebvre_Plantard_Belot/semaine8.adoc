@@ -22,8 +22,8 @@ Voici une liste classique avec différents niveaux d'indentation :
 * Premier élément principal
 * Deuxième élément **en gras**
 * Troisième élément _en italique_
-** Une sous-liste de niveau 2 (remarquez les deux étoiles)
-*** Une sous-sous-liste de niveau 3 avec des emojis 🚀 ✅ 🐧
+** Une sous-liste de niveau 2 (deux étoiles)
+*** Une sous-sous-liste de niveau 3 avec du text **_en italique en gras_**
 ** Retour au niveau 2
 
 ==== Listes numérotées (Ordonnées)
@@ -116,7 +116,7 @@ Pour illustrer vos propos avec des captures d'écran (le paramètre `pdfwidth` p
 
 ==== Liens et références croisées
 
-* **Lien externe** : Il est important de citer vos sources. Voici la https://docs.asciidoctor.org/[Documentation officielle d'Asciidoctor].
+* **Lien externe** : Voici la Documentation officielle d'Asciidoctor : https://docs.asciidoctor.org/.
 * **Lien avec texte personnalisé** : https://debian.org[Visiter le site de Debian]
 * **Référence interne (ancre)** : Si vous voulez renvoyer le lecteur vers le début du document, vous pouvez créer un lien vers la section <<_introduction_et_formatage_de_base, Introduction>>.
 

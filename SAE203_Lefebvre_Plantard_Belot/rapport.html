@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.26">
+<meta name="generator" content="Asciidoctor 2.0.22">
 <meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
 <title>SAÉ 2.03 : Rapport Technique</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -117,6 +117,7 @@ h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title str
 :not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
 pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
 pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
 em em{font-style:normal}
 strong strong{font-weight:400}
@@ -219,7 +220,6 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
 .literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
 .listingblock>.content{position:relative}
-.listingblock pre>code{display:block}
 .listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
 .listingblock:hover code[data-lang]::before{display:block}
 .listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
@@ -435,124 +435,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge, pre.rouge .w {
-  color: #24292f;
-  background-color: #f6f8fa;
-}
-pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
-  color: #cf222e;
-}
-pre.rouge .gr {
-  color: #f6f8fa;
-}
-pre.rouge .gd {
-  color: #82071e;
-  background-color: #ffebe9;
-}
-pre.rouge .nb {
-  color: #953800;
-}
-pre.rouge .nc {
-  color: #953800;
-}
-pre.rouge .no {
-  color: #953800;
-}
-pre.rouge .nn {
-  color: #953800;
-}
-pre.rouge .sr {
-  color: #116329;
-}
-pre.rouge .na {
-  color: #116329;
-}
-pre.rouge .nt {
-  color: #116329;
-}
-pre.rouge .gi {
-  color: #116329;
-  background-color: #dafbe1;
-}
-pre.rouge .ges {
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .kc {
-  color: #0550ae;
-}
-pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
-  color: #0550ae;
-}
-pre.rouge .sb {
-  color: #0550ae;
-}
-pre.rouge .bp {
-  color: #0550ae;
-}
-pre.rouge .ne {
-  color: #0550ae;
-}
-pre.rouge .nl {
-  color: #0550ae;
-}
-pre.rouge .py {
-  color: #0550ae;
-}
-pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
-  color: #0550ae;
-}
-pre.rouge .o, pre.rouge .ow {
-  color: #0550ae;
-}
-pre.rouge .gh {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
-  color: #0a3069;
-}
-pre.rouge .nd {
-  color: #8250df;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #8250df;
-}
-pre.rouge .err {
-  color: #f6f8fa;
-  background-color: #82071e;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
-  color: #6e7781;
-}
-pre.rouge .gl {
-  color: #6e7781;
-}
-pre.rouge .gt {
-  color: #6e7781;
-}
-pre.rouge .ni {
-  color: #24292f;
-}
-pre.rouge .si {
-  color: #24292f;
-}
-pre.rouge .ge {
-  color: #24292f;
-  font-style: italic;
-}
-pre.rouge .gs {
-  color: #24292f;
-  font-weight: bold;
-}
-</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -756,7 +638,7 @@ pre.rouge .gs {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">usermod <span class="nt">-aG</span> <span class="nb">sudo </span>user</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">usermod -aG sudo user</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -767,8 +649,8 @@ pre.rouge .gs {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nb">sudo </span>mount /dev/cdrom /mnt
-<span class="nb">sudo</span> /mnt/VBoxLinuxAdditions.run</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo mount /dev/cdrom /mnt
+sudo /mnt/VBoxLinuxAdditions.run</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -915,19 +797,49 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <div class="sect2">
 <h3 id="_à_propos_de_la_distribution_debian_question_4_2">1.3. À propos de la distribution Debian (Question 4.2)</h3>
 <div class="paragraph">
-<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.
-. <strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
-<a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">What is the Debian Project?</a>
-. <strong>Durées de prise en charge</strong> :
-  * <em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).
-  * <em>LTS (Long Term Support)</em> : 5 ans au total. <a href="https://wiki.debian.org/LTS">Debian LTS</a>
-  * <em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian). <a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a>
-. <strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a>
-. <strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a>
-. <strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie). <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a>
-. <strong>Architectures de Trixie (Debian 13)</strong> : La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>. <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a>
-. <strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996. <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a>
-. <strong>Dernier nom de code annoncé</strong> : La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>. <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
+<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
+<a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">What is the Debian Project?</a></p>
+</li>
+<li>
+<p><strong>Durées de prise en charge</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).</p>
+</li>
+<li>
+<p><em>LTS (Long Term Support)</em> : 5 ans au total. <a href="https://wiki.debian.org/LTS">Debian LTS</a></p>
+</li>
+<li>
+<p><em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian). <a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
+</li>
+<li>
+<p><strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
+</li>
+<li>
+<p><strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie). <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a></p>
+</li>
+<li>
+<p><strong>Architectures de Trixie (Debian 13)</strong> : La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>. <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a></p>
+</li>
+<li>
+<p><strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996. <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a></p>
+</li>
+<li>
+<p><strong>Dernier nom de code annoncé</strong> : La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>. <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
@@ -983,7 +895,7 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">d-i tasksel/first multiselect standard, mate-desktop</code></pre>
+<pre class="highlight"><code class="language-plaintext" data-lang="plaintext">d-i tasksel/first multiselect standard, mate-desktop</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -991,7 +903,7 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">d-i pkgsel/include string sudo git sqlite3 curl bash-completion fastfetch</code></pre>
+<pre class="highlight"><code class="language-plaintext" data-lang="plaintext">d-i pkgsel/include string sudo git sqlite3 curl bash-completion fastfetch</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1000,8 +912,8 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="diff"><span class="gd">-d-i passwd/user-default-groups string audio cdrom video
-</span><span class="gi">+d-i passwd/user-default-groups string audio cdrom video sudo</span></code></pre>
+<pre class="highlight"><code class="language-diff" data-lang="diff">-d-i passwd/user-default-groups string audio cdrom video
++d-i passwd/user-default-groups string audio cdrom video sudo</code></pre>
 </div>
 </div>
 </div>
@@ -1048,11 +960,11 @@ Afficher des touches du clavier grâce à l&#8217;attribut experimental : <span 
 <div class="ulist">
 <ul>
 <li>
-<p>Une sous-liste de niveau 2 (remarquez les deux étoiles)</p>
+<p>Une sous-liste de niveau 2 (deux étoiles)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Une sous-sous-liste de niveau 3 avec des emojis 🚀 ✅ 🐧</p>
+<p>Une sous-sous-liste de niveau 3 avec du text <strong><em>en italique en gras</em></strong></p>
 </li>
 </ul>
 </div>
@@ -1171,18 +1083,18 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 <div class="listingblock">
 <div class="title">Exemple d&#8217;un script Bash</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c">#!/bin/bash</span>
-<span class="c"># Mise à jour du système</span>
-<span class="nb">echo</span> <span class="s2">"Mise à jour en cours..."</span>
-<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span></code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+# Mise à jour du système
+echo "Mise à jour en cours..."
+sudo apt update &amp;&amp; sudo apt upgrade -y</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Exemple d&#8217;un fichier de configuration</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="ini"><span class="nn">[server]</span><span class="w">
-</span><span class="py">DOMAIN</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">localhost</span>
-<span class="py">HTTP_PORT</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">3000</span></code></pre>
+<pre class="highlight"><code class="language-ini" data-lang="ini">[server]
+DOMAIN = localhost
+HTTP_PORT = 3000</code></pre>
 </div>
 </div>
 </div>
@@ -1236,7 +1148,7 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Lien externe</strong> : Il est important de citer vos sources. Voici la <a href="https://docs.asciidoctor.org/">Documentation officielle d&#8217;Asciidoctor</a>.</p>
+<p><strong>Lien externe</strong> : Voici la Documentation officielle d&#8217;Asciidoctor : <a href="https://docs.asciidoctor.org/" class="bare">https://docs.asciidoctor.org/</a>.</p>
 </li>
 <li>
 <p><strong>Lien avec texte personnalisé</strong> : <a href="https://debian.org">Visiter le site de Debian</a></p>
@@ -1396,13 +1308,13 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nb">touch </span>fichier1 fichier2 fichier3 fichier4
+<pre class="highlight"><code class="language-bash" data-lang="bash">touch fichier1 fichier2 fichier3 fichier4
 git add fichier1
-git commit <span class="nt">-m</span> <span class="s2">"ajout du premier fichier"</span>
+git commit -m "ajout du premier fichier"
 git add fichier2
-git commit <span class="nt">-m</span> <span class="s2">"ajout du second fichier"</span>
+git commit -m "ajout du second fichier"
 git add fichier3 fichier4
-git commit <span class="nt">-m</span> <span class="s2">"ajout du fichier 3 et 4"</span>
+git commit -m "ajout du fichier 3 et 4"
 git log</code></pre>
 </div>
 </div>
@@ -1441,7 +1353,7 @@ Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<pre class="highlight"><code class="language-plaintext" data-lang="plaintext">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 conflit 1
 =======
 conflit 2
@@ -1453,13 +1365,13 @@ conflit 2
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="diff"><span class="gh">diff --git a/texte b/texte
+<pre class="highlight"><code class="language-diff" data-lang="diff">diff --git a/texte b/texte
 index 9d600a1..7255def 100644
-</span><span class="gd">--- a/texte
-</span><span class="gi">+++ b/texte
-</span><span class="p">@@ -1 +1 @@</span>
-<span class="gd">-dans une branche
-</span><span class="gi">+conflit 1</span></code></pre>
+--- a/texte
++++ b/texte
+@@ -1 +1 @@
+-dans une branche
++conflit 1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1475,7 +1387,7 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">*.class
+<pre class="highlight"><code class="language-plaintext" data-lang="plaintext">*.class
 *.jar</code></pre>
 </div>
 </div></div></td>
@@ -1631,20 +1543,32 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <p><strong>Question :</strong> Qu&#8217;est-ce que Forgejo ? Qu&#8217;est-ce qu&#8217;un fork ? Retracez l&#8217;histoire de Forgejo. Qu&#8217;est-ce qui différencie sa gouvernance de celle de Gitea ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.
-* <strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine.
-* <strong>Histoire</strong> : L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l&#8217;association Codeberg) a forké Gitea pour créer <strong>Forgejo</strong> (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.
-* <strong>Gouvernance</strong> : La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.</p>
+</li>
+<li>
+<p><strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine.</p>
+</li>
+<li>
+<p><strong>Histoire</strong> : L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l&#8217;association Codeberg) a forké Gitea pour créer <strong>Forgejo</strong> (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.</p>
+</li>
+<li>
+<p><strong>Gouvernance</strong> : La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Commandes utiles (pour l&#8217;installation évoquée dans le cours) :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Téléchargement du binaire officiel</span>
-wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.0/forgejo-1.21.0-linux-amd64
-<span class="nb">chmod</span> +x forgejo</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Téléchargement du binaire officiel
+wget -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.0/forgejo-1.21.0-linux-amd64
+chmod +x forgejo</code></pre>
 </div>
 </div>
 </div>
@@ -1669,17 +1593,25 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Question :</strong> Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ? Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo).
-* <strong>Emplacement et Propriétaire</strong> : En général, le fichier se trouve dans le répertoire de travail de l&#8217;application, souvent dans <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier <strong>doit</strong> être l&#8217;utilisateur système qui exécute le service Forgejo (ex: <code>git</code> ou <code>forgejo</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo).</p>
+</li>
+<li>
+<p><strong>Emplacement et Propriétaire</strong> : En général, le fichier se trouve dans le répertoire de travail de l&#8217;application, souvent dans <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier <strong>doit</strong> être l&#8217;utilisateur système qui exécute le service Forgejo (ex: <code>git</code> ou <code>forgejo</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Commandes utiles :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Vérifier l'emplacement et le propriétaire du fichier SQLite</span>
-<span class="nb">ls</span> <span class="nt">-l</span> /var/lib/forgejo/data/forgejo.db</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Vérifier l'emplacement et le propriétaire du fichier SQLite
+ls -l /var/lib/forgejo/data/forgejo.db</code></pre>
 </div>
 </div>
 </div>
@@ -1689,29 +1621,59 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Question :</strong> Qu&#8217;est-ce qu&#8217;un service systemd ? Expliquez le fichier de service. Différence entre start, enable et restart ? Comment visualiser les logs ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.
-* <strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :
-  <strong> <code>[Unit]</code> : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu&#8217;après le démarrage du réseau").
-  </strong> <code>[Service]</code> : Définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, le répertoire de travail, etc.).
-  <strong> <code>[Install]</code> : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement <code>multi-user.target</code>).
-* </strong>Commandes systemctl<strong> :
-  </strong> <code>start</code> : Lance le service immédiatement.
-  <strong> <code>enable</code> : Configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine.
-  </strong> <code>restart</code> : Arrête puis redémarre le service (utile après un changement de configuration).</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.</p>
+</li>
+<li>
+<p><strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[Unit]</code> : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu&#8217;après le démarrage du réseau").</p>
+</li>
+<li>
+<p><code>[Service]</code> : Définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, le répertoire de travail, etc.).</p>
+</li>
+<li>
+<p><code>[Install]</code> : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement <code>multi-user.target</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Commandes systemctl</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start</code> : Lance le service immédiatement.</p>
+</li>
+<li>
+<p><code>enable</code> : Configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine.</p>
+</li>
+<li>
+<p><code>restart</code> : Arrête puis redémarre le service (utile après un changement de configuration).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Commandes utiles :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Gérer le service</span>
-<span class="nb">sudo </span>systemctl <span class="nb">enable </span>forgejo
-<span class="nb">sudo </span>systemctl start forgejo
-<span class="nb">sudo </span>systemctl restart forgejo
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Gérer le service
+sudo systemctl enable forgejo
+sudo systemctl start forgejo
+sudo systemctl restart forgejo
 
-<span class="c"># Visualiser les logs en direct</span>
-<span class="nb">sudo </span>journalctl <span class="nt">-u</span> forgejo <span class="nt">-f</span></code></pre>
+# Visualiser les logs en direct
+sudo journalctl -u forgejo -f</code></pre>
 </div>
 </div>
 </div>
@@ -1721,23 +1683,43 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Question :</strong> Examinez les permissions de <code>/etc/forgejo</code> et <code>app.ini</code>. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire.
-* <strong>Serveur SSH</strong> : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).
-* <strong>Sécurité sur Internet</strong> : Si le serveur était exposé, il faudrait impérativement :
-  . Configurer le HTTPS (certificats SSL/TLS via Let&#8217;s Encrypt).
-  . Activer un pare-feu (<code>ufw</code>) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
-  . Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire.</p>
+</li>
+<li>
+<p><strong>Serveur SSH</strong> : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).</p>
+</li>
+<li>
+<p><strong>Sécurité sur Internet</strong> : Si le serveur était exposé, il faudrait impérativement :</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configurer le HTTPS (certificats SSL/TLS via Let&#8217;s Encrypt).</p>
+</li>
+<li>
+<p>Activer un pare-feu (<code>ufw</code>) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).</p>
+</li>
+<li>
+<p>Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Commandes utiles :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Restreindre les permissions</span>
-<span class="nb">sudo chmod </span>750 /etc/forgejo
-<span class="nb">sudo chmod </span>640 /etc/forgejo/app.ini
-<span class="nb">sudo chown</span> <span class="nt">-R</span> forgejo:forgejo /etc/forgejo</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Restreindre les permissions
+sudo chmod 750 /etc/forgejo
+sudo chmod 640 /etc/forgejo/app.ini
+sudo chown -R forgejo:forgejo /etc/forgejo</code></pre>
 </div>
 </div>
 </div>
@@ -1747,24 +1729,34 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Question :</strong> Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>Privé vs Public</strong> : Un projet public est lisible (et clonable) par n&#8217;importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d&#8217;être explicitement invité par le propriétaire.
-* <strong>Issues et Commits</strong> : Forgejo permet de fermer automatiquement un ticket (issue) lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>).
-* <strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code>.</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Privé vs Public</strong> : Un projet public est lisible (et clonable) par n&#8217;importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d&#8217;être explicitement invité par le propriétaire.</p>
+</li>
+<li>
+<p><strong>Issues et Commits</strong> : Forgejo permet de fermer automatiquement un ticket (issue) lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>).</p>
+</li>
+<li>
+<p><strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Commandes utiles :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Créer sa clé SSH (si non existante)</span>
-ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"mon.email@exemple.com"</span>
+<pre class="highlight"><code class="language-bash" data-lang="bash"># 1. Créer sa clé SSH (si non existante)
+ssh-keygen -t ed25519 -C "mon.email@exemple.com"
 
-<span class="c"># 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)</span>
+# 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
 git clone ssh://git@localhost:2222/utilisateur/projet.git
 
-<span class="c"># 3. Lier un commit à l'issue numéro 3</span>
-git commit <span class="nt">-m</span> <span class="s2">"Correction du bug d'affichage. Fixes #3"</span>
+# 3. Lier un commit à l'issue numéro 3
+git commit -m "Correction du bug d'affichage. Fixes #3"
 git push</code></pre>
 </div>
 </div>
@@ -1775,28 +1767,38 @@ git push</code></pre>
 <p><strong>Question :</strong> Qu&#8217;est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-* <strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application.
-* <strong>CD (Continuous Delivery/Deployment)</strong> : Déploiement automatisé de l&#8217;application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
-* <strong>Avantages</strong> : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.</p>
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application.</p>
+</li>
+<li>
+<p><strong>CD (Continuous Delivery/Deployment)</strong> : Déploiement automatisé de l&#8217;application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.</p>
+</li>
+<li>
+<p><strong>Avantages</strong> : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Exemple d&#8217;un fichier Workflow Forgejo Actions (<code>.forgejo/workflows/build.yml</code>) :</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">Compilation AsciiDoc</span>
-<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">]</span>
-<span class="na">jobs</span><span class="pi">:</span>
-  <span class="na">build</span><span class="pi">:</span>
-    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
-    <span class="na">steps</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Récupération du code</span>
-        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Installation Asciidoctor</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="s">sudo apt-get install -y asciidoctor</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Compilation HTML</span>
-        <span class="na">run</span><span class="pi">:</span> <span class="s">asciidoctor rapport.adoc</span></code></pre>
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">name: Compilation AsciiDoc
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v3
+      - name: Installation Asciidoctor
+        run: sudo apt-get install -y asciidoctor
+      - name: Compilation HTML
+        run: asciidoctor rapport.adoc</code></pre>
 </div>
 </div>
 </div>
@@ -1841,7 +1843,7 @@ git push</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-10 23:12:59 +0100
+Last updated 2026-03-10 23:32:54 +0100
 </div>
 </div>
 </body>
