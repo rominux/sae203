@@ -6,8 +6,26 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 * Kylian Plantard
 * Emilien Belot
 
+== État d'avancement du rapport
+[WARNING]
+====
+**Attention** +
+Ce rapport intermédiaire est en cours de rédaction. Actuellement, nous nous sommes arrêtés à la fin de la **Question 3 de la Semaine 10** (Manipulation pratique de Git, création du fichier `.gitignore`).
+
+Les réponses aux questions suivantes ne sont pas encore incluses dans ce document :
+* Question 4 : Travail collaboratif (dépôt distant, merge request)
+* Question 5 : Les interfaces graphiques pour git (gitk, git-gui)
+* Question 6 & 7 : Choix d'une autre interface et analyse comparative approfondie.
+====
+
 == Procédure de conversion
-Notre rapport a été rédigé au format AsciiDoc. Pour générer les versions HTML et PDF, nous utilisons un script bash nommé `convertdoc.sh`.
+[NOTE]
+====
+**Note** +
+Les ordinateurs de l'IUT n'ont pas asciidoctor installé par défaut, c'est pourquoi nous avons dû installer les outils nécessaires localement. Nous avons documenté cette procédure d'installation dans la section suivante pour faciliter la reproduction de l'environnement de travail.
+====
+
+Notre rapport a été rédigé au format _AsciiDoc_. Pour générer les versions HTML et PDF, nous utilisons un script bash nommé `convertdoc.sh`.
 
 Pour lancer la conversion, exécutez la commande suivante dans le terminal :
 [source,bash]
@@ -23,8 +41,7 @@ Afin de pouvoir compiler ce document, les outils suivants doivent être install�
 * **Asciidoctor-pdf** : Convertisseur vers le format PDF
 * **Rouge** : Bibliothèque permettant la coloration syntaxique des blocs de code.
 
-**Note d'installation sans droits d'administration :**
-Sur les machines de l'IUT, nous avons installé ces outils localement via le gestionnaire de paquets de Ruby (`gem`) avec la commande suivante :
+Sur les machines de l'IUT, nous avons installé ces outils localement avec la commande suivante :
 `gem install --user-install asciidoctor asciidoctor-pdf rouge`
 
 Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.

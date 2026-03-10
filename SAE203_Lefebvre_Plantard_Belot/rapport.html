@@ -588,10 +588,10 @@ pre.rouge .gs {
 </li>
 <li><a href="#_étude_des_applications_clientes_semaine_10">5. Étude des applications clientes (Semaine 10)</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration_globale_de_git">5.1. Configuration globale de git</a></li>
+<li><a href="#_configuration_globale_de_git">5.1. Configuration globale de Git</a></li>
 <li><a href="#_concepts_de_base_question_1">5.2. Concepts de base (Question 1)</a></li>
-<li><a href="#_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour git (Question 2)</a></li>
-<li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de git (Question 3)</a></li>
+<li><a href="#_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour Git (Question 2)</a></li>
+<li><a href="#_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de Git (Question 3)</a></li>
 </ul>
 </li>
 </ul>
@@ -630,13 +630,13 @@ pre.rouge .gs {
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Nom de la machine</strong> : <code>sae203</code></p>
+<p><strong>Nom de la machine</strong> : <code>s2.03</code></p>
 </li>
 <li>
 <p><strong>Type de système</strong> : Linux</p>
 </li>
 <li>
-<p><strong>Version</strong> : Debian 64-bit</p>
+<p><strong>Version</strong> : Debian (64-bit)</p>
 </li>
 <li>
 <p><strong>Mémoire vive (RAM)</strong> : 2048 Mo</p>
@@ -648,7 +648,7 @@ pre.rouge .gs {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="image/config.png" alt="Configuration de la VM" width="60%">
+<img src="img/vbox-config-recap-sae203.png" alt="Configuration de la VM" width="60%">
 </div>
 </div>
 </div>
@@ -704,14 +704,14 @@ pre.rouge .gs {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="image/selection.png" alt="Selection des logiciel" width="60%">
+<img src="img/debian-selection-logiciels.png" alt="Sélection des logiciels" width="60%">
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_préparation_du_système_et_suppléments_invités">1.3. Préparation du système et Suppléments invités</h3>
 <div class="paragraph">
-<p>Afin de faciliter l&#8217;administration du système, nous avons accordé les droits <code>sudo</code> à l&#8217;utilisateur <code>user</code> via la console tty1 (<code>Ctrl + Alt + F1</code>) connecté en tant que root :</p>
+<p>Afin de faciliter l&#8217;administration du système, nous avons accordé les droits <code>sudo</code> à l&#8217;utilisateur <code>user</code> via la console tty1 (<span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd></span>) en étant connecté en tant que <code>root</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -719,7 +719,7 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="paragraph">
-<p>man usermod <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<p>man 8 usermod <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Nous avons ensuite inséré le CD virtuel des <strong>Additions Invité</strong> (Guest Additions) depuis le menu de VirtualBox, puis nous l&#8217;avons monté et installé en ligne de commande :</p>
@@ -731,10 +731,10 @@ pre.rouge .gs {
 </div>
 </div>
 <div class="paragraph">
-<p>man mount <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p>man 8 mount <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>Un redémarrage a permis d&#8217;activer la redimension dynamique de la fenêtre.</p>
+<p>Un redémarrage a permis d&#8217;activer le redimensionnement dynamique de la fenêtre.</p>
 </div>
 </div>
 </div>
@@ -758,23 +758,24 @@ pre.rouge .gs {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Que signifie "64-bit" ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cela désigne l&#8217;architecture du processeur capable de traiter des données par blocs de 64 bits. Cela permet notamment de gérer plus de 4 Go de mémoire vive (RAM), contrairement au 32-bit.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cela désigne l&#8217;architecture du processeur capable de traiter des données par blocs de 64 bits <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>. C&#8217;est l&#8217;architecture la plus courante pour les systèmes modernes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configuration réseau par défaut ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Par défaut, VirtualBox utilise le mode <strong>NAT</strong> (Network Address Translation).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Par défaut, VirtualBox émule un adaptateur réseau ethernet <code>Intel PRO/1000 MT Desktop</code> avec un cable virtuel connecté.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pourquoi 2048 Mo de RAM ? Et avec 512 Mo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2048 Mo permettent de faire tourner confortablement l&#8217;environnement graphique MATE. Avec seulement 512 Mo, le système utiliserait massivement la partition d&#8217;échange (Swap), rendant la machine extrêmement lente, et l&#8217;interface graphique pourrait même refuser de se lancer par manque de mémoire.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2048 Mo permettent de faire tourner confortablement l&#8217;installation ainsi que l&#8217;environnement graphique MATE.<br>
+Avec seulement 512 Mo, le système utiliserait massivement la partition d&#8217;échange (Swap), rendant la machine extrêmement lente, et l&#8217;interface graphique pourrait même refuser de se lancer par manque de mémoire.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mode réseau par défaut ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la machine hôte.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la connexion de la machine hôte.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adresse IP de la VM ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup><br>
 L&#8217;adresse IP est <code>10.0.2.15</code>.</p></td>
 </tr>
 <tr>
@@ -808,7 +809,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l&#8217;interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur mandataire (Proxy) ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur mandataire (proxy) ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est un serveur qui agit comme intermédiaire entre les requêtes d&#8217;un client (notre VM) et un autre serveur (Internet). Il peut filtrer, mettre en cache ou sécuriser les connexions.</p></td>
 </tr>
 <tr>
@@ -823,7 +824,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Test de connexion SSH ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Commande : <code>ssh user@10.0.2.15</code>.<br>
 <strong>Problème rencontré</strong> : La connexion échoue ("Timeout").<br>
-<strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox bloque les connexions entrantes depuis l&#8217;hôte vers la VM. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.</p></td>
+<strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox crée un réseau séparé de celui de l&#8217;hôte. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.</p></td>
 </tr>
 </tbody>
 </table>
@@ -833,35 +834,35 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code>   <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>  ou <code>id user</code>  <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>.</p>
+<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> ou <code>id user</code> <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Différence entre <code>su</code> et <code>sudo</code></strong> :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>su</code>   <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <strong>l&#8217;utilisateur cible</strong>.</p>
+<p><code>su</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.</p>
 </li>
 <li>
-<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <strong>l&#8217;utilisateur courant</strong>.</p>
+<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Version du noyau Linux</strong> : <code>uname -r</code>  <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> : 6.12.73+deb13-amd64</p>
+<p><strong>Version du noyau Linux</strong> : <code>uname -r</code> <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup> : <code>6.12.73+deb13-amd64</code></p>
 </li>
 <li>
 <p><strong>Utilité des suppléments invités</strong> : Ils optimisent la VM. Deux raisons de les installer :</p>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Permettre le redimensionnement dynamique de la fenêtre (ajustement automatique de la résolution).</p>
 </li>
 <li>
 <p>Activer le presse-papiers partagé entre la machine hôte et la VM.</p>
 </li>
-</ol>
+</ul>
 </div>
 </li>
 <li>
@@ -876,12 +877,13 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <h2 id="_à_propos_de_la_distribution_debian_question_4_2">3. À propos de la distribution Debian (Question 4.2)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle Debian</a>.</p>
+<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).</p>
+<p><strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
+<a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">What is the Debian Project?</a></p>
 </li>
 <li>
 <p><strong>Durées de prise en charge</strong> :</p>
@@ -891,31 +893,31 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <p><em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).</p>
 </li>
 <li>
-<p><em>LTS (Long Term Support)</em> : 5 ans au total.</p>
+<p><em>LTS (Long Term Support)</em> : 5 ans au total. <a href="https://wiki.debian.org/LTS">Debian LTS</a></p>
 </li>
 <li>
-<p><em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian).</p>
+<p><em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian). <a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable.</p>
+<p><strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
 </li>
 <li>
-<p><strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <strong>Stable</strong>, <strong>Testing</strong> (en test), et <strong>Unstable</strong> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>.</p>
+<p><strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
 </li>
 <li>
-<p><strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex: Bullseye, Bookworm, Trixie).</p>
+<p><strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie). <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a></p>
 </li>
 <li>
-<p><strong>Architectures de Trixie (Debian 13)</strong> : La liste exacte peut varier d&#8217;ici sa sortie officielle, mais Debian prend historiquement en charge 9 architectures officielles (amd64, arm64, armel, armhf, i386, mips64el, mipsel, ppc64el, s390x).</p>
+<p><strong>Architectures de Trixie (Debian 13)</strong> : La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>. <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a></p>
 </li>
 <li>
-<p><strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé en juin 1996.</p>
+<p><strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996. <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a></p>
 </li>
 <li>
-<p><strong>Dernier nom de code annoncé</strong> : <em>(À l&#8217;heure actuelle, la version 14 est <code>Forky</code> et la version 15 sera <code>Mac</code>). Forky a été annoncé pour faire suite à Trixie.</em></p>
+<p><strong>Dernier nom de code annoncé</strong> : La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>. <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
 </li>
 </ol>
 </div>
@@ -955,12 +957,12 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence <code>pkgsel/include</code> et <code>tasksel</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex: <code>git</code>, <code>curl</code>).<br>
- <code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex: <code>mate-desktop</code> ou <code>web-server</code>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex. : <code>git</code>, <code>curl</code>).<br>
+<code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex. : <code>mate-desktop</code> ou <code>web-server</code>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sécurité du preseed</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Oui, le fichier preseed contient souvent des informations sensibles, comme le mot de passe <code>root</code> (en clair ou haché). En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), ou en restreignant drastiquement les droits de lecture du fichier physique.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui, le fichier preseed contient les mots de passe de <code>root</code> et de <code>user</code> en clair. En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), en restreignant drastiquement les droits de lecture du fichier physique ou en écrivant le hash uniquement.</p></td>
 </tr>
 </tbody>
 </table>
@@ -988,23 +990,17 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 </div>
 <div class="paragraph">
 <p><strong>Ajout de l&#8217;utilisateur user dans root :</strong>
-Nous avons modifié</p>
+Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur pour y rajouter <code>sudo</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">d-i passwd/user-default-groups string audio cdrom video</code></pre>
+<pre class="rouge highlight"><code data-lang="diff"><span class="gd">-d-i passwd/user-default-groups string audio cdrom video
+</span><span class="gi">+d-i passwd/user-default-groups string audio cdrom video sudo</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Pour rajouter sudo</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">d-i passwd/user-default-groups string audio cdrom video sudo</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>(Nous avons ensuite régénéré l&#8217;ISO et l&#8217;installation s&#8217;est déroulée de manière totalement transparente jusqu&#8217;au redémarrage).</em></p>
+<p>ajouter conclusion de la semaine 1
+<a href="#semaine10.adoc">#semain10</a></p>
 </div>
 </div>
 </div>
@@ -1013,9 +1009,10 @@ Nous avons modifié</p>
 <h2 id="_étude_des_applications_clientes_semaine_10">5. Étude des applications clientes (Semaine 10)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_configuration_globale_de_git">5.1. Configuration globale de git</h3>
+<h3 id="_configuration_globale_de_git">5.1. Configuration globale de Git</h3>
 <div class="paragraph">
-<p><code>git config --global</code>  <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup>   permet de definir des varible pour l&#8217;ordinateur qui sont utiliser lors des commit</p>
+<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
+Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaque projet. Si l&#8217;email est différent que celui du compte, les commits ne seront pas associés au profil.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1034,33 +1031,33 @@ Nous avons modifié</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">git est l&#8217;outil de controle de version, alors que GitHub/GitLab/Forgejo sont des forge permettant de collaborer et de stoker les depot git en ligne.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers de votre projet, ainsi que pour l&#8217;ensemble de l&#8217;historique des modifications apportées à ces fichiers. Elle sont stocker dans le .git</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre un commit, une branche et un tag ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">commit: c&#8217;est un paquet qui contient les difference de chaque fichier par rapport au commit precedent<br>
-branche: liste de commit<br>
-tag: etiquette coller sur un commit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.<br>
+Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).<br>
+Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">un depot accessible par le reseau via internet par exemple.<br>
-<code>git remote</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise).<br>
+La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre git pull et git fetch ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git fetch</code>: recupere du depot distant vers le depot local<br>
-<code>git pull</code>: recupere du depot distant et bascule a la branche branche actuel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).<br>
+<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour git (Question 2)</h3>
+<h3 id="_protocoles_réseau_pour_git_question_2">5.3. Protocoles réseau pour Git (Question 2)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1078,39 +1075,42 @@ tag: etiquette coller sur un commit</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>protocole local sans port<br></p>
+<p>Protocole Local (accès au système de fichiers sans port)</p>
 </li>
 <li>
-<p>protocole git port 9418<br></p>
+<p>Protocole Git</p>
 </li>
 <li>
-<p>protocole http(s) (mode intelligent et idiot) port 80 ou 443<br></p>
+<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup></p>
 </li>
 <li>
-<p>protocole ssh <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
+<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup></p>
 </li>
 </ul>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_10">
-<a href="#_footnoteref_10">10</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Git book - The Protocols</a>
+<div class="footnote" id="_footnotedef_11">
+<a href="#_footnoteref_11">11</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
+</div>
+<div class="footnote" id="_footnotedef_12">
+<a href="#_footnoteref_12">12</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
 </div>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">le protocole git fonctionne sur le port 9418, le http sur 80, le https sur 443 et ssh sur 22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole Git fonctionne sur le port <code>9418</code>, HTTP sur le port <code>80</code>, HTTPS sur <code>443</code> et SSH sur le port <code>22</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">il faut générer une clé SSH sur l&#8217;ordinateur <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code> puis l&#8217;ajouter sur le compte de la forge.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de git (Question 3)</h3>
+<h3 id="_manipulation_pratique_de_git_question_3">5.4. Manipulation pratique de Git (Question 3)</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1125,66 +1125,88 @@ tag: etiquette coller sur un commit</p></td>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git init</code> créé un dossier .git dans le repertoire actuel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git add fichier1
-git commit <span class="nt">-m</span> <span class="s2">"commit 1"</span>
+<pre class="rouge highlight"><code data-lang="bash"><span class="nb">touch </span>fichier1 fichier2 fichier3 fichier4
+git add fichier1
+git commit <span class="nt">-m</span> <span class="s2">"ajout du premier fichier"</span>
 git add fichier2
-git commit <span class="nt">-m</span> <span class="s2">"commit 2"</span>
-git add fichier3
-git commit <span class="nt">-m</span> <span class="s2">"commit 3"</span>
+git commit <span class="nt">-m</span> <span class="s2">"ajout du second fichier"</span>
+git add fichier3 fichier4
+git commit <span class="nt">-m</span> <span class="s2">"ajout du fichier 3 et 4"</span>
 git log</code></pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="image/log.png" alt="resultat du git log" width="100%">
+<img src="img/git-log-3commits.png" alt="Résultat du git log" width="100%">
 </div>
+</div>
+<div class="paragraph">
+<p>Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
 <div class="content">
-<img src="image/branche.png" alt="Git branche" width="100%">
+<img src="img/git-branch-merge.png" alt="Git branche" width="100%">
 </div>
+</div>
+<div class="paragraph">
+<p>Une branche est une chaine de commits parallèle aux autres branches (ici <code>master</code> et <code>exemple</code>).<br>
+La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
 <div class="content">
-<img src="image/conflit_terminal.png" alt="conflit terminal" width="100%">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="image/conflit_nano.png" alt="conflit nano" width="40%">
+<img src="img/git-conflit-terminal.png" alt="Conflit terminal" width="100%">
 </div>
 </div>
 <div class="paragraph">
-<p>quand 2 branche modifie dans 2 commit different le meme fichier</p>
+<p>Un conflit survient lorsque deux branches modifient le même fichier de façon différente.<br>
+Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit).<br>
+Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="plaintext">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+conflit 1
+=======
+conflit 2
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; conflit</code></pre>
+</div>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
-<img src="image/diff_terminal.png" alt="diff terminal" width="40%">
+<pre class="rouge highlight"><code data-lang="diff"><span class="gh">diff --git a/texte b/texte
+index 9d600a1..7255def 100644
+</span><span class="gd">--- a/texte
+</span><span class="gi">+++ b/texte
+</span><span class="p">@@ -1 +1 @@</span>
+<span class="gd">-dans une branche
+</span><span class="gi">+conflit 1</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>les lignes avec un <code>-</code> sont des lignes supprimer et les ligne avec un <code>+</code> sont les lignes ajouter, le reste sont les lignes autour du code modifié</p>
+<p>Les premières lignes indiquent les fichiers comparés (<code>a/texte</code> et <code>b/texte</code>) et les méta-données de la comparaison. (<code>index 9d600a1..7255def</code>)<br>
+Les lignes précédées d&#8217;un <code>-</code> en rouge sont des suppressions et celles avec un <code>+</code> en vert sont des ajouts.<br>
+Les autres lignes affichées servent de contexte autour du code modifié.<br></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>les expressions de selection de fichiers ecrit dans le .gitignore ne sont pas pris en compte par git.</p>
+<p>C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1202,36 +1224,39 @@ git log</code></pre>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">usermod Manpage</a>
+<a href="#_footnoteref_1">1</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">Page de manuel usermod</a>
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">mount Manpage</a>
+<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
 </div>
 <div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">IP manpage</a>
+<a href="#_footnoteref_3">3</a>. <a href="https://fr.wikipedia.org/wiki/Processeur_64_bits">Wikipedia Processeur 64 bits</a>
 </div>
 <div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">group manpage</a>
+<a href="#_footnoteref_4">4</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel IP</a>
 </div>
 <div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">id manpage</a>
+<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a>
 </div>
 <div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">su manpage</a>
+<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>
 </div>
 <div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">sudo manpage</a>
+<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a>
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">uname manpage</a>
+<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a>
 </div>
 <div class="footnote" id="_footnotedef_9">
-<a href="#_footnoteref_9">9</a>. <a href="https://git-scm.com/docs/git-config">git config docs</a>
+<a href="#_footnoteref_9">9</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a>
+</div>
+<div class="footnote" id="_footnotedef_10">
+<a href="#_footnoteref_10">10</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-06 18:08:32 +0100
+Last updated 2026-03-10 17:21:25 +0100
 </div>
 </div>
 </body>
