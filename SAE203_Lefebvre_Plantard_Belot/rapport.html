@@ -601,6 +601,9 @@ pre.rouge .gs {
 <li><a href="#_question_2_architecture_et_protocoles_réseau">7. Question 2 : Architecture et protocoles réseau</a></li>
 <li><a href="#_question_3_base_de_données">8. Question 3 : Base de données</a></li>
 <li><a href="#_question_4_gestion_du_service_systemd">9. Question 4 : Gestion du service systemd</a></li>
+<li><a href="#_question_5_sécurité">10. Question 5 : Sécurité</a></li>
+<li><a href="#_question_6_tests_dutilisation_approfondis">11. Question 6 : Tests d&#8217;utilisation approfondis</a></li>
+<li><a href="#_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">12. Question 7 : Intégration et livraison continues (Pour aller plus loin)</a></li>
 </ul>
 </div>
 </div>
@@ -1402,7 +1405,8 @@ wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/rel
 <div class="paragraph">
 <p><strong>Réponse et Explication :</strong>
 Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés.
-Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure (si l&#8217;application est compromise, tout le serveur l&#8217;est). Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code> ou <code>forgejo</code>) et utilise un port non privilégié comme le 3000.</p>
+Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure (si l&#8217;application est compromise, tout le serveur l&#8217;est).
+Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code> ou <code>forgejo</code>) et utilise un port non privilégié comme le 3000.</p>
 </div>
 <div class="paragraph">
 <p>En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui, lui, a les droits d&#8217;écouter le port 80 ou 443 et qui redirige le trafic de manière sécurisée vers le port 3000 local.</p>
@@ -1442,141 +1446,116 @@ Faire tourner une application web complexe comme Forgejo avec les droits <code>r
 * <strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.
 * <strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :
   <strong> <code>[Unit]</code> : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu&#8217;après le démarrage du réseau").
-    </strong> <code>[Service]</code> : Définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, le répertoire de travail, etc.).
-      <strong> <code>[Install]</code> : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement <code>multi-user.target</code>).
-      * </strong>Commandes systemctl<strong> :
-        </strong> <code>start</code> : Lance le service immédiatement.
-          <strong> <code>enable</code> : Configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine.
-            </strong> <code>restart</code> : Arrête puis redémarre le service (utile après un changement de configuration).</p>
+  </strong> <code>[Service]</code> : Définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, le répertoire de travail, etc.).
+  <strong> <code>[Install]</code> : Définit à quel moment de la séquence de démarrage le service doit être lancé (généralement <code>multi-user.target</code>).
+* </strong>Commandes systemctl<strong> :
+  </strong> <code>start</code> : Lance le service immédiatement.
+  <strong> <code>enable</code> : Configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine.
+  </strong> <code>restart</code> : Arrête puis redémarre le service (utile après un changement de configuration).</p>
 </div>
-<div class="literalblock">
+<div class="paragraph">
+<p><strong>Commandes utiles :</strong></p>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre>**Commandes utiles :**
-[source,bash]
-----
-# Gérer le service
-sudo systemctl enable forgejo
-sudo systemctl start forgejo
-sudo systemctl restart forgejo</pre>
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Gérer le service</span>
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>forgejo
+<span class="nb">sudo </span>systemctl start forgejo
+<span class="nb">sudo </span>systemctl restart forgejo
+
+<span class="c"># Visualiser les logs en direct</span>
+<span class="nb">sudo </span>journalctl <span class="nt">-u</span> forgejo <span class="nt">-f</span></code></pre>
 </div>
 </div>
-<div class="literalblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_5_sécurité">10. Question 5 : Sécurité</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Examinez les permissions de <code>/etc/forgejo</code> et <code>app.ini</code>. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire.
+* <strong>Serveur SSH</strong> : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).
+* <strong>Sécurité sur Internet</strong> : Si le serveur était exposé, il faudrait impérativement :
+  . Configurer le HTTPS (certificats SSL/TLS via Let&#8217;s Encrypt).
+  . Activer un pare-feu (<code>ufw</code>) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
+  . Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commandes utiles :</strong></p>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre># Visualiser les logs en direct
-sudo journalctl -u forgejo -f
-----</pre>
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Restreindre les permissions</span>
+<span class="nb">sudo chmod </span>750 /etc/forgejo
+<span class="nb">sudo chmod </span>640 /etc/forgejo/app.ini
+<span class="nb">sudo chown</span> <span class="nt">-R</span> forgejo:forgejo /etc/forgejo</code></pre>
 </div>
 </div>
-<div class="literalblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_6_tests_dutilisation_approfondis">11. Question 6 : Tests d&#8217;utilisation approfondis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>Privé vs Public</strong> : Un projet public est lisible (et clonable) par n&#8217;importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d&#8217;être explicitement invité par le propriétaire.
+* <strong>Issues et Commits</strong> : Forgejo permet de fermer automatiquement un ticket (issue) lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>).
+* <strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commandes utiles :</strong></p>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre>== Question 5 : Sécurité</pre>
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Créer sa clé SSH (si non existante)</span>
+ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"mon.email@exemple.com"</span>
+
+<span class="c"># 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)</span>
+git clone ssh://git@localhost:2222/utilisateur/projet.git
+
+<span class="c"># 3. Lier un commit à l'issue numéro 3</span>
+git commit <span class="nt">-m</span> <span class="s2">"Correction du bug d'affichage. Fixes #3"</span>
+git push</code></pre>
 </div>
 </div>
-<div class="literalblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_question_7_intégration_et_livraison_continues_pour_aller_plus_loin">12. Question 7 : Intégration et livraison continues (Pour aller plus loin)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question :</strong> Qu&#8217;est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</p>
+</div>
+<div class="paragraph">
+<p><strong>Réponse et Explication :</strong>
+* <strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application.
+* <strong>CD (Continuous Delivery/Deployment)</strong> : Déploiement automatisé de l&#8217;application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
+* <strong>Avantages</strong> : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.</p>
+</div>
+<div class="paragraph">
+<p><strong>Exemple d&#8217;un fichier Workflow Forgejo Actions (<code>.forgejo/workflows/build.yml</code>) :</strong></p>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre>**Question :** Examinez les permissions de `/etc/forgejo` et `app.ini`. Pourquoi sont-elles importantes ? Le serveur SSH écoute sur quel port ? Mesures pour un accès Internet ?</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Réponse et Explication :**
-* **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
-* **Serveur SSH** : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
-* **Sécurité sur Internet** : Si le serveur était exposé, il faudrait impérativement :
-  . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
-    . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
-      . Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Commandes utiles :**
-[source,bash]
-----
-# Restreindre les permissions
-sudo chmod 750 /etc/forgejo
-sudo chmod 640 /etc/forgejo/app.ini
-sudo chown -R forgejo:forgejo /etc/forgejo
-----</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>== Question 6 : Tests d'utilisation approfondis</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Question :** Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Réponse et Explication :**
-* **Privé vs Public** : Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité par le propriétaire.
-* **Issues et Commits** : Forgejo permet de fermer automatiquement un ticket (issue) lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`).
-* **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push`.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Commandes utiles :**
-[source,bash]
-----
-# 1. Créer sa clé SSH (si non existante)
-ssh-keygen -t ed25519 -C "mon.email@exemple.com"</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
-git clone ssh://git@localhost:2222/utilisateur/projet.git</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># 3. Lier un commit à l'issue numéro 3
-git commit -m "Correction du bug d'affichage. Fixes #3"
-git push
-----</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>== Question 7 : Intégration et livraison continues (Pour aller plus loin)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Question :** Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Réponse et Explication :**
-* **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application.
-* **CD (Continuous Delivery/Deployment)** : Déploiement automatisé de l'application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
-* **Avantages** : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>**Exemple d'un fichier Workflow Forgejo Actions (`.forgejo/workflows/build.yml`) :**
-[source,yaml]
-----
-name: Compilation AsciiDoc
-on: [push]
-jobs:
-  build:
-      runs-on: ubuntu-latest
-          steps:
-                - name: Récupération du code
-                        uses: actions/checkout@v3
-                              - name: Installation Asciidoctor
-                                      run: sudo apt-get install -y asciidoctor
-                                            - name: Compilation HTML
-                                                    run: asciidoctor rapport.adoc
-                                                    ----</pre>
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s">Compilation AsciiDoc</span>
+<span class="na">on</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">push</span><span class="pi">]</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Récupération du code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Installation Asciidoctor</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">sudo apt-get install -y asciidoctor</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Compilation HTML</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="s">asciidoctor rapport.adoc</span></code></pre>
 </div>
 </div>
 </div>
