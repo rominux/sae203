@@ -987,6 +987,7 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </span><span class="gi">+d-i passwd/user-default-groups string audio cdrom video sudo</span></code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -1371,6 +1372,7 @@ ____</code></pre>
 </tr>
 </tbody>
 </table>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -1403,27 +1405,27 @@ Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaq
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne <sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code> <sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre un commit, une branche et un tag ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.<br>
-Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).<br>
+Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits) <sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>.<br>
 Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise).<br>
-La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.</p></td>
+La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet <sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence entre git pull et git fetch ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).<br>
-<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.</p></td>
+<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle <sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1453,30 +1455,30 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 <p>Protocole Git</p>
 </li>
 <li>
-<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
+<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup></p>
 </li>
 <li>
-<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup></p>
+<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup></p>
 </li>
 </ul>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_22">
-<a href="#_footnoteref_22">22</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
+<div class="footnote" id="_footnotedef_27">
+<a href="#_footnoteref_27">27</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
 </div>
-<div class="footnote" id="_footnotedef_23">
-<a href="#_footnoteref_23">23</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
+<div class="footnote" id="_footnotedef_28">
+<a href="#_footnoteref_28">28</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles">Livre Git - Les Protocoles</a>
 </div>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole Git fonctionne sur le port <code>9418</code>, HTTP sur le port <code>80</code>, HTTPS sur <code>443</code> et SSH sur le port <code>22</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le protocole Git fonctionne sur le port <code>9418</code>, HTTP sur le port <code>80</code>, HTTPS sur <code>443</code> et SSH sur le port <code>22</code> <sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle <sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1497,7 +1499,7 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel <sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Ajoutez plusieurs fichiers, faites au moins 3 commits. Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
@@ -1519,7 +1521,13 @@ git log</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.</p>
+<p>Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit <sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_32">
+<a href="#_footnoteref_32">32</a>. <a href="https://git-scm.com/docs/git-log">Documentation Git - git log</a>
+</div>
 </div></div></td>
 </tr>
 <tr>
@@ -1531,7 +1539,13 @@ git log</code></pre>
 </div>
 <div class="paragraph">
 <p>Une branche est une chaine de commits parallèle aux autres branches (ici <code>master</code> et <code>exemple</code>).<br>
-La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.</p>
+La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible <sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup>.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_33">
+<a href="#_footnoteref_33">33</a>. <a href="https://git-scm.com/docs/git-merge">Documentation Git - git merge</a>
+</div>
 </div></div></td>
 </tr>
 <tr>
@@ -1543,7 +1557,7 @@ La fusion (merge) permet de combiner les changements d&#8217;une branche dans un
 </div>
 <div class="paragraph">
 <p>Un conflit survient lorsque deux branches modifient le même fichier de façon différente.<br>
-Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit).<br>
+Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit) <sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>.<br>
 Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.</p>
 </div>
 <div class="listingblock">
@@ -1553,6 +1567,12 @@ conflit 1
 =======
 conflit 2
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; conflit</code></pre>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_34">
+<a href="#_footnoteref_34">34</a>. <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion">Documentation Git - Résolution de conflits</a>
 </div>
 </div></div></td>
 </tr>
@@ -1578,12 +1598,18 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.</p>
+<p>C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git <sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="plaintext">*.class
 *.jar</code></pre>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_35">
+<a href="#_footnoteref_35">35</a>. <a href="https://git-scm.com/docs/gitignore">Documentation Git - gitignore</a>
 </div>
 </div></div></td>
 </tr>
@@ -1606,23 +1632,40 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">il faut faire <code>git clone <a href="mailto:git@gitlab-ssh.univ-lille.fr">git@gitlab-ssh.univ-lille.fr</a>:notthedreamteam/exemple-sae203.git</code> <sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Voici la suite de commandes utilisées pour la branche de chaque membre <sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="plaintext">git switch --create emilien
+echo "encore un fichier" &gt; encore_un_fichier
+git add encore_un_fichier
+git commit -m "ajoute encore_un_fichier"
+git push --set-upstream origin emilien</code></pre>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_37">
+<a href="#_footnoteref_37">37</a>. <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les branches</a>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">On a fait des merge requests dans gitlab pour fusionner les branches <sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>. Nous avons pas eu de conflits car nous avons pas modifié les meme fichiers.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Une pull/merge request sert a demander la fusion d&#8217;une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation <sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Testez la commande git blame. À quoi sert-elle ?</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La commande <code>git blame &lt;nom_du_fichier&gt;</code> permet d&#8217;afficher le fichier ligne par ligne en indiquant pour chaque ligne l&#8217;auteur, la date et le hash du commit qui l&#8217;a modifiée pour la dernière fois. C&#8217;est très utile pour retrouver l&#8217;origine d&#8217;un bout de code ou d&#8217;un bug <sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1633,11 +1676,11 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <ul>
 <li>
 <p><strong>Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+C&#8217;est un visualiseur graphique historique pour les dépôts Git. Il permet d&#8217;explorer l&#8217;historique des commits, l&#8217;arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande <code>gitk</code> dans le terminal depuis un dépôt Git <sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+C&#8217;est une interface graphique orientée vers la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d&#8217;écrire le message de commit et de valider. Il se lance en tapant <code>git gui</code> dans le terminal <sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup>.</p>
 </li>
 </ul>
 </div>
@@ -1656,15 +1699,15 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <ul>
 <li>
 <p><strong>Pourquoi avez-vous choisi ce logiciel ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+Nous avons choisi <strong>Ungit</strong> pour son approche extrêmement visuelle. Il représente l&#8217;historique de Git sous forme de nœuds interactifs et d&#8217;animations très intuitives, ce qui rend la compréhension des branches beaucoup plus claire que les vieux clients natifs <sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Comment l&#8217;avez-vous installé ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+Ungit est un paquet Node.js. Après avoir installé Node.js et <code>npm</code> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
 </li>
 <li>
 <p><strong>Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
-<em>[Espace pour répondre : fonctionnalités, avantages, inconvénients]</em></p>
+Par rapport à <code>gitk</code> ou <code>git-gui</code>, l&#8217;interface d&#8217;Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.</p>
 </li>
 </ul>
 </div>
@@ -1687,17 +1730,17 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Visualiser l&#8217;historique des commits</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git log</code> ou <code>git log --oneline --graph</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Il suffit d&#8217;ouvrir la page web et de scroller pour voir l&#8217;arbre interactif des nœuds colorés.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer une nouvelle branche</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git branch &lt;nom&gt;</code> ou <code>git switch -c &lt;nom&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cliquer sur le nœud du commit actuel, taper le nom de la branche dans le champ de texte et cliquer sur le bouton "+ Branch".</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comparer deux versions d&#8217;un fichier (diff)</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git diff</code> ou <code>git diff &lt;commit1&gt; &lt;commit2&gt;</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
 <div class="content">
 <img src="img/diff.png" alt="Git diff dans ungit" width="100%">
@@ -1706,8 +1749,8 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Résoudre un conflit de fusion</strong></p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ouvrir le fichier dans un éditeur (nano/vim), effacer les balises (&lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======), garder le bon code, puis faire <code>git add</code> et <code>git commit</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ungit signale le conflit en rouge ("Resolve conflicts"). On peut ouvrir un outil de diff visuel ou marquer le fichier comme résolu directement depuis l&#8217;interface après modification.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1715,14 +1758,15 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <ul>
 <li>
 <p><strong>Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+Les opérations courantes, basiques et répétitives (comme le <code>git add</code>, la création de branche, un <code>git commit</code> simple ou un <code>git push</code>) sont beaucoup plus rapides à taper en ligne de commande. En revanche, comprendre l&#8217;arborescence des branches, visualiser un historique complexe et repérer les modifications dans plusieurs fichiers en même temps est bien plus clair avec l&#8217;interface graphique.</p>
 </li>
 <li>
 <p><strong>Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
-<em>[Espace pour répondre]</em></p>
+Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La ligne de commande est privilégiée pour la rapidité des actions quotidiennes et pour l&#8217;automatisation de scripts. L&#8217;interface graphique (Ungit, GitKraken, ou un outil intégré à l&#8217;IDE comme VS Code) est en revanche indispensable pour faire des revues de code, comprendre l&#8217;historique d&#8217;un projet avant une fusion (merge), et résoudre des conflits complexes avec moins de risque d&#8217;erreur.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -1743,10 +1787,10 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue <sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>.</p>
+<p><strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup>.</p>
 </li>
 <li>
-<p><strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine <sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.</p>
+<p><strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine <sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Histoire</strong> : L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l&#8217;association Codeberg) a forké Gitea pour créer <strong>Forgejo</strong> (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.</p>
@@ -1776,7 +1820,7 @@ wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/rel
 <p><strong>Réponse et Explication :</strong></p>
 </div>
 <div class="paragraph">
-<p>Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés <sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup>.
+<p>Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés <sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup>.
 Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure (si l&#8217;application est compromise, tout le serveur l&#8217;est).
 Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code> ou <code>forgejo</code>) et utilise un port non privilégié comme le 3000.</p>
 </div>
@@ -1795,7 +1839,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo) <sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup>.</p>
+<p><strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo) <sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Emplacement et Propriétaire</strong> : En général, le fichier se trouve dans le répertoire de travail de l&#8217;application, souvent dans <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier <strong>doit</strong> être l&#8217;utilisateur système qui exécute le service Forgejo (ex: <code>git</code> ou <code>forgejo</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
@@ -1823,7 +1867,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash <sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>.</p>
+<p><strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash <sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :</p>
@@ -1885,7 +1929,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire <sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>.</p>
+<p><strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire <sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Serveur SSH</strong> : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).</p>
@@ -1937,7 +1981,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Issues et Commits</strong> : Forgejo permet de fermer automatiquement un ticket (issue) lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>).</p>
 </li>
 <li>
-<p><strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code> <sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>.</p>
+<p><strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code> <sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup>.</p>
 </li>
 </ul>
 </div>
@@ -1969,7 +2013,7 @@ git push</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application <sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.</p>
+<p><strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application <sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>CD (Continuous Delivery/Deployment)</strong> : Déploiement automatisé de l&#8217;application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.</p>
@@ -2067,34 +2111,79 @@ git push</code></pre>
 <div class="footnote" id="_footnotedef_21">
 <a href="#_footnoteref_21">21</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
 </div>
+<div class="footnote" id="_footnotedef_22">
+<a href="#_footnoteref_22">22</a>. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation officielle Git - Dépôts distants</a>
+</div>
+<div class="footnote" id="_footnotedef_23">
+<a href="#_footnoteref_23">23</a>. <a href="https://git-scm.com/book/fr/v2/D%c3%a9marrage-rapide-%c3%80-propos-de-la-gestion-de-version">Documentation Git - Le répertoire Git</a>
+</div>
 <div class="footnote" id="_footnotedef_24">
-<a href="#_footnoteref_24">24</a>. <a href="https://forgejo.org/faq/">FAQ officielle de Forgejo</a>
+<a href="#_footnoteref_24">24</a>. <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les Branches</a>
 </div>
 <div class="footnote" id="_footnotedef_25">
-<a href="#_footnoteref_25">25</a>. <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">Wikipédia - Fork (développement logiciel)</a>
+<a href="#_footnoteref_25">25</a>. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation Git - Commandes Remote</a>
 </div>
 <div class="footnote" id="_footnotedef_26">
-<a href="#_footnoteref_26">26</a>. <a href="https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html">W3C - Architecture des ports privilégiés sous Linux</a>
-</div>
-<div class="footnote" id="_footnotedef_27">
-<a href="#_footnoteref_27">27</a>. <a href="https://www.sqlite.org/whentouse.html">Documentation officielle SQLite</a>
-</div>
-<div class="footnote" id="_footnotedef_28">
-<a href="#_footnoteref_28">28</a>. <a href="https://wiki.debian.org/fr/systemd">Wiki Debian - systemd</a>
+<a href="#_footnoteref_26">26</a>. <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants">Documentation Git - Fetch vs Pull</a>
 </div>
 <div class="footnote" id="_footnotedef_29">
-<a href="#_footnoteref_29">29</a>. <a href="https://wiki.debian.org/Permissions">Wiki Debian - Permissions des fichiers</a>
+<a href="#_footnoteref_29">29</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles">Documentation Git - Les protocoles réseau</a>
 </div>
 <div class="footnote" id="_footnotedef_30">
-<a href="#_footnoteref_30">30</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH">Documentation Git - Génération des clés SSH</a>
+<a href="#_footnoteref_30">30</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH">Documentation Git - Génération clé SSH</a>
 </div>
 <div class="footnote" id="_footnotedef_31">
-<a href="#_footnoteref_31">31</a>. <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide sur la CI/CD</a>
+<a href="#_footnoteref_31">31</a>. <a href="https://git-scm.com/docs/git-init">Documentation Git - git init</a>
+</div>
+<div class="footnote" id="_footnotedef_36">
+<a href="#_footnoteref_36">36</a>. <a href="https://docs.gitlab.com/ee/user/project/repository/">Documentation GitLab - Clonage d&#8217;un dépôt</a>
+</div>
+<div class="footnote" id="_footnotedef_38">
+<a href="#_footnoteref_38">38</a>. <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a>
+</div>
+<div class="footnote" id="_footnotedef_39">
+<a href="#_footnoteref_39">39</a>. <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a>
+</div>
+<div class="footnote" id="_footnotedef_40">
+<a href="#_footnoteref_40">40</a>. <a href="https://git-scm.com/docs/git-blame">Documentation officielle Git - git blame</a>
+</div>
+<div class="footnote" id="_footnotedef_41">
+<a href="#_footnoteref_41">41</a>. <a href="https://git-scm.com/docs/gitk">Documentation officielle Git - gitk</a>
+</div>
+<div class="footnote" id="_footnotedef_42">
+<a href="#_footnoteref_42">42</a>. <a href="https://git-scm.com/docs/git-gui">Documentation officielle Git - git-gui</a>
+</div>
+<div class="footnote" id="_footnotedef_43">
+<a href="#_footnoteref_43">43</a>. <a href="https://github.com/FredrikNoren/ungit">Dépôt officiel GitHub de Ungit</a>
+</div>
+<div class="footnote" id="_footnotedef_44">
+<a href="#_footnoteref_44">44</a>. <a href="https://forgejo.org/faq/">FAQ officielle de Forgejo</a>
+</div>
+<div class="footnote" id="_footnotedef_45">
+<a href="#_footnoteref_45">45</a>. <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">Wikipédia - Fork (développement logiciel)</a>
+</div>
+<div class="footnote" id="_footnotedef_46">
+<a href="#_footnoteref_46">46</a>. <a href="https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html">W3C - Architecture des ports privilégiés sous Linux</a>
+</div>
+<div class="footnote" id="_footnotedef_47">
+<a href="#_footnoteref_47">47</a>. <a href="https://www.sqlite.org/whentouse.html">Documentation officielle SQLite</a>
+</div>
+<div class="footnote" id="_footnotedef_48">
+<a href="#_footnoteref_48">48</a>. <a href="https://wiki.debian.org/fr/systemd">Wiki Debian - systemd</a>
+</div>
+<div class="footnote" id="_footnotedef_49">
+<a href="#_footnoteref_49">49</a>. <a href="https://wiki.debian.org/Permissions">Wiki Debian - Permissions des fichiers</a>
+</div>
+<div class="footnote" id="_footnotedef_50">
+<a href="#_footnoteref_50">50</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH">Documentation Git - Génération des clés SSH</a>
+</div>
+<div class="footnote" id="_footnotedef_51">
+<a href="#_footnoteref_51">51</a>. <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide sur la CI/CD</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-10 23:12:59 +0100
+Last updated 2026-03-17 15:19:37 +0100
 </div>
 </div>
 </body>

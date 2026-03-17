@@ -1,0 +1,6 @@
+https://wiki.debian.org/fr/WebServers
+https://git-scm.com/book/fr/v2/D%c3%a9marrage-rapide-%c3%80-propos-de-la-gestion-de-version
+https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref
+https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles
+
+https://wiki.debian.org/VirtualBox#Installing_the_Guest_Additions_on_a_Debian_VM
