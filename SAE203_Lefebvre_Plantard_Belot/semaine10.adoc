@@ -132,16 +132,24 @@ C'est un fichier texte permettant de lister les motifs des fichiers/dossiers qui
 | Question | Réponse justifiée / Commandes
 
 | **Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.**
-| 
+| il faut faire `git clone git@gitlab-ssh.univ-lille.fr:notthedreamteam/exemple-sae203.git`
 
 | **Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.**
-| 
+a| 
+[source,plaintext]
+----
+git switch --create emilien
+echo "encore un fichier" > encore_un_fichier
+git add encore_un_fichier
+git commit -m "ajoute encore_un_fichier"
+git push --set-upstream origin emilien
+----
 
 | **Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.**
-| 
+| On a fait des merge requests dans gitlab pour fusionner les branches. Nous avons pas eu de conflits car nous avons pas modifié les meme fichiers.
 
 | **Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
-| 
+| Une pull/merge request sert a fusionner une branche source vers une branche destination.
 
 | **Testez la commande git blame. À quoi sert-elle ?**
 | 
