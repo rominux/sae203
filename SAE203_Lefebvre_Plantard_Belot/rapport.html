@@ -590,26 +590,9 @@ pre.rouge .gs {
 </li>
 </ul>
 </li>
-<li><a href="#_semaine_8_découverte_du_format_asciidoc_adoc">2. Semaine 8 : Découverte du format AsciiDoc (.adoc)</a>
+<li><a href="#_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</a>
 <ul class="sectlevel2">
-<li><a href="#_introduction_et_formatage_de_base">2.1. Introduction et Formatage de base</a></li>
-<li><a href="#_exemples_de_listes">2.2. Exemples de Listes</a>
-<ul class="sectlevel3">
-<li><a href="#_listes_à_puces_non_ordonnées">2.2.1. Listes à puces (Non ordonnées)</a></li>
-<li><a href="#_listes_numérotées_ordonnées">2.2.2. Listes numérotées (Ordonnées)</a></li>
-<li><a href="#_liste_de_tâches_checklist">2.2.3. Liste de tâches (Checklist)</a></li>
-</ul>
-</li>
-<li><a href="#_blocs_dinformations_admonitions">2.3. Blocs d&#8217;informations (Admonitions)</a></li>
-<li><a href="#_insertion_de_blocs_de_code">2.4. Insertion de Blocs de Code</a></li>
-<li><a href="#_les_tableaux">2.5. Les Tableaux</a></li>
-<li><a href="#_images_et_liens">2.6. Images et Liens</a>
-<ul class="sectlevel3">
-<li><a href="#_ajouter_des_images">2.6.1. Ajouter des images</a></li>
-<li><a href="#_liens_et_références_croisées">2.6.2. Liens et références croisées</a></li>
-</ul>
-</li>
-<li><a href="#_conclusion_et_citations">2.7. Conclusion et citations</a></li>
+<li><a href="#_étude_comparative_des_formats_à_balisage_léger">2.1. Étude comparative des formats à balisage léger</a></li>
 </ul>
 </li>
 <li><a href="#_semaine_10_étude_des_applications_clientes_git">3. Semaine 10 : Étude des applications clientes (Git)</a>
@@ -806,16 +789,16 @@ pre.rouge .gs {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pourquoi 2048 Mo de RAM ? Et avec 512 Mo ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2048 Mo permettent de faire tourner confortablement l&#8217;installation ainsi que l&#8217;environnement graphique MATE.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2048 Mo permettent de faire tourner confortablement l&#8217;installation ainsi que l&#8217;environnement graphique MATE <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>.<br>
 Avec seulement 512 Mo, le système utiliserait massivement la partition d&#8217;échange (Swap), rendant la machine extrêmement lente, et l&#8217;interface graphique pourrait même refuser de se lancer par manque de mémoire.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mode réseau par défaut ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la connexion de la machine hôte.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la connexion de la machine hôte <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Adresse IP de la VM ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip address</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup><br>
 L&#8217;adresse IP est <code>10.0.2.15</code>.</p></td>
 </tr>
 <tr>
@@ -842,19 +825,19 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Fichier iso bootable ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est une image disque (une copie exacte d&#8217;un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d&#8217;exploitation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est une image disque (une copie exacte d&#8217;un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d&#8217;exploitation <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong><a href="https://wiki.debian.org/MATE">MATE</a> et <a href="https://wiki.debian.org/Gnome">GNOME</a> ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l&#8217;interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l&#8217;interface graphique (fenêtres, icônes, barres des tâches). GNOME est plus lourd et moderne, MATE est un dérivé plus léger <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur mandataire (proxy) ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est un serveur qui agit comme intermédiaire entre les requêtes d&#8217;un client (notre VM) et un autre serveur (Internet). Il peut filtrer, mettre en cache ou sécuriser les connexions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C&#8217;est un serveur qui agit comme intermédiaire entre les requêtes d&#8217;un client (notre VM) et un autre serveur (Internet). Il peut filtrer, mettre en cache ou sécuriser les connexions <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur web ?</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Un logiciel (comme Apache ou Nginx) qui répond aux requêtes HTTP/HTTPS pour distribuer des pages web à des clients (navigateurs).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Un logiciel (comme Apache ou Nginx) qui répond aux requêtes HTTP/HTTPS pour distribuer des pages web à des clients (navigateurs) <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Serveur SSH installé ?</strong></p></td>
@@ -864,7 +847,7 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Test de connexion SSH ?</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Commande : <code>ssh user@10.0.2.15</code>.<br>
 <strong>Problème rencontré</strong> : La connexion échoue ("Timeout").<br>
-<strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox crée un réseau séparé de celui de l&#8217;hôte. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.</p></td>
+<strong>Pourquoi ?</strong> Parce que le mode réseau NAT de VirtualBox crée un réseau séparé de celui de l&#8217;hôte. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne <sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -874,26 +857,26 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> ou <code>id user</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup>.</p>
+<p><strong>Appartenance aux groupes</strong> : Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> <sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup> ou <code>id user</code> <sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Différence entre <code>su</code> et <code>sudo</code></strong> :</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>su</code> <sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.</p>
+<p><code>su</code> <sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup> (substitute user) permet de changer d&#8217;utilisateur (souvent pour devenir <code>root</code>) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.</p>
 </li>
 <li>
-<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.</p>
+<p><code>sudo</code> <sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup> (substitute user do) permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (généralement <code>root</code>), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Version du noyau Linux</strong> : <code>uname -r</code> <sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup> : <code>6.12.73+deb13-amd64</code></p>
+<p><strong>Version du noyau Linux</strong> : <code>uname -r</code> <sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup> : <code>6.12.73+deb13-amd64</code></p>
 </li>
 <li>
-<p><strong>Utilité des suppléments invités</strong> : Ils optimisent la VM. Deux raisons de les installer :</p>
+<p><strong>Utilité des suppléments invités</strong> : Ils optimisent la VM <sup class="footnote">[<a id="_footnoteref_18" class="footnote" href="#_footnotedef_18" title="View footnote.">18</a>]</sup>. Deux raisons de les installer :</p>
 <div class="ulist">
 <ul>
 <li>
@@ -915,49 +898,19 @@ La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur 
 <div class="sect2">
 <h3 id="_à_propos_de_la_distribution_debian_question_4_2">1.3. À propos de la distribution Debian (Question 4.2)</h3>
 <div class="paragraph">
-<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
-<a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">What is the Debian Project?</a></p>
-</li>
-<li>
-<p><strong>Durées de prise en charge</strong> :</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).</p>
-</li>
-<li>
-<p><em>LTS (Long Term Support)</em> : 5 ans au total. <a href="https://wiki.debian.org/LTS">Debian LTS</a></p>
-</li>
-<li>
-<p><em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian). <a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
-</li>
-<li>
-<p><strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
-</li>
-<li>
-<p><strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie). <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a></p>
-</li>
-<li>
-<p><strong>Architectures de Trixie (Debian 13)</strong> : La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>. <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a></p>
-</li>
-<li>
-<p><strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996. <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a></p>
-</li>
-<li>
-<p><strong>Dernier nom de code annoncé</strong> : La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>. <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
-</li>
-</ol>
+<p>Pour répondre à ces questions, nous avons consulté la <a href="https://www.debian.org/doc/">documentation officielle de Debian</a>.
+. <strong>Le Projet Debian et son nom</strong> : C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre. Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
+<a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">What is the Debian Project?</a>
+. <strong>Durées de prise en charge</strong> :
+  * <em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).
+  * <em>LTS (Long Term Support)</em> : 5 ans au total. <a href="https://wiki.debian.org/LTS">Debian LTS</a>
+  * <em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian). <a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a>
+. <strong>Mises à jour de sécurité</strong> : L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a>
+. <strong>Versions activement maintenues</strong> : Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>. <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a>
+. <strong>Origine des noms de code</strong> : Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie). <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a>
+. <strong>Architectures de Trixie (Debian 13)</strong> : La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>. <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a>
+. <strong>Premier nom de code</strong> : <code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996. <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a>
+. <strong>Dernier nom de code annoncé</strong> : La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>. <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -994,11 +947,11 @@ La modification de l&#8217;installation automatisée se fait exclusivement dans 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différence <code>pkgsel/include</code> et <code>tasksel</code></strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex. : <code>git</code>, <code>curl</code>).<br>
-<code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex. : <code>mate-desktop</code> ou <code>web-server</code>).</p></td>
+<code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex. : <code>mate-desktop</code> ou <code>web-server</code>) <sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sécurité du preseed</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Oui, le fichier preseed contient les mots de passe de <code>root</code> et de <code>user</code> en clair. En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), en restreignant drastiquement les droits de lecture du fichier physique ou en écrivant le hash uniquement.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Oui, le fichier preseed contient les mots de passe de <code>root</code> et de <code>user</code> en clair. En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), en restreignant drastiquement les droits de lecture du fichier physique ou en écrivant le hash uniquement <sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1039,187 +992,15 @@ Nous avons modifié le paramètre par défaut des groupe du nouvel utilisateur p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_semaine_8_découverte_du_format_asciidoc_adoc">2. Semaine 8 : Découverte du format AsciiDoc (.adoc)</h2>
+<h2 id="_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
 </div>
 <div class="sect2">
-<h3 id="_introduction_et_formatage_de_base">2.1. Introduction et Formatage de base</h3>
+<h3 id="_étude_comparative_des_formats_à_balisage_léger">2.1. Étude comparative des formats à balisage léger</h3>
 <div class="paragraph">
-<p>Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.</p>
-</div>
-<div class="paragraph">
-<p>Voici les formatages de texte de base :<br>
-Un texte peut être mis en <strong>gras</strong> pour insister sur un mot.<br>
-On peut utiliser l'<em>italique</em> pour du vocabulaire spécifique ou des termes en anglais.<br>
-Pour indiquer une commande dans un texte, on utilise le format <code>monospace</code> (ex: utiliser la commande <code>ls -la</code>).<br>
-On peut également <mark>surligner en jaune</mark> un passage important.<br>
-Afficher des touches du clavier grâce à l&#8217;attribut experimental : <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>C</kbd></span> ou <kbd>Entrée</kbd>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_exemples_de_listes">2.2. Exemples de Listes</h3>
-<div class="sect3">
-<h4 id="_listes_à_puces_non_ordonnées">2.2.1. Listes à puces (Non ordonnées)</h4>
-<div class="paragraph">
-<p>Voici une liste classique avec différents niveaux d&#8217;indentation :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Premier élément principal</p>
-</li>
-<li>
-<p>Deuxième élément <strong>en gras</strong></p>
-</li>
-<li>
-<p>Troisième élément <em>en italique</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Une sous-liste de niveau 2 (deux étoiles)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Une sous-sous-liste de niveau 3 avec du text <strong><em>en italique en gras</em></strong></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Retour au niveau 2</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_listes_numérotées_ordonnées">2.2.2. Listes numérotées (Ordonnées)</h4>
-<div class="paragraph">
-<p>Pour décrire une procédure étape par étape :</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Étape 1 : Mettre à jour les paquets (<code>apt update</code>).</p>
-</li>
-<li>
-<p>Étape 2 : Installer le service.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Sous-étape A : configurer le fichier X.</p>
-</li>
-<li>
-<p>Sous-étape B : redémarrer le service.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Étape 3 : Vérifier que le service fonctionne.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_liste_de_tâches_checklist">2.2.3. Liste de tâches (Checklist)</h4>
-<div class="ulist checklist">
-<ul class="checklist">
-<li>
-<p><i class="fa fa-check-square-o"></i> Tâche terminée (ou <code>[x]</code>)</p>
-</li>
-<li>
-<p><i class="fa fa-square-o"></i> Tâche à faire</p>
-</li>
-<li>
-<p><i class="fa fa-square-o"></i> Autre tâche à faire</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_blocs_dinformations_admonitions">2.3. Blocs d&#8217;informations (Admonitions)</h3>
-<div class="paragraph">
-<p>Les admonitions sont parfaites pour attirer l&#8217;attention du correcteur ou du lecteur sur un élément clé :</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Note d&#8217;information</strong><br>
-Ceci est une note. Utile pour donner une explication supplémentaire ou une remarque de l&#8217;équipe.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Attention !</strong><br>
-Ceci est un avertissement. Parfait pour indiquer une erreur que vous avez rencontrée et qu&#8217;il faut éviter.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Astuce</strong><br>
-Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande qui vous a fait gagner du temps.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_insertion_de_blocs_de_code">2.4. Insertion de Blocs de Code</h3>
-<div class="paragraph">
-<p>AsciiDoc permet d&#8217;insérer du code avec une coloration syntaxique adaptée au langage :</p>
-</div>
-<div class="listingblock">
-<div class="title">Exemple d&#8217;un script Bash</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="c">#!/bin/bash</span>
-<span class="c"># Mise à jour du système</span>
-<span class="nb">echo</span> <span class="s2">"Mise à jour en cours..."</span>
-<span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt upgrade <span class="nt">-y</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Exemple d&#8217;un fichier de configuration</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="ini"><span class="nn">[server]</span><span class="w">
-</span><span class="py">DOMAIN</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">localhost</span>
-<span class="py">HTTP_PORT</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">3000</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_les_tableaux">2.5. Les Tableaux</h3>
-<div class="paragraph">
-<p>Créer des tableaux est très simple pour comparer des éléments ou lister des configurations :</p>
+<p>Dans le cadre de notre projet, nous avons comparé deux langages de balisage léger très populaires : le Markdown et l&#8217;AsciiDoc. Voici un grand tableau comparatif détaillant leurs concepts, origines et syntaxes.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1229,71 +1010,367 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Commande</th>
-<th class="tableblock halign-left valign-top">Explication</th>
-<th class="tableblock halign-left valign-top">Exemple d&#8217;utilisation</th>
+<th class="tableblock halign-left valign-top">Sujet</th>
+<th class="tableblock halign-left valign-top">Markdown (.md)</th>
+<th class="tableblock halign-left valign-top">Asciidoctor (.adoc)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>systemctl status</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Permet de voir l&#8217;état d&#8217;un service.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>systemctl status ssh</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Langage de balisage léger très populaire, conçu pour être facile à lire et à écrire. Très orienté pour le web et les plateformes collaboratives (ex: GitHub).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Langage de balisage léger plus riche et standardisé, conçu initialement pour la rédaction d&#8217;articles, de livres techniques et de documentations complexes.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Affiche les adresses IP des interfaces réseau.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ip a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lien vers la documentation officielle</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://daringfireball.net/projects/markdown/">Site officiel Markdown</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://docs.asciidoctor.org/">Documentation Asciidoctor</a></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nano</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Éditeur de texte en ligne de commande.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nano /etc/ssh/sshd_config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Origine (Date et Créateurs)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Créé en <strong>2004</strong> par John Gruber (avec l&#8217;aide d&#8217;Aaron Swartz).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Créé en <strong>2002</strong> par Stuart Rackham.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment convertir (sans extension) vers HTML et PDF</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Utilisation classique avec la commande <strong>Pandoc</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pandoc fichier.md <span class="nt">-o</span> fichier.html
+pandoc fichier.md <span class="nt">-o</span> fichier.pdf</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Utilisation avec la suite <strong>Asciidoctor</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">asciidoctor fichier.adoc
+asciidoctor-pdf fichier.adoc</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en gras</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour écrire en gras, il faut utiliser deux astérisques de chaque côté du mot : **<strong>mot</strong>**</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en italique</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour écrire en italique, il faut utiliser un tiret bas : _<em>mot</em>_</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en gras ET italique</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour combiner les deux, on cumule les symboles : **_<strong><em>mot</em></strong>_**</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte souligné</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le Markdown natif ne possède pas de syntaxe pour souligner. Il faut utiliser les balises HTML :<br>
+<code>&lt;u&gt;</code> <span class="underline">mot</span> <code>&lt;/u&gt;</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc gère le soulignement grâce aux rôles (les espaces autour sont importants) :<br>
+[.underline]# <span class="underline">mot</span> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte surligné</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cela dépend des extensions (parfois <code>==</code> <mark>mot</mark> <code>==</code>), ou via la balise HTML :<br>
+<code>&lt;mark&gt;</code><mark>mot</mark><code>&lt;/mark&gt;</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc utilise simplement le symbole dièse de chaque côté (les espaces autour sont importants) :<br>
+# <mark>mot</mark> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte barré</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise très souvent deux tildes :<br>
+<code>~~</code> <span class="line-through">mot</span> <code>~~</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc utilise les rôles :<br>
+ [.line-through]# <span class="line-through">mot</span> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Faire des listes à puces (avec sous-liste)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des astérisques, avec une indentation (espaces) pour le sous-niveau :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">*</span> Élément principal 1
+<span class="p">*</span> Élément principal 2
+<span class="p">  *</span> Sous-élément</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des astérisques, et on en ajoute un supplémentaire par niveau de profondeur :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">* Élément principal 1
+* Élément principal 2
+** Sous-élément</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Faire des listes numérotées</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des nombres suivis d&#8217;un point :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">1.</span> Première étape
+<span class="p">2.</span> Deuxième étape</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Asciidoc gère la numérotation automatiquement avec des simples points :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">. Première étape
+. Deuxième étape</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer un tableau simple</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On le dessine avec des barres verticales (<code>|</code>) et des tirets pour séparer l&#8217;en-tête :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown">| Colonne 1 | Colonne 2 |
+|-----------|-----------|
+| Valeur 1  | Valeur 2  |</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On déclare le nombre de colonnes puis on liste les cellules les unes après les autres :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,1", options="header"]
+!===
+! Colonne 1 ! Colonne 2
+! Valeur 1  ! Valeur 2
+!===</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Résultat :</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Colonne 1</th>
+<th class="tableblock halign-left valign-top">Colonne 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valeur 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valeur 2</p></td>
 </tr>
 </tbody>
+</table></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différents types de tableaux (tailles et fusions)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Très limité.</strong> Le Markdown classique ne gère ni les tailles de colonnes précises, ni la fusion de cellules (il faut coder en HTML).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Très puissant.</strong><br>
+On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonnes avec <code>2+</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,3"]
+!===
+2+! Titre fusionné sur 2 colonnes
+! Case 1 petite ! Case 2 très large
+!===</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Résultat :</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Titre fusionné sur 2 colonnes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 1 petite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 2 très large</p></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insérer un lien hypertexte</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le texte est entre crochets, l&#8217;URL entre parenthèses :<br>
+[Debian](<a href="https://debian.org" class="bare">https://debian.org</a>)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>L&#8217;URL est au début, le texte est entre crochets à la fin :<br>
+https:/⁠/debian.org[Debian]</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insérer une image</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un point d&#8217;exclamation, le texte alternatif, puis le lien :<br>
+![titreAlternatif](image/imageMarkdown.png)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La macro image, suivie des attributs (taille, alignement) :<br>
+<code>image::image/imageAdoc.png[titreAlternatif, width=50%]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blocs d&#8217;informations (Admonitions : Notes, Avertissements&#8230;&#8203;)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le Markdown natif ne le gère pas. (Il faut utiliser des extensions spécifiques de Pandoc).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Intégré nativement avec des icônes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[NOTE]
+====
+Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
+====</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Résultat :</div>
+<div class="paragraph">
+<p>Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)</p>
+</div>
+</td>
+</tr>
 </table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blocs de code avec coloration syntaxique</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Trois accents graves suivis du langage :</p>
 </div>
-<div class="sect2">
-<h3 id="_images_et_liens">2.6. Images et Liens</h3>
-<div class="sect3">
-<h4 id="_ajouter_des_images">2.6.1. Ajouter des images</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">```</span><span class="nl">bash
+</span><span class="nb">echo</span> <span class="s2">"Bonjour"</span>
+<span class="p">```</span></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Directive source suivie du langage, puis délimiteurs <code>----</code> (on utilise <code>&#8230;&#8203;.</code> pour imbriquer l&#8217;exemple sans casser le tableau) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[source,bash]
+....
+echo "Bonjour"
+....</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Citations (Quotes)</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>On utilise le chevron vers la droite <code>&gt;</code> en début de ligne :<br>
+<code>&gt; Ceci est une citation de texte.</code><br></p>
+</div>
 <div class="paragraph">
-<p>Pour illustrer vos propos avec des captures d&#8217;écran (le paramètre <code>pdfwidth</code> permet de s&#8217;assurer que l&#8217;image ne dépasse pas de la page en PDF) :</p>
+<p>AsciiDoc offre aussi des blocs avancés pour les citations :</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[quote, Auteur, Source]
+____
+Ceci est une citation avancée en AsciiDoc.
+____</code></pre>
 </div>
-<div class="sect3">
-<h4 id="_liens_et_références_croisées">2.6.2. Liens et références croisées</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Lien externe</strong> : Voici la Documentation officielle d&#8217;Asciidoctor : <a href="https://docs.asciidoctor.org/" class="bare">https://docs.asciidoctor.org/</a>.</p>
-</li>
-<li>
-<p><strong>Lien avec texte personnalisé</strong> : <a href="https://debian.org">Visiter le site de Debian</a></p>
-</li>
-<li>
-<p><strong>Référence interne (ancre)</strong> : Si vous voulez renvoyer le lecteur vers le début du document, vous pouvez créer un lien vers la section <a href="#_introduction_et_formatage_de_base">Introduction</a>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_conclusion_et_citations">2.7. Conclusion et citations</h3>
-<div class="paragraph">
-<p>Pour finir, vous pouvez inclure une citation technique si cela s&#8217;y prête :</p>
 </div>
 <div class="quoteblock">
+<div class="title">Résultat :</div>
 <blockquote>
 <div class="paragraph">
-<p>Talk is cheap. Show me the code. (Parler ne coûte rien. Montrez-moi le code.)</p>
+<p>Ceci est une citation avancée en AsciiDoc.</p>
 </div>
 </blockquote>
 <div class="attribution">
-&#8212; Linus Torvalds<br>
-<cite>Créateur de Linux</cite>
+&#8212; Auteur<br>
+<cite>Source</cite>
 </div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notes de bas de page</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On doit créer une ancre et son contenu :</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown">Ceci est mon texte[^1].
+
+<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">Et</span> voici la note de bas de page.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Tout se fait sur la même ligne avec la balise footnote :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">Ceci est mon texte footnote:[Et voici la note directement intégrée ici].</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1306,7 +1383,7 @@ Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande q
 <div class="sect2">
 <h3 id="_configuration_globale_de_git">3.1. Configuration globale de Git</h3>
 <div class="paragraph">
-<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
+<p>La commande <code>git config --global</code> <sup class="footnote">[<a id="_footnoteref_21" class="footnote" href="#_footnotedef_21" title="View footnote.">21</a>]</sup> permet de définir des variables globales pour l&#8217;ordinateur, qui seront utilisées lors de vos commits (comme votre nom ou votre e-mail).<br>
 Elles ne sont évidemment à faire qu&#8217;une fois par machine, et pas à chaque projet. Si l&#8217;email est différent que celui du compte, les commits ne seront pas associés au profil.</p>
 </div>
 </div>
@@ -1376,20 +1453,20 @@ La commande <code>git remote -v</code> permet de lister ceux qui sont configuré
 <p>Protocole Git</p>
 </li>
 <li>
-<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup></p>
+<p>Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
 </li>
 <li>
-<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup></p>
+<p>Protocole SSH <sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup></p>
 </li>
 </ul>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_12">
-<a href="#_footnoteref_12">12</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
+<div class="footnote" id="_footnotedef_22">
+<a href="#_footnoteref_22">22</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
 </div>
-<div class="footnote" id="_footnotedef_13">
-<a href="#_footnoteref_13">13</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
+<div class="footnote" id="_footnotedef_23">
+<a href="#_footnoteref_23">23</a>. <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">Livre Git - Les Protocoles</a>
 </div>
 </div></div></td>
 </tr>
@@ -1666,10 +1743,10 @@ Les autres lignes affichées servent de contexte autour du code modifié.<br></p
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.</p>
+<p><strong>Forgejo</strong> : C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue <sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>.</p>
 </li>
 <li>
-<p><strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine.</p>
+<p><strong>Fork</strong> : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine <sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Histoire</strong> : L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l&#8217;association Codeberg) a forké Gitea pour créer <strong>Forgejo</strong> (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.</p>
@@ -1696,8 +1773,10 @@ wget <span class="nt">-O</span> forgejo https://codeberg.org/forgejo/forgejo/rel
 <p><strong>Question :</strong> Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</p>
 </div>
 <div class="paragraph">
-<p><strong>Réponse et Explication :</strong>
-Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés.
+<p><strong>Réponse et Explication :</strong></p>
+</div>
+<div class="paragraph">
+<p>Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés <sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup>.
 Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure (si l&#8217;application est compromise, tout le serveur l&#8217;est).
 Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code> ou <code>forgejo</code>) et utilise un port non privilégié comme le 3000.</p>
 </div>
@@ -1716,7 +1795,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo).</p>
+<p><strong>Choix de SQLite</strong> : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C&#8217;est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo) <sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Emplacement et Propriétaire</strong> : En général, le fichier se trouve dans le répertoire de travail de l&#8217;application, souvent dans <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier <strong>doit</strong> être l&#8217;utilisateur système qui exécute le service Forgejo (ex: <code>git</code> ou <code>forgejo</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
@@ -1744,7 +1823,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.</p>
+<p><strong>Systemd</strong> : C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash <sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Le fichier de service (<code>/etc/systemd/system/forgejo.service</code>)</strong> :</p>
@@ -1806,7 +1885,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire.</p>
+<p><strong>Permissions (<code>app.ini</code>)</strong> : Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur <code>forgejo</code> (et <code>root</code>) puisse le lire <sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>Serveur SSH</strong> : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).</p>
@@ -1858,7 +1937,7 @@ Forgejo tourne donc sous un utilisateur standard (souvent nommé <code>git</code
 <p><strong>Issues et Commits</strong> : Forgejo permet de fermer automatiquement un ticket (issue) lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>).</p>
 </li>
 <li>
-<p><strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code>.</p>
+<p><strong>Clé SSH</strong> : Renseigner sa clé publique dans les paramètres Forgejo permet d&#8217;authentifier sa machine de manière sécurisée et d&#8217;éviter de taper son mot de passe à chaque <code>git push</code> <sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>.</p>
 </li>
 </ul>
 </div>
@@ -1890,7 +1969,7 @@ git push</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application.</p>
+<p><strong>CI (Continuous Integration)</strong> : Automatisation des tests et de la vérification du code à chaque fois qu&#8217;un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l&#8217;application <sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.</p>
 </li>
 <li>
 <p><strong>CD (Continuous Delivery/Deployment)</strong> : Déploiement automatisé de l&#8217;application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.</p>
@@ -1938,25 +2017,79 @@ git push</code></pre>
 <a href="#_footnoteref_4">4</a>. <a href="https://www.virtualbox.org/manual/ch06.html#nichardware">Manuel VirtualBox</a>
 </div>
 <div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel IP</a>
+<a href="#_footnoteref_5">5</a>. <a href="https://www.debian.org/releases/stable/amd64/ch03s04.fr.html">Documentation Debian - Configuration matérielle requise</a>
 </div>
 <div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a>
+<a href="#_footnoteref_6">6</a>. <a href="https://www.virtualbox.org/manual/ch06.html#network_nat">Documentation VirtualBox - Mode NAT</a>
 </div>
 <div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>
+<a href="#_footnoteref_7">7</a>. <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel IP</a>
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a>
+<a href="#_footnoteref_8">8</a>. <a href="https://www.debian.org/CD/faq/index.fr.html#what-is">FAQ officielle des images CD Debian</a>
 </div>
 <div class="footnote" id="_footnotedef_9">
-<a href="#_footnoteref_9">9</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a>
+<a href="#_footnoteref_9">9</a>. <a href="https://wiki.debian.org/fr/DesktopEnvironment">Wiki Debian - Environnements de bureau</a>
 </div>
 <div class="footnote" id="_footnotedef_10">
-<a href="#_footnoteref_10">10</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a>
+<a href="#_footnoteref_10">10</a>. <a href="https://fr.wikipedia.org/wiki/Proxy">Wikipédia - Serveur mandataire (Proxy)</a>
 </div>
 <div class="footnote" id="_footnotedef_11">
-<a href="#_footnoteref_11">11</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
+<a href="#_footnoteref_11">11</a>. <a href="https://wiki.debian.org/fr/WebServers">Wiki Debian - Serveur Web</a>
+</div>
+<div class="footnote" id="_footnotedef_12">
+<a href="#_footnoteref_12">12</a>. <a href="https://www.virtualbox.org/manual/ch06.html#natforward">Documentation VirtualBox - Redirection de ports NAT</a>
+</div>
+<div class="footnote" id="_footnotedef_13">
+<a href="#_footnoteref_13">13</a>. <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a>
+</div>
+<div class="footnote" id="_footnotedef_14">
+<a href="#_footnoteref_14">14</a>. <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>
+</div>
+<div class="footnote" id="_footnotedef_15">
+<a href="#_footnoteref_15">15</a>. <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a>
+</div>
+<div class="footnote" id="_footnotedef_16">
+<a href="#_footnoteref_16">16</a>. <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a>
+</div>
+<div class="footnote" id="_footnotedef_17">
+<a href="#_footnoteref_17">17</a>. <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a>
+</div>
+<div class="footnote" id="_footnotedef_18">
+<a href="#_footnoteref_18">18</a>. <a href="https://wiki.debian.org/VirtualBox#Installing_the_Guest_Additions_on_a_Debian_VM">Wiki Debian - Additions Invité VirtualBox</a>
+</div>
+<div class="footnote" id="_footnotedef_19">
+<a href="#_footnoteref_19">19</a>. <a href="https://wiki.debian.org/fr/tasksel">Wiki Debian - Tasksel</a>
+</div>
+<div class="footnote" id="_footnotedef_20">
+<a href="#_footnoteref_20">20</a>. <a href="https://www.debian.org/releases/stable/amd64/apbs01.fr.html#preseed-security">Manuel d&#8217;installation Debian - Sécurité de la pré-configuration</a>
+</div>
+<div class="footnote" id="_footnotedef_21">
+<a href="#_footnoteref_21">21</a>. <a href="https://git-scm.com/docs/git-config">Documentation git config</a>
+</div>
+<div class="footnote" id="_footnotedef_24">
+<a href="#_footnoteref_24">24</a>. <a href="https://forgejo.org/faq/">FAQ officielle de Forgejo</a>
+</div>
+<div class="footnote" id="_footnotedef_25">
+<a href="#_footnoteref_25">25</a>. <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">Wikipédia - Fork (développement logiciel)</a>
+</div>
+<div class="footnote" id="_footnotedef_26">
+<a href="#_footnoteref_26">26</a>. <a href="https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html">W3C - Architecture des ports privilégiés sous Linux</a>
+</div>
+<div class="footnote" id="_footnotedef_27">
+<a href="#_footnoteref_27">27</a>. <a href="https://www.sqlite.org/whentouse.html">Documentation officielle SQLite</a>
+</div>
+<div class="footnote" id="_footnotedef_28">
+<a href="#_footnoteref_28">28</a>. <a href="https://wiki.debian.org/fr/systemd">Wiki Debian - systemd</a>
+</div>
+<div class="footnote" id="_footnotedef_29">
+<a href="#_footnoteref_29">29</a>. <a href="https://wiki.debian.org/Permissions">Wiki Debian - Permissions des fichiers</a>
+</div>
+<div class="footnote" id="_footnotedef_30">
+<a href="#_footnoteref_30">30</a>. <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH">Documentation Git - Génération des clés SSH</a>
+</div>
+<div class="footnote" id="_footnotedef_31">
+<a href="#_footnoteref_31">31</a>. <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide sur la CI/CD</a>
 </div>
 </div>
 <div id="footer">
