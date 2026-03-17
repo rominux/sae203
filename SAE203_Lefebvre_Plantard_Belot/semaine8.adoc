@@ -1,130 +1,217 @@
-== Semaine 8 : Découverte du format AsciiDoc (.adoc)
+== Semaine 8 : Comparatif Markdown vs AsciiDoc
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-=== Introduction et Formatage de base
+=== Étude comparative des formats à balisage léger
 
-Bienvenue dans le rapport de la semaine 8. AsciiDoc permet de faire des mises en forme très pratiques pour des rapports techniques.
+Dans le cadre de notre projet, nous avons comparé deux langages de balisage léger très populaires : le Markdown et l'AsciiDoc. Voici un grand tableau comparatif détaillant leurs concepts, origines et syntaxes.
 
-Voici les formatages de texte de base : +
-Un texte peut être mis en **gras** pour insister sur un mot. +
-On peut utiliser l'_italique_ pour du vocabulaire spécifique ou des termes en anglais. +
-Pour indiquer une commande dans un texte, on utilise le format `monospace` (ex: utiliser la commande `ls -la`). +
-On peut également #surligner en jaune# un passage important. +
-Afficher des touches du clavier grâce à l'attribut experimental : kbd:[Ctrl+C] ou kbd:[Entrée].
+[cols="1,2a,2a", options="header"]
+|===
+| Sujet | Markdown (.md) | Asciidoctor (.adoc)
 
-=== Exemples de Listes
+| **Description**
+| Langage de balisage léger très populaire, conçu pour être facile à lire et à écrire. Très orienté pour le web et les plateformes collaboratives (ex: GitHub).
+| Langage de balisage léger plus riche et standardisé, conçu initialement pour la rédaction d'articles, de livres techniques et de documentations complexes.
 
-==== Listes à puces (Non ordonnées)
+| **Lien vers la documentation officielle**
+| https://daringfireball.net/projects/markdown/[Site officiel Markdown]
+| https://docs.asciidoctor.org/[Documentation Asciidoctor]
 
-Voici une liste classique avec différents niveaux d'indentation :
+| **Origine (Date et Créateurs)**
+| Créé en **2004** par John Gruber (avec l'aide d'Aaron Swartz).
+| Créé en **2002** par Stuart Rackham.
 
-* Premier élément principal
-* Deuxième élément **en gras**
-* Troisième élément _en italique_
-** Une sous-liste de niveau 2 (deux étoiles)
-*** Une sous-sous-liste de niveau 3 avec du text **_en italique en gras_**
-** Retour au niveau 2
-
-==== Listes numérotées (Ordonnées)
-
-Pour décrire une procédure étape par étape :
-
-. Étape 1 : Mettre à jour les paquets (`apt update`).
-. Étape 2 : Installer le service.
-.. Sous-étape A : configurer le fichier X.
-.. Sous-étape B : redémarrer le service.
-. Étape 3 : Vérifier que le service fonctionne.
-
-==== Liste de tâches (Checklist)
-
-* [x] Tâche terminée (ou `[x]`)
-* [ ] Tâche à faire
-* [ ] Autre tâche à faire
-
-=== Blocs d'informations (Admonitions)
-
-Les admonitions sont parfaites pour attirer l'attention du correcteur ou du lecteur sur un élément clé :
-
-[NOTE]
-====
-**Note d'information** +
-Ceci est une note. Utile pour donner une explication supplémentaire ou une remarque de l'équipe.
-====
-
-[WARNING]
-====
-**Attention !** +
-Ceci est un avertissement. Parfait pour indiquer une erreur que vous avez rencontrée et qu'il faut éviter.
-====
-
-[TIP]
-====
-**Astuce** +
-Ceci est une astuce. Idéal pour partager un raccourci clavier ou une commande qui vous a fait gagner du temps.
-====
-
-=== Insertion de Blocs de Code
-
-AsciiDoc permet d'insérer du code avec une coloration syntaxique adaptée au langage :
-
-.Exemple d'un script Bash
+| **Comment convertir (sans extension) vers HTML et PDF**
+| Utilisation classique avec la commande **Pandoc** :
 [source,bash]
 ----
-#!/bin/bash
-# Mise à jour du système
-echo "Mise à jour en cours..."
-sudo apt update && sudo apt upgrade -y
+pandoc fichier.md -o fichier.html
+pandoc fichier.md -o fichier.pdf
+----
+| Utilisation avec la suite **Asciidoctor** :
+[source,bash]
+----
+asciidoctor fichier.adoc
+asciidoctor-pdf fichier.adoc
 ----
 
-.Exemple d'un fichier de configuration
-[source,ini]
+| **Écrire en gras**
+2+| Pour écrire en gras, il faut utiliser deux astérisques de chaque côté du mot : pass:[**]**mot**pass:[**]
+
+| **Écrire en italique**
+2+| Pour écrire en italique, il faut utiliser un tiret bas : pass:[_]_mot_pass:[_]
+
+| **Écrire en gras ET italique**
+2+| Pour combiner les deux, on cumule les symboles : pass:[**_]**_mot_**pass:[_**]
+
+| **Texte souligné**
+| Le Markdown natif ne possède pas de syntaxe pour souligner. Il faut utiliser les balises HTML : +
+`<u>` [.underline]#mot# `</u>`
+| AsciiDoc gère le soulignement grâce aux rôles (les espaces autour sont importants) : +
+[.underline]# [.underline]#mot# #
+
+| **Texte surligné**
+| Cela dépend des extensions (parfois `==` #mot# `==`), ou via la balise HTML : +
+`<mark>`#mot#`</mark>`
+| AsciiDoc utilise simplement le symbole dièse de chaque côté (les espaces autour sont importants) : +
+# #mot# #
+
+| **Texte barré**
+| On utilise très souvent deux tildes : +
+`~~` [.line-through]#mot# `~~`
+| AsciiDoc utilise les rôles : +
+ [.line-through]# [.line-through]#mot# #
+
+| **Faire des listes à puces (avec sous-liste)**
+| On utilise des astérisques, avec une indentation (espaces) pour le sous-niveau :
+[source,markdown]
 ----
-[server]
-DOMAIN = localhost
-HTTP_PORT = 3000
+* Élément principal 1
+* Élément principal 2
+  * Sous-élément
+----
+| On utilise des astérisques, et on en ajoute un supplémentaire par niveau de profondeur :
+[source,asciidoc]
+----
+* Élément principal 1
+* Élément principal 2
+** Sous-élément
 ----
 
-=== Les Tableaux
+| **Faire des listes numérotées**
+| On utilise des nombres suivis d'un point :
+[source,markdown]
+----
+1. Première étape
+2. Deuxième étape
+----
+| Asciidoc gère la numérotation automatiquement avec des simples points :
+[source,asciidoc]
+----
+. Première étape
+. Deuxième étape
+----
 
-Créer des tableaux est très simple pour comparer des éléments ou lister des configurations :
+| **Créer un tableau simple**
+| On le dessine avec des barres verticales (`\|`) et des tirets pour séparer l'en-tête :
+[source,markdown]
+----
+\| Colonne 1 \| Colonne 2 \|
+\|-----------\|-----------\|
+\| Valeur 1  \| Valeur 2  \|
+----
+| On déclare le nombre de colonnes puis on liste les cellules les unes après les autres :
+[source,asciidoc]
+----
+[cols="1,1", options="header"]
+!===
+! Colonne 1 ! Colonne 2
+! Valeur 1  ! Valeur 2
+!===
+----
+.Résultat :
+[cols="1,1", options="header"]
+!===
+! Colonne 1 ! Colonne 2
+! Valeur 1  ! Valeur 2
+!===
 
-[cols="1,2,2", options="header"]
-|===
-| Commande | Explication | Exemple d'utilisation
+| **Différents types de tableaux (tailles et fusions)**
+| **Très limité.** Le Markdown classique ne gère ni les tailles de colonnes précises, ni la fusion de cellules (il faut coder en HTML).
+| **Très puissant.** +
+On ajuste la taille des colonnes avec `cols`. On fusionne des colonnes avec `2+` :
+[source,asciidoc]
+----
+[cols="1,3"]
+!===
+2+! Titre fusionné sur 2 colonnes
+! Case 1 petite ! Case 2 très large
+!===
+----
+.Résultat :
+[cols="1,3"]
+!===
+2+! Titre fusionné sur 2 colonnes
+! Case 1 petite ! Case 2 très large
+!===
 
-| `systemctl status`
-| Permet de voir l'état d'un service.
-| `systemctl status ssh`
+| **Insérer un lien hypertexte**
+| Le texte est entre crochets, l'URL entre parenthèses : +
+[Debian](https://debian.org)
+| L'URL est au début, le texte est entre crochets à la fin : +
+https:/⁠/debian.org[Debian]
 
-| `ip a`
-| Affiche les adresses IP des interfaces réseau.
-| `ip a`
+| **Insérer une image**
+| Un point d'exclamation, le texte alternatif, puis le lien : +
+![titreAlternatif](image/imageMarkdown.png)
+| La macro image, suivie des attributs (taille, alignement) : +
+`image::image/imageAdoc.png[titreAlternatif, width=50%]`
 
-| `nano`
-| Éditeur de texte en ligne de commande.
-| `nano /etc/ssh/sshd_config`
-|===
+| **Blocs d'informations (Admonitions : Notes, Avertissements...)**
+| Le Markdown natif ne le gère pas. (Il faut utiliser des extensions spécifiques de Pandoc).
+| Intégré nativement avec des icônes.
+[source,asciidoc]
+----
+[NOTE]
+====
+Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
+====
+----
+.Résultat :
+[NOTE]
+====
+Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
+====
 
-=== Images et Liens
+| **Blocs de code avec coloration syntaxique**
+| Trois accents graves suivis du langage :
+[source,markdown]
+----
+```bash
+echo "Bonjour"
+```
+----
+| Directive source suivie du langage, puis délimiteurs `----` (on utilise `....` pour imbriquer l'exemple sans casser le tableau) :
+[source,asciidoc]
+----
+[source,bash]
+....
+echo "Bonjour"
+....
+----
 
-==== Ajouter des images
-
-Pour illustrer vos propos avec des captures d'écran (le paramètre `pdfwidth` permet de s'assurer que l'image ne dépasse pas de la page en PDF) :
-
-// image::img/test.png[Description de l'image, width=80%, pdfwidth=80%, align="center"]
-
-==== Liens et références croisées
-
-* **Lien externe** : Voici la Documentation officielle d'Asciidoctor : https://docs.asciidoctor.org/.
-* **Lien avec texte personnalisé** : https://debian.org[Visiter le site de Debian]
-* **Référence interne (ancre)** : Si vous voulez renvoyer le lecteur vers le début du document, vous pouvez créer un lien vers la section <<_introduction_et_formatage_de_base, Introduction>>.
-
-=== Conclusion et citations
-
-Pour finir, vous pouvez inclure une citation technique si cela s'y prête :
-
-[quote, Linus Torvalds, Créateur de Linux]
+| **Citations (Quotes)**
+2+| On utilise le chevron vers la droite `>` en début de ligne : +
+`> Ceci est une citation de texte.` +
+ 
+AsciiDoc offre aussi des blocs avancés pour les citations :
+[source,asciidoc]
+----
+[quote, Auteur, Source]
 ____
-Talk is cheap. Show me the code. (Parler ne coûte rien. Montrez-moi le code.)
+Ceci est une citation avancée en AsciiDoc.
 ____
+----
+.Résultat :
+[quote, Auteur, Source]
+____
+Ceci est une citation avancée en AsciiDoc.
+____
+
+| **Notes de bas de page**
+| On doit créer une ancre et son contenu :
+[source,markdown]
+----
+Ceci est mon texte[^1].
+
+[^1]: Et voici la note de bas de page.
+----
+| Tout se fait sur la même ligne avec la balise footnote :
+[source,asciidoc]
+----
+Ceci est mon texte footnote:[Et voici la note directement intégrée ici].
+----
+|===
