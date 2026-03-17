@@ -8,8 +8,8 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 **Réponse et Explication :**
 
-* **Forgejo** : C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue.
-* **Fork** : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine.
+* **Forgejo** : C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue footnote:[https://forgejo.org/faq/[FAQ officielle de Forgejo]].
+* **Fork** : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine footnote:[https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)[Wikipédia - Fork (développement logiciel)]].
 * **Histoire** : L'histoire commence avec **Gogs**, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer **Gitea**. Plus récemment, l'entreprise derrière Gitea a pris un virage commercial (création d'une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté (notamment via l'association Codeberg) a forké Gitea pour créer **Forgejo** (qui signifie "forge" en Espéranto). Gogs et Gitea existent toujours.
 * **Gouvernance** : La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.
 
@@ -26,7 +26,8 @@ chmod +x forgejo
 **Question :** Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?
 
 **Réponse et Explication :**
-Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés.
+
+Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés footnote:[https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html[W3C - Architecture des ports privilégiés sous Linux]].
 Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure (si l'application est compromise, tout le serveur l'est).
 Forgejo tourne donc sous un utilisateur standard (souvent nommé `git` ou `forgejo`) et utilise un port non privilégié comme le 3000. 
 
@@ -38,7 +39,7 @@ En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache
 
 **Réponse et Explication :**
 
-* **Choix de SQLite** : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C'est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo).
+* **Choix de SQLite** : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C'est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo) footnote:[https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]].
 * **Emplacement et Propriétaire** : En général, le fichier se trouve dans le répertoire de travail de l'application, souvent dans `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier **doit** être l'utilisateur système qui exécute le service Forgejo (ex: `git` ou `forgejo`), afin qu'il puisse y lire et y écrire les données.
 
 **Commandes utiles :**
@@ -54,7 +55,7 @@ ls -l /var/lib/forgejo/data/forgejo.db
 
 **Réponse et Explication :**
 
-* **Systemd** : C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s'assurer qu'ils redémarrent en cas de crash.
+* **Systemd** : C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s'assurer qu'ils redémarrent en cas de crash footnote:[https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]].
 * **Le fichier de service (`/etc/systemd/system/forgejo.service`)** :
   ** `[Unit]` : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu'après le démarrage du réseau").
   ** `[Service]` : Définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, le répertoire de travail, etc.).
@@ -82,7 +83,7 @@ sudo journalctl -u forgejo -f
 
 **Réponse et Explication :**
 
-* **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
+* **Permissions (`app.ini`)** : Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire footnote:[https://wiki.debian.org/Permissions[Wiki Debian - Permissions des fichiers]].
 * **Serveur SSH** : Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
 * **Sécurité sur Internet** : Si le serveur était exposé, il faudrait impérativement :
   . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
@@ -106,7 +107,7 @@ sudo chown -R forgejo:forgejo /etc/forgejo
 
 * **Privé vs Public** : Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité par le propriétaire.
 * **Issues et Commits** : Forgejo permet de fermer automatiquement un ticket (issue) lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`).
-* **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push`.
+* **Clé SSH** : Renseigner sa clé publique dans les paramètres Forgejo permet d'authentifier sa machine de manière sécurisée et d'éviter de taper son mot de passe à chaque `git push` footnote:[https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH[Documentation Git - Génération des clés SSH]].
 
 **Commandes utiles :**
 [source,bash]
@@ -128,7 +129,7 @@ git push
 
 **Réponse et Explication :**
 
-* **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application.
+* **CI (Continuous Integration)** : Automatisation des tests et de la vérification du code à chaque fois qu'un développeur pousse (push) des modifications. Cela garantit que le nouveau code ne "casse" pas l'application footnote:[https://about.gitlab.com/fr-fr/topics/ci-cd/[GitLab - Guide sur la CI/CD]].
 * **CD (Continuous Delivery/Deployment)** : Déploiement automatisé de l'application (ex: création du rapport PDF Asciidoc ou publication du site web) une fois les tests de la CI validés.
 * **Avantages** : Réduction massive des bugs, retours immédiats pour les développeurs, standardisation de la compilation (plus de "ça marche sur ma machine mais pas sur le serveur"), et gain de temps sur les tâches répétitives.
 
