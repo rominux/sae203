@@ -17,7 +17,7 @@ Elles ne sont évidemment à faire qu'une fois par machine, et pas à chaque pro
 | Git est l'outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger et de gérer les dépôts Git en ligne footnote:[https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants[Documentation officielle Git - Dépôts distants]].
 
 | **Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?**
-| Un dépôt Git, souvent appelé « repo », est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local `.git` footnote:[https://git-scm.com/book/fr/v2/D%c3%a9marrage-rapide-%c3%80-propos-de-la-gestion-de-version[Documentation Git - Le répertoire Git]].
+| Un dépôt Git, souvent appelé "repo", est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local `.git` footnote:[https://git-scm.com/book/fr/v2/D%c3%a9marrage-rapide-%c3%80-propos-de-la-gestion-de-version[Documentation Git - Le répertoire Git]].
 
 | **Différence entre un commit, une branche et un tag ?**
 | Un **commit** est un instantané contenant les différences de chaque fichier par rapport au commit précédent. +
@@ -153,15 +153,15 @@ git push --set-upstream origin emilien
 | Une pull/merge request sert a demander la fusion d'une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation footnote:[https://docs.gitlab.com/ee/user/project/merge_requests/[Documentation GitLab - Merge Requests]].
 
 | **Testez la commande git blame. À quoi sert-elle ?**
-| La commande `git blame <nom_du_fichier>` permet d'afficher le fichier ligne par ligne en indiquant pour chaque ligne l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bout de code ou d'un bug footnote:[https://git-scm.com/docs/git-blame[Documentation officielle Git - git blame]].
+| La commande `git blame fichier` permet d'afficher le fichier ligne par ligne en indiquant pour chaque ligne l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bout de code ou d'un bug footnote:[https://git-scm.com/docs/git-blame[Documentation officielle Git - git blame]].
 |===
 
 === Les interfaces graphiques pour git (Question 5)
 
 * **Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
-  C'est un visualiseur graphique historique pour les dépôts Git. Il permet d'explorer l'historique des commits, l'arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande `gitk` dans le terminal depuis un dépôt Git footnote:[https://git-scm.com/docs/gitk[Documentation officielle Git - gitk]].
+  C'est un visualiseur graphique pour les dépôts Git. Il permet d'explorer l'historique des commits, l'arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande `gitk` dans le terminal depuis un dépôt Git footnote:[https://git-scm.com/docs/gitk[Documentation officielle Git - gitk]].
 * **Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
-  C'est une interface graphique orientée vers la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant `git gui` dans le terminal footnote:[https://git-scm.com/docs/git-gui[Documentation officielle Git - git-gui]].
+  C'est une interface graphique pour la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant `git gui` dans le terminal footnote:[https://git-scm.com/docs/git-gui[Documentation officielle Git - git-gui]].
 
 === Installons autre chose et comparons (Questions 6 & 7)
 
@@ -170,9 +170,9 @@ git push --set-upstream origin emilien
 image::img/interface.png[ungit, pdfwidth=60%, width=60%]
 
 * **Pourquoi avez-vous choisi ce logiciel ?** +
-  Nous avons choisi **Ungit** pour son approche extrêmement visuelle. Il représente l'historique de Git sous forme de nœuds interactifs et d'animations très intuitives, ce qui rend la compréhension des branches beaucoup plus claire que les vieux clients natifs footnote:[https://github.com/FredrikNoren/ungit[Dépôt officiel GitHub de Ungit]].
+  Nous avons choisi **Ungit** pour son approche extrêmement visuelle. Il représente l'historique de Git sous forme de nœuds interactifs et d'animations très intuitives. footnote:[https://github.com/FredrikNoren/ungit[Dépôt officiel GitHub de Ungit]].
 * **Comment l'avez-vous installé ?** +
-  Ungit est un paquet Node.js. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
+  Ungit est un paquet Node.js. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
 * **Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
   Par rapport à `gitk` ou `git-gui`, l'interface d'Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.
 
