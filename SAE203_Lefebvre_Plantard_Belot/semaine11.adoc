@@ -6,7 +6,7 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 **Question :** Qu'est-ce que Forgejo ? Qu'est-ce qu'un fork ? Retracez l'histoire de Forgejo. Qu'est-ce qui différencie sa gouvernance de celle de Gitea ?
 
-**Réponse et Explication :**
+**Réponse :**
 
 * **Forgejo** : C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue footnote:[https://forgejo.org/faq/[FAQ officielle de Forgejo]].
 * **Fork** : En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine footnote:[https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)[Wikipédia - Fork (développement logiciel)]].
@@ -16,9 +16,19 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 **Commandes utiles (pour l'installation évoquée dans le cours) :**
 [source,bash]
 ----
-# Téléchargement du binaire officiel
-wget -O forgejo https://codeberg.org/forgejo/forgejo/releases/download/v1.21.0/forgejo-1.21.0-linux-amd64
-chmod +x forgejo
+wget https://codeberg.org/forgejo/forgejo/releases/download/v14.0.3/forgejo-14.0.3-linux-amd64
+sudo cp forgejo-14.0.3-linux-amd64 /usr/local/bin/forgejo
+sudo chmod 755 /usr/local/bin/forgejo
+sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git
+sudo mkdir /var/lib/forgejo
+sudo chown git:git /var/lib/forgejo && sudo chmod 750 /var/lib/forgejo
+sudo wget -O /etc/systemd/system/forgejo.service https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/contrib/systemd/forgejo.service
+sudo systemctl daemon-reload
+sudo systemctl enable forgejo.service
+sudo systemctl start forgejo.service
+# installation sur localhost:3000
+sudo systemctl stop forgejo.service
+sudo chmod 750 /etc/forgejo && sudo chmod 640 /etc/forgejo/app.ini
 ----
 
 === Question 2 : Architecture et protocoles réseau
@@ -29,7 +39,7 @@ chmod +x forgejo
 
 Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés footnote:[https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html[W3C - Architecture des ports privilégiés sous Linux]].
 Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure (si l'application est compromise, tout le serveur l'est).
-Forgejo tourne donc sous un utilisateur standard (souvent nommé `git` ou `forgejo`) et utilise un port non privilégié comme le 3000. 
+Forgejo tourne donc sous un utilisateur standard (nommé `git` dans la documentation) et utilise un port non privilégié comme le 3000. 
 
 En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui, lui, a les droits d'écouter le port 80 ou 443 et qui redirige le trafic de manière sécurisée vers le port 3000 local.
 
@@ -39,13 +49,10 @@ En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache
 
 **Réponse et Explication :**
 
-* **Choix de SQLite** : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). C'est parfait pour une SAÉ, un petit groupe ou un usage sur une machine virtuelle ayant peu de RAM (comme nos 2048 Mo) footnote:[https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]].
-* **Emplacement et Propriétaire** : En général, le fichier se trouve dans le répertoire de travail de l'application, souvent dans `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier **doit** être l'utilisateur système qui exécute le service Forgejo (ex: `git` ou `forgejo`), afin qu'il puisse y lire et y écrire les données.
-
-**Commandes utiles :**
+* **Choix de SQLite** : SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). footnote:[https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]].
+* **Emplacement et Propriétaire** : Le fichier se trouve dans le répertoire de travail de l'application `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo `git`, afin qu'il puisse y lire et y écrire les données.
 [source,bash]
 ----
-# Vérifier l'emplacement et le propriétaire du fichier SQLite
 ls -l /var/lib/forgejo/data/forgejo.db
 ----
 
@@ -55,7 +62,7 @@ ls -l /var/lib/forgejo/data/forgejo.db
 
 **Réponse et Explication :**
 
-* **Systemd** : C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan (les démons), et de s'assurer qu'ils redémarrent en cas de crash footnote:[https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]].
+* **Systemd** : C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan, et de s'assurer qu'ils redémarrent en cas de crash footnote:[https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]].
 * **Le fichier de service (`/etc/systemd/system/forgejo.service`)** :
   ** `[Unit]` : Contient les métadonnées et les dépendances (ex: "ne démarrer ce service qu'après le démarrage du réseau").
   ** `[Service]` : Définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, le répertoire de travail, etc.).
@@ -73,7 +80,7 @@ sudo systemctl enable forgejo
 sudo systemctl start forgejo
 sudo systemctl restart forgejo
 
-# Visualiser les logs en direct
+# Visualiser les logs en direct (follow)
 sudo journalctl -u forgejo -f
 ----
 
