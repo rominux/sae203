@@ -2,50 +2,50 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-**Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?**
-Git est l'outil de contrôle de version local en ligne de commande qui tourne sur votre machine, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger, de gérer et de partager les dépôts Git en ligne.
+**Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?** +
+Git est l'outil de contrôle de version local en ligne de commande qui tourne sur votre machine, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger, de gérer et de partager les dépôts Git en ligne. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants[Documentation officielle Git - Dépôts distants]
 
-**Question 2 : Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?**
-Un dépôt Git (ou « repo ») est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le sous-dossier caché `.git` à la racine de votre projet.
+**Question 2 : Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?** +
+Un dépôt Git (ou « repo ») est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le sous-dossier caché `.git` à la racine de votre projet. +
 Source : https://git-scm.com/book/fr/v2/Démarrage-rapide-Qu’est-ce-que-Git-?[Documentation Git - Le répertoire Git]
 
-**Question 3 : Quelle est la différence entre un commit, une branche et un tag ?**
-Un commit est un instantané contenant les différences de chaque fichier par rapport au commit précédent. Une branche est une ligne de développement indépendante (une suite de commits parallèle). Un tag est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles, ex: v1.0).
+**Question 3 : Quelle est la différence entre un commit, une branche et un tag ?** +
+Un commit est un instantané contenant les différences de chaque fichier par rapport au commit précédent. Une branche est une ligne de développement indépendante (une suite de commits parallèle). Un tag est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles, ex: v1.0). +
 Source : https://git-scm.com/book/fr/v2/Les-branches-avec-Git-En-bref[Documentation Git - Les Branches]
 
-**Question 4 : Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?**
-Un dépôt distant est une version de votre projet hébergée sur Internet ou un réseau local. La commande `git remote -v` permet de lister les serveurs distants configurés pour votre projet actuel.
+**Question 4 : Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?** +
+Un dépôt distant est une version de votre projet hébergée sur Internet ou un réseau local. La commande `git remote -v` permet de lister les serveurs distants configurés pour votre projet actuel. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants[Documentation Git - Commandes Remote]
 
-**Question 5 : Quelle est la différence entre git pull et git fetch ?**
-`git fetch` récupère les données du dépôt distant vers le dépôt local, mais sans modifier vos fichiers de travail en cours. `git pull` effectue un *fetch* puis fusionne (merge) directement ces nouvelles données avec votre branche locale actuelle.
+**Question 5 : Quelle est la différence entre git pull et git fetch ?** +
+`git fetch` récupère les données du dépôt distant vers le dépôt local, mais sans modifier vos fichiers de travail en cours. `git pull` effectue un *fetch* puis fusionne (merge) directement ces nouvelles données avec votre branche locale actuelle. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants[Documentation Git - Fetch vs Pull]
 
-**Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?**
-Les protocoles supportés sont le protocole Local, le protocole Git, le protocole HTTP/HTTPS (modes intelligent et idiot), et le protocole SSH.
+**Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?** +
+Les protocoles supportés sont le protocole Local, le protocole Git, le protocole HTTP/HTTPS (modes intelligent et idiot), et le protocole SSH. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles[Livre Git - Les Protocoles]
 
-**Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?**
-Le protocole Git fonctionne sur le port 9418, le HTTP sur le port 80, le HTTPS sur le port 443 et le protocole SSH sur le port 22.
+**Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?** +
+Le protocole Git fonctionne sur le port 9418, le HTTP sur le port 80, le HTTPS sur le port 443 et le protocole SSH sur le port 22. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles[Documentation Git - Les protocoles réseau]
 
-**Question 8 : Comment configurer l'authentification SSH pour Git ?**
-Il faut générer une paire de clés SSH sur l'ordinateur avec la commande `ssh-keygen -t ed25519 -C "votre.email@exemple.com"`, puis copier le contenu de la clé publique générée pour l'ajouter dans les paramètres de sécurité de votre compte sur la forge logicielle (GitLab/GitHub).
+**Question 8 : Comment configurer l'authentification SSH pour Git ?** +
+Il faut générer une paire de clés SSH sur l'ordinateur avec la commande `ssh-keygen -t ed25519 -C "votre.email@exemple.com"`, puis copier le contenu de la clé publique générée pour l'ajouter dans les paramètres de sécurité de votre compte sur la forge logicielle (GitLab/GitHub). +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH[Documentation Git - Génération clé SSH]
 
-**Question 9 : Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?**
-Une pull/merge request sert à demander la fusion d'une branche source (ex: une nouvelle fonctionnalité) vers une branche de destination (ex: le code principal), tout en fournissant une interface web permettant aux autres membres de l'équipe de discuter, tester et valider le code avant la fusion effective.
+**Question 9 : Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?** +
+Une pull/merge request sert à demander la fusion d'une branche source (ex: une nouvelle fonctionnalité) vers une branche de destination (ex: le code principal), tout en fournissant une interface web permettant aux autres membres de l'équipe de discuter, tester et valider le code avant la fusion effective. +
 Source : https://docs.gitlab.com/ee/user/project/merge_requests/[Documentation GitLab - Merge Requests]
 
-**Question 10 : À quoi sert la commande git blame ?**
-La commande `git blame <nom_du_fichier>` affiche le contenu d'un fichier ligne par ligne en indiquant, pour chaque ligne, l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bug.
+**Question 10 : À quoi sert la commande git blame ?** +
+La commande `git blame <nom_du_fichier>` affiche le contenu d'un fichier ligne par ligne en indiquant, pour chaque ligne, l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bug. +
 Source : https://git-scm.com/docs/git-blame[Documentation officielle Git - git blame]
 
-**Question 11 : Qu'est-ce que le logiciel gitk et comment se lance-t-il ?**
-C'est un visualiseur graphique historique pour les dépôts Git. Il permet d'explorer l'historique des commits et l'arborescence des branches. Il se lance en tapant la commande `gitk` dans le terminal.
+**Question 11 : Qu'est-ce que le logiciel gitk et comment se lance-t-il ?** +
+C'est un visualiseur graphique historique pour les dépôts Git. Il permet d'explorer l'historique des commits et l'arborescence des branches. Il se lance en tapant la commande `gitk` dans le terminal. +
 Source : https://git-scm.com/docs/gitk[Documentation officielle Git - gitk]
 
-**Question 12 : Qu'est-ce que le logiciel git-gui et comment se lance-t-il ?**
-C'est une interface graphique orientée vers la création de commits. Elle permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant la commande `git gui` dans le terminal.
+**Question 12 : Qu'est-ce que le logiciel git-gui et comment se lance-t-il ?** +
+C'est une interface graphique orientée vers la création de commits. Elle permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant la commande `git gui` dans le terminal. +
 Source : https://git-scm.com/docs/git-gui[Documentation officielle Git - git-gui]

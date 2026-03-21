@@ -1,0 +1,17 @@
+extends: default
+base:
+  font_color: '333333'
+  font_family: Helvetica
+  line_height_length: 1.5
+heading:
+  font_color: '004b87'
+  font_style: bold
+title_page:
+  align: center
+  title_font_size: 36
+  title_font_color: '004b87'
+  authors_font_size: 14
+table:
+  head_bg_color: '004b87'
+  head_font_color: 'ffffff'
+  even_row_bg_color: 'f2f2f2'

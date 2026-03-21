@@ -2,36 +2,36 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-**Question 1 : Qu'est-ce que Forgejo ?**
-C'est une forge logicielle libre et auto-hébergée (basée sur Git), qui permet de gérer des dépôts, le suivi des bugs (issues), et l'intégration continue.
+**Question 1 : Qu'est-ce que Forgejo ?** +
+C'est une forge logicielle libre et auto-hébergée (basée sur Git), qui permet de gérer des dépôts, le suivi des bugs (issues), et l'intégration continue. +
 Source : https://forgejo.org/faq/[FAQ officielle de Forgejo]
 
-**Question 2 : Qu'est-ce qu'un fork et quelle est l'histoire de Forgejo ?**
-En développement, un "fork" consiste à copier le code source d'un logiciel pour créer un nouveau projet indépendant. Historiquement, **Gogs** a été forké pour créer **Gitea**. Plus récemment, Gitea a pris un virage commercial. La communauté, pour garantir un outil 100% libre et non lucratif, a donc forké Gitea pour créer **Forgejo**.
+**Question 2 : Qu'est-ce qu'un fork et quelle est l'histoire de Forgejo ?** +
+En développement, un "fork" consiste à copier le code source d'un logiciel pour créer un nouveau projet indépendant. Historiquement, **Gogs** a été forké pour créer **Gitea**. Plus récemment, Gitea a pris un virage commercial. La communauté, pour garantir un outil 100% libre et non lucratif, a donc forké Gitea pour créer **Forgejo**. +
 Source : https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)[Wikipédia - Fork (développement logiciel)]
 
-**Question 3 : Pourquoi Forgejo écoute-t-il par défaut sur le port 3000 et pas 80 ?**
-Sous Linux, les ports inférieurs à 1024 (comme le port standard HTTP 80) nécessitent les droits d'administrateur (`root`) pour être ouverts. Lancer une application web complexe en `root` est une faille de sécurité majeure. Forgejo tourne donc avec un utilisateur standard sur un port non privilégié (3000). En production, on utilise un "Reverse Proxy" (Apache/Nginx) pour faire la liaison avec le port 80.
+**Question 3 : Pourquoi Forgejo écoute-t-il par défaut sur le port 3000 et pas 80 ?** +
+Sous Linux, les ports inférieurs à 1024 (comme le port standard HTTP 80) nécessitent les droits d'administrateur (`root`) pour être ouverts. Lancer une application web complexe en `root` est une faille de sécurité majeure. Forgejo tourne donc avec un utilisateur standard sur un port non privilégié (3000). En production, on utilise un "Reverse Proxy" (Apache/Nginx) pour faire la liaison avec le port 80. +
 Source : https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html[W3C - Architecture des ports privilégiés sous Linux]
 
-**Question 4 : Pourquoi choisir SQLite plutôt que PostgreSQL ou MariaDB ?**
-SQLite est une base de données ultra-légère orientée fichier, ne nécessitant aucune configuration de serveur lourd fonctionnant en arrière-plan. C'est le choix idéal pour une machine virtuelle disposant de peu de RAM (comme notre VM de 2048 Mo).
+**Question 4 : Pourquoi choisir SQLite plutôt que PostgreSQL ou MariaDB ?** +
+SQLite est une base de données ultra-légère orientée fichier, ne nécessitant aucune configuration de serveur lourd fonctionnant en arrière-plan. C'est le choix idéal pour une machine virtuelle disposant de peu de RAM (comme notre VM de 2048 Mo). +
 Source : https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]
 
-**Question 5 : Qu'est-ce qu'un service systemd ? À quoi servent les commandes start, enable et restart ?**
-Systemd est le gestionnaire de système de Linux. Il permet de gérer les processus en arrière-plan. La commande `start` lance le service, `enable` le configure pour qu'il s'allume automatiquement au démarrage de l'OS, et `restart` le redémarre (souvent utilisé après un changement de configuration).
+**Question 5 : Qu'est-ce qu'un service systemd ? À quoi servent les commandes start, enable et restart ?** +
+Systemd est le gestionnaire de système de Linux. Il permet de gérer les processus en arrière-plan. La commande `start` lance le service, `enable` le configure pour qu'il s'allume automatiquement au démarrage de l'OS, et `restart` le redémarre (souvent utilisé après un changement de configuration). +
 Source : https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]
 
-**Question 6 : Pourquoi restreindre les permissions du fichier app.ini (chmod 640) ?**
-Le fichier `app.ini` contient la configuration vitale de Forgejo, y compris des mots de passe en clair et des clés secrètes. Le restreindre (`0640`) permet de s'assurer que seul le propriétaire (l'utilisateur `forgejo`) et `root` puissent le lire, empêchant ainsi d'autres utilisateurs du système de voler ces identifiants.
+**Question 6 : Pourquoi restreindre les permissions du fichier app.ini (chmod 640) ?** +
+Le fichier `app.ini` contient la configuration vitale de Forgejo, y compris des mots de passe en clair et des clés secrètes. Le restreindre (`0640`) permet de s'assurer que seul le propriétaire (l'utilisateur `forgejo`) et `root` puissent le lire, empêchant ainsi d'autres utilisateurs du système de voler ces identifiants. +
 Source : https://wiki.debian.org/fr/Permissions[Wiki Debian - Permissions des fichiers]
 
-**Question 7 : Quelle est la différence entre un projet public et un projet privé sur la forge ?**
+**Question 7 : Quelle est la différence entre un projet public et un projet privé sur la forge ?** +
 Un projet public peut être lu, cloné et exploré par n'importe quel visiteur, même s'il n'a pas de compte sur la forge. Un projet privé est totalement invisible ; seuls le créateur et les collaborateurs explicitement invités peuvent y accéder.
 
-**Question 8 : Comment fermer automatiquement un ticket (issue) lors d'un commit ?**
+**Question 8 : Comment fermer automatiquement un ticket (issue) lors d'un commit ?** +
 Forgejo analyse les messages de commits. Si vous poussez un commit dont le message contient certains mots-clés spécifiques, comme `Fixes #3` ou `Closes #3`, la forge fermera automatiquement l'issue numéro 3 associée au dépôt.
 
-**Question 9 : Qu'est-ce que l'intégration et la livraison continues (CI/CD) ?**
-La CI (Continuous Integration) automatise les tests et vérifie le code à chaque `push` d'un développeur, garantissant que les modifications ne cassent pas l'application. La CD (Continuous Delivery) automatise le déploiement de l'application (ex: création automatique d'un site web ou d'un PDF) une fois que les tests de la CI sont validés.
+**Question 9 : Qu'est-ce que l'intégration et la livraison continues (CI/CD) ?** +
+La CI (Continuous Integration) automatise les tests et vérifie le code à chaque `push` d'un développeur, garantissant que les modifications ne cassent pas l'application. La CD (Continuous Delivery) automatise le déploiement de l'application (ex: création automatique d'un site web ou d'un PDF) une fois que les tests de la CI sont validés. +
 Source : https://about.gitlab.com/fr-fr/topics/ci-cd/[GitLab - Guide sur la CI/CD]

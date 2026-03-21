@@ -17,8 +17,12 @@ fi
 rm -f rapport.html
 rm -f rapport.pdf
 
+rm -f rapport_qr.html
+rm -f rapport_qr.pdf
+
 # Génération des nouveaux rendus
 asciidoctor rapport.adoc -o rapport.html
 asciidoctor-pdf rapport.adoc -o rapport.pdf
 
-echo "Conversion terminée avec succès via l'environnement local !"
+asciidoctor rapport_qr.adoc -o rapport_qr.html
+asciidoctor-pdf rapport_qr.adoc -o rapport_qr.pdf

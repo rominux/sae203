@@ -6,34 +6,33 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 * Kylian Plantard
 * Emilien Belot
 
-== État d'avancement du rapport
-[WARNING]
-====
-**Attention** +
-Ce rapport intermédiaire est en cours de rédaction. Actuellement, nous nous sommes arrêtés à la fin de la **Question 3 de la Semaine 10** (Manipulation pratique de Git, création du fichier `.gitignore`).
+== Présentation du projet
+Ce dépôt contient le rendu final de notre SAÉ 2.03 portant sur l'installation de services réseaux (Debian, Git, Forgejo) et la rédaction de documentation technique en AsciiDoc.
 
-Les réponses aux questions suivantes ne sont pas encore incluses dans ce document :
-* Question 4 : Travail collaboratif (dépôt distant, merge request)
-* Question 5 : Les interfaces graphiques pour git (gitk, git-gui)
-* Question 6 & 7 : Choix d'une autre interface et analyse comparative approfondie.
-====
+== Structure des documents : Pourquoi deux rapports ?
+Suite aux consignes de la Semaine 12, nous avons fait le choix de séparer notre rendu en deux types de documents distincts pour plus de clarté. Nous avons donc deux fichiers maîtres à compiler :
+
+* **Le fichier `rapport.adoc` (Le Tutoriel) :** Il raconte notre véritable retour d'expérience sous forme de tutoriel pas-à-pas. Il explique nos choix techniques, les étapes de configuration et les difficultés rencontrées (comme le blocage du port SSH par le NAT ou la gestion des conflits de fusion).
+* **Le fichier `rapport_qr.adoc` (Questions / Réponses) :** Il regroupe de manière claire et concise les réponses aux questions théoriques posées dans les différents cahiers des charges, le tout sourcé avec la documentation officielle.
+
+Chacun de ces fichiers maîtres se charge d'inclure (via la directive `include::`) l'ensemble des sous-fichiers correspondants aux différentes semaines.
+
+== Personnalisation du rendu (CSS & PDF)
+Pour répondre aux exigences de personnalisation de la dernière semaine, nous avons créé des templates dédiés :
+
+* **Pour le format HTML :** Un fichier `css/style.css` a été créé et lié dans l'en-tête pour moderniser l'affichage (couleurs personnalisées, ombres sur les tableaux, blocs de code type terminal).
+* **Pour le format PDF :** Un fichier `mon-theme.yml` a été rédigé pour modifier la police globale, styliser les tableaux et appliquer nos couleurs aux titres via l'attribut `-a pdf-theme` d'Asciidoctor-PDF.
 
 == Procédure de conversion
-[NOTE]
-====
-**Note** +
-Les ordinateurs de l'IUT n'ont pas asciidoctor installé par défaut, c'est pourquoi nous avons dû installer les outils nécessaires localement. Nous avons documenté cette procédure d'installation dans la section suivante pour faciliter la reproduction de l'environnement de travail.
-====
-
 Notre rapport a été rédigé au format _AsciiDoc_. Pour générer les versions HTML et PDF, nous utilisons un script bash nommé `convertdoc.sh`.
 
-Pour lancer la conversion, exécutez la commande suivante dans le terminal :
+Pour lancer la conversion en local, exécutez la commande suivante dans le terminal :
 [source,bash]
 ----
 ./convertdoc.sh
 ----
 
-== Outils requis
+=== Outils requis pour la compilation locale
 Afin de pouvoir compiler ce document, les outils suivants doivent être installés sur la machine :
 
 * **Ruby** (nécessaire pour l'écosystème Asciidoctor)
