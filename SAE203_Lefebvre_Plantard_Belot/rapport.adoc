@@ -1,4 +1,4 @@
-= SAÉ 2.03 : Rapport Technique
+= SAÉ 2.03 : Rapport Technique (Tutoriel et Retours d'expérience)
 Lefebvre Romain; Plantard Kylian; Belot Emilien
 :date: 2026-03-XX
 :toc: left
@@ -11,19 +11,12 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :stylesdir: css
 :stylesheet: style.css
 
-// Inclusion de la Semaine 7
 include::semaine7_rapport.adoc[]
-<<<
-
-// Inclusion de la Semaine 8
-include::semaine8.adoc[]
 
 <<<
 
-// Inclusion de la Semaine 10
 include::semaine10_rapport.adoc[]
 
 <<<
 
-// Inclusion de la Semaine 11
 include::semaine11_rapport.adoc[]

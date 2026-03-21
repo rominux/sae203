@@ -1,4 +1,4 @@
-= SAÉ 2.03 : Rapport Technique
+= SAÉ 2.03 : Foire Aux Questions (Théorie et Synthèse)
 Lefebvre Romain; Plantard Kylian; Belot Emilien
 :date: 2026-03-XX
 :toc: left
@@ -11,12 +11,12 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :stylesdir: css
 :stylesheet: style.css
 
-// Inclusion de chaque semaine
 include::semaine7_QR.adoc[]
 
 <<<
 
-include::semaine8.adoc[]
+// La semaine 8 était principalement théorique/comparative, on la place ici
+include::semaine8.adoc[] 
 
 <<<
 
