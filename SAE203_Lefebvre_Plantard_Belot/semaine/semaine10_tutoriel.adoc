@@ -8,7 +8,7 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 Ce tutoriel explique notre prise en main de l'outil de versionnement Git, depuis la configuration locale jusqu'au travail collaboratif sur GitLab, en passant par l'utilisation d'interfaces graphiques.
 ====
 
-=== 1. Configuration globale et initialisation
+===  Configuration globale et initialisation
 
 Avant de commencer à versionner notre code, nous avons dû configurer notre identité sur notre machine pour que nos futurs commits nous soient bien attribués :
 [source,bash]
@@ -26,7 +26,7 @@ cd projet-sae
 git init
 ----
 
-=== 2. Manipulations locales (Add, Commit, Log)
+===  Manipulations locales (Add, Commit, Log)
 
 Nous avons créé plusieurs fichiers et enregistré notre progression à travers des "commits" (des instantanés de notre projet). 
 [source,bash]
@@ -47,7 +47,7 @@ git log
 ----
 image::img/git-log-3commits.png[Résultat du git log, pdfwidth=100%, align="center"]
 
-=== 3. Comparaison de versions avec git diff
+===  Comparaison de versions avec git diff
 
 Nous avons utilisé `git diff` pour comparer deux commits. Voici un exemple de sortie obtenue :
 [source,diff]
@@ -62,7 +62,7 @@ index 9d600a1..7255def 100644
 ----
 Les premières lignes indiquent les fichiers comparés (`a/texte` et `b/texte`) et les méta-données de la comparaison (`index 9d600a1..7255def`). Les lignes précédées d'un `-` en rouge sont des suppressions et celles avec un `+` en vert sont des ajouts. Les autres lignes affichées servent de contexte autour du code modifié.
 
-=== 4. Gestion des branches et fusions (Merge)
+===  Gestion des branches et fusions (Merge)
 
 Pour développer une fonctionnalité sans casser le code principal, nous avons créé une branche parallèle nommée `exemple`. Comme on peut le voir sur notre capture d'écran, nous avons utilisé la commande `git checkout` pour créer cette branche et basculer dessus, puis nous l'avons fusionnée (merge) avec la branche principale (`master`) :
 
@@ -83,7 +83,7 @@ Historiquement, la commande `git checkout` sert à la fois à changer de branche
 Ainsi, taper `git checkout -b exemple` (comme nous l'avons fait) est l'équivalent exact de la commande moderne `git switch -c exemple`.
 ====
 
-=== 5. Résolution de conflits
+===  Résolution de conflits
 
 Un conflit de fusion survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle. En ouvrant le fichier en conflit avec l'éditeur `nano`, nous avons vu les balises insérées par Git :
 [source,plaintext]
@@ -98,7 +98,7 @@ image::img/git-conflit-terminal.png[Conflit terminal, pdfwidth=100%, align="cent
 
 Pour le résoudre, on modifie le fichier (choisir le code à garder et supprimer les marqueurs de conflit) puis on fait un `git add` pour le marquer comme résolu, avant de faire un commit de fusion.
 
-=== 6. Le fichier .gitignore
+===  Le fichier .gitignore
 
 Pour éviter que Git ne suive des fichiers inutiles (comme des fichiers compilés Java), nous avons créé un fichier `.gitignore` à la racine de notre projet:
 [source,plaintext]
@@ -107,7 +107,7 @@ Pour éviter que Git ne suive des fichiers inutiles (comme des fichiers compilé
 *.jar
 ----
 
-=== 7. Travail collaboratif sur GitLab
+===  Travail collaboratif sur GitLab
 
 Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d'abord généré une clé SSH (`ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`) que nous avons ajoutée à notre profil GitLab pour l'authentification.
 
@@ -140,7 +140,7 @@ image::img/blame.png[Résultat de la commande git blame, pdfwidth=100%, align="c
 
 Cette commande s'est révélée très puissante : elle affiche le contenu du fichier ligne par ligne en indiquant, pour chaque ligne, le nom de l'auteur, la date et l'identifiant (hash) du dernier commit l'ayant modifiée.
 
-=== 8. Utilisation d'une interface graphique (Ungit)
+===  Utilisation d'une interface graphique (Ungit)
 
 Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit**. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
 
@@ -152,7 +152,7 @@ image::img/diff.png[Git diff dans Ungit, pdfwidth=100%, align="center"]
 
 L'interface graphique s'est révélée très pratique pour visualiser un historique complexe et comprendre la topologie des branches, tandis que la ligne de commande reste notre outil privilégié pour les opérations rapides du quotidien (add, commit, push).
 
-=== 9. Retour d'expérience et difficultés rencontrées
+===  Retour d'expérience et difficultés rencontrées
 
 * **Le fonctionnement des clés SSH :** Au début du travail collaboratif, nous avions des erreurs de permission (`Permission denied (publickey)`). Nous avons dû bien comprendre la différence entre clé privée (qui reste sur le PC) et clé publique (à donner à GitLab) pour résoudre le problème.
 * **La panique du conflit de fusion :** Lors de notre premier conflit, voir le fichier rempli de chevrons `<<<<<<<` a été perturbant. Nous avons d'abord cru avoir cassé le code. Comprendre qu'il s'agissait simplement de texte à nettoyer manuellement dans un éditeur nous a beaucoup rassurés pour la suite du projet.

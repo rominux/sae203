@@ -8,14 +8,17 @@ if ! command -v asciidoctor &> /dev/null || ! command -v asciidoctor-pdf &> /dev
 fi
 
 echo "Suppression des anciens rendus..."
-rm -f rapport.html rapport.pdf rapport_qr.html rapport_qr.pdf
+rm -f *.html *.pdf
 
-echo "Génération du Rapport Principal (Tutoriel)..."
-asciidoctor rapport.adoc -o rapport.html
-asciidoctor-pdf -a pdf-theme=mon-theme.yml rapport.adoc -o rapport.pdf
+echo "Génération du Tutoriel..."
+asciidoctor tutoriel.adoc -o SAE203_Tutoriel.html
+asciidoctor-pdf -a pdf-theme=css/mon-theme.yml tutoriel.adoc -o SAE203_Tutoriel.pdf
 
-echo "Génération du Rapport Secondaire (Questions/Réponses)..."
-asciidoctor rapport_qr.adoc -o rapport_qr.html
-asciidoctor-pdf -a pdf-theme=mon-theme.yml rapport_qr.adoc -o rapport_qr.pdf
+echo "Génération de la FAQ..."
+asciidoctor faq.adoc -o SAE203_FAQ.html
+asciidoctor-pdf -a pdf-theme=css/mon-theme.yml faq.adoc -o SAE203_FAQ.pdf
 
-echo "Conversion terminée avec succès ! Vous avez maintenant 4 fichiers (2 HTML, 2 PDF)."
+
+
+
+echo "Conversion terminée avec succès ! Vos fichiers finaux sont prêts."

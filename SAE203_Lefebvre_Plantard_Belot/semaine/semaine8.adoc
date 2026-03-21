@@ -2,8 +2,6 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-=== Étude comparative des formats à balisage léger
-
 Dans le cadre de notre projet, nous avons comparé deux langages de balisage léger très populaires : le Markdown et l'AsciiDoc. Voici un grand tableau comparatif détaillant leurs concepts, origines et syntaxes.
 
 [cols="1,2a,2a", options="header"]

@@ -8,7 +8,7 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 Ce tutoriel détaille étape par étape la création, l'installation et la configuration de notre environnement de travail sous Debian 13 dans VirtualBox, ainsi que son automatisation.
 ====
 
-=== 1. Création de la machine virtuelle dans VirtualBox
+===  Création de la machine virtuelle dans VirtualBox
 
 La première étape consiste à préparer le "matériel virtuel" qui va accueillir notre serveur. Dans VirtualBox, nous avons cliqué sur "Nouvelle" et configuré la machine selon le cahier des charges :
 
@@ -20,7 +20,7 @@ La première étape consiste à préparer le "matériel virtuel" qui va accueill
 
 image::img/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, align="center"]
 
-=== 2. Installation de l'OS de base (Debian 13)
+===  Installation de l'OS de base (Debian 13)
 
 Une fois la machine créée, nous y avons inséré l'image disque (ISO) de Debian et lancé l'installation graphique. Les choix cruciaux lors de cette étape ont été :
 
@@ -33,7 +33,7 @@ Une fois la machine créée, nous y avons inséré l'image disque (ISO) de Debia
 
 image::img/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=60%, align="center"]
 
-=== 3. Configuration post-installation et Suppléments invités
+===  Configuration post-installation et Suppléments invités
 
 Une fois le système installé et redémarré, plusieurs configurations manuelles ont été nécessaires pour rendre la machine parfaitement utilisable :
 
@@ -56,7 +56,7 @@ man 8 mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[P
 
 Un redémarrage a suffi pour appliquer ces changements.
 
-=== 4. Automatisation de l'installation (Preseed)
+===  Automatisation de l'installation (Preseed)
 
 Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée `preseed-fr.cfg` présent sur l'ISO fournie.
 
@@ -79,7 +79,7 @@ Enfin, pour que l'utilisateur soit directement dans le groupe sudo à l'installa
 +d-i passwd/user-default-groups string audio cdrom video sudo
 ----
 
-=== 5. Retour d'expérience et difficultés rencontrées
+===  Retour d'expérience et difficultés rencontrées
 
 * **Problème de connexion SSH :** En voulant tester la commande `ssh user@10.0.2.15` depuis notre machine hôte, la connexion échouait indéfiniment (Timeout). Après diagnostic, nous avons compris que le réseau NAT de VirtualBox agissait comme un routeur bloquant les connexions entrantes. 
 * **La solution :** Nous avons dû configurer manuellement une règle de "Redirection de ports" (Port Forwarding) dans les paramètres réseau de VirtualBox (Port hôte 2222 vers Port invité 22) pour que la connexion réussisse.

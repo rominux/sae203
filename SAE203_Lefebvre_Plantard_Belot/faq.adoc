@@ -1,0 +1,40 @@
+= SAÉ 2.03 : Installation de services réseaux (Question Réponse)
+Lefebvre Romain; Plantard Kylian; Belot Emilien
+// Définit la date de génération ou de rendu du document
+:date: 2026-03-XX
+// Intègre les images directement dans le fichier HTML final (autonome)
+:data-uri:
+// Active la Table des Matières (Table Of Contents)
+:toc:
+// Renomme le titre par défaut du sommaire (qui est en anglais) en français
+:toc-title: Table des matières
+// Définit la profondeur du sommaire (ici, il affichera jusqu'aux sous-titres de niveau 4)
+:toclevels: 4
+// Active la numérotation automatique des sections (1., 1.1., 1.2...)
+:sectnums:
+// Active les macros d'interface (permet d'utiliser kbd:[Ctrl+C] pour générer un visuel de touche de clavier)
+:experimental:
+// Utilise une police d'icônes (FontAwesome) au lieu de texte pour les blocs [NOTE], [WARNING], etc.
+:icons: font
+// Utilise la bibliothèque "rouge" pour la coloration syntaxique des blocs de code source
+:source-highlighter: rouge
+// Applique le thème "monokai" à "rouge" (donne un fond noir et un texte coloré au code source)
+:rouge-style: monokai
+// Indique à Asciidoctor que les fichiers de style se trouvent dans le sous-dossier "css"
+:stylesdir: css
+// Écrase le design par défaut d'Asciidoctor pour utiliser notre propre fichier CSS (pour le rendu HTML)
+:stylesheet: style.css
+
+include::semaine/semaine7_faq.adoc[]
+
+<<<
+
+include::semaine/semaine8.adoc[]
+
+<<<
+
+include::semaine/semaine10_faq.adoc[]
+
+<<<
+
+include::semaine/semaine11_faq.adoc[]

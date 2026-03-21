@@ -8,7 +8,7 @@ _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 Ce tutoriel détaille l'installation, la configuration et la sécurisation de Forgejo, une forge logicielle libre et auto-hébergée (permettant de gérer des dépôts Git, le suivi des bugs et l'intégration continue) sur notre serveur Debian.
 ====
 
-=== 1. Installation du binaire et configuration de l'utilisateur système
+===  Installation du binaire et configuration de l'utilisateur système
 
 Pour commencer, nous avons téléchargé le binaire de Forgejo, créé un utilisateur système dédié (`git`) sans mot de passe, préparé les dossiers nécessaires, puis configuré et lancé le service via les commandes suivantes :
 
@@ -29,7 +29,7 @@ sudo systemctl stop forgejo.service
 sudo chmod 750 /etc/forgejo && sudo chmod 640 /etc/forgejo/app.ini
 ----
 
-=== 2. Choix de la base de données et de l'architecture réseau
+===  Choix de la base de données et de l'architecture réseau
 
 Pour la base de données, nous avons choisi **SQLite**, une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). Le fichier se trouve dans le répertoire de travail de l'application. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo (`git`), afin qu'il puisse y lire et y écrire les données.
 
@@ -41,7 +41,7 @@ ls -l /var/lib/forgejo/data/forgejo.db
 
 Côté réseau, Forgejo écoute par défaut sur le port **3000**. Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard (`git`) et utilise un port non privilégié. En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui a les droits d'écouter le port 80 ou 443 et qui redirige le trafic vers le port 3000.
 
-=== 3. Gestion du service systemd
+===  Gestion du service systemd
 
 Nous utilisons **systemd**, le gestionnaire de système et de services de Linux, pour démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan. Le fichier de service (`/etc/systemd/system/forgejo.service`) se découpe ainsi :
 * `[Unit]` : Contient les métadonnées et les dépendances.
@@ -61,7 +61,7 @@ sudo systemctl restart forgejo
 sudo journalctl -u forgejo -f
 ----
 
-=== 4. Sécurité
+===  Sécurité
 
 Pour sécuriser l'installation, nous sommes intervenus sur plusieurs points :
 
@@ -77,7 +77,7 @@ sudo chmod 640 /etc/forgejo/app.ini
 sudo chown -R forgejo:forgejo /etc/forgejo
 ----
 
-=== 5. Tests d'utilisation approfondis
+===  Tests d'utilisation approfondis
 
 Nous avons testé la différence d'accès : un projet **public** est lisible et clonable par n'importe quel visiteur, tandis qu'un projet **privé** est invisible et inaccessible à moins d'être invité.
 Nous avons testé la fermeture automatique d'un ticket (issue) en utilisant des mots-clés spécifiques (ex: `Fixes #1`) dans le message de commit.
@@ -96,7 +96,7 @@ git commit -m "Correction du bug d'affichage. Fixes #3"
 git push
 ----
 
-=== 6. Intégration et livraison continues (CI/CD)
+===  Intégration et livraison continues (CI/CD)
 
 La **CI (Continuous Integration)** automatise les tests et la vérification du code à chaque fois qu'un développeur pousse des modifications, ce qui garantit que le nouveau code ne casse pas l'application. La **CD (Continuous Delivery)** automatise le déploiement. Cela permet une réduction massive des bugs, des retours immédiats, une standardisation de la compilation et un gain de temps.
 
@@ -117,7 +117,7 @@ jobs:
         run: asciidoctor rapport.adoc
 ----
 
-=== 7. Retour d'expérience et difficultés rencontrées
+===  Retour d'expérience et difficultés rencontrées
 
 * **Le piège du port SSH :** Le port SSH 22 de notre Debian étant déjà pris par le système principal, Forgejo utilise un serveur SSH interne (qui tourne souvent sur le port 2222). Nous avons eu du mal à faire notre premier `git push` car nous oubliions de préciser ce port réseau alternatif dans la commande de clonage de Git. Une fois l'URL corrigée (`ssh://git@localhost:2222/...`), l'authentification avec nos clés SSH a parfaitement fonctionné.
 * **Erreurs de permissions sur le fichier de base de données :** Lors de nos premiers tests, Forgejo refusait de démarrer et affichait une erreur 500. En regardant les logs (avec `journalctl -u forgejo`), nous avons compris que l'utilisateur système `git` n'avait pas les droits d'écriture sur le fichier SQLite `forgejo.db`. Un simple ajustement des permissions avec `chown` a résolu le problème.

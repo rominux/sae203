@@ -1,66 +1,104 @@
-/* 1. Police et fond de page */
+/* --- IMPORT DES ICÔNES FONTAWESOME --- */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* --- 1. MISE EN PAGE GLOBALE --- */
 body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9f9fb;
     color: #333333;
     line-height: 1.6;
+    margin: 0 auto; /* Permet de centrer la page */
+    max-width: 1000px; /* Largeur maximale pour que le texte reste lisible */
+    padding: 20px;
 }
 
-/* 2. Personnalisation des titres */
+/* --- 2. SOMMAIRE (TOC) EN HAUT DE PAGE --- */
+#toc {
+background-color: #ffffff;
+border: 1px solid #dcdcdc;
+border-radius: 5px;
+padding: 20px;
+margin-bottom: 2em;
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+#toctitle {
+color: #004b87;
+font-size: 1.4em;
+font-weight: bold;
+margin-top: 0;
+border-bottom: 1px solid #004b87;
+padding-bottom: 5px;
+}
+#toc ul {
+list-style-type: none;
+padding-left: 20px;
+}
+#toc ul li a {
+text-decoration: none;
+color: #444;
+}
+#toc ul li a:hover {
+color: #004b87;
+text-decoration: underline;
+}
+
+/* --- 3. PERSONNALISATION DES TITRES --- */
 h1, h2, h3, h4 {
     color: #004b87;
     font-weight: 600;
 }
-
 h2 {
-    border-bottom: 3px solid #004b87;
+    border-bottom: 2px solid #004b87;
     padding-bottom: 5px;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
-h3 {
-    border-left: 4px solid #004b87;
-    padding-left: 10px;
-    background-color: #eef5fa;
+/* --- 4. ADMONITIONS (NOTES, WARNING) --- */
+.admonitionblock {
+    margin: 1.5em 0;
 }
-
-/* 3. Style des Admonitions (Notes, Warnings...) */
+.admonitionblock table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.admonitionblock td.icon {
+    width: 50px;
+    text-align: center;
+    color: #004b87;
+    font-size: 2em;
+}
 .admonitionblock td.content {
     background-color: #ffffff;
     border-left: 5px solid #004b87;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Petite ombre portée */
     padding: 15px;
-    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* 4. Tableaux stylisés */
+/* --- 5. TABLEAUX --- */
 table.tableblock {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    margin: 2em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 table.tableblock thead {
     background-color: #004b87;
     color: #ffffff;
 }
-
 table.tableblock th, table.tableblock td {
-    padding: 12px 15px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
 }
-
 table.tableblock tbody tr:nth-child(even) {
     background-color: #f2f2f2; /* Lignes zébrées */
 }
 
-/* 5. Blocs de code (Terminal) */
+/* --- 6. BLOCS DE CODE --- */
 .listingblock pre {
-    background-color: #282c34; /* Thème sombre type "Monokai" */
-    color: #abb2bf;
-    border-radius: 6px;
+    background-color: #272822 !important; /* Force le fond noir */
+    color: #f8f8f2 !important;
+    border-radius: 5px;
     padding: 15px;
-    border: 1px solid #1e2127;
+    overflow-x: auto;
 }
