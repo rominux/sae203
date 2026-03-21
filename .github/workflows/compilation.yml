@@ -1,0 +1,34 @@
+name: Compilation du Rapport SAÉ 2.03
+
+# Le script se déclenche à chaque "push" sur la branche principale
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape 1 : GitHub télécharge virtuellement votre code
+      - name: Récupération du code source
+        uses: actions/checkout@v4
+
+      # Étape 2 : GitHub installe Asciidoctor et l'extension PDF
+      - name: Installation de l'environnement Asciidoctor
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y asciidoctor ruby-asciidoctor-pdf
+
+      # Étape 3 : GitHub tape la commande de compilation à votre place
+      - name: Compilation du rapport en PDF
+        run: asciidoctor-pdf -a pdf-theme=mon-theme.yml rapport.adoc -o rapport.pdf
+
+      # Étape 4 : GitHub sauvegarde le fichier PDF pour que vous puissiez le télécharger
+      - name: Mise à disposition du PDF (Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rapport-SAE203-PDF
+          path: rapport.pdf

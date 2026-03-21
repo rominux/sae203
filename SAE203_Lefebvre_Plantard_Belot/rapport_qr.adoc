@@ -9,24 +9,17 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :icons: font
 :source-highlighter: rouge
 
-// Inclusion de la Semaine 7
-include::semaine7_rapport.adoc[]
-include::semaine7_QR.adoc[]
+// Inclusion de chaque semaine
+include::semaine7.adoc[]
 
 <<<
 
-// Inclusion de la Semaine 8
-include::semaine8_rapport.adoc[]
-include::semaine8_QR.adoc[]
+include::semaine8.adoc[]
 
 <<<
 
-// Inclusion de la Semaine 10
-include::semaine10_rapport.adoc[]
-include::semaine10_QR.adoc[]
+include::semaine10.adoc[]
 
 <<<
 
-// Inclusion de la Semaine 11
-include::semaine11_rapport.adoc[]
-include::semaine11_QR.adoc[]
+include::semaine11.adoc[]
