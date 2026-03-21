@@ -9,7 +9,7 @@ Dans le cadre de notre projet, nous avons comparé deux langages de balisage lé
 | Sujet | Markdown (.md) | Asciidoctor (.adoc)
 
 | **Description**
-| Langage de balisage léger très populaire, conçu pour être facile à lire et à écrire. Très orienté pour le web et les plateformes collaboratives (ex: GitHub).
+| Langage de balisage léger très populaire, conçu pour être facile à lire et à écrire. Très orienté pour le web et les platformes collaboratives (ex: GitHub).
 | Langage de balisage léger plus riche et standardisé, conçu initialement pour la rédaction d'articles, de livres techniques et de documentations complexes.
 
 | **Lien vers la documentation officielle**
@@ -22,17 +22,14 @@ Dans le cadre de notre projet, nous avons comparé deux langages de balisage lé
 
 | **Comment convertir (sans extension) vers HTML et PDF**
 | Utilisation classique avec la commande **Pandoc** :
-[source,bash]
-----
-pandoc fichier.md -o fichier.html
-pandoc fichier.md -o fichier.pdf
-----
+
+  pandoc fichier.md -o fichier.html
+  pandoc fichier.md -o fichier.pdf
+
 | Utilisation avec la suite **Asciidoctor** :
-[source,bash]
-----
-asciidoctor fichier.adoc
-asciidoctor-pdf fichier.adoc
-----
+
+  asciidoctor fichier.adoc
+  asciidoctor-pdf fichier.adoc
 
 | **Écrire en gras**
 2+| Pour écrire en gras, il faut utiliser deux astérisques de chaque côté du mot : pass:[**]**mot**pass:[**]
@@ -63,33 +60,27 @@ asciidoctor-pdf fichier.adoc
 
 | **Faire des listes à puces (avec sous-liste)**
 | On utilise des astérisques, avec une indentation (espaces) pour le sous-niveau :
-[source,markdown]
-----
- * Élément principal 1
- * Élément principal 2
-   * Sous-élément
-----
+
+  * Élément principal 1
+  * Élément principal 2
+    * Sous-élément
+
 | On utilise des astérisques, et on en ajoute un supplémentaire par niveau de profondeur :
-[source,asciidoc]
-----
- * Élément principal 1
- * Élément principal 2
- ** Sous-élément
-----
+
+  * Élément principal 1
+  * Élément principal 2
+  ** Sous-élément
 
 | **Faire des listes numérotées**
 | On utilise des nombres suivis d'un point :
-[source,markdown]
-----
- 1. Première étape
- 2. Deuxième étape
-----
+
+  1. Première étape
+  2. Deuxième étape
+
 | Asciidoc gère la numérotation automatiquement avec des simples points :
-[source,asciidoc]
-----
- . Première étape
- . Deuxième étape
-----
+
+  . Première étape
+  . Deuxième étape
 
 | **Créer un tableau simple**
 | On le dessine avec des barres verticales (`\|`) et des tirets pour séparer l'en-tête :
@@ -100,14 +91,13 @@ asciidoctor-pdf fichier.adoc
 \| Valeur 1  \| Valeur 2  \|
 ----
 | On déclare le nombre de colonnes puis on liste les cellules les unes après les autres :
-[source,asciidoc]
-----
-[cols="1,1", options="header"]
-!===
-! Colonne 1 ! Colonne 2
-! Valeur 1  ! Valeur 2
-!===
-----
+
+  [cols="1,1", options="header"]
+  \|===
+  \| Colonne 1 | Colonne 2
+  \| Valeur 1  | Valeur 2
+  \|===
+
 .Résultat :
 [cols="1,1", options="header"]
 !===
@@ -119,14 +109,13 @@ asciidoctor-pdf fichier.adoc
 | **Très limité.** Le Markdown classique ne gère ni les tailles de colonnes précises, ni la fusion de cellules (il faut coder en HTML).
 | **Très puissant.** +
 On ajuste la taille des colonnes avec `cols`. On fusionne des colonnes avec `2+` :
-[source,asciidoc]
-----
-[cols="1,3"]
-!===
-2+! Titre fusionné sur 2 colonnes
-! Case 1 petite ! Case 2 très large
-!===
-----
+
+  [cols="1,3"]
+  \|===
+  2+\| Titre fusionné sur 2 colonnes
+  \| Case 1 petite | Case 2 très large
+  \|===
+
 .Résultat :
 [cols="1,3"]
 !===
@@ -138,7 +127,7 @@ On ajuste la taille des colonnes avec `cols`. On fusionne des colonnes avec `2+`
 | Le texte est entre crochets, l'URL entre parenthèses : +
 [Debian](https://debian.org)
 | L'URL est au début, le texte est entre crochets à la fin : +
-https:/⁠/debian.org[Debian]
+https://debian.org[Debian]
 
 | **Insérer une image**
 | Un point d'exclamation, le texte alternatif, puis le lien : +
@@ -149,50 +138,43 @@ https:/⁠/debian.org[Debian]
 | **Blocs d'informations (Admonitions : Notes, Avertissements...)**
 | Le Markdown natif ne le gère pas. (Il faut utiliser des extensions spécifiques de Pandoc).
 | Intégré nativement avec des icônes.
-[source,asciidoc]
-----
- [NOTE]
- ====
- Ceci est une note.
- (Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
- ====
-----
+
+  [NOTE]
+  ====
+  Ceci est une note.
+  ====
+
 .Résultat :
 [NOTE]
 ====
 Ceci est une note.
-(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
 ====
 
 | **Blocs de code avec coloration syntaxique**
 | Trois accents graves suivis du langage :
-[source,markdown]
-----
- ```bash
- echo "Bonjour"
- ```
-----
+
+  ```bash
+  echo "Bonjour"
+  ```
+
 | Directive source suivie du langage, puis délimiteurs :
-[source,asciidoc]
-....
- [source,bash]
- ----
- echo "Bonjour"
- ----
-....
+
+  [source,bash]
+  ----
+  echo "Bonjour"
+  ----
 
 | **Citations (Quotes)**
 2+| On utilise le chevron vers la droite `>` en début de ligne : +
 `> Ceci est une citation de texte.` +
 
 AsciiDoc offre aussi des blocs avancés pour les citations :
-[source,asciidoc]
-----
- [quote, Auteur, Source]
- ____
- Ceci est une citation avancée en AsciiDoc.
- ____
-----
+
+  [quote, Auteur, Source]
+  ____
+  Ceci est une citation avancée.
+  ____
+
 .Résultat :
 [quote, Auteur, Source]
 ____
@@ -201,17 +183,14 @@ ____
 
 | **Notes de bas de page**
 | On doit créer une ancre et son contenu :
-[source,markdown]
-----
- Ceci est mon texte[^1].
 
- [^1]: Et voici la note de bas de page.
-----
+  Ceci est mon texte[^1].
+  [^1]: Et voici la note de bas de page.
+
 | Tout se fait sur la même ligne avec la balise footnote :
-[source,asciidoc]
-----
- Ceci est mon texte footnote:[Et voici la note directement intégrée ici].
-----
+
+  Ceci est mon texte footnote:[Et voici la note].
+
 |===
 
 ////
