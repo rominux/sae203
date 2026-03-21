@@ -11,13 +11,12 @@ echo "Suppression des anciens rendus..."
 rm -f *.html *.pdf
 
 echo "Génération du Tutoriel..."
-asciidoctor tutoriel.adoc -o SAE203_Tutoriel.html
-asciidoctor-pdf -a pdf-theme=css/mon-theme.yml tutoriel.adoc -o SAE203_Tutoriel.pdf
+asciidoctor tutoriel.adoc -o SAE203_Tutoriel.html && echo "SAE203_Tutoriel.html terminée"
+asciidoctor-pdf -a pdf-theme=css/mon-theme.yml tutoriel.adoc -o SAE203_Tutoriel.pdf && echo "SAE203_Tutoriel.pdf terminée"
 
 echo "Génération de la FAQ..."
-asciidoctor faq.adoc -o SAE203_FAQ.html
-asciidoctor-pdf -a pdf-theme=css/mon-theme.yml faq.adoc -o SAE203_FAQ.pdf
-
+asciidoctor faq.adoc -o SAE203_FAQ.html && echo "SAE203_FAQ.html terminée"
+asciidoctor-pdf -a pdf-theme=css/mon-theme.yml faq.adoc -o SAE203_FAQ.pdf && echo "SAE203_FAQ.pdf terminée"
 
 
 

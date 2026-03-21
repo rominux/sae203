@@ -347,7 +347,12 @@ pre.rouge {
 <div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
 <li><a href="#faq-semaine7">1. Semaine 7 : Questions et Réponses techniques</a></li>
-<li><a href="#_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</a></li>
+<li><a href="#_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</a>
+<ul class="sectlevel2">
+<li><a href="#_retour_dexpérience_installation_locale_dasciidoctor">2.1. Retour d&#8217;expérience : Installation locale d&#8217;Asciidoctor</a></li>
+<li><a href="#_note_technique_sur_la_rédaction_de_ce_comparatif">2.2. Note technique sur la rédaction de ce comparatif</a></li>
+</ul>
+</li>
 <li><a href="#faq-semaine10">3. Semaine 10 : Questions et Réponses techniques (Git)</a></li>
 <li><a href="#faq-semaine11">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</a></li>
 </ul>
@@ -613,13 +618,13 @@ asciidoctor-pdf fichier.adoc</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en italique</strong></p></td>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Pour écrire en italique, il faut utiliser un tiret bas : _<em>mot</em>_</p>
+<p>Pour écrire en italique, il faut utiliser un tiret bas: _<em>mot</em>_</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en gras ET italique</strong></p></td>
 <td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Pour combiner les deux, on cumule les symboles : **_<strong><em>mot</em></strong>_**</p>
+<p>Pour combiner les deux, on cumule les symboles: **_<strong><em>mot</em></strong>_**</p>
 </div></div></td>
 </tr>
 <tr>
@@ -629,7 +634,7 @@ asciidoctor-pdf fichier.adoc</code></pre>
 <code>&lt;u&gt;</code> <span class="underline">mot</span> <code>&lt;/u&gt;</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>AsciiDoc gère le soulignement grâce aux rôles (les espaces autour sont importants) :<br>
+<p>AsciiDoc gère le soulignement grâce aux rôles :<br>
 [.underline]# <span class="underline">mot</span> #</p>
 </div></div></td>
 </tr>
@@ -640,7 +645,7 @@ asciidoctor-pdf fichier.adoc</code></pre>
 <code>&lt;mark&gt;</code><mark>mot</mark><code>&lt;/mark&gt;</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>AsciiDoc utilise simplement le symbole dièse de chaque côté (les espaces autour sont importants) :<br>
+<p>AsciiDoc utilise simplement le symbole dièse :<br>
 # <mark>mot</mark> #</p>
 </div></div></td>
 </tr>
@@ -712,15 +717,15 @@ asciidoctor-pdf fichier.adoc</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>On déclare le nombre de colonnes puis on liste les cellules les unes après les autres :</p>
+<p>On déclare le nombre de colonnes puis on liste les cellules :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,1", options="header"]
-!===
-! Colonne 1 ! Colonne 2
-! Valeur 1  ! Valeur 2
-!===</code></pre>
+|===
+| Colonne 1 | Colonne 2
+| Valeur 1  | Valeur 2
+|===</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -750,15 +755,19 @@ asciidoctor-pdf fichier.adoc</code></pre>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Très puissant.</strong><br>
-On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonnes avec <code>2+</code> :</p>
+On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonnes avec <code>2+</code> et des lignes avec <code>.2+</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,3"]
-!===
-2+! Titre fusionné sur 2 colonnes
-! Case 1 petite ! Case 2 très large
-!===</code></pre>
+|===
+2+| Titre fusionné sur 2 colonnes
+
+.2+| Case 1 petite haute
+| Case 2 très large
+
+| Case 3
+|===</code></pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-all stretch">
@@ -767,13 +776,18 @@ On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonne
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2">Titre fusionné sur 2 colonnes</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Titre fusionné sur 2 colonnes</p></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Case 1 petite haute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 2 très large</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Case 1 petite</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Case 2 très large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 3</p></td>
 </tr>
 </tbody>
 </table></div></td>
@@ -786,7 +800,7 @@ On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonne
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>L&#8217;URL est au début, le texte est entre crochets à la fin :<br>
-https:/⁠/debian.org[Debian]</p>
+ht⁠tps://debian.org[Debian]</p>
 </div></div></td>
 </tr>
 <tr>
@@ -813,7 +827,6 @@ https:/⁠/debian.org[Debian]</p>
 <pre class="rouge highlight"><code data-lang="asciidoc">[NOTE]
 ====
 Ceci est une note.
-(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
 ====</code></pre>
 </div>
 </div>
@@ -826,8 +839,7 @@ Ceci est une note.
 <td class="content">
 <div class="title">Résultat :</div>
 <div class="paragraph">
-<p>Ceci est une note.
-(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)</p>
+<p>Ceci est une note.</p>
 </div>
 </td>
 </tr>
@@ -847,14 +859,14 @@ Ceci est une note.
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Directive source suivie du langage, puis délimiteurs <code>----</code> (on utilise <code>&#8230;&#8203;.</code> pour imbriquer l&#8217;exemple sans casser le tableau) :</p>
+<p>Directive source suivie du langage, puis délimiteurs :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">[source,bash]
-....
+⁠----
 echo "Bonjour"
-....</code></pre>
+⁠----</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -865,13 +877,13 @@ echo "Bonjour"
 <code>&gt; Ceci est une citation de texte.</code><br></p>
 </div>
 <div class="paragraph">
-<p>AsciiDoc offre aussi des blocs avancés pour les citations :</p>
+<p>AsciiDoc offre aussi des blocs avancés :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="asciidoc">[quote, Auteur, Source]
 ____
-Ceci est une citation avancée en AsciiDoc.
+Ceci est une citation.
 ____</code></pre>
 </div>
 </div>
@@ -893,32 +905,30 @@ ____</code></pre>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>On doit créer une ancre et son contenu :</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="markdown">Ceci est mon texte[^1].
-
-<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">Et</span> voici la note de bas de page.</code></pre>
+<pre>Ceci est mon texte[^1].
+[^1]: Et voici la note de bas de page.</pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Tout se fait sur la même ligne avec la balise footnote :</p>
 </div>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="asciidoc">Ceci est mon texte footnote:[Et voici la note directement intégrée ici].</code></pre>
+<pre>Ceci est mon texte footnote:[Et voici la note].</pre>
 </div>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Retour d&#8217;expérience : Installation locale d&#8217;Asciidoctor</p>
-</div>
+<div class="sect2">
+<h3 id="_retour_dexpérience_installation_locale_dasciidoctor">2.1. Retour d&#8217;expérience : Installation locale d&#8217;Asciidoctor</h3>
 <div class="paragraph">
 <p>Lors de la préparation de notre environnement de travail en local (sur les machines de l&#8217;IUT), nous avons rencontré une difficulté majeure : l&#8217;impossibilité d&#8217;installer Asciidoctor de manière globale par manque de droits d&#8217;administration (accès <code>root</code> bloqué).</p>
 </div>
 <div class="paragraph">
-<p>La solution a été de forcer l&#8217;installation des paquets Ruby directement dans notre espace utilisateur grâce à l&#8217;option <code>--user-install</code> :</p>
+<p>La solution a été de forcer l&#8217;installation des paquets Ruby directement dans notre espace utilisateur grâce à l&#8217;option <code>--user-install</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -928,7 +938,30 @@ ____</code></pre>
 <div class="paragraph">
 <p>Il a ensuite fallu ajouter le chemin des binaires Ruby au <code>PATH</code> de notre environnement utilisateur pour pouvoir exécuter les commandes de compilation.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_note_technique_sur_la_rédaction_de_ce_comparatif">2.2. Note technique sur la rédaction de ce comparatif</h3>
+<div class="paragraph">
+<p>La rédaction de cette section a représenté un défi technique particulier : comment afficher du code source AsciiDoc (contenant des symboles de tableaux <code>|===</code>) à l&#8217;intérieur d&#8217;un tableau lui-même écrit en AsciiDoc sans que le script de conversion ne "casse" la structure globale ?</p>
+</div>
+<div class="paragraph">
+<p>Pour réussir ce rendu sans erreur de compilation, nous avons mis en œuvre les trois méthodes suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>L&#8217;utilisation d&#8217;attributs de substitution :</strong> Nous avons défini des variables globales au début du document, comme <code>:triple: |===</code> et <code>:vbar: |</code>. En appelant ces variables (ex: <code>|===</code>) à l&#8217;intérieur de nos exemples, nous empêchons le compilateur de croire que nous fermons prématurément le tableau principal.</p>
+</li>
+<li>
+<p><strong>L&#8217;activation des substitutions dans les blocs :</strong> Pour que ces variables soient bien transformées en symboles visuels dans le rendu final, nous avons ajouté l&#8217;option <code>[source,asciidoc,subs="attributes"]</code> sur nos blocs de code.</p>
+</li>
+<li>
+<p><strong>L&#8217;échappement de caractères :</strong> Pour certains symboles comme les délimiteurs de blocs de code ou de citations, nous avons utilisé des caractères d&#8217;échappement (antislash <code>\</code>) ou des espaces insécables pour neutraliser l&#8217;interprétation du compilateur tout en conservant la coloration syntaxique.</p>
+</li>
+</ul>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 <div class="sect1">
