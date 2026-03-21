@@ -10,12 +10,13 @@ Ce tutoriel explique notre prise en main de l'outil de versionnement Git, depuis
 
 === 1. Configuration globale et initialisation
 
-Avant de commencer à versionner notre code, nous avons dû configurer notre identité sur notre machine (à ne faire qu'une seule fois) pour que nos futurs commits nous soient bien attribués :
+Avant de commencer à versionner notre code, nous avons dû configurer notre identité sur notre machine pour que nos futurs commits nous soient bien attribués :
 [source,bash]
 ----
 git config --global user.name "Prénom Nom"
 git config --global user.email "prenom.nom@etu.univ-lille.fr"
 ----
+Elles ne sont évidemment à faire qu'une fois par machine, et pas à chaque projet. Si l'email est différent que celui du compte, les commits ne seront pas associés au profil.
 
 Ensuite, nous avons créé un dossier de travail et initialisé un nouveau dépôt Git local vierge à l'intérieur :
 [source,bash]
@@ -46,22 +47,45 @@ git log
 ----
 image::img/git-log-3commits.png[Résultat du git log, pdfwidth=100%, align="center"]
 
-=== 3. Gestion des branches et fusions (Merge)
+=== 3. Comparaison de versions avec git diff
 
-Pour développer une fonctionnalité sans casser le code principal, nous avons créé une branche parallèle nommée `exemple`. Nous avons fait des modifications dessus, puis nous l'avons fusionnée (merge) avec la branche principale (`master`) :
+Nous avons utilisé `git diff` pour comparer deux commits. Voici un exemple de sortie obtenue :
+[source,diff]
+----
+diff --git a/texte b/texte
+index 9d600a1..7255def 100644
+--- a/texte
++++ b/texte
+@@ -1 +1 @@
+-dans une branche
++conflit 1
+----
+Les premières lignes indiquent les fichiers comparés (`a/texte` et `b/texte`) et les méta-données de la comparaison (`index 9d600a1..7255def`). Les lignes précédées d'un `-` en rouge sont des suppressions et celles avec un `+` en vert sont des ajouts. Les autres lignes affichées servent de contexte autour du code modifié.
+
+=== 4. Gestion des branches et fusions (Merge)
+
+Pour développer une fonctionnalité sans casser le code principal, nous avons créé une branche parallèle nommée `exemple`. Comme on peut le voir sur notre capture d'écran, nous avons utilisé la commande `git checkout` pour créer cette branche et basculer dessus, puis nous l'avons fusionnée (merge) avec la branche principale (`master`) :
+
 [source,bash]
 ----
-git switch -c exemple
+git checkout -b exemple
 # ... modifications et commits ...
-git switch master
+git checkout master
 git merge exemple
 ----
+
 image::img/git-branch-merge.png[Git branche, pdfwidth=100%, align="center"]
 
-=== 4. Résolution de conflits
+[NOTE]
+====
+**`git checkout` vs `git switch`** +
+Historiquement, la commande `git checkout` sert à la fois à changer de branche et à restaurer l'état des fichiers, ce qui peut prêter à confusion. Pour simplifier cela, Git a introduit plus récemment la commande `git switch`, dédiée uniquement aux branches. 
+Ainsi, taper `git checkout -b exemple` (comme nous l'avons fait) est l'équivalent exact de la commande moderne `git switch -c exemple`.
+====
 
-Un conflit de fusion survient lorsque deux branches modifient la même ligne d'un même fichier. Nous en avons provoqué un volontairement. 
-Lors du merge, Git s'est mis en pause. En ouvrant le fichier en conflit avec l'éditeur `nano`, nous avons vu les balises insérées par Git :
+=== 5. Résolution de conflits
+
+Un conflit de fusion survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle. En ouvrant le fichier en conflit avec l'éditeur `nano`, nous avons vu les balises insérées par Git :
 [source,plaintext]
 ----
 <<<<<<< HEAD
@@ -72,26 +96,20 @@ conflit 2
 ----
 image::img/git-conflit-terminal.png[Conflit terminal, pdfwidth=100%, align="center"]
 
-Pour le résoudre, nous avons supprimé les balises (`<<<<<<<`, `=======`, `>>>>>>>`), gardé le code pertinent, puis validé la résolution :
-[source,bash]
-----
-git add fichier_en_conflit
-git commit -m "Résolution du conflit"
-----
+Pour le résoudre, on modifie le fichier (choisir le code à garder et supprimer les marqueurs de conflit) puis on fait un `git add` pour le marquer comme résolu, avant de faire un commit de fusion.
 
-=== 5. Le fichier .gitignore
+=== 6. Le fichier .gitignore
 
-Pour éviter que Git ne suive des fichiers inutiles (comme des fichiers compilés Java), nous avons créé un fichier `.gitignore` à la racine de notre projet :
+Pour éviter que Git ne suive des fichiers inutiles (comme des fichiers compilés Java), nous avons créé un fichier `.gitignore` à la racine de notre projet:
 [source,plaintext]
 ----
 *.class
 *.jar
 ----
 
-=== 6. Travail collaboratif sur GitLab
+=== 7. Travail collaboratif sur GitLab
 
-Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. 
-Nous avons d'abord généré une clé SSH (`ssh-keygen -t ed25519`) que nous avons ajoutée à notre profil GitLab pour ne plus avoir à taper de mot de passe.
+Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d'abord généré une clé SSH (`ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`) que nous avons ajoutée à notre profil GitLab pour l'authentification.
 
 Nous avons cloné le projet :
 [source,bash]
@@ -103,26 +121,38 @@ Chaque membre a ensuite créé sa propre branche, ajouté un fichier, et poussé
 [source,bash]
 ----
 git switch --create emilien
-echo "encore un fichier" > encore_un_fichier
+echo "encore du texte" > encore_un_fichier
 git add encore_un_fichier
 git commit -m "ajoute encore_un_fichier"
 git push --set-upstream origin emilien
 ----
-Enfin, sur l'interface web de GitLab, nous avons créé des "Merge Requests" pour fusionner le travail de chacun dans la branche principale.
+Enfin, sur l'interface web de GitLab, nous avons créé des "Merge Requests" pour fusionner le travail de chacun dans la branche principale. Nous n'avons pas eu de conflits car nous n'avons pas modifié les mêmes fichiers.
 
-=== 7. Utilisation d'une interface graphique (Ungit)
+**Traçabilité avec git blame** +
+Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons testé la commande `git blame` sur l'un de nos fichiers. 
 
-Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit** (installée via `sudo npm install -g ungit`). 
+[source,bash]
+----
+git blame nom_du_fichier
+----
+
+image::img/blame.png[Résultat de la commande git blame, pdfwidth=100%, align="center"]
+
+Cette commande s'est révélée très puissante : elle affiche le contenu du fichier ligne par ligne en indiquant, pour chaque ligne, le nom de l'auteur, la date et l'identifiant (hash) du dernier commit l'ayant modifiée.
+
+=== 8. Utilisation d'une interface graphique (Ungit)
+
+Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit**. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
 
 image::img/interface.png[Interface Ungit, pdfwidth=60%, align="center"]
 
-Ungit est extrêmement visuel. Il permet de voir l'arbre des commits sous forme de nœuds interactifs. Par exemple, pour comparer deux versions d'un fichier (l'équivalent de `git diff`), il suffit de cliquer sur le nœud correspondant :
+Ungit est extrêmement visuel. Par exemple, pour comparer deux versions d'un fichier (l'équivalent de `git diff`), il suffit de cliquer sur le nœud correspondant:
 
 image::img/diff.png[Git diff dans Ungit, pdfwidth=100%, align="center"]
 
 L'interface graphique s'est révélée très pratique pour visualiser un historique complexe et comprendre la topologie des branches, tandis que la ligne de commande reste notre outil privilégié pour les opérations rapides du quotidien (add, commit, push).
 
-=== 8. Retour d'expérience et difficultés rencontrées
+=== 9. Retour d'expérience et difficultés rencontrées
 
 * **Le fonctionnement des clés SSH :** Au début du travail collaboratif, nous avions des erreurs de permission (`Permission denied (publickey)`). Nous avons dû bien comprendre la différence entre clé privée (qui reste sur le PC) et clé publique (à donner à GitLab) pour résoudre le problème.
 * **La panique du conflit de fusion :** Lors de notre premier conflit, voir le fichier rempli de chevrons `<<<<<<<` a été perturbant. Nous avons d'abord cru avoir cassé le code. Comprendre qu'il s'agissait simplement de texte à nettoyer manuellement dans un éditeur nous a beaucoup rassurés pour la suite du projet.

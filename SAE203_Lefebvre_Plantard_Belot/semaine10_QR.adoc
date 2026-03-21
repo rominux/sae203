@@ -3,49 +3,133 @@
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 **Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?** +
-Git est l'outil de contrôle de version local en ligne de commande qui tourne sur votre machine, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger, de gérer et de partager les dépôts Git en ligne. +
+Git est l'outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger et de gérer les dépôts Git en ligne. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants[Documentation officielle Git - Dépôts distants]
 
 **Question 2 : Qu'est-ce qu'un dépôt Git ? Où sont stockées les données d'un dépôt local ?** +
-Un dépôt Git (ou « repo ») est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le sous-dossier caché `.git` à la racine de votre projet. +
-Source : https://git-scm.com/book/fr/v2/Démarrage-rapide-Qu’est-ce-que-Git-?[Documentation Git - Le répertoire Git]
+Un dépôt Git, souvent appelé "repo", est un emplacement de stockage pour les fichiers d'un projet et l'ensemble de l'historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local `.git`. +
+Source : https://git-scm.com/book/fr/v2/Démarrage-rapide-À-propos-de-la-gestion-de-version[Documentation Git - Le répertoire Git]
 
 **Question 3 : Quelle est la différence entre un commit, une branche et un tag ?** +
-Un commit est un instantané contenant les différences de chaque fichier par rapport au commit précédent. Une branche est une ligne de développement indépendante (une suite de commits parallèle). Un tag est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles, ex: v1.0). +
-Source : https://git-scm.com/book/fr/v2/Les-branches-avec-Git-En-bref[Documentation Git - Les Branches]
+Un **commit** est un instantané contenant les différences de chaque fichier par rapport au commit précédent. +
+Une **branche** est une ligne de développement indépendante (une suite de commits). +
+Un **tag** est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles). +
+Source : https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref[Documentation Git - Les Branches]
 
 **Question 4 : Qu'est-ce qu'un dépôt distant (remote) ? Comment lister les remotes configurés ?** +
-Un dépôt distant est une version de votre projet hébergée sur Internet ou un réseau local. La commande `git remote -v` permet de lister les serveurs distants configurés pour votre projet actuel. +
+Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d'entreprise). La commande `git remote -v` permet de lister ceux qui sont configurés sur le projet. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants[Documentation Git - Commandes Remote]
 
 **Question 5 : Quelle est la différence entre git pull et git fetch ?** +
-`git fetch` récupère les données du dépôt distant vers le dépôt local, mais sans modifier vos fichiers de travail en cours. `git pull` effectue un *fetch* puis fusionne (merge) directement ces nouvelles données avec votre branche locale actuelle. +
+`git fetch` : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours). +
+`git pull` : effectue un *fetch* puis fusionne directement ces nouvelles données avec la branche locale actuelle. +
 Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants[Documentation Git - Fetch vs Pull]
 
 **Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?** +
-Les protocoles supportés sont le protocole Local, le protocole Git, le protocole HTTP/HTTPS (modes intelligent et idiot), et le protocole SSH. +
-Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles[Livre Git - Les Protocoles]
+Protocole Local (accès au système de fichiers sans port) +
+Protocole Git +
+Protocole HTTP/HTTPS (mode intelligent et idiot) footnote:[Le mode intelligent est un serveur http qui comprend l'authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier `.git`.] + 
+Protocole SSH. +
+Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles[Livre Git - Les Protocoles]
 
 **Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?** +
-Le protocole Git fonctionne sur le port 9418, le HTTP sur le port 80, le HTTPS sur le port 443 et le protocole SSH sur le port 22. +
+Le protocole Git fonctionne sur le port `9418` +
+HTTP sur le port `80` +
+HTTPS sur le port `443` + 
+SSH sur le port `22`. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles[Documentation Git - Les protocoles réseau]
 
 **Question 8 : Comment configurer l'authentification SSH pour Git ?** +
-Il faut générer une paire de clés SSH sur l'ordinateur avec la commande `ssh-keygen -t ed25519 -C "votre.email@exemple.com"`, puis copier le contenu de la clé publique générée pour l'ajouter dans les paramètres de sécurité de votre compte sur la forge logicielle (GitLab/GitHub). +
+Il faut générer une paire de clés SSH sur l'ordinateur avec la commande `ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`, puis copier le contenu de la clé publique générée pour l'ajouter dans les paramètres de sécurité du compte sur la forge logicielle. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH[Documentation Git - Génération clé SSH]
 
-**Question 9 : Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?** +
-Une pull/merge request sert à demander la fusion d'une branche source (ex: une nouvelle fonctionnalité) vers une branche de destination (ex: le code principal), tout en fournissant une interface web permettant aux autres membres de l'équipe de discuter, tester et valider le code avant la fusion effective. +
+**Question 9 : Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?** +
+La commande `git init` crée un sous-dossier `.git` qui initialise la structure d'un dépôt vide dans le répertoire actuel. +
+Source : https://git-scm.com/docs/git-init[Documentation Git - git init]
+
+**Question 10 : Utilisez git log pour visualiser l'historique.** +
+Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166...), l'auteur, la date et le message de commit. +
+Source : https://git-scm.com/docs/git-log[Documentation Git - git log]
+
+**Question 11 : Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.** +
+Une branche est une chaine de commits parallèle aux autres branches. La fusion (merge) permet de combiner les changements d'une branche dans une autre en rajoutant les commits de la branche source vers la branche cible. +
+Source : https://git-scm.com/docs/git-merge[Documentation Git - git merge]
+
+**Question 12 : Qu'est-ce qu'un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.** +
+Un conflit survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit). Pour résoudre le conflit, on modifie le fichier puis on le `git add` pour le marquer comme résolu, avant de faire un commit de fusion. +
+Source : https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion[Documentation Git - Résolution de conflits]
+
+**Question 13 : Utilisez git diff pour comparer deux commits. Expliquez la sortie.** +
+[source,diff]
+----
+diff --git a/texte b/texte
+index 9d600a1..7255def 100644
+--- a/texte
++++ b/texte
+@@ -1 +1 @@
+-dans une branche
++conflit 1
+----
+Les premières lignes indiquent les fichiers comparés (`a/texte` et `b/texte`) et les méta-données de la comparaison (`index 9d600a1..7255def`). Les lignes précédées d'un `-` en rouge sont des suppressions et celles avec un `+` en vert sont des ajouts. Les autres lignes affichées servent de contexte autour du code modifié.
+
+**Question 14 : Qu'est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).** +
+C'est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git. +
+Source : https://git-scm.com/docs/gitignore[Documentation Git - gitignore]
+
+**Question 15 : Création d'un dépôt privé partagé sur GitLab et clonage par chaque membre.** +
+Il faut faire `git clone git@gitlab-ssh.univ-lille.fr:notthedreamteam/exemple-sae203.git`. +
+Source : https://docs.gitlab.com/ee/user/project/repository/[Documentation GitLab - Clonage d'un dépôt]
+
+**Question 16 : Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.** +
+Commandes utilisées : 
+[source:bash]
+----
+git switch --create emilien
+git add
+git commit -m "ajout du fichier"
+git push --set-upstream origin emilien
+----
+Source : https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref[Documentation Git - Les branches]
+
+**Question 17 : Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.** +
+On a fait des merge requests dans gitlab pour fusionner les branches. Nous n'avons pas eu de conflits car nous n'avons pas modifié les mêmes fichiers. +
 Source : https://docs.gitlab.com/ee/user/project/merge_requests/[Documentation GitLab - Merge Requests]
 
-**Question 10 : À quoi sert la commande git blame ?** +
-La commande `git blame <nom_du_fichier>` affiche le contenu d'un fichier ligne par ligne en indiquant, pour chaque ligne, l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bug. +
+**Question 18 : Qu'est-ce qu'une pull request (ou merge request) ? À quoi sert-elle ?** +
+Une pull/merge request sert à demander la fusion d'une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation. +
+Source : https://docs.gitlab.com/ee/user/project/merge_requests/[Documentation GitLab - Merge Requests]
+
+**Question 19 : Testez la commande git blame. À quoi sert-elle ?** +
+La commande `git blame fichier` permet d'afficher le fichier ligne par ligne en indiquant pour chaque ligne l'auteur, la date et le hash du commit qui l'a modifiée pour la dernière fois. C'est très utile pour retrouver l'origine d'un bout de code ou d'un bug. +
 Source : https://git-scm.com/docs/git-blame[Documentation officielle Git - git blame]
 
-**Question 11 : Qu'est-ce que le logiciel gitk et comment se lance-t-il ?** +
-C'est un visualiseur graphique historique pour les dépôts Git. Il permet d'explorer l'historique des commits et l'arborescence des branches. Il se lance en tapant la commande `gitk` dans le terminal. +
+**Question 20 : Qu'est-ce que le logiciel gitk ? Comment se lance-t-il ?** +
+C'est un visualiseur graphique pour les dépôts Git. Il permet d'explorer l'historique des commits, l'arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande `gitk` dans le terminal depuis un dépôt Git. +
 Source : https://git-scm.com/docs/gitk[Documentation officielle Git - gitk]
 
-**Question 12 : Qu'est-ce que le logiciel git-gui et comment se lance-t-il ?** +
-C'est une interface graphique orientée vers la création de commits. Elle permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant la commande `git gui` dans le terminal. +
+**Question 21 : Qu'est-ce que le logiciel git-gui ? Comment se lance-t-il ?** +
+C'est une interface graphique pour la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d'écrire le message de commit et de valider. Il se lance en tapant `git gui` dans le terminal. +
 Source : https://git-scm.com/docs/git-gui[Documentation officielle Git - git-gui]
+
+**Question 22 : Pourquoi avez-vous choisi ce logiciel (Ungit) ?** +
+Nous avons choisi **Ungit** pour son approche extrêmement visuelle. Il représente l'historique de Git sous forme de nœuds interactifs et d'animations très intuitives. +
+Source : https://github.com/FredrikNoren/ungit[Dépôt officiel GitHub de Ungit]
+
+**Question 23 : Comment l'avez-vous installé (Ungit) ?** +
+Ungit est un paquet Node.js. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
+
+**Question 24 : Comparaison avec les outils inclus dans Git et la ligne de commande pure :** +
+Par rapport à `gitk` ou `git-gui`, l'interface d'Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.
+
+**Question 25 : Analyse comparative approfondie (Opérations)**
+
+* **Visualiser l'historique des commits :** `git log` ou `git log --oneline --graph` en CLI. Sur Ungit, il suffit d'ouvrir la page web et de scroller pour voir l'arbre interactif des nœuds colorés.
+* **Créer une nouvelle branche :** `git branch <nom>` ou `git switch -c <nom>` en CLI. Sur Ungit, cliquer sur le nœud du commit actuel, taper le nom de la branche dans le champ de texte et cliquer sur le bouton "+ Branch".
+* **Comparer deux versions d'un fichier (diff) :** `git diff` en CLI. (Visuel disponible sur Ungit).
+* **Résoudre un conflit de fusion :** Ouvrir le fichier dans un éditeur (nano/vim), effacer les balises, garder le bon code, puis faire `git add` et `git commit` en CLI. Ungit signale le conflit en rouge ("Resolve conflicts"). On peut ouvrir un outil de diff visuel ou marquer le fichier comme résolu directement depuis l'interface après modification.
+
+**Question 26 : Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l'interface graphique ?** +
+Les opérations courantes, basiques et répétitives (comme le `git add`, la création de branche, un `git commit` simple ou un `git push`) sont beaucoup plus rapides à taper en ligne de commande. + En revanche, comprendre l'arborescence des branches, visualiser un historique complexe et repérer les modifications dans plusieurs fichiers en même temps est bien plus clair avec l'interface graphique.
+
+**Question 27 : Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?** +
+Dans un contexte professionnel, l'idéal est de combiner les deux. La ligne de commande est privilégiée pour la rapidité des actions quotidiennes et pour l'automatisation de scripts. L'interface graphique (Ungit, GitKraken, ou un outil intégré à l'IDE comme VS Code) est en revanche indispensable pour faire des revues de code, comprendre l'historique d'un projet avant une fusion (merge), et résoudre des conflits complexes avec moins de risque d'erreur.

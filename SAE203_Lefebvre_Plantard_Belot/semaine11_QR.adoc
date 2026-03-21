@@ -3,35 +3,60 @@
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 **Question 1 : Qu'est-ce que Forgejo ?** +
-C'est une forge logicielle libre et auto-hébergée (basée sur Git), qui permet de gérer des dépôts, le suivi des bugs (issues), et l'intégration continue. +
+C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue. +
 Source : https://forgejo.org/faq/[FAQ officielle de Forgejo]
 
-**Question 2 : Qu'est-ce qu'un fork et quelle est l'histoire de Forgejo ?** +
-En développement, un "fork" consiste à copier le code source d'un logiciel pour créer un nouveau projet indépendant. Historiquement, **Gogs** a été forké pour créer **Gitea**. Plus récemment, Gitea a pris un virage commercial. La communauté, pour garantir un outil 100% libre et non lucratif, a donc forké Gitea pour créer **Forgejo**. +
+**Question 2 : Qu'est-ce qu'un fork ?** +
+En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine. +
 Source : https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)[Wikipédia - Fork (développement logiciel)]
 
-**Question 3 : Pourquoi Forgejo écoute-t-il par défaut sur le port 3000 et pas 80 ?** +
-Sous Linux, les ports inférieurs à 1024 (comme le port standard HTTP 80) nécessitent les droits d'administrateur (`root`) pour être ouverts. Lancer une application web complexe en `root` est une faille de sécurité majeure. Forgejo tourne donc avec un utilisateur standard sur un port non privilégié (3000). En production, on utilise un "Reverse Proxy" (Apache/Nginx) pour faire la liaison avec le port 80. +
+**Question 3 : Retracez l'histoire de Forgejo. Qu'est-ce qui différencie sa gouvernance de celle de Gitea ?** +
+L'histoire commence avec **Gogs**, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer **Gitea**. Plus récemment, l'entreprise derrière Gitea a pris un virage commercial (création d'une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer **Forgejo**. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.
+
+**Question 4 : Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?** +
+Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard et utilise un port non privilégié comme le 3000. En production, on place généralement un "Reverse Proxy" (comme Nginx) qui écoute le port 80 et redirige le trafic. +
 Source : https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html[W3C - Architecture des ports privilégiés sous Linux]
 
-**Question 4 : Pourquoi choisir SQLite plutôt que PostgreSQL ou MariaDB ?** +
-SQLite est une base de données ultra-légère orientée fichier, ne nécessitant aucune configuration de serveur lourd fonctionnant en arrière-plan. C'est le choix idéal pour une machine virtuelle disposant de peu de RAM (comme notre VM de 2048 Mo). +
+**Question 5 : Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ?** +
+SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). +
 Source : https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]
 
-**Question 5 : Qu'est-ce qu'un service systemd ? À quoi servent les commandes start, enable et restart ?** +
-Systemd est le gestionnaire de système de Linux. Il permet de gérer les processus en arrière-plan. La commande `start` lance le service, `enable` le configure pour qu'il s'allume automatiquement au démarrage de l'OS, et `restart` le redémarre (souvent utilisé après un changement de configuration). +
+**Question 6 : Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?** +
+Le fichier se trouve dans le répertoire de travail de l'application `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo (`git`), afin qu'il puisse y lire et y écrire les données.
+
+
+**Question 7 : Qu'est-ce qu'un service systemd ?** +
+C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan, et de s'assurer qu'ils redémarrent en cas de crash. +
 Source : https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]
 
-**Question 6 : Pourquoi restreindre les permissions du fichier app.ini (chmod 640) ?** +
-Le fichier `app.ini` contient la configuration vitale de Forgejo, y compris des mots de passe en clair et des clés secrètes. Le restreindre (`0640`) permet de s'assurer que seul le propriétaire (l'utilisateur `forgejo`) et `root` puissent le lire, empêchant ainsi d'autres utilisateurs du système de voler ces identifiants. +
-Source : https://wiki.debian.org/fr/Permissions[Wiki Debian - Permissions des fichiers]
+**Question 8 : Expliquez le fichier de service systemd.** +
+Le fichier se divise en trois parties : 
 
-**Question 7 : Quelle est la différence entre un projet public et un projet privé sur la forge ?** +
-Un projet public peut être lu, cloné et exploré par n'importe quel visiteur, même s'il n'a pas de compte sur la forge. Un projet privé est totalement invisible ; seuls le créateur et les collaborateurs explicitement invités peuvent y accéder.
+* `[Unit]` qui contient les métadonnées et les dépendances, 
+* `[Service]` qui définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, etc.)
+* `[Install]` qui définit à quel moment de la séquence de démarrage le service doit être lancé.
 
-**Question 8 : Comment fermer automatiquement un ticket (issue) lors d'un commit ?** +
-Forgejo analyse les messages de commits. Si vous poussez un commit dont le message contient certains mots-clés spécifiques, comme `Fixes #3` ou `Closes #3`, la forge fermera automatiquement l'issue numéro 3 associée au dépôt.
+**Question 9 : Différence entre start, enable et restart ? Comment visualiser les logs ?** +
 
-**Question 9 : Qu'est-ce que l'intégration et la livraison continues (CI/CD) ?** +
-La CI (Continuous Integration) automatise les tests et vérifie le code à chaque `push` d'un développeur, garantissant que les modifications ne cassent pas l'application. La CD (Continuous Delivery) automatise le déploiement de l'application (ex: création automatique d'un site web ou d'un PDF) une fois que les tests de la CI sont validés. +
+* `start` lance le service immédiatement
+* `enable` configure le service pour qu'il se lance automatiquement au démarrage de la machine
+* `restart` arrête puis redémarre le service. Pour visualiser les logs, on utilise la commande `sudo journalctl -u forgejo -f`.
+
+**Question 10 : Examinez les permissions de /etc/forgejo et app.ini. Pourquoi sont-elles importantes ?** +
+Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur propriétaire (`forgejo` et `root`) puisse le lire. +
+Source : https://wiki.debian.org/Permissions[Wiki Debian - Permissions des fichiers]
+
+**Question 11 : Le serveur SSH de Forgejo écoute sur quel port ? Mesures pour un accès Internet ?** +
+Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`). 
+
+. Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
+. Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
+. Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.
+
+**Question 12 : Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.** +
+Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité. Forgejo permet de fermer automatiquement un ticket lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`). Renseigner sa clé publique permet de cloner et de pousser en SSH sans taper son mot de passe. +
+Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH[Documentation Git - Génération des clés SSH]
+
+**Question 13 : Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?** +
+CI (Continuous Integration) : Automatisation des tests et de la vérification du code à chaque push d'un développeur, garantissant que le nouveau code ne casse pas l'application. CD (Continuous Delivery/Deployment) : Déploiement automatisé de l'application une fois les tests validés. Les avantages sont la réduction massive des bugs, des retours immédiats, la standardisation de la compilation et un gain de temps. +
 Source : https://about.gitlab.com/fr-fr/topics/ci-cd/[GitLab - Guide sur la CI/CD]

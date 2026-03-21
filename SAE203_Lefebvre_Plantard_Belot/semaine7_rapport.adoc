@@ -25,17 +25,17 @@ image::img/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, al
 Une fois la machine créée, nous y avons inséré l'image disque (ISO) de Debian et lancé l'installation graphique. Les choix cruciaux lors de cette étape ont été :
 
 . **Le nom d'hôte** : Défini sur `serveur`.
-. **Le miroir réseau** : Nous avons utilisé le miroir local de l'université `http://debian.polytech-lille.fr` pour accélérer le téléchargement des paquets.
+. **Le miroir réseau** : Nous avons utilisé le miroir local de le plus proche `http://debian.polytech-lille.fr` pour accélérer le téléchargement des paquets.
 . **Les utilisateurs** : 
   * Un mot de passe robuste a été défini pour l'administrateur (`root`).
-  * Un compte utilisateur standard nommé `user` a été créé pour l'utilisation quotidienne.
+  * Un compte utilisateur standard nommé `user` a été créé pour l'utilisation standard.
 . **La sélection des logiciels (Tasksel)** : Nous avons décoché l'environnement GNOME (trop lourd) pour choisir **MATE** (plus léger). Nous avons également coché le serveur Web et le serveur SSH pour nos futurs besoins réseau.
 
 image::img/debian-selection-logiciels.png[Sélection des logiciels, pdfwidth=60%, align="center"]
 
 === 3. Configuration post-installation et Suppléments invités
 
-Une fois le système installé et redémarré, deux configurations manuelles ont été nécessaires pour rendre la machine parfaitement utilisable :
+Une fois le système installé et redémarré, plusieurs configurations manuelles ont été nécessaires pour rendre la machine parfaitement utilisable :
 
 **A. Ajout des droits d'administration (sudo)** +
 L'utilisateur `user` ne pouvait pas exécuter de commandes administrateur. Nous avons basculé sur la console texte (`tty1` via kbd:[Ctrl+Alt+F1]), nous nous sommes connectés en `root`, et avons tapé la commande suivante :
@@ -43,6 +43,7 @@ L'utilisateur `user` ne pouvait pas exécuter de commandes administrateur. Nous 
 ----
 usermod -aG sudo user
 ----
+man 8 usermod footnote:[https://manpages.debian.org/trixie/passwd/usermod.8.en.html[Page de manuel usermod]]
 
 **B. Installation des Additions Invité (Guest Additions)** +
 Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers partagé, nous avons inséré le CD virtuel des suppléments depuis le menu VirtualBox, puis l'avons monté et exécuté dans le terminal :
@@ -51,6 +52,8 @@ Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers 
 sudo mount /dev/cdrom /mnt
 sudo /mnt/VBoxLinuxAdditions.run
 ----
+man 8 mount footnote:[https://manpages.debian.org/trixie/mount/mount.8.en.html[Page de manuel mount]]
+
 Un redémarrage a suffi pour appliquer ces changements.
 
 === 4. Automatisation de l'installation (Preseed)
