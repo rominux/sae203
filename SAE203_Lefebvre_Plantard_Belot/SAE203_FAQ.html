@@ -346,19 +346,33 @@ pre.rouge {
 <div id="toc" class="toc">
 <div id="toctitle">Table des matières</div>
 <ul class="sectlevel1">
-<li><a href="#_semaine_7_questions_et_réponses_techniques">1. Semaine 7 : Questions et Réponses techniques</a></li>
+<li><a href="#faq-semaine7">1. Semaine 7 : Questions et Réponses techniques</a></li>
 <li><a href="#_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</a></li>
-<li><a href="#_semaine_10_questions_et_réponses_techniques_git">3. Semaine 10 : Questions et Réponses techniques (Git)</a></li>
-<li><a href="#_semaine_11_questions_et_réponses_techniques_forgejo">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</a></li>
+<li><a href="#faq-semaine10">3. Semaine 10 : Questions et Réponses techniques (Git)</a></li>
+<li><a href="#faq-semaine11">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_semaine_7_questions_et_réponses_techniques">1. Semaine 7 : Questions et Réponses techniques</h2>
+<h2 id="faq-semaine7">1. Semaine 7 : Questions et Réponses techniques</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Navigation rapide :</strong> Pour voir notre démarche d&#8217;installation détaillée, cliquez ici : <a href="SAE203_Tutoriel.html#tuto-semaine7">Aller au Tutoriel de la Semaine 7</a>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Question 1 : Que signifie "64-bit" ?</strong><br>
@@ -897,14 +911,45 @@ ____</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Retour d&#8217;expérience : Installation locale d&#8217;Asciidoctor</p>
+</div>
+<div class="paragraph">
+<p>Lors de la préparation de notre environnement de travail en local (sur les machines de l&#8217;IUT), nous avons rencontré une difficulté majeure : l&#8217;impossibilité d&#8217;installer Asciidoctor de manière globale par manque de droits d&#8217;administration (accès <code>root</code> bloqué).</p>
+</div>
+<div class="paragraph">
+<p>La solution a été de forcer l&#8217;installation des paquets Ruby directement dans notre espace utilisateur grâce à l&#8217;option <code>--user-install</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">gem <span class="nb">install</span> <span class="nt">--user-install</span> asciidoctor asciidoctor-pdf rouge</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Il a ensuite fallu ajouter le chemin des binaires Ruby au <code>PATH</code> de notre environnement utilisateur pour pouvoir exécuter les commandes de compilation.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_semaine_10_questions_et_réponses_techniques_git">3. Semaine 10 : Questions et Réponses techniques (Git)</h2>
+<h2 id="faq-semaine10">3. Semaine 10 : Questions et Réponses techniques (Git)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Navigation rapide :</strong> Pour voir nos manipulations et captures d&#8217;écran sur Git, cliquez ici : <a href="SAE203_Tutoriel.html#tuto-semaine10">Aller au Tutoriel de la Semaine 10</a>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong><br>
@@ -1086,10 +1131,24 @@ Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La lign
 </div>
 </div>
 <div class="sect1">
-<h2 id="_semaine_11_questions_et_réponses_techniques_forgejo">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</h2>
+<h2 id="faq-semaine11">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Navigation rapide :</strong> Pour voir notre déploiement de Forgejo et nos retours d&#8217;expérience, cliquez ici : <a href="SAE203_Tutoriel.html#tuto-semaine11">Aller au Tutoriel de la Semaine 11</a>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Question 1 : Qu&#8217;est-ce que Forgejo ?</strong><br>
@@ -1164,7 +1223,8 @@ Source : <a href="https://wiki.debian.org/Permissions">Wiki Debian - Permissions
 </div>
 <div class="paragraph">
 <p><strong>Question 11 : Le serveur SSH de Forgejo écoute sur quel port ? Mesures pour un accès Internet ?</strong><br>
-Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).</p>
+Contrairement à d&#8217;autres méthodes de déploiement, l&#8217;installation recommandée de Forgejo sur Debian suggère d&#8217;utiliser le serveur SSH natif du système (OpenSSH), qui écoute sur le port standard <code>22</code>. (Dans notre configuration VirtualBox isolée, nous y accédons via une redirection sur le port <code>2222</code>).<br>
+Pour exposer le serveur sur Internet de manière sécurisée, il faudrait:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1200,7 +1260,7 @@ Source : <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide s
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-21 17:43:00 +0100
+Last updated 2026-03-21 18:29:56 +0100
 </div>
 </div>
 </body>

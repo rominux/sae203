@@ -1,6 +1,23 @@
+[[tuto-semaine10]]
 == Semaine 10 : Tutoriel - Utilisation de Git et travail collaboratif
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+
+// S'affiche uniquement sur la version HTML
+ifdef::backend-html5[]
+[TIP]
+====
+**Navigation rapide :** Pour consulter les réponses aux questions théoriques sur Git, cliquez ici : link:SAE203_FAQ.html#faq-semaine10[Aller à la FAQ de la Semaine 10].
+====
+endif::[]
+
+// S'affiche uniquement sur la version PDF
+ifdef::backend-pdf[]
+[TIP]
+====
+**Navigation rapide :** Pour consulter les réponses aux questions théoriques sur Git, veuillez ouvrir le fichier **SAE203_FAQ.pdf** au chapitre **Semaine 10**.
+====
+endif::[]
 
 [NOTE]
 ====

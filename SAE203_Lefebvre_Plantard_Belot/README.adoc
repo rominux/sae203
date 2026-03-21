@@ -58,6 +58,12 @@ Pour répondre aux exigences de personnalisation de la dernière semaine, nous a
 * **Pour le format HTML :** Un fichier `css/style.css` a été créé et lié dans l'en-tête pour moderniser l'affichage (couleurs personnalisées, ombres sur les tableaux, blocs de code type terminal, sommaire repensé).
 * **Pour le format PDF :** Un fichier `css/mon-theme.yml` a été rédigé pour modifier la police globale, styliser les tableaux et appliquer nos couleurs aux titres via l'attribut `-a pdf-theme` d'Asciidoctor-PDF.
 
+[TIP]
+====
+**Recommandation de lecture :** Bien que nous fournissions les versions PDF de nos rapports, **nous conseillons vivement de consulter les versions HTML**.
+En effet, le style CSS appliqué aux versions web est visuellement plus riche et complet. De plus, la navigation inter-fichiers (les liens permettant de passer d'une semaine du Tutoriel à la FAQ associée) y est pleinement fonctionnelle. Pour des raisons de sécurité liées aux lecteurs PDF modernes bloquant l'ouverture de fichiers locaux, ces liens dynamiques ont dû être supprimés de nos versions PDF.
+====
+
 == Procédure de conversion
 Notre rapport a été rédigé au format _AsciiDoc_. Pour générer les versions HTML et PDF de nos livrables, nous utilisons le script bash `convertdoc.sh` présent à la racine.
 
@@ -79,6 +85,3 @@ Sur les machines de l'IUT, nous avons installé ces outils localement avec la co
 `gem install --user-install asciidoctor asciidoctor-pdf rouge`
 
 Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.
-
-== Conclusion de l'équipe
-Cette SAÉ nous a permis de démystifier l'administration système sous Linux en ligne de commande. Nous avons non seulement appris à déployer des services réels comme un serveur Git (Forgejo), mais nous avons surtout compris l'importance cruciale de la documentation officielle face aux tutoriels obsolètes sur Internet. L'automatisation (fichiers preseed, scripts bash) et l'utilisation de Git en équipe constituent une excellente transition vers les pratiques du monde professionnel.

@@ -213,3 +213,14 @@ Ceci est mon texte[^1].
 Ceci est mon texte footnote:[Et voici la note directement intégrée ici].
 ----
 |===
+
+Retour d'expérience : Installation locale d'Asciidoctor
+
+Lors de la préparation de notre environnement de travail en local (sur les machines de l'IUT), nous avons rencontré une difficulté majeure : l'impossibilité d'installer Asciidoctor de manière globale par manque de droits d'administration (accès `root` bloqué).
+
+La solution a été de forcer l'installation des paquets Ruby directement dans notre espace utilisateur grâce à l'option `--user-install` :
+[source,bash]
+----
+gem install --user-install asciidoctor asciidoctor-pdf rouge
+----
+Il a ensuite fallu ajouter le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour pouvoir exécuter les commandes de compilation.

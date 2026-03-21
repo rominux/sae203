@@ -1,6 +1,23 @@
+[[tuto-semaine11]]
 == Semaine 11 : Tutoriel - Installation de Forgejo
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+
+// S'affiche uniquement sur la version HTML
+ifdef::backend-html5[]
+[TIP]
+====
+**Navigation rapide :** Pour consulter les réponses aux questions théoriques sur Forgejo, cliquez ici : link:SAE203_FAQ.html#faq-semaine11[Aller à la FAQ de la Semaine 11].
+====
+endif::[]
+
+// S'affiche uniquement sur la version PDF
+ifdef::backend-pdf[]
+[TIP]
+====
+**Navigation rapide :** Pour consulter les réponses aux questions théoriques sur Forgejo, veuillez ouvrir le fichier **SAE203_FAQ.pdf** au chapitre **Semaine 11**.
+====
+endif::[]
 
 [NOTE]
 ====
@@ -117,7 +134,9 @@ jobs:
         run: asciidoctor rapport.adoc
 ----
 
-===  Retour d'expérience et difficultés rencontrées
+=== 7. Retour d'expérience et difficultés rencontrées
 
-* **Le piège du port SSH :** Le port SSH 22 de notre Debian étant déjà pris par le système principal, Forgejo utilise un serveur SSH interne (qui tourne souvent sur le port 2222). Nous avons eu du mal à faire notre premier `git push` car nous oubliions de préciser ce port réseau alternatif dans la commande de clonage de Git. Une fois l'URL corrigée (`ssh://git@localhost:2222/...`), l'authentification avec nos clés SSH a parfaitement fonctionné.
+* **La politique des mots de passe :** Lors de la création de nos comptes, nous avons remarqué que Forgejo applique des règles de sécurité strictes par défaut. Il impose notamment des mots de passe d'une longueur minimale de **8 caractères**.
+* **Le piège de l'affichage du port SSH :** Le tutoriel d'installation officiel de Forgejo sur Debian suggère d'utiliser le serveur SSH natif du système (qui écoute sur le port 22), plutôt que de lancer un serveur SSH interne à Forgejo. Le problème est qu'avec notre configuration VirtualBox en NAT, nous avions redirigé le port `2222` de la machine hôte vers le port `22` de la machine invitée. Conséquence : l'interface web de Forgejo affichait une URL de clonage erronée avec le port standard (`ssh://git@localhost:22/...`), ce qui faisait échouer nos `git clone` depuis l'hôte.
+Pour corriger cet affichage, nous avons dû modifier le fichier de configuration `/etc/forgejo/app.ini` et forcer manuellement le paramètre `SSH_PORT = 2222`. Ainsi, le vrai serveur SSH écoute toujours sur le port 22 de la VM, mais l'interface web affiche la bonne URL avec le port redirigé pour les visiteurs.
 * **Erreurs de permissions sur le fichier de base de données :** Lors de nos premiers tests, Forgejo refusait de démarrer et affichait une erreur 500. En regardant les logs (avec `journalctl -u forgejo`), nous avons compris que l'utilisateur système `git` n'avait pas les droits d'écriture sur le fichier SQLite `forgejo.db`. Un simple ajustement des permissions avec `chown` a résolu le problème.

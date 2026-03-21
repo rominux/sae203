@@ -1,6 +1,23 @@
+[[faq-semaine11]]
 == Semaine 11 : Questions et Réponses techniques (Forgejo)
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+
+// S'affiche uniquement sur la version HTML
+ifdef::backend-html5[]
+[TIP]
+====
+**Navigation rapide :** Pour voir notre déploiement de Forgejo et nos retours d'expérience, cliquez ici : link:SAE203_Tutoriel.html#tuto-semaine11[Aller au Tutoriel de la Semaine 11].
+====
+endif::[]
+
+// S'affiche uniquement sur la version PDF
+ifdef::backend-pdf[]
+[TIP]
+====
+**Navigation rapide :** Pour voir notre déploiement de Forgejo et nos retours d'expérience, veuillez ouvrir le fichier **SAE203_Tutoriel.pdf** au chapitre **Semaine 11**.
+====
+endif::[]
 
 **Question 1 : Qu'est-ce que Forgejo ?** +
 C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue. +
@@ -47,7 +64,8 @@ Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail,
 Source : https://wiki.debian.org/Permissions[Wiki Debian - Permissions des fichiers]
 
 **Question 11 : Le serveur SSH de Forgejo écoute sur quel port ? Mesures pour un accès Internet ?** +
-Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`). 
+Contrairement à d'autres méthodes de déploiement, l'installation recommandée de Forgejo sur Debian suggère d'utiliser le serveur SSH natif du système (OpenSSH), qui écoute sur le port standard `22`. (Dans notre configuration VirtualBox isolée, nous y accédons via une redirection sur le port `2222`). +
+Pour exposer le serveur sur Internet de manière sécurisée, il faudrait:
 
 . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
 . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).

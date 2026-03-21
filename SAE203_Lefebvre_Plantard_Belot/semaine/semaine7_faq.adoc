@@ -1,6 +1,23 @@
+[[faq-semaine7]]
 == Semaine 7 : Questions et Réponses techniques
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+
+// S'affiche uniquement sur la version HTML
+ifdef::backend-html5[]
+[TIP]
+====
+**Navigation rapide :** Pour voir notre démarche d'installation détaillée, cliquez ici : link:SAE203_Tutoriel.html#tuto-semaine7[Aller au Tutoriel de la Semaine 7].
+====
+endif::[]
+
+// S'affiche uniquement sur la version PDF
+ifdef::backend-pdf[]
+[TIP]
+====
+**Navigation rapide :** Pour voir notre démarche d'installation détaillée, veuillez ouvrir le fichier **SAE203_Tutoriel.pdf** au chapitre **Semaine 7**.
+====
+endif::[]
 
 **Question 1 : Que signifie "64-bit" ?** +
 Cela désigne l'architecture du processeur capable de traiter des données par blocs de 64 bits. C'est l'architecture la plus courante pour les systèmes modernes. +

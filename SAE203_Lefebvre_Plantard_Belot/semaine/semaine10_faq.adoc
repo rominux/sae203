@@ -1,6 +1,23 @@
+[[faq-semaine10]]
 == Semaine 10 : Questions et Réponses techniques (Git)
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+
+// S'affiche uniquement sur la version HTML
+ifdef::backend-html5[]
+[TIP]
+====
+**Navigation rapide :** Pour voir nos manipulations et captures d'écran sur Git, cliquez ici : link:SAE203_Tutoriel.html#tuto-semaine10[Aller au Tutoriel de la Semaine 10].
+====
+endif::[]
+
+// S'affiche uniquement sur la version PDF
+ifdef::backend-pdf[]
+[TIP]
+====
+**Navigation rapide :** Pour voir nos manipulations et captures d'écran sur Git, veuillez ouvrir le fichier **SAE203_Tutoriel.pdf** au chapitre **Semaine 10**.
+====
+endif::[]
 
 **Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?** +
 Git est l'outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d'héberger et de gérer les dépôts Git en ligne. +
