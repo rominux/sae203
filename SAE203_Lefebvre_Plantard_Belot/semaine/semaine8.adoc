@@ -65,30 +65,30 @@ asciidoctor-pdf fichier.adoc
 | On utilise des astérisques, avec une indentation (espaces) pour le sous-niveau :
 [source,markdown]
 ----
-* Élément principal 1
-* Élément principal 2
-  * Sous-élément
+ * Élément principal 1
+ * Élément principal 2
+   * Sous-élément
 ----
 | On utilise des astérisques, et on en ajoute un supplémentaire par niveau de profondeur :
 [source,asciidoc]
 ----
-* Élément principal 1
-* Élément principal 2
-** Sous-élément
+ * Élément principal 1
+ * Élément principal 2
+ ** Sous-élément
 ----
 
 | **Faire des listes numérotées**
 | On utilise des nombres suivis d'un point :
 [source,markdown]
 ----
-1. Première étape
-2. Deuxième étape
+ 1. Première étape
+ 2. Deuxième étape
 ----
 | Asciidoc gère la numérotation automatiquement avec des simples points :
 [source,asciidoc]
 ----
-. Première étape
-. Deuxième étape
+ . Première étape
+ . Deuxième étape
 ----
 
 | **Créer un tableau simple**
@@ -151,11 +151,11 @@ https:/⁠/debian.org[Debian]
 | Intégré nativement avec des icônes.
 [source,asciidoc]
 ----
-[NOTE]
-====
-Ceci est une note.
-(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
-====
+ [NOTE]
+ ====
+ Ceci est une note.
+ (Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
+ ====
 ----
 .Résultat :
 [NOTE]
@@ -168,30 +168,30 @@ Ceci est une note.
 | Trois accents graves suivis du langage :
 [source,markdown]
 ----
-```bash
-echo "Bonjour"
-```
+ ```bash
+ echo "Bonjour"
+ ```
 ----
-| Directive source suivie du langage, puis délimiteurs `----` (on utilise `....` pour imbriquer l'exemple sans casser le tableau) :
+| Directive source suivie du langage, puis délimiteurs :
 [source,asciidoc]
-----
-[source,bash]
 ....
-echo "Bonjour"
+ [source,bash]
+ ----
+ echo "Bonjour"
+ ----
 ....
-----
 
 | **Citations (Quotes)**
 2+| On utilise le chevron vers la droite `>` en début de ligne : +
 `> Ceci est une citation de texte.` +
- 
+
 AsciiDoc offre aussi des blocs avancés pour les citations :
 [source,asciidoc]
 ----
-[quote, Auteur, Source]
-____
-Ceci est une citation avancée en AsciiDoc.
-____
+ [quote, Auteur, Source]
+ ____
+ Ceci est une citation avancée en AsciiDoc.
+ ____
 ----
 .Résultat :
 [quote, Auteur, Source]
@@ -203,18 +203,37 @@ ____
 | On doit créer une ancre et son contenu :
 [source,markdown]
 ----
-Ceci est mon texte[^1].
+ Ceci est mon texte[^1].
 
-[^1]: Et voici la note de bas de page.
+ [^1]: Et voici la note de bas de page.
 ----
 | Tout se fait sur la même ligne avec la balise footnote :
 [source,asciidoc]
 ----
-Ceci est mon texte footnote:[Et voici la note directement intégrée ici].
+ Ceci est mon texte footnote:[Et voici la note directement intégrée ici].
 ----
 |===
 
-Retour d'expérience : Installation locale d'Asciidoctor
+////
+Note pour le correcteur :
+Bien que nous ayons fait le choix d'utiliser des tableaux simples avec le séparateur classique `|` pour la majorité de notre document par souci de lisibilité, nous avons également étudié le fonctionnement des sous-tableaux imbriqués avec le séparateur `!`.
+
+Le tableau "Résultat" sur la fusion des cellules utilise justement cette syntaxe. Voici ce que cela donnerait si nous devions l'imbriquer (en double contexte) dans une cellule d'un tableau principal grâce au modificateur `a|` :
+
+|===
+| Colonne Parent A | Colonne Parent B
+
+a|
+[cols="1,3"]
+!===
+2+! Titre fusionné sur 2 colonnes
+! Case 1 petite ! Case 2 très large
+!===
+| Cellule Parent classique
+|===
+////
+
+=== Retour d'expérience : Installation locale d'Asciidoctor
 
 Lors de la préparation de notre environnement de travail en local (sur les machines de l'IUT), nous avons rencontré une difficulté majeure : l'impossibilité d'installer Asciidoctor de manière globale par manque de droits d'administration (accès `root` bloqué).
 
