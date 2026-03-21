@@ -8,13 +8,15 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 :experimental:
 :icons: font
 :source-highlighter: rouge
+:stylesdir: css
+:stylesheet: style.css
 
 // Inclusion de la Semaine 7
 include::semaine7_rapport.adoc[]
 <<<
 
 // Inclusion de la Semaine 8
-include::semaine8_rapport.adoc[]
+include::semaine8.adoc[]
 
 <<<
 

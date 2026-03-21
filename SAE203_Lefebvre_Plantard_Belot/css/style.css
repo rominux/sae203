@@ -1,0 +1,66 @@
+/* 1. Police et fond de page */
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f9f9fb;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* 2. Personnalisation des titres */
+h1, h2, h3, h4 {
+    color: #004b87;
+    font-weight: 600;
+}
+
+h2 {
+    border-bottom: 3px solid #004b87;
+    padding-bottom: 5px;
+    margin-top: 2em;
+}
+
+h3 {
+    border-left: 4px solid #004b87;
+    padding-left: 10px;
+    background-color: #eef5fa;
+}
+
+/* 3. Style des Admonitions (Notes, Warnings...) */
+.admonitionblock td.content {
+    background-color: #ffffff;
+    border-left: 5px solid #004b87;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Petite ombre portée */
+    padding: 15px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* 4. Tableaux stylisés */
+table.tableblock {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table.tableblock thead {
+    background-color: #004b87;
+    color: #ffffff;
+}
+
+table.tableblock th, table.tableblock td {
+    padding: 12px 15px;
+}
+
+table.tableblock tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Lignes zébrées */
+}
+
+/* 5. Blocs de code (Terminal) */
+.listingblock pre {
+    background-color: #282c34; /* Thème sombre type "Monokai" */
+    color: #abb2bf;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #1e2127;
+}
