@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
+<title>SAÉ 2.03 : Foire Aux Questions (Théorie et Synthèse)</title>
+<style>
+/* 1. Police et fond de page */
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f9f9fb;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* 2. Personnalisation des titres */
+h1, h2, h3, h4 {
+    color: #004b87;
+    font-weight: 600;
+}
+
+h2 {
+    border-bottom: 3px solid #004b87;
+    padding-bottom: 5px;
+    margin-top: 2em;
+}
+
+h3 {
+    border-left: 4px solid #004b87;
+    padding-left: 10px;
+    background-color: #eef5fa;
+}
+
+/* 3. Style des Admonitions (Notes, Warnings...) */
+.admonitionblock td.content {
+    background-color: #ffffff;
+    border-left: 5px solid #004b87;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Petite ombre portée */
+    padding: 15px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* 4. Tableaux stylisés */
+table.tableblock {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table.tableblock thead {
+    background-color: #004b87;
+    color: #ffffff;
+}
+
+table.tableblock th, table.tableblock td {
+    padding: 12px 15px;
+}
+
+table.tableblock tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Lignes zébrées */
+}
+
+/* 5. Blocs de code (Terminal) */
+.listingblock pre {
+    background-color: #282c34; /* Thème sombre type "Monokai" */
+    color: #abb2bf;
+    border-radius: 6px;
+    padding: 15px;
+    border: 1px solid #1e2127;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>SAÉ 2.03 : Foire Aux Questions (Théorie et Synthèse)</h1>
+<div class="details">
+<span id="author" class="author">Lefebvre Romain</span><br>
+<span id="author2" class="author">Plantard Kylian</span><br>
+<span id="author3" class="author">Belot Emilien</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_semaine_7_questions_et_réponses_techniques">1. Semaine 7 : Questions et Réponses techniques</a></li>
+<li><a href="#_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</a>
+<ul class="sectlevel2">
+<li><a href="#_étude_comparative_des_formats_à_balisage_léger">2.1. Étude comparative des formats à balisage léger</a></li>
+</ul>
+</li>
+<li><a href="#_semaine_10_questions_et_réponses_techniques_git">3. Semaine 10 : Questions et Réponses techniques (Git)</a></li>
+<li><a href="#_semaine_11_questions_et_réponses_techniques_forgejo">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_semaine_7_questions_et_réponses_techniques">1. Semaine 7 : Questions et Réponses techniques</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 1 : Que signifie "64-bit" ?</strong><br>
+Cela désigne l&#8217;architecture du processeur capable de traiter des données par blocs de 64 bits. C&#8217;est l&#8217;architecture la plus courante pour les systèmes modernes.<br>
+Source : <a href="https://fr.wikipedia.org/wiki/Processeur_64_bits">Wikipédia - Processeur 64 bits</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 2 : Quelle est la configuration réseau de la carte réseau virtuelle émulée par défaut ?</strong><br>
+Par défaut, VirtualBox émule un adaptateur réseau ethernet <code>Intel PRO/1000 MT Desktop</code> avec un câble virtuel connecté. <code>PCNet FAST III</code> est l&#8217;adaptateur par défaut pour les anciennes machines, mais les Debian utilisent le nouvel adaptateur.<br>
+Source : <a href="https://www.virtualbox.org/manual/ch06.html#nichardware">Manuel officiel VirtualBox</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 3 : Pourquoi allouer 2048 Mo de RAM à la VM ? Que se passerait-il avec seulement 512 Mo ?</strong><br>
+2048 Mo permettent de faire tourner confortablement l&#8217;installation ainsi que l&#8217;environnement graphique MATE. Avec seulement 512 Mo, le système utiliserait massivement la partition d&#8217;échange (Swap), rendant la machine extrêmement lente, et l&#8217;interface graphique pourrait même refuser de se lancer par manque de mémoire.<br>
+Source : <a href="https://www.debian.org/releases/stable/amd64/ch03s04.fr.html">Documentation Debian - Configuration matérielle</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 4 : Quel est le mode réseau par défaut dans VirtualBox ?</strong><br>
+Le mode NAT. Il isole la VM tout en lui donnant accès à Internet via la connexion de la machine hôte.<br>
+Source : <a href="https://www.virtualbox.org/manual/ch06.html#network_nat">Documentation VirtualBox - Mode NAT</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 5 : Quelle est l&#8217;adresse IP de votre VM et comment l&#8217;obtenir ?</strong><br>
+La commande utilisée est <code>ip address</code>. L&#8217;adresse IP locale attribuée par le NAT est <code>10.0.2.15</code>.<br>
+Source : <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel de la commande IP</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 6 : Quelle est l&#8217;adresse de la passerelle de la VM ?</strong><br>
+La commande utilisée est <code>ip route</code>. La passerelle par défaut est <code>10.0.2.2</code>. Elle correspond au routeur virtuel créé par VirtualBox pour le mode NAT.<br>
+Source : <a href="https://manpages.debian.org/trixie/iproute2/ip.8.en.html">Page de manuel de la commande IP</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 7 : Qu&#8217;est-ce qu&#8217;un fichier iso bootable ?</strong><br>
+C&#8217;est une image disque (une copie exacte d&#8217;un CD/DVD) contenant les fichiers nécessaires pour amorcer (booter) un ordinateur et installer un système d&#8217;exploitation.<br>
+Source : <a href="https://www.debian.org/CD/faq/index.fr.html#what-is">FAQ officielle des images CD Debian</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 8 : Que sont MATE et GNOME ?</strong><br>
+Ce sont des Environnements de Bureau (Desktop Environments) pour Linux. Ils fournissent l&#8217;interface graphique (fenêtres, icônes, barres des tâches). <a href="https://wiki.debian.org/Gnome">GNOME</a> est plus lourd et moderne, <a href="https://wiki.debian.org/MATE">MATE</a> est un dérivé plus léger.<br>
+Source : <a href="https://wiki.debian.org/fr/DesktopEnvironment">Wiki Debian - Environnements de bureau</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 9 : Qu&#8217;est-ce qu&#8217;un serveur mandataire (proxy) ?</strong><br>
+C&#8217;est un serveur qui agit comme intermédiaire entre les requêtes d&#8217;un client (notre VM) et un autre serveur (Internet). Il peut filtrer, mettre en cache ou sécuriser les connexions.<br>
+Source : <a href="https://fr.wikipedia.org/wiki/Proxy">Wikipédia - Serveur mandataire</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 10 : Qu&#8217;est-ce qu&#8217;un serveur web ?</strong><br>
+Un logiciel (comme Apache ou Nginx) qui répond aux requêtes HTTP/HTTPS pour distribuer des pages web à des clients (navigateurs).<br>
+Source : <a href="https://wiki.debian.org/fr/WebServer">Wiki Debian - Serveur Web</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 11 : Quel logiciel de serveur SSH a été installé ? Comment vérifier qu’il est bien démarré ?</strong><br>
+Le paquet installé est <code>openssh-server</code>. On vérifie son état avec la commande <code>systemctl status ssh</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 12 : Pourquoi la connexion SSH (ssh user@10.0.2.15) échoue-t-elle avec un "Timeout" ?</strong><br>
+Parce que le mode réseau NAT de VirtualBox crée un réseau séparé de celui de l&#8217;hôte. Il faut configurer une redirection de ports (Port Forwarding) dans VirtualBox pour que cela fonctionne.<br>
+Source : <a href="https://www.virtualbox.org/manual/ch06.html#natforward">Documentation VirtualBox - Redirection de ports</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 13 : Comment peut-on savoir à quels groupes appartient l’utilisateur user ?</strong><br>
+Pour savoir à quels groupes appartient l&#8217;utilisateur <code>user</code>, on utilise la commande <code>groups user</code> ou <code>id user</code><br>
+Source : <a href="https://manpages.debian.org/trixie/coreutils/groups.1.en.html">Page de manuel groups</a><br>
+Source : <a href="https://manpages.debian.org/trixie/coreutils/id.1.en.html">Page de manuel id</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 14 : Quelle est la différence entre <code>su</code> et <code>sudo</code> ?</strong><br>
+<code>su</code> permet de changer d&#8217;utilisateur (souvent pour devenir root) et requiert le mot de passe de <mark>l&#8217;utilisateur cible</mark>.<br>
+ <code>sudo</code> permet d&#8217;exécuter une seule commande avec les privilèges d&#8217;un autre utilisateur (root en général), mais nécessite le mot de passe de <mark>l&#8217;utilisateur courant</mark>.<br>
+Source : <a href="https://manpages.debian.org/trixie/sudo/sudo.8.en.html">Page de manuel sudo</a><br>
+Source : <a href="https://manpages.debian.org/trixie/util-linux/su.1.en.html">Page de manuel su</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 15 : Quelle est la version du noyau Linux utilisé par votre VM ?</strong><br>
+ <code>uname -r</code>  : <code>6.12.73+deb13-amd64</code><br>
+ Source : <a href="https://manpages.debian.org/trixie/coreutils/uname.1.en.html">Page de manuel uname</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 16 : Quelle est l&#8217;utilité des suppléments invités (Guest Additions) ?</strong><br>
+Ils optimisent la VM. Ils permettent notamment le redimensionnement dynamique de la fenêtre (ajustement de la résolution) et activent le presse-papiers partagé entre la machine hôte et la VM.<br>
+Source : <a href="https://wiki.debian.org/fr/VirtualBox#VirtualBox_Guest_Additions">Wiki Debian - Additions Invité VirtualBox</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 17 : À quoi sert la commande mount ?</strong><br>
+<code>mount</code> sert en général à attacher un système de fichiers (disque, clé USB) à l&#8217;arborescence du système (point de montage). Dans notre cas, elle a servi à rendre accessible le contenu du lecteur CD-ROM virtuel pour y exécuter le script d&#8217;installation.<br>
+Source : <a href="https://manpages.debian.org/trixie/util-linux/mount.8.en.html">Page de manuel mount</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 18 : Qu’est-ce que le Projet Debian ?</strong><br>
+C&#8217;est une association d&#8217;individus qui ont pour cause commune de créer un système d&#8217;exploitation libre.<br>
+Source : <a href="https://www.debian.org/intro">Site officiel du projet Debian</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 19 : D&#8217;où vient le nom Debian ?</strong><br>
+Le nom "Debian" a été imaginé par son créateur, Ian Murdock, en combinant le prénom de sa petite amie de l&#8217;époque (Debra) et le sien (Ian).<br>
+Source : <a href="https://www.debian.org/doc/manuals/project-history/intro.en.html">Historique du projet Debian</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 20 : Il existe 3 durées de prise en charge (support) de ces versions : la durée minimale, la durée en support long terme (LTS) et la durée en support long terme étendue (ELTS). Quelle sont les durées de ces prises en charge ?</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Minimale (Standard)</em> : Environ 3 ans (1 an après la sortie de la version stable suivante).</p>
+</li>
+<li>
+<p><em>LTS (Long Term Support)</em> : 5 ans au total.
+<a href="https://wiki.debian.org/LTS">Debian LTS</a></p>
+</li>
+<li>
+<p><em>ELTS (Extended LTS)</em> : Jusqu&#8217;à 10 ans (géré par une organisation tierce, Freexian).
+<a href="https://wiki.debian.org/LTS/Extended">Debian ELTS</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Question 21 : Pendant combien de temps les mises à jour de sécurité seront-elles fournies ?</strong><br>
+L&#8217;équipe de sécurité Debian fournit un support pour la version stable pendant environ 1 an après la sortie d&#8217;une nouvelle version stable.<br>
+Source : <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 22 : Quelles sont les différentes versions de Debian activement maintenues ?</strong><br>
+Il y en a au minimum 3. Leurs noms génériques sont : <em>Stable</em>, <em>Testing</em> (en test), et <em>Unstable</em> (instable, surnommée <em>Sid</em>). On peut aussi compter <em>Oldstable</em>.<br>
+Source : <a href="https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html#id-1.4.9.16">Debian Release Lifecycle</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 23 : D&#8217;où proviennent les noms de code des versions Debian ?</strong><br>
+Tous les noms de code des versions Debian proviennent des personnages des films d&#8217;animation <em>Toy Story</em> (ex. : Bullseye, Bookworm, Trixie).<br>
+Source : <a href="https://wiki.debian.org/ToyStory">Toy Story - Debian Wiki</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 24 : L&#8217;un des atouts de Debian fut le nombre d’architecture (≈ processeurs) officiellement prises en charge. Combien et lesquelles sont prises en charge par la version Trixie ?</strong><br>
+La version Trixie de Debian supporte: <em>amd64</em>, <em>aarch64</em>, <em>armhf</em>, <em>powerpc</em>, <em>riscv64</em> et <em>system z</em>.<br>
+Source : <a href="https://www.debian.org/releases/trixie/index.html">Debian Trixie Release Information</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 25 : Quel a été le premier nom de code utilisé ? Quand a-t-il été annoncé ? Quelle était le numéro de version de cette distribution ?</strong><br>
+<code>Buzz</code> (Debian 1.1), annoncé le 17 juin 1996.<br>
+Source : <a href="https://www.debian.org/doc/manuals/project-history/releases.en.html">Debian Releases</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 26 : Quel est le dernier nom de code annoncé à ce jour ? Quand a-t-il été annoncé ? Quelle est la version de cette distribution ?</strong><br>
+La version 14 est <code>Forky</code> et la version 15 sera <code>Duke</code>.<br>
+Source : <a href="https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html">Annonce de Forky - Debian Mailing List</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 27 : Quelle est la différence entre <code>pkgsel/include</code> et <code>tasksel</code> dans un preseed ?</strong><br>
+<code>d-i pkgsel/include</code> permet de spécifier une liste de <strong>paquets individuels</strong> précis à installer (ex. : <code>git</code>, <code>curl</code>).<br>
+<code>tasksel tasksel/first</code> installe des <strong>tâches entières</strong> qui regroupent des centaines de paquets (ex. : <code>mate-desktop</code> ou <code>web-server</code>)<br>
+Source : <a href="https://wiki.debian.org/fr/tasksel">Wiki Debian - Tasksel</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 28 : Le fichier preseed pose-t-il un problème de sécurité ?</strong><br>
+Oui, le fichier preseed contient les mots de passe de <code>root</code> et de <code>user</code> en clair. En production, il faut protéger ce fichier en le stockant sur un serveur web interne sécurisé (HTTPS avec authentification), en restreignant drastiquement les droits de lecture du fichier physique ou en écrivant le hash uniquement<br>
+Source : <a href="https://www.debian.org/releases/stable/amd64/apbs01.fr.html#preseed-security">Manuel Debian - Sécurité de la pré-configuration</a></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_semaine_8_comparatif_markdown_vs_asciidoc">2. Semaine 8 : Comparatif Markdown vs AsciiDoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="sect2">
+<h3 id="_étude_comparative_des_formats_à_balisage_léger">2.1. Étude comparative des formats à balisage léger</h3>
+<div class="paragraph">
+<p>Dans le cadre de notre projet, nous avons comparé deux langages de balisage léger très populaires : le Markdown et l&#8217;AsciiDoc. Voici un grand tableau comparatif détaillant leurs concepts, origines et syntaxes.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sujet</th>
+<th class="tableblock halign-left valign-top">Markdown (.md)</th>
+<th class="tableblock halign-left valign-top">Asciidoctor (.adoc)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Langage de balisage léger très populaire, conçu pour être facile à lire et à écrire. Très orienté pour le web et les plateformes collaboratives (ex: GitHub).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Langage de balisage léger plus riche et standardisé, conçu initialement pour la rédaction d&#8217;articles, de livres techniques et de documentations complexes.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Lien vers la documentation officielle</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://daringfireball.net/projects/markdown/">Site officiel Markdown</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://docs.asciidoctor.org/">Documentation Asciidoctor</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Origine (Date et Créateurs)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Créé en <strong>2004</strong> par John Gruber (avec l&#8217;aide d&#8217;Aaron Swartz).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Créé en <strong>2002</strong> par Stuart Rackham.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Comment convertir (sans extension) vers HTML et PDF</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Utilisation classique avec la commande <strong>Pandoc</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pandoc fichier.md <span class="nt">-o</span> fichier.html
+pandoc fichier.md <span class="nt">-o</span> fichier.pdf</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Utilisation avec la suite <strong>Asciidoctor</strong> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">asciidoctor fichier.adoc
+asciidoctor-pdf fichier.adoc</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en gras</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour écrire en gras, il faut utiliser deux astérisques de chaque côté du mot : **<strong>mot</strong>**</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en italique</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour écrire en italique, il faut utiliser un tiret bas : _<em>mot</em>_</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Écrire en gras ET italique</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Pour combiner les deux, on cumule les symboles : **_<strong><em>mot</em></strong>_**</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte souligné</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le Markdown natif ne possède pas de syntaxe pour souligner. Il faut utiliser les balises HTML :<br>
+<code>&lt;u&gt;</code> <span class="underline">mot</span> <code>&lt;/u&gt;</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc gère le soulignement grâce aux rôles (les espaces autour sont importants) :<br>
+[.underline]# <span class="underline">mot</span> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte surligné</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cela dépend des extensions (parfois <code>==</code> <mark>mot</mark> <code>==</code>), ou via la balise HTML :<br>
+<code>&lt;mark&gt;</code><mark>mot</mark><code>&lt;/mark&gt;</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc utilise simplement le symbole dièse de chaque côté (les espaces autour sont importants) :<br>
+# <mark>mot</mark> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Texte barré</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise très souvent deux tildes :<br>
+<code>~~</code> <span class="line-through">mot</span> <code>~~</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>AsciiDoc utilise les rôles :<br>
+ [.line-through]# <span class="line-through">mot</span> #</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Faire des listes à puces (avec sous-liste)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des astérisques, avec une indentation (espaces) pour le sous-niveau :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">*</span> Élément principal 1
+<span class="p">*</span> Élément principal 2
+<span class="p">  *</span> Sous-élément</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des astérisques, et on en ajoute un supplémentaire par niveau de profondeur :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">* Élément principal 1
+* Élément principal 2
+** Sous-élément</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Faire des listes numérotées</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On utilise des nombres suivis d&#8217;un point :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">1.</span> Première étape
+<span class="p">2.</span> Deuxième étape</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Asciidoc gère la numérotation automatiquement avec des simples points :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">. Première étape
+. Deuxième étape</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Créer un tableau simple</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On le dessine avec des barres verticales (<code>|</code>) et des tirets pour séparer l&#8217;en-tête :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown">| Colonne 1 | Colonne 2 |
+|-----------|-----------|
+| Valeur 1  | Valeur 2  |</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On déclare le nombre de colonnes puis on liste les cellules les unes après les autres :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,1", options="header"]
+!===
+! Colonne 1 ! Colonne 2
+! Valeur 1  ! Valeur 2
+!===</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Résultat :</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Colonne 1</th>
+<th class="tableblock halign-left valign-top">Colonne 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valeur 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valeur 2</p></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Différents types de tableaux (tailles et fusions)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Très limité.</strong> Le Markdown classique ne gère ni les tailles de colonnes précises, ni la fusion de cellules (il faut coder en HTML).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Très puissant.</strong><br>
+On ajuste la taille des colonnes avec <code>cols</code>. On fusionne des colonnes avec <code>2+</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[cols="1,3"]
+!===
+2+! Titre fusionné sur 2 colonnes
+! Case 1 petite ! Case 2 très large
+!===</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Résultat :</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Titre fusionné sur 2 colonnes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 1 petite</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Case 2 très large</p></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insérer un lien hypertexte</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le texte est entre crochets, l&#8217;URL entre parenthèses :<br>
+[Debian](<a href="https://debian.org" class="bare">https://debian.org</a>)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>L&#8217;URL est au début, le texte est entre crochets à la fin :<br>
+https:/⁠/debian.org[Debian]</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Insérer une image</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un point d&#8217;exclamation, le texte alternatif, puis le lien :<br>
+![titreAlternatif](image/imageMarkdown.png)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La macro image, suivie des attributs (taille, alignement) :<br>
+<code>image::image/imageAdoc.png[titreAlternatif, width=50%]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blocs d&#8217;informations (Admonitions : Notes, Avertissements&#8230;&#8203;)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le Markdown natif ne le gère pas. (Il faut utiliser des extensions spécifiques de Pandoc).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Intégré nativement avec des icônes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[NOTE]
+====
+Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)
+====</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Résultat :</div>
+<div class="paragraph">
+<p>Ceci est une note.
+(Les autres types sont TIP, WARNING, CAUTION, IMPORTANT)</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blocs de code avec coloration syntaxique</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Trois accents graves suivis du langage :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">```</span><span class="nl">bash
+</span><span class="nb">echo</span> <span class="s2">"Bonjour"</span>
+<span class="p">```</span></code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Directive source suivie du langage, puis délimiteurs <code>----</code> (on utilise <code>&#8230;&#8203;.</code> pour imbriquer l&#8217;exemple sans casser le tableau) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[source,bash]
+....
+echo "Bonjour"
+....</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Citations (Quotes)</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>On utilise le chevron vers la droite <code>&gt;</code> en début de ligne :<br>
+<code>&gt; Ceci est une citation de texte.</code><br></p>
+</div>
+<div class="paragraph">
+<p>AsciiDoc offre aussi des blocs avancés pour les citations :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">[quote, Auteur, Source]
+____
+Ceci est une citation avancée en AsciiDoc.
+____</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<div class="title">Résultat :</div>
+<blockquote>
+<div class="paragraph">
+<p>Ceci est une citation avancée en AsciiDoc.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Auteur<br>
+<cite>Source</cite>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notes de bas de page</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On doit créer une ancre et son contenu :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown">Ceci est mon texte[^1].
+
+<span class="p">[</span><span class="ss">^1</span><span class="p">]:</span> <span class="sx">Et</span> voici la note de bas de page.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Tout se fait sur la même ligne avec la balise footnote :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">Ceci est mon texte footnote:[Et voici la note directement intégrée ici].</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_semaine_10_questions_et_réponses_techniques_git">3. Semaine 10 : Questions et Réponses techniques (Git)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong><br>
+Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation officielle Git - Dépôts distants</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 2 : Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong><br>
+Un dépôt Git, souvent appelé "repo", est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Démarrage-rapide-À-propos-de-la-gestion-de-version">Documentation Git - Le répertoire Git</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 3 : Quelle est la différence entre un commit, une branche et un tag ?</strong><br>
+Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.<br>
+Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).<br>
+Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les Branches</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 4 : Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong><br>
+Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise). La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation Git - Commandes Remote</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 5 : Quelle est la différence entre git pull et git fetch ?</strong><br>
+<code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).<br>
+<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants">Documentation Git - Fetch vs Pull</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong><br>
+Protocole Local (accès au système de fichiers sans port)<br>
+Protocole Git<br>
+Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup><br>
+Protocole SSH.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles">Livre Git - Les Protocoles</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?</strong><br>
+Le protocole Git fonctionne sur le port <code>9418</code><br>
+HTTP sur le port <code>80</code><br>
+HTTPS sur le port <code>443</code><br>
+SSH sur le port <code>22</code>.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles">Documentation Git - Les protocoles réseau</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 8 : Comment configurer l&#8217;authentification SSH pour Git ?</strong><br>
+Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH">Documentation Git - Génération clé SSH</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 9 : Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong><br>
+La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.<br>
+Source : <a href="https://git-scm.com/docs/git-init">Documentation Git - git init</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 10 : Utilisez git log pour visualiser l&#8217;historique.</strong><br>
+Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.<br>
+Source : <a href="https://git-scm.com/docs/git-log">Documentation Git - git log</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 11 : Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong><br>
+Une branche est une chaine de commits parallèle aux autres branches. La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.<br>
+Source : <a href="https://git-scm.com/docs/git-merge">Documentation Git - git merge</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 12 : Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong><br>
+Un conflit survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit). Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion">Documentation Git - Résolution de conflits</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 13 : Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong><br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="diff"><span class="gh">diff --git a/texte b/texte
+index 9d600a1..7255def 100644
+</span><span class="gd">--- a/texte
+</span><span class="gi">+++ b/texte
+</span><span class="p">@@ -1 +1 @@</span>
+<span class="gd">-dans une branche
+</span><span class="gi">+conflit 1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les premières lignes indiquent les fichiers comparés (<code>a/texte</code> et <code>b/texte</code>) et les méta-données de la comparaison (<code>index 9d600a1..7255def</code>). Les lignes précédées d&#8217;un <code>-</code> en rouge sont des suppressions et celles avec un <code>+</code> en vert sont des ajouts. Les autres lignes affichées servent de contexte autour du code modifié.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 14 : Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong><br>
+C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.<br>
+Source : <a href="https://git-scm.com/docs/gitignore">Documentation Git - gitignore</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 15 : Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong><br>
+Il faut faire <code>git clone <a href="mailto:git@gitlab-ssh.univ-lille.fr">git@gitlab-ssh.univ-lille.fr</a>:notthedreamteam/exemple-sae203.git</code>.<br>
+Source : <a href="https://docs.gitlab.com/ee/user/project/repository/">Documentation GitLab - Clonage d&#8217;un dépôt</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 16 : Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong><br>
+Commandes utilisées :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git switch --create emilien
+git add
+git commit -m "ajout du fichier"
+git push --set-upstream origin emilien</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les branches</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 17 : Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong><br>
+On a fait des merge requests dans gitlab pour fusionner les branches. Nous n&#8217;avons pas eu de conflits car nous n&#8217;avons pas modifié les mêmes fichiers.<br>
+Source : <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 18 : Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong><br>
+Une pull/merge request sert à demander la fusion d&#8217;une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation.<br>
+Source : <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 19 : Testez la commande git blame. À quoi sert-elle ?</strong><br>
+La commande <code>git blame fichier</code> permet d&#8217;afficher le fichier ligne par ligne en indiquant pour chaque ligne l&#8217;auteur, la date et le hash du commit qui l&#8217;a modifiée pour la dernière fois. C&#8217;est très utile pour retrouver l&#8217;origine d&#8217;un bout de code ou d&#8217;un bug.<br>
+Source : <a href="https://git-scm.com/docs/git-blame">Documentation officielle Git - git blame</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 20 : Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
+C&#8217;est un visualiseur graphique pour les dépôts Git. Il permet d&#8217;explorer l&#8217;historique des commits, l&#8217;arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande <code>gitk</code> dans le terminal depuis un dépôt Git.<br>
+Source : <a href="https://git-scm.com/docs/gitk">Documentation officielle Git - gitk</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 21 : Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
+C&#8217;est une interface graphique pour la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d&#8217;écrire le message de commit et de valider. Il se lance en tapant <code>git gui</code> dans le terminal.<br>
+Source : <a href="https://git-scm.com/docs/git-gui">Documentation officielle Git - git-gui</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 22 : Pourquoi avez-vous choisi ce logiciel (Ungit) ?</strong><br>
+Nous avons choisi <strong>Ungit</strong> pour son approche extrêmement visuelle. Il représente l&#8217;historique de Git sous forme de nœuds interactifs et d&#8217;animations très intuitives.<br>
+Source : <a href="https://github.com/FredrikNoren/ungit">Dépôt officiel GitHub de Ungit</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 23 : Comment l&#8217;avez-vous installé (Ungit) ?</strong><br>
+Ungit est un paquet Node.js. Après avoir installé Node.js et <code>npm</code> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 24 : Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
+Par rapport à <code>gitk</code> ou <code>git-gui</code>, l&#8217;interface d&#8217;Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 25 : Analyse comparative approfondie (Opérations)</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Visualiser l&#8217;historique des commits :</strong> <code>git log</code> ou <code>git log --oneline --graph</code> en CLI. Sur Ungit, il suffit d&#8217;ouvrir la page web et de scroller pour voir l&#8217;arbre interactif des nœuds colorés.</p>
+</li>
+<li>
+<p><strong>Créer une nouvelle branche :</strong> <code>git branch &lt;nom&gt;</code> ou <code>git switch -c &lt;nom&gt;</code> en CLI. Sur Ungit, cliquer sur le nœud du commit actuel, taper le nom de la branche dans le champ de texte et cliquer sur le bouton "+ Branch".</p>
+</li>
+<li>
+<p><strong>Comparer deux versions d&#8217;un fichier (diff) :</strong> <code>git diff</code> en CLI. (Visuel disponible sur Ungit).</p>
+</li>
+<li>
+<p><strong>Résoudre un conflit de fusion :</strong> Ouvrir le fichier dans un éditeur (nano/vim), effacer les balises, garder le bon code, puis faire <code>git add</code> et <code>git commit</code> en CLI. Ungit signale le conflit en rouge ("Resolve conflicts"). On peut ouvrir un outil de diff visuel ou marquer le fichier comme résolu directement depuis l&#8217;interface après modification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Question 26 : Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
+Les opérations courantes, basiques et répétitives (comme le <code>git add</code>, la création de branche, un <code>git commit</code> simple ou un <code>git push</code>) sont beaucoup plus rapides à taper en ligne de commande. + En revanche, comprendre l&#8217;arborescence des branches, visualiser un historique complexe et repérer les modifications dans plusieurs fichiers en même temps est bien plus clair avec l&#8217;interface graphique.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 27 : Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
+Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La ligne de commande est privilégiée pour la rapidité des actions quotidiennes et pour l&#8217;automatisation de scripts. L&#8217;interface graphique (Ungit, GitKraken, ou un outil intégré à l&#8217;IDE comme VS Code) est en revanche indispensable pour faire des revues de code, comprendre l&#8217;historique d&#8217;un projet avant une fusion (merge), et résoudre des conflits complexes avec moins de risque d&#8217;erreur.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_semaine_11_questions_et_réponses_techniques_forgejo">4. Semaine 11 : Questions et Réponses techniques (Forgejo)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien</em></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 1 : Qu&#8217;est-ce que Forgejo ?</strong><br>
+C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.<br>
+Source : <a href="https://forgejo.org/faq/">FAQ officielle de Forgejo</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 2 : Qu&#8217;est-ce qu&#8217;un fork ?</strong><br>
+En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d&#8217;un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l&#8217;équipe d&#8217;origine.<br>
+Source : <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">Wikipédia - Fork (développement logiciel)</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 3 : Retracez l&#8217;histoire de Forgejo. Qu&#8217;est-ce qui différencie sa gouvernance de celle de Gitea ?</strong><br>
+L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer <strong>Forgejo</strong>. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 4 : Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</strong><br>
+Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard et utilise un port non privilégié comme le 3000. En production, on place généralement un "Reverse Proxy" (comme Nginx) qui écoute le port 80 et redirige le trafic.<br>
+Source : <a href="https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html">W3C - Architecture des ports privilégiés sous Linux</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 5 : Pourquoi SQLite plutôt que PostgreSQL ou MySQL/MariaDB ?</strong><br>
+SQLite est une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser).<br>
+Source : <a href="https://www.sqlite.org/whentouse.html">Documentation officielle SQLite</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 6 : Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?</strong><br>
+Le fichier se trouve dans le répertoire de travail de l&#8217;application <code>/var/lib/forgejo/data/forgejo.db</code>. Le propriétaire de ce fichier est l&#8217;utilisateur système qui exécute le service Forgejo (<code>git</code>), afin qu&#8217;il puisse y lire et y écrire les données.</p>
+</div>
+<div class="paragraph">
+<p><strong>Question 7 : Qu&#8217;est-ce qu&#8217;un service systemd ?</strong><br>
+C&#8217;est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan, et de s&#8217;assurer qu&#8217;ils redémarrent en cas de crash.<br>
+Source : <a href="https://wiki.debian.org/fr/systemd">Wiki Debian - systemd</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 8 : Expliquez le fichier de service systemd.</strong><br>
+Le fichier se divise en trois parties :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>[Unit]</code> qui contient les métadonnées et les dépendances,</p>
+</li>
+<li>
+<p><code>[Service]</code> qui définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, etc.)</p>
+</li>
+<li>
+<p><code>[Install]</code> qui définit à quel moment de la séquence de démarrage le service doit être lancé.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Question 9 : Différence entre start, enable et restart ? Comment visualiser les logs ?</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start</code> lance le service immédiatement</p>
+</li>
+<li>
+<p><code>enable</code> configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine</p>
+</li>
+<li>
+<p><code>restart</code> arrête puis redémarre le service. Pour visualiser les logs, on utilise la commande <code>sudo journalctl -u forgejo -f</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Question 10 : Examinez les permissions de /etc/forgejo et app.ini. Pourquoi sont-elles importantes ?</strong><br>
+Le fichier <code>app.ini</code> contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement <code>0640</code> ou <code>0600</code>) pour que seul l&#8217;utilisateur propriétaire (<code>forgejo</code> et <code>root</code>) puisse le lire.<br>
+Source : <a href="https://wiki.debian.org/Permissions">Wiki Debian - Permissions des fichiers</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 11 : Le serveur SSH de Forgejo écoute sur quel port ? Mesures pour un accès Internet ?</strong><br>
+Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte Debian. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port <code>2222</code>).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configurer le HTTPS (certificats SSL/TLS via Let&#8217;s Encrypt).</p>
+</li>
+<li>
+<p>Activer un pare-feu (<code>ufw</code>) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).</p>
+</li>
+<li>
+<p>Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Question 12 : Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.</strong><br>
+Un projet public est lisible (et clonable) par n&#8217;importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d&#8217;être explicitement invité. Forgejo permet de fermer automatiquement un ticket lors d&#8217;un push en utilisant des mots-clés spécifiques dans le message du commit (ex: <code>Fixes #1</code>). Renseigner sa clé publique permet de cloner et de pousser en SSH sans taper son mot de passe.<br>
+Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH">Documentation Git - Génération des clés SSH</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Question 13 : Qu&#8217;est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?</strong><br>
+CI (Continuous Integration) : Automatisation des tests et de la vérification du code à chaque push d&#8217;un développeur, garantissant que le nouveau code ne casse pas l&#8217;application. CD (Continuous Delivery/Deployment) : Déploiement automatisé de l&#8217;application une fois les tests validés. Les avantages sont la réduction massive des bugs, des retours immédiats, la standardisation de la compilation et un gain de temps.<br>
+Source : <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide sur la CI/CD</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-03-21 16:28:23 +0100
+</div>
+</div>
+</body>
+</html>
