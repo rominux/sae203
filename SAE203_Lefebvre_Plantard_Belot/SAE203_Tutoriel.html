@@ -160,6 +160,10 @@ table.tableblock tbody tr:nth-child(even) {
     margin-top: 3em;
 }
 
+img {
+    max-width: 100%;
+}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -1616,9 +1620,6 @@ git push</code></pre>
 <p><strong>Le piège de l&#8217;affichage du port SSH :</strong> Le tutoriel d&#8217;installation officiel de Forgejo sur Debian suggère d&#8217;utiliser le serveur SSH natif du système (qui écoute sur le port 22), plutôt que de lancer un serveur SSH interne à Forgejo. Le problème est qu&#8217;avec notre configuration VirtualBox en NAT, nous avions redirigé le port <code>2222</code> de la machine hôte vers le port <code>22</code> de la machine invitée. Conséquence : l&#8217;interface web de Forgejo affichait une URL de clonage erronée avec le port standard (<code>ssh://git@localhost:22/&#8230;&#8203;</code>), ce qui faisait échouer nos <code>git clone</code> depuis l&#8217;hôte.
 Pour corriger cet affichage, nous avons dû modifier le fichier de configuration <code>/etc/forgejo/app.ini</code> et forcer manuellement le paramètre <code>SSH_PORT = 2222</code>. Ainsi, le vrai serveur SSH écoute toujours sur le port 22 de la VM, mais l&#8217;interface web affiche la bonne URL avec le port redirigé pour les visiteurs.</p>
 </li>
-<li>
-<p><strong>Erreurs de permissions sur le fichier de base de données :</strong> Lors de nos premiers tests, Forgejo refusait de démarrer et affichait une erreur 500. En regardant les logs (avec <code>journalctl -u forgejo</code>), nous avons compris que l&#8217;utilisateur système <code>git</code> n&#8217;avait pas les droits d&#8217;écriture sur le fichier SQLite <code>forgejo.db</code>. Un simple ajustement des permissions avec <code>chown</code> a résolu le problème.</p>
-</li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1817,7 +1818,7 @@ asciidoctor-pdf <span class="nt">-r</span> asciidoctor-kroki <span class="nt">-a
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-27 19:04:00 +0100
+Last updated 2026-03-27 20:51:18 +0100
 </div>
 </div>
 </body>

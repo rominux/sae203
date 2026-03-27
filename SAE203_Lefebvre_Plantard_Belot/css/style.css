@@ -149,3 +149,7 @@ table.tableblock tbody tr:nth-child(even) {
     text-align: left;
     margin-top: 3em;
 }
+
+img {
+    max-width: 100%;
+}
