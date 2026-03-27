@@ -45,14 +45,14 @@ Source : https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dé
 **Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?** +
 Protocole Local (accès au système de fichiers sans port) +
 Protocole Git +
-Protocole HTTP/HTTPS (mode intelligent et idiot) footnote:[Le mode intelligent est un serveur http qui comprend l'authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier `.git`.] + 
+Protocole HTTP/HTTPS (mode intelligent et idiot) footnote:[Le mode intelligent est un serveur http qui comprend l'authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier `.git`.] +
 Protocole SSH. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles[Livre Git - Les Protocoles]
 
 **Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?** +
 Le protocole Git fonctionne sur le port `9418` +
 HTTP sur le port `80` +
-HTTPS sur le port `443` + 
+HTTPS sur le port `443` +
 SSH sur le port `22`. +
 Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles[Documentation Git - Les protocoles réseau]
 
@@ -98,7 +98,7 @@ Il faut faire `git clone git@gitlab-ssh.univ-lille.fr:notthedreamteam/exemple-sa
 Source : https://docs.gitlab.com/ee/user/project/repository/[Documentation GitLab - Clonage d'un dépôt]
 
 **Question 16 : Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.** +
-Commandes utilisées : 
+Commandes utilisées :
 [source:bash]
 ----
 git switch --create emilien

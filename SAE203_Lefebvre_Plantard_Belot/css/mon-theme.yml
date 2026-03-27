@@ -1,10 +1,9 @@
 extends: default
 
-# Configuration des polices
 font:
   catalog:
     merge: true
-  fallbacks: 
+  fallbacks:
     - Noto Serif
     - M+ 1mn
 
@@ -13,7 +12,6 @@ page:
   numbering:
     start-at: after-toc
 
-# Correction des clés (hyphens au lieu de underscores)
 base:
   font-color: '333333'
   font-family: Helvetica
@@ -23,14 +21,12 @@ heading:
   font-color: '004b87'
   font-style: bold
 
-# Ligne 13 corrigée : pas d'espace au début, utilisation du trait d'union
 title-page:
   align: left
   title-top: 45%
   title-font-color: '004b87'
   title-font-style: bold
 
-# --- CONFIGURATION DE L'EN-TÊTE (HEADER) ---
 header:
   padding: [3, 0]
   height: 14mm
@@ -44,7 +40,6 @@ header:
     left-content: '{page-number}/{page-count} | {section-or-chapter-title}'
     right-content: 'image:../img/Forgejo_logo.png[fit=contain, width=40]'
 
-# --- CONFIGURATION DU PIED DE PAGE (FOOTER) ---
 footer:
   padding: [3, 0]
   height: 14mm

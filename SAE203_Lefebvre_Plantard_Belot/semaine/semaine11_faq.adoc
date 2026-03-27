@@ -20,15 +20,18 @@ ifdef::backend-pdf[]
 endif::[]
 
 **Question 1 : Qu'est-ce que Forgejo ?** +
-C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l'intégration continue. +
-Source : https://forgejo.org/faq/[FAQ officielle de Forgejo]
+C'est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git et le suivi des bugs (issues) proposant une transition simple de github. +
+Source : https://forgejo.org/[Site officiel de Forgejo]
 
 **Question 2 : Qu'est-ce qu'un fork ?** +
 En développement logiciel, un "fork" (ou embranchement) consiste à copier le code source d'un logiciel existant pour créer un nouveau projet indépendant, souvent suite à un désaccord technique ou éthique avec l'équipe d'origine. +
 Source : https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)[Wikipédia - Fork (développement logiciel)]
 
-**Question 3 : Retracez l'histoire de Forgejo. Qu'est-ce qui différencie sa gouvernance de celle de Gitea ?** +
-L'histoire commence avec **Gogs**, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer **Gitea**. Plus récemment, l'entreprise derrière Gitea a pris un virage commercial (création d'une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer **Forgejo**. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.
+**Question 3 : Retracez l'histoire de Forgejo ? Qu’est-ce qui différencie la gouvernance de Forgejo ?** +
+L'histoire commence avec **Gogs**, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer **Gitea**. Plus récemment, l'entreprise derrière Gitea a pris un virage commercial (création d'une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer **Forgejo**. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code. Les 3 projets existent toujours, mais Forgejo semble être le plus actif et le plus suivi par la communauté. +
+Sources :
+- https://forgejo.org/2024-02-forking-forward/[Article officiel de Forgejo sur l'histoire du projet]
+- https://blog.gitea.com/welcome-to-gitea/[Annonce officielle de Gitea sur sa création]
 
 **Question 4 : Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?** +
 Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d'administrateur (`root`) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits `root` est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard et utilise un port non privilégié comme le 3000. En production, on place généralement un "Reverse Proxy" (comme Nginx) qui écoute le port 80 et redirige le trafic. +
@@ -47,9 +50,9 @@ C'est le gestionnaire de système et de services de Linux. Il permet de démarre
 Source : https://wiki.debian.org/fr/systemd[Wiki Debian - systemd]
 
 **Question 8 : Expliquez le fichier de service systemd.** +
-Le fichier se divise en trois parties : 
+Le fichier se divise en trois parties :
 
-* `[Unit]` qui contient les métadonnées et les dépendances, 
+* `[Unit]` qui contient les métadonnées et les dépendances,
 * `[Service]` qui définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, etc.)
 * `[Install]` qui définit à quel moment de la séquence de démarrage le service doit être lancé.
 

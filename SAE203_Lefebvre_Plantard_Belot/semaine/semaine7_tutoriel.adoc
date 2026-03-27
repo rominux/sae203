@@ -44,7 +44,7 @@ Une fois la machine créée, nous y avons inséré l'image disque (ISO) de Debia
 
 . **Le nom d'hôte** : Défini sur `serveur`.
 . **Le miroir réseau** : Nous avons utilisé le miroir local de le plus proche `http://debian.polytech-lille.fr` pour accélérer le téléchargement des paquets.
-. **Les utilisateurs** : 
+. **Les utilisateurs** :
   * Un mot de passe robuste a été défini pour l'administrateur (`root`).
   * Un compte utilisateur standard nommé `user` a été créé pour l'utilisation standard.
 . **La sélection des logiciels (Tasksel)** : Nous avons décoché l'environnement GNOME (trop lourd) pour choisir **MATE** (plus léger). Nous avons également coché le serveur Web et le serveur SSH pour nos futurs besoins réseau.
@@ -105,6 +105,6 @@ L'utilisation d'un fichier de configuration automatisé implique souvent de devo
 ====
 
 ===  Retour d'expérience et difficultés rencontrées
-
-* **Problème de connexion SSH :** En voulant tester la commande `ssh user@10.0.2.15` depuis notre machine hôte, la connexion échouait indéfiniment (Timeout). Après diagnostic, nous avons compris que le réseau NAT de VirtualBox agissait comme un routeur bloquant les connexions entrantes. 
+[[forward-ssh]]
+* **Problème de connexion SSH :** En voulant tester la commande `ssh user@10.0.2.15` depuis notre machine hôte, la connexion échouait indéfiniment (Timeout). Après diagnostic, nous avons compris que le réseau NAT de VirtualBox agissait comme un routeur bloquant les connexions entrantes.
 * **La solution :** Nous avons dû configurer manuellement une règle de "Redirection de ports" (Port Forwarding) dans les paramètres réseau de VirtualBox (Port hôte 2222 vers Port invité 22) pour que la connexion réussisse.

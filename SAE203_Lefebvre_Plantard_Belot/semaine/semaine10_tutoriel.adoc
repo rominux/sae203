@@ -45,7 +45,7 @@ git init
 
 ===  Manipulations locales (Add, Commit, Log)
 
-Nous avons créé plusieurs fichiers et enregistré notre progression à travers des "commits" (des instantanés de notre projet). 
+Nous avons créé plusieurs fichiers et enregistré notre progression à travers des "commits" (des instantanés de notre projet).
 [source,bash]
 ----
 touch fichier1 fichier2 fichier3 fichier4
@@ -98,7 +98,7 @@ image::img/git-branch-merge.png[Git branche, pdfwidth=100%, align="center"]
 [NOTE]
 ====
 **`git checkout` vs `git switch`** +
-Historiquement, la commande `git checkout` sert à la fois à changer de branche et à restaurer l'état des fichiers, ce qui peut prêter à confusion. Pour simplifier cela, Git a introduit plus récemment la commande `git switch`, dédiée uniquement aux branches. 
+Historiquement, la commande `git checkout` sert à la fois à changer de branche et à restaurer l'état des fichiers, ce qui peut prêter à confusion. Pour simplifier cela, Git a introduit plus récemment la commande `git switch`, dédiée uniquement aux branches.
 Ainsi, taper `git checkout -b exemple` (comme nous l'avons fait) est l'équivalent exact de la commande moderne `git switch -c exemple`.
 ====
 
@@ -149,7 +149,7 @@ git push --set-upstream origin emilien
 Enfin, sur l'interface web de GitLab, nous avons créé des "Merge Requests" pour fusionner le travail de chacun dans la branche principale. Nous n'avons pas eu de conflits car nous n'avons pas modifié les mêmes fichiers.
 
 **Traçabilité avec git blame** +
-Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons testé la commande `git blame` sur l'un de nos fichiers. 
+Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons testé la commande `git blame` sur l'un de nos fichiers.
 
 [source,bash]
 ----
@@ -177,5 +177,4 @@ L'interface graphique s'est révélée très pratique pour visualiser un histori
 
 ===  Retour d'expérience et difficultés rencontrées
 
-* **Le fonctionnement des clés SSH :** Au début du travail collaboratif, nous avions des erreurs de permission (`Permission denied (publickey)`). Nous avons dû bien comprendre la différence entre clé privée (qui reste sur le PC) et clé publique (à donner à GitLab) pour résoudre le problème.
 * **La panique du conflit de fusion :** Lors de notre premier conflit, voir le fichier rempli de chevrons `<<<<<<<` a été perturbant. Nous avons d'abord cru avoir cassé le code. Comprendre qu'il s'agissait simplement de texte à nettoyer manuellement dans un éditeur nous a beaucoup rassurés pour la suite du projet.

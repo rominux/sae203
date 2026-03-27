@@ -2,7 +2,7 @@
 
 _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
-Conformément aux attentes pour la finalisation de notre projet, cette semaine a été consacrée à l'amélioration visuelle de nos livrables. L'objectif était de s'affranchir du rendu par défaut d'Asciidoctor en créant des templates personnalisés pour nos exports HTML et PDF, tout en respectant la règle d'or : **ne jamais insérer de code HTML brut directement dans le fichier `.adoc`**. 
+Conformément aux attentes pour la finalisation de notre projet, cette semaine a été consacrée à l'amélioration visuelle de nos livrables. L'objectif était de s'affranchir du rendu par défaut d'Asciidoctor en créant des templates personnalisés pour nos exports HTML et PDF, tout en respectant la règle d'or : **ne jamais insérer de code HTML brut directement dans le fichier `.adoc`**.
 
 Toute la personnalisation a été gérée via les attributs d'en-tête et des fichiers de style externes.
 
@@ -42,12 +42,12 @@ Voici l'évolution de notre document avant et après l'application de notre temp
 
 [cols="1,1", frame="none", grid="none"]
 |===
-a| 
+a|
 .Rendu par défaut (Sans CSS)
 // Remplacer l'image ci-dessous par votre capture d'écran sans CSS
 image::img/sans-css.png[Rendu Asciidoctor sans CSS, width=100%]
 
-a| 
+a|
 .Rendu personnalisé (Avec style.css)
 // Remplacer l'image ci-dessous par votre capture d'écran avec CSS
 image::img/avec-css.png[Rendu Asciidoctor avec CSS, width=100%]

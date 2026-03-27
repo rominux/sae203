@@ -94,7 +94,6 @@ Pour sécuriser l'installation, nous sommes intervenus sur plusieurs points :
 [plantuml, schema-reseau, png]
 ----
 @startuml
-skinparam handwritten false
 skinparam monochrome true
 skinparam packageStyle rect
 skinparam shadowing false
@@ -102,7 +101,7 @@ skinparam shadowing false
 node "Machine Hôte (Physique)" {
     component [Navigateur Web] as Browser
     component [Client SSH (Terminal)] as SSHClient
-    
+
     node "Interface de bouclage (127.0.0.1)" {
         portin "Port 3000" as P3000H
         portin "Port 2222" as P2222H
@@ -114,10 +113,10 @@ cloud "NAT VirtualBox / Port Forwarding" as NAT
 node "Machine Virtuelle (Debian 13)" {
     portout "Port 3000" as P3000G
     portout "Port 22" as P22G
-    
+
     component [Forgejo Service] as Forgejo
     component [OpenSSH Server] as SSHD
-    
+
     note right of Forgejo : IP Interne: 10.0.2.15
 }
 
@@ -135,6 +134,7 @@ P22G --> SSHD
 @enduml
 ----
 
+<<forward-ssh,le forward ssh>>
 [IMPORTANT]
 ====
 **Sécurité du fichier de configuration (app.ini)** +
@@ -159,7 +159,7 @@ Enfin, nous avons renseigné notre clé SSH publique dans Forgejo pour s'authent
 [source,bash]
 ----
 # 1. Créer sa clé SSH (si non existante)
-ssh-keygen -t ed25519 -C "mon.email@exemple.com"
+ssh-keygen -t ed25519 -C "kylian.plantard.etu@univ-lille.fr"
 
 # 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)
 git clone ssh://git@localhost:2222/utilisateur/projet.git

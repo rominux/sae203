@@ -1,18 +1,15 @@
-/* --- IMPORT DES ICÔNES FONTAWESOME --- */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
-/* --- 1. MISE EN PAGE GLOBALE --- */
 body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9f9fb;
     color: #333333;
     line-height: 1.6;
-    margin: 0 auto; /* Permet de centrer la page */
-    max-width: 1000px; /* Largeur maximale pour que le texte reste lisible */
+    margin: 0 auto;
+    max-width: 1000px;
     padding: 20px;
 }
 
-/* --- 2. SOMMAIRE (TOC) EN HAUT DE PAGE --- */
 #toc {
 background-color: #ffffff;
 border: 1px solid #dcdcdc;
@@ -42,7 +39,6 @@ color: #004b87;
 text-decoration: underline;
 }
 
-/* --- 3. PERSONNALISATION DES TITRES --- */
 h1, h2, h3, h4 {
     color: #004b87;
     font-weight: 600;
@@ -53,7 +49,6 @@ h2 {
     margin-top: 1.5em;
 }
 
-/* --- 4. ADMONITIONS (NOTES, WARNING) --- */
 .admonitionblock {
     margin: 1.5em 0;
 }
@@ -74,7 +69,6 @@ h2 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* --- 5. TABLEAUX --- */
 table.tableblock {
     width: 100%;
     border-collapse: collapse;
@@ -91,12 +85,11 @@ table.tableblock th, table.tableblock td {
     border: 1px solid #e0e0e0;
 }
 table.tableblock tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Lignes zébrées */
+    background-color: #f2f2f2;
 }
 
-/* --- 6. BLOCS DE CODE --- */
 .listingblock pre {
-    background-color: #272822 !important; /* Force le fond noir */
+    background-color: #272822 !important;
     color: #f8f8f2 !important;
     border-radius: 5px;
     padding: 15px;

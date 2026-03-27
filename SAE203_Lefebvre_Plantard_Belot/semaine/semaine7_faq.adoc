@@ -126,7 +126,7 @@ Source : https://www.debian.org/releases/trixie/index.html[Debian Trixie Release
 Source : https://www.debian.org/doc/manuals/project-history/releases.en.html[Debian Releases]
 
 **Question 26 : Quel est le dernier nom de code annoncé à ce jour ? Quand a-t-il été annoncé ? Quelle est la version de cette distribution ?** +
-La version 14 est `Forky` et la version 15 sera `Duke`. + 
+La version 14 est `Forky` et la version 15 sera `Duke`. +
 Source : https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html[Annonce de Forky - Debian Mailing List]
 
 **Question 27 : Quelle est la différence entre `pkgsel/include` et `tasksel` dans un preseed ?** +

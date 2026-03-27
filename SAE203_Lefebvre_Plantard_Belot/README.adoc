@@ -92,7 +92,7 @@ Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre enviro
 
 === Troubleshooting
 
-Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert ou du clonage Git. 
+Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert ou du clonage Git.
 Vous pouvez corriger cela très simplement en lui redonnant les droits d'exécution avec la commande suivante :
 [source,bash]
 ----
