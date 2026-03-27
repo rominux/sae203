@@ -90,6 +90,51 @@ Pour sécuriser l'installation, nous sommes intervenus sur plusieurs points :
 * **Serveur SSH :** Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
 * **Accès Internet :** Si le serveur était exposé, il faudrait configurer le HTTPS (Let's Encrypt), activer un pare-feu (`ufw`) pour les ports (80, 443, 22, 2222) et installer `Fail2ban`.
 
+.Architecture de redirection de ports (NAT VirtualBox)
+[plantuml, schema-reseau, png]
+----
+@startuml
+skinparam handwritten false
+skinparam monochrome true
+skinparam packageStyle rect
+skinparam shadowing false
+
+node "Machine Hôte (Physique)" {
+    component [Navigateur Web] as Browser
+    component [Client SSH (Terminal)] as SSHClient
+    
+    node "Interface de bouclage (127.0.0.1)" {
+        portin "Port 3000" as P3000H
+        portin "Port 2222" as P2222H
+    }
+}
+
+cloud "NAT VirtualBox / Port Forwarding" as NAT
+
+node "Machine Virtuelle (Debian 13)" {
+    portout "Port 3000" as P3000G
+    portout "Port 22" as P22G
+    
+    component [Forgejo Service] as Forgejo
+    component [OpenSSH Server] as SSHD
+    
+    note right of Forgejo : IP Interne: 10.0.2.15
+}
+
+Browser --> P3000H : http://localhost:3000
+SSHClient --> P2222H : ssh -p 2222 user@localhost
+
+P3000H ..> NAT
+P2222H ..> NAT
+
+NAT ..> P3000G : Redirection
+NAT ..> P22G : Redirection
+
+P3000G --> Forgejo
+P22G --> SSHD
+@enduml
+----
+
 [IMPORTANT]
 ====
 **Sécurité du fichier de configuration (app.ini)** +
