@@ -129,7 +129,7 @@ Pour éviter que Git ne suive des fichiers inutiles (comme des fichiers compilé
 
 ===  Travail collaboratif sur GitLab
 
-Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d'abord généré une clé SSH (`ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`) que nous avons ajoutée à notre profil GitLab pour l'authentification.
+Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d'abord généré une clé SSH footnote:[Secure Shell : un protocole cryptographique permettant de sécuriser les communications (ici, l'authentification Git) sur un réseau non sécurisé.] (`ssh-keygen -t ed25519 -C "exemple@univ-lille.fr"`) que nous avons ajoutée à notre profil GitLab pour l'authentification.
 
 Nous avons cloné le projet :
 [source,bash]
@@ -163,7 +163,7 @@ Cette commande s'est révélée très puissante : elle affiche le contenu du fic
 
 ===  Utilisation d'une interface graphique (Ungit)
 
-Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit**. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
+Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit**. Après avoir installé Node.js footnote:[Un environnement d'exécution JavaScript côté serveur.] et `npm` footnote:[Node Package Manager : le gestionnaire de paquets officiel pour l'écosystème Node.js.] sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
 
 .Interface web de l'outil graphique Ungit
 image::img/interface.png[Interface Ungit, pdfwidth=60%, align="center"]

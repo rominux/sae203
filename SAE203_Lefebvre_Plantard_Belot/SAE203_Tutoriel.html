@@ -457,7 +457,7 @@ Ce tutoriel détaille étape par étape la création, l&#8217;installation et la
 <p><strong>Disque dur</strong> : 20 Go (alloué dynamiquement, avec une seule partition contenant tout le système).</p>
 </li>
 <li>
-<p><strong>Réseau</strong> : Laissé par défaut sur "NAT", ce qui permet à la machine d&#8217;avoir accès à Internet tout en étant protégée et isolée du réseau physique de l&#8217;IUT.</p>
+<p><strong>Réseau</strong> : Laissé par défaut sur "NAT" <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, ce qui permet à la machine d&#8217;avoir accès à Internet tout en étant protégée et isolée du réseau physique de l&#8217;IUT.</p>
 </li>
 </ul>
 </div>
@@ -521,7 +521,7 @@ L&#8217;utilisateur <code>user</code> ne pouvait pas exécuter de commandes admi
 </div>
 </div>
 <div class="paragraph">
-<p>man 8 usermod <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<p>man 8 usermod <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p><strong>B. Installation des Additions Invité (Guest Additions)</strong><br>
@@ -534,7 +534,7 @@ Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers 
 </div>
 </div>
 <div class="paragraph">
-<p>man 8 mount <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p>man 8 mount <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Un redémarrage a suffi pour appliquer ces changements.</p>
@@ -543,7 +543,7 @@ Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers 
 <div class="sect2">
 <h3 id="_automatisation_de_linstallation_preseed">1.4. Automatisation de l&#8217;installation (Preseed)</h3>
 <div class="paragraph">
-<p>Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée <code>preseed-fr.cfg</code> présent sur l&#8217;ISO fournie.</p>
+<p>Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée <code>preseed-fr.cfg</code> <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup> présent sur l&#8217;ISO fournie.</p>
 </div>
 <div class="paragraph">
 <p>Nous y avons imposé l&#8217;installation de l&#8217;environnement MATE :</p>
@@ -1214,7 +1214,7 @@ conflit 2
 <div class="sect2">
 <h3 id="_travail_collaboratif_sur_gitlab">3.7. Travail collaboratif sur GitLab</h3>
 <div class="paragraph">
-<p>Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d&#8217;abord généré une clé SSH (<code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>) que nous avons ajoutée à notre profil GitLab pour l&#8217;authentification.</p>
+<p>Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d&#8217;abord généré une clé SSH <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> (<code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>) que nous avons ajoutée à notre profil GitLab pour l&#8217;authentification.</p>
 </div>
 <div class="paragraph">
 <p>Nous avons cloné le projet :</p>
@@ -1261,7 +1261,7 @@ Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons tes
 <div class="sect2">
 <h3 id="_utilisation_dune_interface_graphique_ungit">3.8. Utilisation d&#8217;une interface graphique (Ungit)</h3>
 <div class="paragraph">
-<p>Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée <strong>Ungit</strong>. Après avoir installé Node.js et <code>npm</code> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
+<p>Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée <strong>Ungit</strong>. Après avoir installé Node.js <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> et <code>npm</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -1369,8 +1369,20 @@ Ce tutoriel détaille l&#8217;installation, la configuration et la sécurisation
 <pre class="rouge highlight"><code data-lang="bash"><span class="nb">ls</span> <span class="nt">-l</span> /var/lib/forgejo/data/forgejo.db</code></pre>
 </div>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Côté réseau, Forgejo écoute par défaut sur le port <strong>3000</strong>. Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard (<code>git</code>) et utilise un port non privilégié. En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui a les droits d&#8217;écouter le port 80 ou 443 et qui redirige le trafic vers le port 3000.</p>
+<p><strong>Risques de sécurité liés aux ports privilégiés</strong><br>
+Côté réseau, Forgejo écoute par défaut sur le port <strong>3000</strong>. Sous Linux, les ports inférieurs à 1024 (appelés ports privilégiés) nécessitent les droits d&#8217;administrateur (<code>root</code>) pour pouvoir être ouverts et écoutés. Faire tourner une application web complexe comme Forgejo avec les droits <code>root</code> est une faille de sécurité majeure. Forgejo tourne donc sous un utilisateur standard (<code>git</code>) et utilise un port non privilégié. En production, on place généralement un "Reverse Proxy" (comme Nginx ou Apache) qui a les droits d&#8217;écouter le port 80 ou 443 et qui redirige le trafic vers le port 3000.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1413,6 +1425,21 @@ Ce tutoriel détaille l&#8217;installation, la configuration et la sécurisation
 <p><strong>Accès Internet :</strong> Si le serveur était exposé, il faudrait configurer le HTTPS (Let&#8217;s Encrypt), activer un pare-feu (<code>ufw</code>) pour les ports (80, 443, 22, 2222) et installer <code>Fail2ban</code>.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Sécurité du fichier de configuration (app.ini)</strong><br>
+Le fichier <code>app.ini</code> généré par Forgejo contient des informations hautement sensibles, telles que vos clés secrètes (<code>SECRET_KEY</code>) et les identifiants de la base de données. Il est impératif de restreindre ses droits d&#8217;accès de manière stricte. Seul l&#8217;utilisateur système exécutant le service (généralement <code>git</code>) doit pouvoir le lire et le modifier (ex: <code>chmod 600 app.ini</code>), afin d&#8217;éviter toute compromission critique du serveur.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1620,10 +1647,25 @@ asciidoctor-pdf tutoriel.adoc <span class="nt">-a</span> pdf-theme<span class="o
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">Page de manuel usermod</a>
+<a href="#_footnoteref_1">1</a>. Network Address Translation : un mécanisme réseau permettant à la machine virtuelle de partager l&#8217;adresse IP de la machine hôte pour accéder à Internet.
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
+<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">Page de manuel usermod</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. Preseeding : une méthode pour automatiser l&#8217;installation du système d&#8217;exploitation en pré-remplissant un fichier texte avec les réponses de l&#8217;installateur.
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. Secure Shell : un protocole cryptographique permettant de sécuriser les communications (ici, l&#8217;authentification Git) sur un réseau non sécurisé.
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. Un environnement d&#8217;exécution JavaScript côté serveur.
+</div>
+<div class="footnote" id="_footnotedef_7">
+<a href="#_footnoteref_7">7</a>. Node Package Manager : le gestionnaire de paquets officiel pour l&#8217;écosystème Node.js.
 </div>
 </div>
 <div id="footer">
