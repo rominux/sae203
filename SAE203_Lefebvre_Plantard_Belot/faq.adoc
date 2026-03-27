@@ -36,3 +36,96 @@ include::semaine/semaine10_faq.adoc[]
 <<<
 
 include::semaine/semaine11_faq.adoc[]
+
+<<<
+
+
+== Webographie / Sources
+
+[bibliography]
+=== Système d'exploitation Debian & Linux
+* Projet Debian. _À propos de Debian_.
+https://www.debian.org/intro
+* Projet Debian. _Historique du projet_.
+https://www.debian.org/doc/manuals/project-history/intro.en.html
+* Projet Debian. _Les versions de Debian_.
+https://www.debian.org/doc/manuals/project-history/releases.en.html
+* Manuel Debian. _Cycle de vie d'une version_.
+https://www.debian.org/doc/manuals/debian-handbook/sect.release-lifecycle.en.html
+* Projet Debian. _Informations sur Debian 13 (Trixie)_.
+https://www.debian.org/releases/trixie/index.html
+* Wiki Debian. _Long Term Support (LTS) & ELTS_.
+https://wiki.debian.org/LTS et https://wiki.debian.org/LTS/Extended
+* Wiki Debian. _Origine des noms de code (Toy Story)_.
+https://wiki.debian.org/ToyStory
+* Mailing List Debian. _Annonce de la version Forky_.
+https://lists.debian.org/debian-devel-announce/2025/01/msg00004.html
+* Documentation Debian. _Configuration matérielle requise_.
+https://www.debian.org/releases/stable/amd64/ch03s04.fr.html
+* FAQ Debian. _Qu'est-ce qu'une image CD/ISO ?_
+https://www.debian.org/CD/faq/index.fr.html#what-is
+* Manuel Debian. _Sécurité de la pré-configuration (Preseed)_.
+https://www.debian.org/releases/stable/amd64/apbs01.fr.html#preseed-security
+
+[bibliography]
+=== Environnements de Bureau & Services réseaux
+* Wiki Debian. _Environnements de bureau (GNOME, MATE)_.
+https://wiki.debian.org/fr/DesktopEnvironment
+* Wiki Debian. _Serveur Web_.
+https://wiki.debian.org/fr/WebServer
+* Wikipédia. _Serveur mandataire (Proxy)_.
+https://fr.wikipedia.org/wiki/Proxy
+
+[bibliography]
+=== Commandes et Manpages Linux
+* Manpages Debian. _Commande ip_.
+https://manpages.debian.org/trixie/iproute2/ip.8.en.html
+* Manpages Debian. _Commande sudo_.
+https://manpages.debian.org/trixie/sudo/sudo.8.en.html
+* Manpages Debian. _Commande su_.
+https://manpages.debian.org/trixie/util-linux/su.1.en.html
+* Manpages Debian. _Commandes groups et id_.
+https://manpages.debian.org/trixie/coreutils/groups.1.en.html
+* Manpages Debian. _Commande uname_.
+https://manpages.debian.org/trixie/coreutils/uname.1.en.html
+* Manpages Debian. _Commande mount_.
+https://manpages.debian.org/trixie/util-linux/mount.8.en.html
+* Wiki Debian. _Tasksel_.
+https://wiki.debian.org/fr/tasksel
+
+[bibliography]
+=== Virtualisation (VirtualBox)
+* Documentation VirtualBox. _Matériel réseau émulé_.
+https://www.virtualbox.org/manual/ch06.html#nichardware
+* Documentation VirtualBox. _Mode réseau NAT et Redirection de ports_.
+https://www.virtualbox.org/manual/ch06.html#network_nat
+* Wiki Debian. _Additions Invité VirtualBox (Guest Additions)_.
+https://wiki.debian.org/fr/VirtualBox#VirtualBox_Guest_Additions
+
+[bibliography]
+=== Contrôle de version et Forges (Git & GitLab)
+* Documentation Git. _Dépôts distants (Remotes) et Fetch vs Pull_.
+https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants
+* Documentation Git. _Les Branches et la fusion_.
+https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref
+* Documentation Git. _Résolution de conflits_.
+https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion
+* Documentation Git. _Les protocoles réseau (SSH, HTTP, etc.)_.
+https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles
+* Documentation Git. _Génération clé SSH_.
+https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH
+* Documentation Git. _Commandes (init, log, merge, gitignore, blame, gitk, git-gui)_.
+https://git-scm.com/docs
+* Documentation GitLab. _Clonage d'un dépôt_.
+https://docs.gitlab.com/ee/user/project/repository/
+* Documentation GitLab. _Merge Requests_.
+https://docs.gitlab.com/ee/user/project/merge_requests/
+* Dépôt GitHub. _Projet Ungit_.
+https://github.com/FredrikNoren/ungit
+
+[bibliography]
+=== Langages de Balisage
+* Site officiel Markdown. _Daring Fireball_.
+https://daringfireball.net/projects/markdown/
+* Documentation Asciidoctor.
+https://docs.asciidoctor.org/
