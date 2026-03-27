@@ -253,16 +253,24 @@ a|
 |===
 ////
 
-=== Retour d'expérience : Installation locale d'Asciidoctor
+=== Retour d'expérience : Installation locale de l'environnement de compilation
 
-Lors de la préparation de notre environnement de travail en local (sur les machines de l'IUT), nous avons rencontré une difficulté majeure : l'impossibilité d'installer Asciidoctor de manière globale par manque de droits d'administration (accès `root` bloqué).
+* **Problème rencontré :** Lors de la préparation de notre environnement de travail en local (sur les machines de l'IUT), nous avons été bloqués par l'impossibilité d'installer la suite Asciidoctor de manière globale sur le système, en raison du manque de droits d'administration (accès `root` verrouillé).
 
-La solution a été de forcer l'installation des paquets Ruby directement dans notre espace utilisateur grâce à l'option `--user-install`:
+* **Solutions envisagées :** 1. _Utiliser des machines virtuelles Linux personnelles_ pour compiler : rejeté car cela alourdit considérablement notre flux de travail collaboratif lors des séances en présentiel.
+  2. _Utiliser une image Docker d'Asciidoctor_ : l'équipe n'étant pas familière avec l'utilisation de Docker, nous avons cherché une autre alternative.
+  3. _Exploiter le gestionnaire de paquets de Ruby (`gem`)_ pour forcer une installation confinée à notre espace utilisateur.
+
+* **Solution retenue :** Nous avons opté pour la troisième solution, qui est la plus légère et nous rend totalement autonomes sur n'importe quelle machine de l'IUT. Après nous être assurés de la présence de Ruby, nous avons installé les paquets nécessaires localement avec la commande suivante :
+
 [source,bash]
 ----
-gem install --user-install asciidoctor asciidoctor-pdf rouge
+gem install --user-install asciidoctor asciidoctor-pdf rouge asciidoctor-kroki
 ----
-Il a ensuite fallu ajouter le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour pouvoir exécuter les commandes de compilation.
+
+Ces trois paquets nous fournissent respectivement le convertisseur HTML, le convertisseur PDF, et la bibliothèque permettant d'appliquer notre thème sombre à la coloration syntaxique des blocs de code.
+
+Enfin, pour que le terminal reconnaisse nos nouvelles commandes de compilation (`asciidoctor` et `asciidoctor-pdf`), il a fallu ajouter le chemin des binaires Ruby locaux à la variable d'environnement `PATH` de notre session utilisateur.
 
 === Note technique sur la rédaction de ce comparatif
 

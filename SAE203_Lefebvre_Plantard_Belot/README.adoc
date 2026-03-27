@@ -87,17 +87,20 @@ Pour lancer la compilation, exécutez la commande suivante dans le terminal :
 Cela générera 4 fichiers nommés proprement (`SAE203_Tutoriel.pdf`, `SAE203_Tutoriel.html`, `SAE203_FAQ.pdf`, `SAE203_FAQ.html`).
 
 === Outils requis pour la compilation locale
-Afin de pouvoir compiler ce document, les outils suivants doivent être installés sur la machine :
+Afin de pouvoir compiler ce document et générer les diagrammes intégrés, les outils suivants doivent être installés sur la machine :
+
 * **Ruby** (nécessaire pour l'écosystème Asciidoctor)
 * **Asciidoctor** : Convertisseur principal (vers HTML)
 * **Asciidoctor-pdf** : Convertisseur vers le format PDF
 * **Rouge** : Bibliothèque permettant la coloration syntaxique des blocs de code avec notre thème sombre.
+* **Asciidoctor-kroki** : Extension permettant de déléguer la génération de nos diagrammes (comme PlantUML) à une API distante, évitant ainsi l'installation de dépendances lourdes en local.
 
-Sur les machines de l'IUT, nous avons installé ces outils localement avec la commande suivante :
-`gem install --user-install asciidoctor asciidoctor-pdf rouge`
-
+Sur les machines de l'IUT, nous avons installé ces outils localement dans notre espace utilisateur avec la commande suivante :
+[source,bash]
+----
+gem install --user-install asciidoctor asciidoctor-pdf rouge asciidoctor-kroki
+----
 Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.
-
 === Troubleshooting
 
 Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert ou du clonage Git.

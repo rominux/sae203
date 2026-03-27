@@ -65,16 +65,23 @@ Ce fichier définit les variables de mise en page pour le PDF :
 
 === Compilation avec nos templates personnalisés
 
-L'intégration de ces fichiers a nécessité de mettre à jour notre script d'automatisation `convertdoc.sh`. La commande de compilation lit automatiquement l'en-tête du document, mais il a fallu s'assurer que les chemins étaient corrects :
+L'intégration de ces fichiers de style, couplée à notre besoin de générer des diagrammes via l'extension Kroki (comme expliqué précédemment), a nécessité de mettre à jour notre script d'automatisation `convertdoc.sh`.
+
+La commande de compilation lit automatiquement l'en-tête du document pour appliquer le CSS, mais il a fallu ajouter les chemins stricts pour le thème PDF, ainsi que les paramètres requis pour l'exécution de Kroki (`-r asciidoctor-kroki`) et l'autorisation des requêtes réseau (`-a allow-uri-read`) :
 
 [source,bash]
 ----
-# Compilation du HTML (lit le :stylesheet: style.css automatiquement)
-asciidoctor tutoriel.adoc -o SAE203_Tutoriel.html
+# Compilation du HTML (lit le :stylesheet: style.css automatiquement + active Kroki)
+asciidoctor -r asciidoctor-kroki -a allow-uri-read tutoriel.adoc -o SAE203_Tutoriel.html
 
-# Compilation du PDF avec indication stricte du thème YAML
-asciidoctor-pdf tutoriel.adoc -a pdf-theme=css/mon-theme.yml -o SAE203_Tutoriel.pdf
+# Compilation du PDF avec indication stricte du thème YAML et activation de Kroki
+asciidoctor-pdf -r asciidoctor-kroki -a allow-uri-read -a pdf-theme=css/mon-theme.yml tutoriel.adoc -o SAE203_Tutoriel.pdf
 ----
+
+[NOTE]
+====
+Le script reproduit ensuite exactement les mêmes commandes pour compiler le fichier `faq.adoc` afin de générer les 4 livrables en une seule exécution.
+====
 
 === Retour d'expérience et difficultés rencontrées
 
