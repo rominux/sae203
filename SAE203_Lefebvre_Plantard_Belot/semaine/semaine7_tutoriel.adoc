@@ -33,7 +33,7 @@ La première étape consiste à préparer le "matériel virtuel" qui va accueill
 * **Type de système** : Linux / Debian (64-bit)
 * **Mémoire vive (RAM)** : 2048 Mo (C'est le minimum recommandé pour faire tourner l'environnement graphique MATE de manière fluide sans saturer la partition d'échange).
 * **Disque dur** : 20 Go (alloué dynamiquement, avec une seule partition contenant tout le système).
-* **Réseau** : Laissé par défaut sur "NAT" footnote:[Network Address Translation : un mécanisme réseau permettant à la machine virtuelle de partager l'adresse IP de la machine hôte pour accéder à Internet.], ce qui permet à la machine d'avoir accès à Internet tout en étant protégée et isolée du réseau physique de l'IUT.
+* **Réseau** : Laissé par défaut sur "<<glossaire-nat, NAT>>", ce qui permet à la machine d'avoir accès à Internet tout en étant protégée et isolée du réseau physique de l'IUT.
 
 .Récapitulatif de la configuration VirtualBox
 image::img/vbox-config-recap-sae203.png[Configuration de la VM, pdfwidth=60%, align="center"]
@@ -77,7 +77,7 @@ Un redémarrage a suffi pour appliquer ces changements.
 
 ===  Automatisation de l'installation (Preseed)
 
-Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée `preseed-fr.cfg` footnote:[Preseeding : une méthode pour automatiser l'installation du système d'exploitation en pré-remplissant un fichier texte avec les réponses de l'installateur.] présent sur l'ISO fournie.
+Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée <<glossaire-preseed, preseed-fr.cfg>> présent sur l'ISO fournie.
 
 Nous y avons imposé l'installation de l'environnement MATE :
 [source,plaintext]

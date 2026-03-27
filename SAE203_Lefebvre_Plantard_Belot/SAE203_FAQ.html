@@ -8,52 +8,51 @@
 <meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
 <title>SAÉ 2.03 : Installation de services réseaux (Question Réponse)</title>
 <style>
-/* --- IMPORT DES ICÔNES FONTAWESOME --- */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https:cdnjs.cloudflare.comlibs4.7.0font-awesome.min.css");
 
-/* --- 1. MISE EN PAGE GLOBALE --- */
 body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9f9fb;
     color: #333333;
     line-height: 1.6;
-    margin: 0 auto; /* Permet de centrer la page */
-    max-width: 1000px; /* Largeur maximale pour que le texte reste lisible */
+    margin: 0 auto;
+    max-width: 1000px;
     padding: 20px;
 }
 
-/* --- 2. SOMMAIRE (TOC) EN HAUT DE PAGE --- */
 #toc {
-background-color: #ffffff;
-border: 1px solid #dcdcdc;
-border-radius: 5px;
-padding: 20px;
-margin-bottom: 2em;
-box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 #toctitle {
-color: #004b87;
-font-size: 1.4em;
-font-weight: bold;
-margin-top: 0;
-border-bottom: 1px solid #004b87;
-padding-bottom: 5px;
+    color: #004b87;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 0;
+    border-bottom: 1px solid #004b87;
+    padding-bottom: 5px;
 }
 #toc ul {
-list-style-type: none;
-padding-left: 20px;
+    list-style-type: none;
+    padding-left: 20px;
 }
 #toc ul li a {
-text-decoration: none;
-color: #444;
+    text-decoration: none;
+    color: #444;
 }
 #toc ul li a:hover {
-color: #004b87;
-text-decoration: underline;
+    color: #004b87;
+    text-decoration: underline;
 }
 
-/* --- 3. PERSONNALISATION DES TITRES --- */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: #004b87;
     font-weight: 600;
 }
@@ -63,7 +62,6 @@ h2 {
     margin-top: 1.5em;
 }
 
-/* --- 4. ADMONITIONS (NOTES, WARNING) --- */
 .admonitionblock {
     margin: 1.5em 0;
 }
@@ -81,36 +79,85 @@ h2 {
     background-color: #ffffff;
     border-left: 5px solid #004b87;
     padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* --- 5. TABLEAUX --- */
 table.tableblock {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
     margin: 2em 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 table.tableblock thead {
     background-color: #004b87;
     color: #ffffff;
 }
-table.tableblock th, table.tableblock td {
+table.tableblock th,
+table.tableblock td {
     padding: 10px;
     border: 1px solid #e0e0e0;
 }
 table.tableblock tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Lignes zébrées */
+    background-color: #f2f2f2;
 }
 
-/* --- 6. BLOCS DE CODE --- */
 .listingblock pre {
-    background-color: #272822 !important; /* Force le fond noir */
+    background-color: #272822 !important;
     color: #f8f8f2 !important;
     border-radius: 5px;
     padding: 15px;
     overflow-x: auto;
+}
+
+/* =========================================
+   PAGE DE GARDE (HERO HEADER) CORRIGÉE
+   ========================================= */
+
+/* On centre le texte de l'en-tête, sans utiliser Flexbox sur le parent global
+   pour ne pas casser la table des matières qui s'y trouve aussi. */
+#header {
+    text-align: center;
+}
+
+#header .title-logo-image {
+    margin-top: 15vh;
+    margin-bottom: 2em;
+}
+
+#header h1 {
+    font-size: 3.5em;
+    color: #1a365d;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+}
+
+#header .details {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-size: 1.2em;
+    color: #4a5568;
+    margin-top: 1.5em;
+    background: white;
+    padding: 1em 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    /* C'est ICI qu'on crée la séparation : on pousse la table des matières
+       vers le bas pour qu'elle n'apparaisse pas sur le premier écran */
+    margin-bottom: 25vh;
+}
+
+/* =========================================
+   RESTAURATION DE LA TABLE DES MATIÈRES
+   ========================================= */
+
+/* On s'assure que la table des matières reprend son alignement
+   normal à gauche, en ignorant le text-align: center du header */
+#header #toc {
+    text-align: left;
+    margin-top: 3em;
 }
 
 </style>
@@ -753,8 +800,8 @@ Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La lign
 </div>
 <div class="paragraph">
 <p><strong>Question 1 : Qu&#8217;est-ce que Forgejo ?</strong><br>
-C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git, le suivi des bugs (issues), et l&#8217;intégration continue.<br>
-Source : <a href="https://forgejo.org/faq/">FAQ officielle de Forgejo</a></p>
+C&#8217;est une forge logicielle libre et auto-hébergée, permettant de gérer des dépôts Git et le suivi des bugs (issues) proposant une transition simple de github.<br>
+Source : <a href="https://forgejo.org/">Site officiel de Forgejo</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Question 2 : Qu&#8217;est-ce qu&#8217;un fork ?</strong><br>
@@ -762,8 +809,11 @@ En développement logiciel, un "fork" (ou embranchement) consiste à copier le c
 Source : <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">Wikipédia - Fork (développement logiciel)</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Question 3 : Retracez l&#8217;histoire de Forgejo. Qu&#8217;est-ce qui différencie sa gouvernance de celle de Gitea ?</strong><br>
-L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer <strong>Forgejo</strong>. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code.</p>
+<p><strong>Question 3 : Retracez l&#8217;histoire de Forgejo ? Qu’est-ce qui différencie la gouvernance de Forgejo ?</strong><br>
+L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer <strong>Forgejo</strong>. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code. Les 3 projets existent toujours, mais Forgejo semble être le plus actif et le plus suivi par la communauté.<br>
+Sources :
+- <a href="https://forgejo.org/2024-02-forking-forward/">Article officiel de Forgejo sur l&#8217;histoire du projet</a>
+- <a href="https://blog.gitea.com/welcome-to-gitea/">Annonce officielle de Gitea sur sa création</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Question 4 : Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</strong><br>
@@ -861,7 +911,7 @@ Source : <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide s
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-27 13:13:54 +0100
+Last updated 2026-03-27 18:30:35 +0100
 </div>
 </div>
 </body>

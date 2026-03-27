@@ -8,52 +8,51 @@
 <meta name="author" content="Lefebvre Romain, Plantard Kylian, Belot Emilien">
 <title>SAÉ 2.03 : Installation de services réseaux (rapport)</title>
 <style>
-/* --- IMPORT DES ICÔNES FONTAWESOME --- */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https:cdnjs.cloudflare.comlibs4.7.0font-awesome.min.css");
 
-/* --- 1. MISE EN PAGE GLOBALE --- */
 body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f9f9fb;
     color: #333333;
     line-height: 1.6;
-    margin: 0 auto; /* Permet de centrer la page */
-    max-width: 1000px; /* Largeur maximale pour que le texte reste lisible */
+    margin: 0 auto;
+    max-width: 1000px;
     padding: 20px;
 }
 
-/* --- 2. SOMMAIRE (TOC) EN HAUT DE PAGE --- */
 #toc {
-background-color: #ffffff;
-border: 1px solid #dcdcdc;
-border-radius: 5px;
-padding: 20px;
-margin-bottom: 2em;
-box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 #toctitle {
-color: #004b87;
-font-size: 1.4em;
-font-weight: bold;
-margin-top: 0;
-border-bottom: 1px solid #004b87;
-padding-bottom: 5px;
+    color: #004b87;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 0;
+    border-bottom: 1px solid #004b87;
+    padding-bottom: 5px;
 }
 #toc ul {
-list-style-type: none;
-padding-left: 20px;
+    list-style-type: none;
+    padding-left: 20px;
 }
 #toc ul li a {
-text-decoration: none;
-color: #444;
+    text-decoration: none;
+    color: #444;
 }
 #toc ul li a:hover {
-color: #004b87;
-text-decoration: underline;
+    color: #004b87;
+    text-decoration: underline;
 }
 
-/* --- 3. PERSONNALISATION DES TITRES --- */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: #004b87;
     font-weight: 600;
 }
@@ -63,7 +62,6 @@ h2 {
     margin-top: 1.5em;
 }
 
-/* --- 4. ADMONITIONS (NOTES, WARNING) --- */
 .admonitionblock {
     margin: 1.5em 0;
 }
@@ -81,36 +79,85 @@ h2 {
     background-color: #ffffff;
     border-left: 5px solid #004b87;
     padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* --- 5. TABLEAUX --- */
 table.tableblock {
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff;
     margin: 2em 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 table.tableblock thead {
     background-color: #004b87;
     color: #ffffff;
 }
-table.tableblock th, table.tableblock td {
+table.tableblock th,
+table.tableblock td {
     padding: 10px;
     border: 1px solid #e0e0e0;
 }
 table.tableblock tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Lignes zébrées */
+    background-color: #f2f2f2;
 }
 
-/* --- 6. BLOCS DE CODE --- */
 .listingblock pre {
-    background-color: #272822 !important; /* Force le fond noir */
+    background-color: #272822 !important;
     color: #f8f8f2 !important;
     border-radius: 5px;
     padding: 15px;
     overflow-x: auto;
+}
+
+/* =========================================
+   PAGE DE GARDE (HERO HEADER) CORRIGÉE
+   ========================================= */
+
+/* On centre le texte de l'en-tête, sans utiliser Flexbox sur le parent global
+   pour ne pas casser la table des matières qui s'y trouve aussi. */
+#header {
+    text-align: center;
+}
+
+#header .title-logo-image {
+    margin-top: 15vh;
+    margin-bottom: 2em;
+}
+
+#header h1 {
+    font-size: 3.5em;
+    color: #1a365d;
+    margin-bottom: 0.2em;
+    line-height: 1.2;
+}
+
+#header .details {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-size: 1.2em;
+    color: #4a5568;
+    margin-top: 1.5em;
+    background: white;
+    padding: 1em 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    /* C'est ICI qu'on crée la séparation : on pousse la table des matières
+       vers le bas pour qu'elle n'apparaisse pas sur le premier écran */
+    margin-bottom: 25vh;
+}
+
+/* =========================================
+   RESTAURATION DE LA TABLE DES MATIÈRES
+   ========================================= */
+
+/* On s'assure que la table des matières reprend son alignement
+   normal à gauche, en ignorant le text-align: center du header */
+#header #toc {
+    text-align: left;
+    margin-top: 3em;
 }
 
 </style>
@@ -382,22 +429,23 @@ pre.rouge {
 <li><a href="#_sécurité">4.4. Sécurité</a></li>
 <li><a href="#_tests_dutilisation_approfondis">4.5. Tests d&#8217;utilisation approfondis</a></li>
 <li><a href="#_intégration_et_livraison_continues_cicd">4.6. Intégration et livraison continues (CI/CD)</a></li>
-<li><a href="#_7_retour_dexpérience_et_difficultés_rencontrées">4.7. 7. Retour d&#8217;expérience et difficultés rencontrées</a></li>
+<li><a href="#_retour_dexpérience_et_difficultés_rencontrées_3">4.7. Retour d&#8217;expérience et difficultés rencontrées</a></li>
 </ul>
 </li>
 <li><a href="#_semaine_12_personnalisation_avancée_du_rendu_templates_css_et_pdf">5. Semaine 12 : Personnalisation avancée du rendu (Templates CSS et PDF)</a>
 <ul class="sectlevel2">
-<li><a href="#_1_configuration_des_métadonnées_en_tête_du_document">5.1. 1. Configuration des métadonnées (En-tête du document)</a></li>
-<li><a href="#_2_création_et_structure_du_fichier_css_rendu_html">5.2. 2. Création et structure du fichier CSS (Rendu HTML)</a>
+<li><a href="#_configuration_des_métadonnées_en_tête_du_document">5.1. Configuration des métadonnées (En-tête du document)</a></li>
+<li><a href="#_création_et_structure_du_fichier_css_rendu_html">5.2. Création et structure du fichier CSS (Rendu HTML)</a>
 <ul class="sectlevel3">
 <li><a href="#_comparatif_visuel_du_rendu_html">5.2.1. Comparatif visuel du rendu HTML</a></li>
 </ul>
 </li>
-<li><a href="#_3_création_et_structure_du_fichier_yaml_rendu_pdf">5.3. 3. Création et structure du fichier YAML (Rendu PDF)</a></li>
-<li><a href="#_4_compilation_avec_nos_templates_personnalisés">5.4. 4. Compilation avec nos templates personnalisés</a></li>
-<li><a href="#_retour_dexpérience_et_difficultés_rencontrées_3">5.5. Retour d&#8217;expérience et difficultés rencontrées</a></li>
+<li><a href="#_création_et_structure_du_fichier_yaml_rendu_pdf">5.3. Création et structure du fichier YAML (Rendu PDF)</a></li>
+<li><a href="#_compilation_avec_nos_templates_personnalisés">5.4. Compilation avec nos templates personnalisés</a></li>
+<li><a href="#_retour_dexpérience_et_difficultés_rencontrées_4">5.5. Retour d&#8217;expérience et difficultés rencontrées</a></li>
 </ul>
 </li>
+<li><a href="#_glossaire">Glossaire</a></li>
 </ul>
 </div>
 </div>
@@ -457,7 +505,7 @@ Ce tutoriel détaille étape par étape la création, l&#8217;installation et la
 <p><strong>Disque dur</strong> : 20 Go (alloué dynamiquement, avec une seule partition contenant tout le système).</p>
 </li>
 <li>
-<p><strong>Réseau</strong> : Laissé par défaut sur "NAT" <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, ce qui permet à la machine d&#8217;avoir accès à Internet tout en étant protégée et isolée du réseau physique de l&#8217;IUT.</p>
+<p><strong>Réseau</strong> : Laissé par défaut sur "<a href="#glossaire-nat">NAT</a>", ce qui permet à la machine d&#8217;avoir accès à Internet tout en étant protégée et isolée du réseau physique de l&#8217;IUT.</p>
 </li>
 </ul>
 </div>
@@ -521,7 +569,7 @@ L&#8217;utilisateur <code>user</code> ne pouvait pas exécuter de commandes admi
 </div>
 </div>
 <div class="paragraph">
-<p>man 8 usermod <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p>man 8 usermod <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p><strong>B. Installation des Additions Invité (Guest Additions)</strong><br>
@@ -534,7 +582,7 @@ Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers 
 </div>
 </div>
 <div class="paragraph">
-<p>man 8 mount <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
+<p>man 8 mount <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Un redémarrage a suffi pour appliquer ces changements.</p>
@@ -543,7 +591,7 @@ Pour activer le redimensionnement dynamique de la fenêtre et le presse-papiers 
 <div class="sect2">
 <h3 id="_automatisation_de_linstallation_preseed">1.4. Automatisation de l&#8217;installation (Preseed)</h3>
 <div class="paragraph">
-<p>Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée <code>preseed-fr.cfg</code> <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup> présent sur l&#8217;ISO fournie.</p>
+<p>Pour ne pas avoir à refaire ces étapes manuellement, nous avons modifié le fichier de configuration automatisée <a href="#glossaire-preseed">preseed-fr.cfg</a> présent sur l&#8217;ISO fournie.</p>
 </div>
 <div class="paragraph">
 <p>Nous y avons imposé l&#8217;installation de l&#8217;environnement MATE :</p>
@@ -1214,7 +1262,7 @@ conflit 2
 <div class="sect2">
 <h3 id="_travail_collaboratif_sur_gitlab">3.7. Travail collaboratif sur GitLab</h3>
 <div class="paragraph">
-<p>Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d&#8217;abord généré une clé SSH <sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> (<code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>) que nous avons ajoutée à notre profil GitLab pour l&#8217;authentification.</p>
+<p>Pour travailler en équipe, nous avons utilisé un dépôt distant sur GitLab. Nous avons d&#8217;abord généré une clé <a href="#glossaire-ssh">SSH</a> (ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"`) que nous avons ajoutée à notre profil GitLab pour l&#8217;authentification.</p>
 </div>
 <div class="paragraph">
 <p>Nous avons cloné le projet :</p>
@@ -1261,7 +1309,7 @@ Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons tes
 <div class="sect2">
 <h3 id="_utilisation_dune_interface_graphique_ungit">3.8. Utilisation d&#8217;une interface graphique (Ungit)</h3>
 <div class="paragraph">
-<p>Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée <strong>Ungit</strong>. Après avoir installé Node.js <sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> et <code>npm</code> <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
+<p>Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée <strong>Ungit</strong>. Après avoir installé <a href="#glossaire-nodejs">Node.js</a> et <a href="#glossaire-npm">npm</a> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
@@ -1286,9 +1334,6 @@ Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons tes
 <h3 id="_retour_dexpérience_et_difficultés_rencontrées_2">3.9. Retour d&#8217;expérience et difficultés rencontrées</h3>
 <div class="ulist">
 <ul>
-<li>
-<p><strong>Le fonctionnement des clés SSH :</strong> Au début du travail collaboratif, nous avions des erreurs de permission (<code>Permission denied (publickey)</code>). Nous avons dû bien comprendre la différence entre clé privée (qui reste sur le PC) et clé publique (à donner à GitLab) pour résoudre le problème.</p>
-</li>
 <li>
 <p><strong>La panique du conflit de fusion :</strong> Lors de notre premier conflit, voir le fichier rempli de chevrons <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> a été perturbant. Nous avons d&#8217;abord cru avoir cassé le code. Comprendre qu&#8217;il s&#8217;agissait simplement de texte à nettoyer manuellement dans un éditeur nous a beaucoup rassurés pour la suite du projet.</p>
 </li>
@@ -1469,7 +1514,7 @@ Enfin, nous avons renseigné notre clé SSH publique dans Forgejo pour s&#8217;a
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Créer sa clé SSH (si non existante)</span>
-ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"mon.email@exemple.com"</span>
+ssh-keygen <span class="nt">-t</span> ed25519 <span class="nt">-C</span> <span class="s2">"kylian.plantard.etu@univ-lille.fr"</span>
 
 <span class="c"># 2. Cloner en utilisant le port SSH personnalisé (ex: 2222)</span>
 git clone ssh://git@localhost:2222/utilisateur/projet.git
@@ -1506,7 +1551,7 @@ git push</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_7_retour_dexpérience_et_difficultés_rencontrées">4.7. 7. Retour d&#8217;expérience et difficultés rencontrées</h3>
+<h3 id="_retour_dexpérience_et_difficultés_rencontrées_3">4.7. Retour d&#8217;expérience et difficultés rencontrées</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1538,7 +1583,7 @@ Pour corriger cet affichage, nous avons dû modifier le fichier de configuration
 <p>Toute la personnalisation a été gérée via les attributs d&#8217;en-tête et des fichiers de style externes.</p>
 </div>
 <div class="sect2">
-<h3 id="_1_configuration_des_métadonnées_en_tête_du_document">5.1. 1. Configuration des métadonnées (En-tête du document)</h3>
+<h3 id="_configuration_des_métadonnées_en_tête_du_document">5.1. Configuration des métadonnées (En-tête du document)</h3>
 <div class="paragraph">
 <p>Pour activer nos personnalisations et extensions, nous avons enrichi l&#8217;en-tête de nos documents maîtres (<code>faq.adoc</code> et <code>tutoriel.adoc</code>) avec plusieurs attributs spécifiques. Comme nous l&#8217;avions découvert lors de notre <a href="#_semaine_8_comparatif_markdown_vs_asciidoc">étude comparative de la Semaine 8</a>, AsciiDoc est extrêmement puissant grâce à ces métadonnées :</p>
 </div>
@@ -1563,7 +1608,7 @@ Pour corriger cet affichage, nous avons dû modifier le fichier de configuration
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_création_et_structure_du_fichier_css_rendu_html">5.2. 2. Création et structure du fichier CSS (Rendu HTML)</h3>
+<h3 id="_création_et_structure_du_fichier_css_rendu_html">5.2. Création et structure du fichier CSS (Rendu HTML)</h3>
 <div class="paragraph">
 <p>Pour le rendu Web (HTML), nous avons créé un fichier <code>style.css</code> placé dans le sous-dossier <code>./css</code>. Plutôt que de coder des balises HTML dans notre texte, ce fichier CSS cible directement les classes générées automatiquement par le compilateur Asciidoctor.</p>
 </div>
@@ -1607,7 +1652,7 @@ Pour corriger cet affichage, nous avons dû modifier le fichier de configuration
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_création_et_structure_du_fichier_yaml_rendu_pdf">5.3. 3. Création et structure du fichier YAML (Rendu PDF)</h3>
+<h3 id="_création_et_structure_du_fichier_yaml_rendu_pdf">5.3. Création et structure du fichier YAML (Rendu PDF)</h3>
 <div class="paragraph">
 <p>Le compilateur <code>asciidoctor-pdf</code> n&#8217;utilise pas le CSS. Il repose sur un système de template au format YAML. Nous avons donc créé le fichier <code>mon-theme.yml</code> dans le dossier <code>./css</code>.</p>
 </div>
@@ -1620,7 +1665,7 @@ Pour corriger cet affichage, nous avons dû modifier le fichier de configuration
 </div>
 </div>
 <div class="sect2">
-<h3 id="_4_compilation_avec_nos_templates_personnalisés">5.4. 4. Compilation avec nos templates personnalisés</h3>
+<h3 id="_compilation_avec_nos_templates_personnalisés">5.4. Compilation avec nos templates personnalisés</h3>
 <div class="paragraph">
 <p>L&#8217;intégration de ces fichiers a nécessité de mettre à jour notre script d&#8217;automatisation <code>convertdoc.sh</code>. La commande de compilation lit automatiquement l&#8217;en-tête du document, mais il a fallu s&#8217;assurer que les chemins étaient corrects :</p>
 </div>
@@ -1635,7 +1680,7 @@ asciidoctor-pdf tutoriel.adoc <span class="nt">-a</span> pdf-theme<span class="o
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retour_dexpérience_et_difficultés_rencontrées_3">5.5. Retour d&#8217;expérience et difficultés rencontrées</h3>
+<h3 id="_retour_dexpérience_et_difficultés_rencontrées_4">5.5. Retour d&#8217;expérience et difficultés rencontrées</h3>
 <div class="paragraph">
 <p>Lors de cette dernière phase, nous avons dû faire face à plusieurs défis techniques :</p>
 </div>
@@ -1649,6 +1694,36 @@ asciidoctor-pdf tutoriel.adoc <span class="nt">-a</span> pdf-theme<span class="o
 </li>
 </ol>
 </div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_glossaire">Glossaire</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="glossaire-nat"></a>NAT</dt>
+<dd>
+<p>Network Address Translation. Mécanisme réseau permettant à la machine virtuelle de partager l&#8217;adresse IP de la machine hôte pour accéder à Internet tout en la protégeant.</p>
+</dd>
+<dt class="hdlist1"><a id="glossaire-nodejs"></a>Node.js</dt>
+<dd>
+<p>Environnement d&#8217;exécution JavaScript côté serveur.</p>
+</dd>
+<dt class="hdlist1"><a id="glossaire-npm"></a>npm</dt>
+<dd>
+<p>Node Package Manager. Le gestionnaire de paquets officiel pour l&#8217;écosystème Node.js.</p>
+</dd>
+<dt class="hdlist1"><a id="glossaire-preseed"></a>Preseeding (ou Preseed)</dt>
+<dd>
+<p>Méthode permettant d&#8217;automatiser l&#8217;installation d&#8217;un système d&#8217;exploitation Debian en pré-remplissant un fichier de configuration (comme <code>preseed.cfg</code>) avec les réponses attendues par l&#8217;installateur.</p>
+</dd>
+<dt class="hdlist1"><a id="glossaire-ssh"></a>SSH</dt>
+<dd>
+<p>Secure Shell. Protocole cryptographique permettant de sécuriser les communications (notamment l&#8217;accès distant et l&#8217;authentification Git) sur un réseau non sécurisé.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -1656,30 +1731,15 @@ asciidoctor-pdf tutoriel.adoc <span class="nt">-a</span> pdf-theme<span class="o
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Network Address Translation : un mécanisme réseau permettant à la machine virtuelle de partager l&#8217;adresse IP de la machine hôte pour accéder à Internet.
+<a href="#_footnoteref_1">1</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">Page de manuel usermod</a>
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/passwd/usermod.8.en.html">Page de manuel usermod</a>
-</div>
-<div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
-</div>
-<div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. Preseeding : une méthode pour automatiser l&#8217;installation du système d&#8217;exploitation en pré-remplissant un fichier texte avec les réponses de l&#8217;installateur.
-</div>
-<div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. Secure Shell : un protocole cryptographique permettant de sécuriser les communications (ici, l&#8217;authentification Git) sur un réseau non sécurisé.
-</div>
-<div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. Un environnement d&#8217;exécution JavaScript côté serveur.
-</div>
-<div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. Node Package Manager : le gestionnaire de paquets officiel pour l&#8217;écosystème Node.js.
+<a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-27 13:13:54 +0100
+Last updated 2026-03-27 19:04:00 +0100
 </div>
 </div>
 </body>

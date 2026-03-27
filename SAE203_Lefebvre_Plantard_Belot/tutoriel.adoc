@@ -1,5 +1,7 @@
 = SAÉ 2.03 : Installation de services réseaux (rapport)
 Lefebvre Romain; Plantard Kylian; Belot Emilien
+:title-page:
+:title-logo-image: image:img/logo-univ.png[pdfwidth=3in,align=center]
 // Définit la date de génération ou de rendu du document
 :date: {docdate}
 // Intègre les images directement dans le fichier HTML final (autonome)
@@ -42,3 +44,23 @@ include::semaine/semaine11_tutoriel.adoc[]
 <<<
 
 include::semaine/semaine12_tutoriel.adoc[]
+
+<<<
+
+[glossary]
+== Glossaire
+
+[[glossaire-nat]]NAT::
+  Network Address Translation. Mécanisme réseau permettant à la machine virtuelle de partager l'adresse IP de la machine hôte pour accéder à Internet tout en la protégeant.
+
+[[glossaire-nodejs]]Node.js::
+  Environnement d'exécution JavaScript côté serveur.
+
+[[glossaire-npm]]npm::
+  Node Package Manager. Le gestionnaire de paquets officiel pour l'écosystème Node.js.
+
+[[glossaire-preseed]]Preseeding (ou Preseed)::
+  Méthode permettant d'automatiser l'installation d'un système d'exploitation Debian en pré-remplissant un fichier de configuration (comme `preseed.cfg`) avec les réponses attendues par l'installateur.
+
+[[glossaire-ssh]]SSH::
+  Secure Shell. Protocole cryptographique permettant de sécuriser les communications (notamment l'accès distant et l'authentification Git) sur un réseau non sécurisé.

@@ -6,7 +6,7 @@ Conformément aux attentes pour la finalisation de notre projet, cette semaine a
 
 Toute la personnalisation a été gérée via les attributs d'en-tête et des fichiers de style externes.
 
-=== 1. Configuration des métadonnées (En-tête du document)
+=== Configuration des métadonnées (En-tête du document)
 
 Pour activer nos personnalisations et extensions, nous avons enrichi l'en-tête de nos documents maîtres (`faq.adoc` et `tutoriel.adoc`) avec plusieurs attributs spécifiques. Comme nous l'avions découvert lors de notre <<Semaine 8 : Comparatif Markdown vs AsciiDoc, étude comparative de la Semaine 8>>, AsciiDoc est extrêmement puissant grâce à ces métadonnées :
 
@@ -29,7 +29,7 @@ Pour activer nos personnalisations et extensions, nous avons enrichi l'en-tête 
 :pdf-theme: css/mon-theme.yml
 ----
 
-=== 2. Création et structure du fichier CSS (Rendu HTML)
+=== Création et structure du fichier CSS (Rendu HTML)
 
 Pour le rendu Web (HTML), nous avons créé un fichier `style.css` placé dans le sous-dossier `./css`. Plutôt que de coder des balises HTML dans notre texte, ce fichier CSS cible directement les classes générées automatiquement par le compilateur Asciidoctor.
 
@@ -53,7 +53,7 @@ a|
 image::img/avec-css.png[Rendu Asciidoctor avec CSS, width=100%]
 |===
 
-=== 3. Création et structure du fichier YAML (Rendu PDF)
+=== Création et structure du fichier YAML (Rendu PDF)
 
 Le compilateur `asciidoctor-pdf` n'utilise pas le CSS. Il repose sur un système de template au format YAML. Nous avons donc créé le fichier `mon-theme.yml` dans le dossier `./css`.
 
@@ -63,7 +63,7 @@ Ce fichier définit les variables de mise en page pour le PDF :
 * La personnalisation de la page de garde (taille du titre, logo éventuel).
 * Le formatage des blocs de code pour qu'ils ressemblent à un terminal (fond sombre, texte clair).
 
-=== 4. Compilation avec nos templates personnalisés
+=== Compilation avec nos templates personnalisés
 
 L'intégration de ces fichiers a nécessité de mettre à jour notre script d'automatisation `convertdoc.sh`. La commande de compilation lit automatiquement l'en-tête du document, mais il a fallu s'assurer que les chemins étaient corrects :
 

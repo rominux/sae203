@@ -190,7 +190,7 @@ jobs:
         run: asciidoctor rapport.adoc
 ----
 
-=== 7. Retour d'expérience et difficultés rencontrées
+=== Retour d'expérience et difficultés rencontrées
 
 * **La politique des mots de passe :** Lors de la création de nos comptes, nous avons remarqué que Forgejo applique des règles de sécurité strictes par défaut. Il impose notamment des mots de passe d'une longueur minimale de **8 caractères**.
 * **Le piège de l'affichage du port SSH :** Le tutoriel d'installation officiel de Forgejo sur Debian suggère d'utiliser le serveur SSH natif du système (qui écoute sur le port 22), plutôt que de lancer un serveur SSH interne à Forgejo. Le problème est qu'avec notre configuration VirtualBox en NAT, nous avions redirigé le port `2222` de la machine hôte vers le port `22` de la machine invitée. Conséquence : l'interface web de Forgejo affichait une URL de clonage erronée avec le port standard (`ssh://git@localhost:22/...`), ce qui faisait échouer nos `git clone` depuis l'hôte.
