@@ -35,6 +35,7 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 │   ├──  debian-selection-logiciels.png
 │   ├──  diff.png
 │   ├──  forgejo-accueil.png
+│   ├──  forgejo-configuration-sqlite.png
 │   ├──  forgejo-depot-prive.png
 │   ├──  Forgejo_logo.png
 │   ├──  git-branch-merge.png

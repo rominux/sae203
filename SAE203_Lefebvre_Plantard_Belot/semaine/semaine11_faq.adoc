@@ -42,8 +42,11 @@ SQLite est une base de données orientée fichier, ultra-légère et ne nécessi
 Source : https://www.sqlite.org/whentouse.html[Documentation officielle SQLite]
 
 **Question 6 : Où se trouve le fichier de base de données SQLite ? Qui en est le propriétaire ?** +
-Le fichier se trouve dans le répertoire de travail de l'application `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo (`git`), afin qu'il puisse y lire et y écrire les données.
+Le fichier se trouve dans le répertoire de travail de l'application `/var/lib/forgejo/data/forgejo.db`. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo (`git`), afin qu'il puisse y lire et y écrire les données. +
+Source : https://forgejo.org/docs/next/admin/installation/database-preparation/#sqlite[Documentation Forgejo - Préparation de la base de données SQLite]
 
+.Configuration SQLite de Forgejo sur la page d'installation
+image::img/forgejo-configuration-sqlite.png[Configuration SQLite de Forgejo, width=50%, pdfwidth=50%, align="center"]
 
 **Question 7 : Qu'est-ce qu'un service systemd ?** +
 C'est le gestionnaire de système et de services de Linux. Il permet de démarrer, arrêter et surveiller les processus fonctionnant en arrière-plan, et de s'assurer qu'ils redémarrent en cas de crash. +
@@ -55,12 +58,14 @@ Le fichier se divise en trois parties :
 * `[Unit]` qui contient les métadonnées et les dépendances,
 * `[Service]` qui définit comment exécuter l'application (l'utilisateur cible `User=git`, le chemin vers le binaire `ExecStart=...`, etc.)
 * `[Install]` qui définit à quel moment de la séquence de démarrage le service doit être lancé.
+Source : https://manpages.debian.org/trixie/systemd/systemd.service.5.en.html[Documentation systemd - Fichier de service]
 
 **Question 9 : Différence entre start, enable et restart ? Comment visualiser les logs ?** +
 
 * `start` lance le service immédiatement
 * `enable` configure le service pour qu'il se lance automatiquement au démarrage de la machine
 * `restart` arrête puis redémarre le service. Pour visualiser les logs, on utilise la commande `sudo journalctl -u forgejo -f`.
+Source : https://manpages.debian.org/trixie/systemd/systemctl.1.en.html[Documentation systemctl - Commandes de gestion des services]
 
 **Question 10 : Examinez les permissions de /etc/forgejo et app.ini. Pourquoi sont-elles importantes ?** +
 Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur propriétaire (`forgejo` et `root`) puisse le lire. +
@@ -73,10 +78,15 @@ Pour exposer le serveur sur Internet de manière sécurisée, il faudrait:
 . Configurer le HTTPS (certificats SSL/TLS via Let's Encrypt).
 . Activer un pare-feu (`ufw`) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).
 . Installer `Fail2ban` pour bloquer les tentatives d'attaques par force brute.
+Source : https://codeberg.org/forgejo/forgejo/src/commit/e47957e24c4856792b16d43f25bd41c744ddbdc8/custom/conf/app.example.ini#L146[La configuration par défaut ne démarre pas le serveur SSH intégré de Forgejo et utilise donc celui du système]
 
-**Question 12 : Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit, tester clone/push en SSH.** +
-Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité. Forgejo permet de fermer automatiquement un ticket lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`). Renseigner sa clé publique permet de cloner et de pousser en SSH sans taper son mot de passe. +
-Source : https://git-scm.com/book/fr/v2/Git-sur-le-serveur-G%C3%A9n%C3%A9ration-des-cl%C3%A9s-publiques-SSH[Documentation Git - Génération des clés SSH]
+**Question 12 : Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit.** +
+Un projet public est lisible (et clonable) par n'importe quel visiteur, même non authentifié. Un projet privé est invisible et inaccessible à moins d'être explicitement invité. +
+Source : https://forgejo.org/docs/next/user/repo-permissions/#profile-and-visibility[Documentation Forgejo - Permissions et visibilité des dépôts]
+
+**Question 13 : lier une issue à un commit.**
+Forgejo permet de fermer automatiquement un ticket lors d'un push en utilisant des mots-clés spécifiques dans le message du commit (ex: `Fixes #1`). +
+Source : https://forgejo.org/docs/next/user/linked-references/#actionable-references-in-pull-requests-and-commit-messages[Documentation Forgejo - Références liées dans les messages de commit]
 
 **Question 13 : Qu'est-ce que CI/CD ? Workflow simple ? Avantages en équipe ?** +
 CI (Continuous Integration) : Automatisation des tests et de la vérification du code à chaque push d'un développeur, garantissant que le nouveau code ne casse pas l'application. CD (Continuous Delivery/Deployment) : Déploiement automatisé de l'application une fois les tests validés. Les avantages sont la réduction massive des bugs, des retours immédiats, la standardisation de la compilation et un gain de temps. +

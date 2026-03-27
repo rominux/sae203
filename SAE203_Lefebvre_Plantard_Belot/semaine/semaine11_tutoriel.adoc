@@ -123,8 +123,6 @@ node "Machine Virtuelle (Debian 13)" {
 
     component [Forgejo Service] as Forgejo
     component [OpenSSH Server] as SSHD
-
-    note right of Forgejo : IP Interne: 10.0.2.15
 }
 
 Browser --> P3000H : http://localhost:3000

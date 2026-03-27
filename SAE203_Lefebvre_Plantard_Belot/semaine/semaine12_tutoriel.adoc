@@ -58,6 +58,7 @@ image::img/avec-css.png[Rendu Asciidoctor avec CSS, width=100%]
 Le compilateur `asciidoctor-pdf` n'utilise pas le CSS. Il repose sur un système de template au format YAML. Nous avons donc créé le fichier `mon-theme.yml` dans le dossier `./css`.
 
 Ce fichier définit les variables de mise en page pour le PDF :
+
 * `page_size: A4` et les marges (`page_margin`).
 * Les couleurs de base (`base_font_color`, `base_border_color`).
 * La personnalisation de la page de garde (taille du titre, logo éventuel).
