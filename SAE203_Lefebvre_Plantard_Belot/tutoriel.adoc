@@ -1,7 +1,7 @@
 = SAÉ 2.03 : Installation de services réseaux (rapport)
 Lefebvre Romain; Plantard Kylian; Belot Emilien
 // Définit la date de génération ou de rendu du document
-:date: 2026-03-XX
+:date: {docdate}
 // Intègre les images directement dans le fichier HTML final (autonome)
 :data-uri:
 // Active la Table des Matières (Table Of Contents)
