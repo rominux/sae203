@@ -51,7 +51,7 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 │   ├── semaine10_faq.adoc
 │   ├── semaine10_tutoriel.adoc
 │   ├── semaine11_faq.adoc
-│   └── semaine11_tutoriel.adoc
+│   ├── semaine11_tutoriel.adoc
 │   └── semaine12_tutoriel.adoc
 └── tutoriel.adoc               # Fichier maître n°1 (Le Tutoriel pas-à-pas)
 ----

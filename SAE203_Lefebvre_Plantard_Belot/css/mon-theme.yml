@@ -1,17 +1,70 @@
 extends: default
+
+# Configuration des polices
+font:
+  catalog:
+    merge: true
+  fallbacks: 
+    - Noto Serif
+    - M+ 1mn
+
+page:
+  margin: [15mm, 12mm, 15mm, 12mm]
+  numbering:
+    start-at: after-toc
+
+# Correction des clés (hyphens au lieu de underscores)
 base:
-  font_color: '333333'
-  font_family: Helvetica
-  line_height_length: 1.5
+  font-color: '333333'
+  font-family: Helvetica
+  line-height: 1.5
+
 heading:
-  font_color: '004b87'
-  font_style: bold
-title_page:
-  align: center
-  title_font_size: 36
-  title_font_color: '004b87'
-  authors_font_size: 14
+  font-color: '004b87'
+  font-style: bold
+
+# Ligne 13 corrigée : pas d'espace au début, utilisation du trait d'union
+title-page:
+  align: left
+  title-top: 45%
+  title-font-color: '004b87'
+  title-font-style: bold
+
+# --- CONFIGURATION DE L'EN-TÊTE (HEADER) ---
+header:
+  padding: [3, 0]
+  height: 14mm
+  border:
+    color: #dddddd
+    width: 0.25
+  recto:
+    left-content: 'image:../img/Forgejo_logo.png[fit=contain, width=40]'
+    right-content: '{section-or-chapter-title} | {page-number}/{page-count}'
+  verso:
+    left-content: '{page-number}/{page-count} | {section-or-chapter-title}'
+    right-content: 'image:../img/Forgejo_logo.png[fit=contain, width=40]'
+
+# --- CONFIGURATION DU PIED DE PAGE (FOOTER) ---
+footer:
+  padding: [3, 0]
+  height: 14mm
+  recto:
+    left-content: 'image:../img/logo-univ.png[fit=contain, width=100]'
+    center-content: |
+      SAÉ 2.03 +
+      Installation de services réseaux
+    right-content: 'image:../img/logo-iut.png[fit=contain, width=50]'
+  verso:
+    left-content: 'image:../img/logo-iut.png[fit=contain, width=50]'
+    center-content: |
+      SAÉ 2.03 +
+      Installation de services réseaux
+    right-content: 'image:../img/logo-univ.png[fit=contain, width=100]'
+
 table:
-  head_bg_color: '004b87'
-  head_font_color: 'ffffff'
-  even_row_bg_color: 'f2f2f2'
+  head:
+    background-color: '004b87'
+    font-color: 'ffffff'
+    font-style: bold
+  body:
+    stripe-background-color: 'f2f2f2'
