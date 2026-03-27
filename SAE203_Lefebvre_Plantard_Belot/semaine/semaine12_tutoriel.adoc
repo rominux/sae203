@@ -44,12 +44,10 @@ Voici l'évolution de notre document avant et après l'application de notre temp
 |===
 a|
 .Rendu par défaut (Sans CSS)
-// Remplacer l'image ci-dessous par votre capture d'écran sans CSS
 image::img/sans-css.png[Rendu Asciidoctor sans CSS, width=100%]
 
 a|
 .Rendu personnalisé (Avec style.css)
-// Remplacer l'image ci-dessous par votre capture d'écran avec CSS
 image::img/avec-css.png[Rendu Asciidoctor avec CSS, width=100%]
 |===
 
