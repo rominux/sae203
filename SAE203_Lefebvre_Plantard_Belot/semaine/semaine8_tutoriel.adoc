@@ -257,7 +257,9 @@ a|
 
 * **Problème rencontré :** Lors de la préparation de notre environnement de travail en local (sur les machines de l'IUT), nous avons été bloqués par l'impossibilité d'installer la suite Asciidoctor de manière globale sur le système, en raison du manque de droits d'administration (accès `root` verrouillé).
 
-* **Solutions envisagées :** 1. _Utiliser des machines virtuelles Linux personnelles_ pour compiler : rejeté car cela alourdit considérablement notre flux de travail collaboratif lors des séances en présentiel.
+* **Solutions envisagées :**
+
+  1. _Utiliser des machines virtuelles Linux personnelles_ pour compiler : rejeté car cela alourdit considérablement notre flux de travail collaboratif lors des séances en présentiel.
   2. _Utiliser une image Docker d'Asciidoctor_ : l'équipe n'étant pas familière avec l'utilisation de Docker, nous avons cherché une autre alternative.
   3. _Exploiter le gestionnaire de paquets de Ruby (`gem`)_ pour forcer une installation confinée à notre espace utilisateur.
 
