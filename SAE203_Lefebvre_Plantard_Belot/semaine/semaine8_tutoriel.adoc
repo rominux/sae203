@@ -1,6 +1,6 @@
 == Semaine 8 : Comparatif Markdown vs AsciiDoc
 
-_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+// _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 // Définition d'attributs pour masquer les symboles de tableaux dans les exemples
 :vbar: |

@@ -1,7 +1,7 @@
 [[tuto-semaine11]]
 == Semaine 11 : Tutoriel - Installation de Forgejo
 
-_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+// _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 // S'affiche uniquement sur la version HTML
 ifdef::backend-html5[]

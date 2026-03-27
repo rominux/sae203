@@ -1,7 +1,7 @@
 [[tuto-semaine10]]
 == Semaine 10 : Tutoriel - Utilisation de Git et travail collaboratif
 
-_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+// _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 // S'affiche uniquement sur la version HTML
 ifdef::backend-html5[]

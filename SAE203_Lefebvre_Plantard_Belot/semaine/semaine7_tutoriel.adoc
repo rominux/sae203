@@ -1,7 +1,7 @@
 [[tuto-semaine7]]
 == Semaine 7 : Tutoriel - Préparation de la machine virtuelle et OS de base
 
-_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+// _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 // S'affiche uniquement sur la version HTML
 ifdef::backend-html5[]

@@ -1,7 +1,7 @@
 [[faq-semaine10]]
 == Semaine 10 : Questions et Réponses techniques (Git)
 
-_Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
+// _Auteurs : Lefebvre Romain, Plantard Kylian, Belot Emilien_
 
 // S'affiche uniquement sur la version HTML
 ifdef::backend-html5[]
