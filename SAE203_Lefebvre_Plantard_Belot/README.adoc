@@ -23,37 +23,45 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 
 [source,text]
 ----
-.
-├── convertdoc.sh               # Script Bash de compilation automatisée
-├── css/                        # Dossier contenant nos thèmes personnalisés
-│   ├── style.css               # Feuille de style pour le rendu HTML
-│   └── mon-theme.yml           # Fichier de configuration des couleurs PDF
-├── faq.adoc                    # Fichier maître n°2 (Foire Aux Questions)
-├── img/                        # Dossier contenant nos captures d'écran
-│   ├── avec-css.png
-│   ├── blame.png
-│   ├── debian-selection-logiciels.png
-│   ├── diff.png
-│   ├── forgejo-accueil.png
-│   ├── forgejo-depot-prive.png
-│   ├── git-branch-merge.png
-│   ├── git-conflit-terminal.png
-│   ├── git-log-3commits.png
-│   ├── interface.png
-│   ├── sans-css.png
-│   ├── vbox-config-recap-sae203.png
-│   └── vbox-redirection-port3000.png
-├── README.adoc                 # Le présent fichier explicatif
-├── semaine/                    # Dossier regroupant les sous-fichiers par semaine
-│   ├── semaine7_faq.adoc
-│   ├── semaine7_tutoriel.adoc
-│   ├── semaine8_tutoriel.adoc
-│   ├── semaine10_faq.adoc
-│   ├── semaine10_tutoriel.adoc
-│   ├── semaine11_faq.adoc
-│   ├── semaine11_tutoriel.adoc
-│   └── semaine12_tutoriel.adoc
-└── tutoriel.adoc               # Fichier maître n°1 (Le Tutoriel pas-à-pas)
+ .
+├──  convertdoc.sh                          # Script Bash de compilation automatisée
+├──  css                                    # Dossier contenant nos thèmes personnalisés
+│   ├──  mon-theme.yml                      # Feuille de style pour le rendu HTML
+│   └──  style.css                          # Fichier de configuration des couleurs PDF
+├──  faq.adoc                               # Fichier maître n°2 (Foire Aux Questions)
+├──  img                                    # Dossier contenant nos captures d'écran
+│   ├──  avec-css.png
+│   ├──  blame.png
+│   ├──  debian-selection-logiciels.png
+│   ├──  diff.png
+│   ├──  forgejo-accueil.png
+│   ├──  forgejo-depot-prive.png
+│   ├──  Forgejo_logo.png
+│   ├──  git-branch-merge.png
+│   ├──  git-conflit-terminal.png
+│   ├──  git-log-3commits.png
+│   ├──  interface.png
+│   ├──  logo-iut.png
+│   ├──  logo-univ.png
+│   ├──  sans-css.png
+│   ├──  vbox-config-recap-sae203.png
+│   └──  vbox-redirection-port3000.png
+├──  README.adoc                            # Le présent fichier explicatif
+├──  SAE203_FAQ.html
+├──  SAE203_FAQ.pdf
+├──  SAE203_Tutoriel.html
+├──  SAE203_Tutoriel.pdf
+├──  semaine                                # Dossier regroupant les sous-fichiers par semaine
+│   ├──  semaine7_faq.adoc
+│   ├──  semaine7_tutoriel.adoc
+│   ├──  semaine8_tutoriel.adoc
+│   ├──  semaine10_faq.adoc
+│   ├──  semaine10_tutoriel.adoc
+│   ├──  semaine11_faq.adoc
+│   ├──  semaine11_tutoriel.adoc
+│   └──  semaine12_tutoriel.adoc
+└──  tutoriel.adoc                          # Fichier maître n°1 (Le Tutoriel pas-à-pas)
+
 ----
 
 == Personnalisation du rendu (CSS & PDF)

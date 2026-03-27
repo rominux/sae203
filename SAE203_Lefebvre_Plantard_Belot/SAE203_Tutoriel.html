@@ -1381,24 +1381,56 @@ Ce tutoriel détaille l&#8217;installation, la configuration et la sécurisation
 <div class="sect2">
 <h3 id="_installation_du_binaire_et_configuration_de_lutilisateur_système">4.1. Installation du binaire et configuration de l&#8217;utilisateur système</h3>
 <div class="paragraph">
-<p>Pour commencer, nous avons téléchargé le binaire de Forgejo, créé un utilisateur système dédié (<code>git</code>) sans mot de passe, préparé les dossiers nécessaires, puis configuré et lancé le service via les commandes suivantes :</p>
+<p>Pour commencer, nous avons téléchargé l&#8217;exécutable de Forgejo <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>, créé un utilisateur système dédié (<code>git</code>) sans mot de passe, préparé les dossiers nécessaires, puis configuré et lancé le service via les commandes suivantes <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">wget https://codeberg.org/forgejo/forgejo/releases/download/v14.0.3/forgejo-14.0.3-linux-amd64
+<pre class="rouge highlight"><code data-lang="bash">wget https://codeberg.org/forgejo/forgejo/releases/download/v14.0.3/forgejo-14.0.3-linux-amd64 <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="nb">sudo cp </span>forgejo-14.0.3-linux-amd64 /usr/local/bin/forgejo
-<span class="nb">sudo chmod </span>755 /usr/local/bin/forgejo
-<span class="nb">sudo </span>adduser <span class="nt">--system</span> <span class="nt">--shell</span> /bin/bash <span class="nt">--gecos</span> <span class="s1">'Git Version Control'</span> <span class="nt">--group</span> <span class="nt">--disabled-password</span> <span class="nt">--home</span> /home/git git
+<span class="nb">sudo chmod </span>755 /usr/local/bin/forgejo <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nb">sudo </span>adduser <span class="nt">--system</span> <span class="nt">--shell</span> /bin/bash <span class="nt">--gecos</span> <span class="s1">'Git Version Control'</span> <span class="nt">--group</span> <span class="nt">--disabled-password</span> <span class="nt">--home</span> /home/git git <i class="conum" data-value="3"></i><b>(3)</b>
 <span class="nb">sudo mkdir</span> /var/lib/forgejo
-<span class="nb">sudo chown </span>git:git /var/lib/forgejo <span class="o">&amp;&amp;</span> <span class="nb">sudo chmod </span>750 /var/lib/forgejo
-<span class="nb">sudo </span>wget <span class="nt">-O</span> /etc/systemd/system/forgejo.service https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/contrib/systemd/forgejo.service
+<span class="nb">sudo chown </span>git:git /var/lib/forgejo <span class="o">&amp;&amp;</span> <span class="nb">sudo chmod </span>750 /var/lib/forgejo <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="nb">sudo </span>wget <span class="nt">-O</span> /etc/systemd/system/forgejo.service https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/contrib/systemd/forgejo.service <i class="conum" data-value="5"></i><b>(5)</b>
 <span class="nb">sudo </span>systemctl daemon-reload
 <span class="nb">sudo </span>systemctl <span class="nb">enable </span>forgejo.service
-<span class="nb">sudo </span>systemctl start forgejo.service
+<span class="nb">sudo </span>systemctl start forgejo.service <i class="conum" data-value="6"></i><b>(6)</b>
 <span class="c"># installation sur localhost:3000</span>
 <span class="nb">sudo </span>systemctl stop forgejo.service
-<span class="nb">sudo chmod </span>750 /etc/forgejo <span class="o">&amp;&amp;</span> <span class="nb">sudo chmod </span>640 /etc/forgejo/app.ini</code></pre>
+<span class="nb">sudo chmod </span>750 /etc/forgejo <span class="o">&amp;&amp;</span> <span class="nb">sudo chmod </span>640 /etc/forgejo/app.ini <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Téléchargement de la version précompilée de Forgejo.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Copie de l&#8217;exécutable dans le chemin système (<code>/usr/local/bin</code>) et attribution des droits d&#8217;exécution.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Création de l&#8217;utilisateur système dédié <code>git</code>, sans mot de passe, pour exécuter le service de manière sécurisée (principe du moindre privilège).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Création du répertoire de données principal et restriction des droits de lecture/écriture au seul utilisateur <code>git</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Récupération du fichier de service officiel pour permettre à <code>systemd</code> de gérer Forgejo en arrière-plan.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Rechargement du démon systemd, activation au démarrage automatique, et premier lancement du service.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Après l&#8217;installation via l&#8217;interface web (sur le port 3000), arrêt du service pour verrouiller drastiquement les permissions du fichier de configuration sensible <code>app.ini</code>.</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1735,6 +1767,12 @@ asciidoctor-pdf tutoriel.adoc <span class="nt">-a</span> pdf-theme<span class="o
 </div>
 <div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. <a href="https://manpages.debian.org/trixie/mount/mount.8.en.html">Page de manuel mount</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://forgejo.org/download/" class="bare">https://forgejo.org/download/</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://forgejo.org/docs/latest/admin/installation/binary/" class="bare">https://forgejo.org/docs/latest/admin/installation/binary/</a>
 </div>
 </div>
 <div id="footer">

@@ -27,24 +27,31 @@ Ce tutoriel détaille l'installation, la configuration et la sécurisation de Fo
 
 ===  Installation du binaire et configuration de l'utilisateur système
 
-Pour commencer, nous avons téléchargé le binaire de Forgejo, créé un utilisateur système dédié (`git`) sans mot de passe, préparé les dossiers nécessaires, puis configuré et lancé le service via les commandes suivantes :
+Pour commencer, nous avons téléchargé l'exécutable de Forgejo footnote:[https://forgejo.org/download/], créé un utilisateur système dédié (`git`) sans mot de passe, préparé les dossiers nécessaires, puis configuré et lancé le service via les commandes suivantes footnote:[https://forgejo.org/docs/latest/admin/installation/binary/]:
 
 [source,bash]
 ----
-wget https://codeberg.org/forgejo/forgejo/releases/download/v14.0.3/forgejo-14.0.3-linux-amd64
+wget https://codeberg.org/forgejo/forgejo/releases/download/v14.0.3/forgejo-14.0.3-linux-amd64 <1>
 sudo cp forgejo-14.0.3-linux-amd64 /usr/local/bin/forgejo
-sudo chmod 755 /usr/local/bin/forgejo
-sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git
+sudo chmod 755 /usr/local/bin/forgejo <2>
+sudo adduser --system --shell /bin/bash --gecos 'Git Version Control' --group --disabled-password --home /home/git git <3>
 sudo mkdir /var/lib/forgejo
-sudo chown git:git /var/lib/forgejo && sudo chmod 750 /var/lib/forgejo
-sudo wget -O /etc/systemd/system/forgejo.service https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/contrib/systemd/forgejo.service
+sudo chown git:git /var/lib/forgejo && sudo chmod 750 /var/lib/forgejo <4>
+sudo wget -O /etc/systemd/system/forgejo.service https://codeberg.org/forgejo/forgejo/raw/branch/forgejo/contrib/systemd/forgejo.service <5>
 sudo systemctl daemon-reload
 sudo systemctl enable forgejo.service
-sudo systemctl start forgejo.service
+sudo systemctl start forgejo.service <6>
 # installation sur localhost:3000
 sudo systemctl stop forgejo.service
-sudo chmod 750 /etc/forgejo && sudo chmod 640 /etc/forgejo/app.ini
+sudo chmod 750 /etc/forgejo && sudo chmod 640 /etc/forgejo/app.ini <7>
 ----
+<1> Téléchargement de la version précompilée de Forgejo.
+<2> Copie de l'exécutable dans le chemin système (`/usr/local/bin`) et attribution des droits d'exécution.
+<3> Création de l'utilisateur système dédié `git`, sans mot de passe, pour exécuter le service de manière sécurisée (principe du moindre privilège).
+<4> Création du répertoire de données principal et restriction des droits de lecture/écriture au seul utilisateur `git`.
+<5> Récupération du fichier de service officiel pour permettre à `systemd` de gérer Forgejo en arrière-plan.
+<6> Rechargement du démon systemd, activation au démarrage automatique, et premier lancement du service.
+<7> Après l'installation via l'interface web (sur le port 3000), arrêt du service pour verrouiller drastiquement les permissions du fichier de configuration sensible `app.ini`.
 
 ===  Choix de la base de données et de l'architecture réseau
 
