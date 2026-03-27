@@ -55,7 +55,7 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 == Personnalisation du rendu (CSS & PDF)
 Pour répondre aux exigences de personnalisation de la dernière semaine, nous avons créé des templates dédiés :
 
-* **Pour le format HTML :** Un fichier `css/style.css` a été créé et lié dans l'en-tête pour moderniser l'affichage (couleurs personnalisées, ombres sur les tableaux, blocs de code type terminal, sommaire repensé).
+* **Pour le format HTML :** Un fichier `css/style.css` a été créé et lié dans l'en-tête pour moderniser l'affichage (couleurs personnalisées, ombres sur les tableaux, blocs de code type terminal, sommaire repensé). Le rendu HTML et PDF a été testé sur différents navigateurs (Mozilla Firefox et Google Chrome) pour s'assurer de sa bonne compatibilité.
 * **Pour le format PDF :** Un fichier `css/mon-theme.yml` a été rédigé pour modifier la police globale, styliser les tableaux et appliquer nos couleurs aux titres via l'attribut `-a pdf-theme` d'Asciidoctor-PDF.
 
 [TIP]
@@ -85,3 +85,13 @@ Sur les machines de l'IUT, nous avons installé ces outils localement avec la co
 `gem install --user-install asciidoctor asciidoctor-pdf rouge`
 
 Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.
+
+=== Troubleshooting
+
+Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert ou du clonage Git. 
+Vous pouvez corriger cela très simplement en lui redonnant les droits d'exécution avec la commande suivante :
+[source,bash]
+----
+chmod +x convertdoc.sh
+./convertdoc.sh
+----

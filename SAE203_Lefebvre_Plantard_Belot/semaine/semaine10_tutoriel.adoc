@@ -62,6 +62,7 @@ Pour vérifier que tout a bien été enregistré, nous avons utilisé la command
 ----
 git log
 ----
+.Figure 3 : Historique des 3 premiers commits avec git log
 image::img/git-log-3commits.png[Résultat du git log, pdfwidth=100%, align="center"]
 
 ===  Comparaison de versions avec git diff
@@ -91,6 +92,7 @@ git checkout master
 git merge exemple
 ----
 
+.Figure 4 : Création, bascule et fusion d'une branche sous Git
 image::img/git-branch-merge.png[Git branche, pdfwidth=100%, align="center"]
 
 [NOTE]
@@ -111,6 +113,7 @@ conflit 1
 conflit 2
 >>>>>>> conflit
 ----
+.Figure 5 : Affichage d'un conflit de fusion dans l'éditeur nano
 image::img/git-conflit-terminal.png[Conflit terminal, pdfwidth=100%, align="center"]
 
 Pour le résoudre, on modifie le fichier (choisir le code à garder et supprimer les marqueurs de conflit) puis on fait un `git add` pour le marquer comme résolu, avant de faire un commit de fusion.
@@ -153,6 +156,7 @@ Pour aller plus loin dans le suivi de notre travail collaboratif, nous avons tes
 git blame nom_du_fichier
 ----
 
+.Figure 6 : Traçabilité des lignes de code via la commande git blame
 image::img/blame.png[Résultat de la commande git blame, pdfwidth=100%, align="center"]
 
 Cette commande s'est révélée très puissante : elle affiche le contenu du fichier ligne par ligne en indiquant, pour chaque ligne, le nom de l'auteur, la date et l'identifiant (hash) du dernier commit l'ayant modifiée.
@@ -161,10 +165,12 @@ Cette commande s'est révélée très puissante : elle affiche le contenu du fic
 
 Bien que la ligne de commande soit rapide, nous avons testé une interface graphique web nommée **Ungit**. Après avoir installé Node.js et `npm` sur le système, nous l'avons installé via la commande globale : `sudo -H npm install -g ungit`. Ensuite, il se lance en tapant `ungit` et s'ouvre directement sous forme d'onglet dans le navigateur web.
 
+.Figure 7 : Interface web de l'outil graphique Ungit
 image::img/interface.png[Interface Ungit, pdfwidth=60%, align="center"]
 
 Ungit est extrêmement visuel. Par exemple, pour comparer deux versions d'un fichier (l'équivalent de `git diff`), il suffit de cliquer sur le nœud correspondant:
 
+.Figure 8 : Visualisation des différences de code (diff) dans Ungit
 image::img/diff.png[Git diff dans Ungit, pdfwidth=100%, align="center"]
 
 L'interface graphique s'est révélée très pratique pour visualiser un historique complexe et comprendre la topologie des branches, tandis que la ligne de commande reste notre outil privilégié pour les opérations rapides du quotidien (add, commit, push).
