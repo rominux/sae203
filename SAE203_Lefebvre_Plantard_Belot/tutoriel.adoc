@@ -29,6 +29,10 @@ include::semaine/semaine7_tutoriel.adoc[]
 
 <<<
 
+include::semaine/semaine8_tutoriel.adoc[]
+
+<<<
+
 include::semaine/semaine10_tutoriel.adoc[]
 
 <<<
@@ -37,4 +41,4 @@ include::semaine/semaine11_tutoriel.adoc[]
 
 <<<
 
-include::semaine/semaine12.adoc[]
+include::semaine/semaine12_tutoriel.adoc[]

@@ -29,10 +29,6 @@ include::semaine/semaine7_faq.adoc[]
 
 <<<
 
-include::semaine/semaine8.adoc[]
-
-<<<
-
 include::semaine/semaine10_faq.adoc[]
 
 <<<

@@ -12,7 +12,8 @@ Ce dépôt contient le rendu final de notre SAÉ 2.03 portant sur l'installation
 == Structure des documents : Pourquoi deux rapports ?
 Suite aux consignes de la Semaine 12, nous avons fait le choix de séparer notre rendu en deux types de documents distincts pour plus de clarté. Nous avons donc deux fichiers maîtres à compiler :
 
-* **Le fichier `tutoriel.adoc` (Le Tutoriel) :** Il raconte notre véritable retour d'expérience sous forme de tutoriel pas-à-pas. Il explique nos choix techniques, les étapes de configuration et les difficultés rencontrées (comme le blocage du port SSH par le NAT ou la gestion des conflits de fusion).
+* **Le fichier `tutoriel.adoc` (Le Tutoriel) :** Il raconte notre véritable retour d'expérience sous forme de tutoriel pas-à-pas. Il explique nos choix techniques, les étapes de configuration et les difficultés rencontrées. Chaque semaine y est présentée de manière chronologique, avec des captures d'écran et des explications détaillées pour guider le lecteur à travers notre parcours d'apprentissage.
+
 * **Le fichier `faq.adoc` (Questions / Réponses) :** Il regroupe de manière claire et concise les réponses aux questions théoriques posées dans les différents cahiers des charges, le tout sourcé avec la documentation officielle.
 
 Chacun de ces fichiers maîtres se charge d'inclure (via la directive `include::`) l'ensemble des sous-fichiers correspondants aux différentes semaines.
@@ -29,6 +30,7 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 │   └── mon-theme.yml           # Fichier de configuration des couleurs PDF
 ├── faq.adoc                    # Fichier maître n°2 (Foire Aux Questions)
 ├── img/                        # Dossier contenant nos captures d'écran
+│   ├── avec-css.png
 │   ├── blame.png
 │   ├── debian-selection-logiciels.png
 │   ├── diff.png
@@ -38,17 +40,19 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 │   ├── git-conflit-terminal.png
 │   ├── git-log-3commits.png
 │   ├── interface.png
+│   ├── sans-css.png
 │   ├── vbox-config-recap-sae203.png
 │   └── vbox-redirection-port3000.png
 ├── README.adoc                 # Le présent fichier explicatif
 ├── semaine/                    # Dossier regroupant les sous-fichiers par semaine
 │   ├── semaine7_faq.adoc
 │   ├── semaine7_tutoriel.adoc
-│   ├── semaine8.adoc
+│   ├── semaine8_tutoriel.adoc
 │   ├── semaine10_faq.adoc
 │   ├── semaine10_tutoriel.adoc
 │   ├── semaine11_faq.adoc
 │   └── semaine11_tutoriel.adoc
+│   └── semaine12_tutoriel.adoc
 └── tutoriel.adoc               # Fichier maître n°1 (Le Tutoriel pas-à-pas)
 ----
 
