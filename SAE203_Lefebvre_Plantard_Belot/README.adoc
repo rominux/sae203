@@ -1,5 +1,4 @@
 = SAÉ 2.03 - README
-Lefebvre Romain; Plantard Kylian; Belot Emilien
 
 == Membres de l'équipe
 * Romain Lefebvre
@@ -10,9 +9,9 @@ Lefebvre Romain; Plantard Kylian; Belot Emilien
 Ce dépôt contient le rendu final de notre SAÉ 2.03 portant sur l'installation de services réseaux (Debian, Git, Forgejo) et la rédaction de documentation technique en AsciiDoc.
 
 == Structure des documents : Pourquoi deux rapports ?
-Suite aux consignes de la Semaine 12, nous avons fait le choix de séparer notre rendu en deux types de documents distincts pour plus de clarté. Nous avons donc deux fichiers maîtres à compiler :
+Nous avons fait le choix de séparer notre rendu en deux types de documents distincts pour plus de clarté. Nous avons donc deux fichiers maîtres à compiler :
 
-* **Le fichier `tutoriel.adoc` (Le Tutoriel) :** Il raconte notre véritable retour d'expérience sous forme de tutoriel pas-à-pas. Il explique nos choix techniques, les étapes de configuration et les difficultés rencontrées. Chaque semaine y est présentée de manière chronologique, avec des captures d'écran et des explications détaillées pour guider le lecteur à travers notre parcours d'apprentissage.
+* **Le fichier `tutoriel.adoc` (Le Tutoriel) :** Il raconte notre véritable retour d'expérience sous forme de _tutoriel_ pas-à-pas. Il explique nos choix techniques, les étapes de configuration et les difficultés rencontrées. Chaque semaine y est présentée de manière chronologique, avec des captures d'écran et des explications détaillées pour guider le lecteur à travers notre parcours d'apprentissage.
 
 * **Le fichier `faq.adoc` (Questions / Réponses) :** Il regroupe de manière claire et concise les réponses aux questions théoriques posées dans les différents cahiers des charges, le tout sourcé avec la documentation officielle.
 
@@ -23,58 +22,54 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 
 [source,text]
 ----
- .
-├──  convertdoc.sh                          # Script Bash de compilation automatisée
-├──  css                                    # Dossier contenant nos thèmes personnalisés
-│   ├──  mon-theme.yml                      # Feuille de style pour le rendu HTML
-│   └──  style.css                          # Fichier de configuration des couleurs PDF
-├──  faq.adoc                               # Fichier maître n°2 (Foire Aux Questions)
-├──  img                                    # Dossier contenant nos captures d'écran
-│   ├──  avec-css.png
-│   ├──  blame.png
-│   ├──  debian-selection-logiciels.png
-│   ├──  diff.png
-│   ├──  forgejo-accueil.png
-│   ├──  forgejo-configuration-sqlite.png
-│   ├──  forgejo-depot-prive.png
-│   ├──  Forgejo_logo.png
-│   ├──  git-branch-merge.png
-│   ├──  git-conflit-terminal.png
-│   ├──  git-log-3commits.png
-│   ├──  interface.png
-│   ├──  logo-iut.png
-│   ├──  logo-univ.png
-│   ├──  sans-css.png
-│   ├──  vbox-config-recap-sae203.png
-│   └──  vbox-redirection-port3000.png
-├──  README.adoc                            # Le présent fichier explicatif
-├──  SAE203_FAQ.html
-├──  SAE203_FAQ.pdf
-├──  SAE203_Tutoriel.html
-├──  SAE203_Tutoriel.pdf
-├──  semaine                                # Dossier regroupant les sous-fichiers par semaine
-│   ├──  semaine7_faq.adoc
-│   ├──  semaine7_tutoriel.adoc
-│   ├──  semaine8_tutoriel.adoc
-│   ├──  semaine10_faq.adoc
-│   ├──  semaine10_tutoriel.adoc
-│   ├──  semaine11_faq.adoc
-│   ├──  semaine11_tutoriel.adoc
-│   └──  semaine12_tutoriel.adoc
-└──  tutoriel.adoc                          # Fichier maître n°1 (Le Tutoriel pas-à-pas)
-
+.
+├── convertdoc.sh                          # Script Bash de compilation automatisée
+├── css                                    # Dossier contenant nos thèmes personnalisés
+│   ├── mon-theme.yml                      # Feuille de style pour le rendu HTML
+│   └── style.css                          # Fichier de configuration des couleurs PDF
+├── faq.adoc                               # Fichier maître n°2 (Foire Aux Questions)
+├── img                                    # Dossier contenant nos captures d'écran
+│   ├── avec-css.png
+│   ├── blame.png
+│   ├── debian-selection-logiciels.png
+│   ├── diff.png
+│   ├── forgejo-configuration-sqlite.png
+│   ├── Forgejo_logo.png
+│   ├── git-branch-merge.png
+│   ├── git-conflit-terminal.png
+│   ├── git-log-3commits.png
+│   ├── interface.png
+│   ├── logo-iut.png
+│   ├── logo-univ.png
+│   ├── sans-css.png
+│   ├── vbox-config-recap-sae203.png
+│   └── vbox-forwarding.png
+├── README.adoc
+├── SAE203_FAQ.html
+├── SAE203_FAQ.pdf
+├── SAE203_Tutoriel.html
+├── SAE203_Tutoriel.pdf
+├── semaine                                # Dossier regroupant les sous-fichiers par semaine
+│   ├── semaine7_faq.adoc
+│   ├── semaine7_tutoriel.adoc
+│   ├── semaine8_tutoriel.adoc
+│   ├── semaine10_faq.adoc
+│   ├── semaine10_tutoriel.adoc
+│   ├── semaine11_faq.adoc
+│   ├── semaine11_tutoriel.adoc
+│   └── semaine12_tutoriel.adoc
+└── tutoriel.adoc                          # Fichier maître n°1 (Le Tutoriel pas-à-pas)
 ----
 
 == Personnalisation du rendu (CSS & PDF)
-Pour répondre aux exigences de personnalisation de la dernière semaine, nous avons créé des templates dédiés :
+Pour répondre aux exigences de personnalisation de la dernière semaine, nous avons conçu des templates spécifiques à chaque format :
 
-* **Pour le format HTML :** Un fichier `css/style.css` a été créé et lié dans l'en-tête pour moderniser l'affichage (couleurs personnalisées, ombres sur les tableaux, blocs de code type terminal, sommaire repensé). Le rendu HTML et PDF a été testé sur différents navigateurs (Mozilla Firefox et Google Chrome) pour s'assurer de sa bonne compatibilité.
-* **Pour le format PDF :** Un fichier `css/mon-theme.yml` a été rédigé pour modifier la police globale, styliser les tableaux et appliquer nos couleurs aux titres via l'attribut `-a pdf-theme` d'Asciidoctor-PDF.
+* **Format HTML :** Le fichier `css/style.css` modernise l'affichage global (couleurs personnalisées, ombres sur les tableaux, blocs de code façon terminal, sommaire repensé...).
+* **Format PDF :** Le fichier `css/mon-theme.yml` modifie la police globale, stylise les tableaux et applique nos couleurs aux titres via l'attribut `-a pdf-theme` d'Asciidoctor-PDF.
 
-[TIP]
+[NOTE]
 ====
-**Recommandation de lecture :** Bien que nous fournissions les versions PDF de nos rapports, **nous conseillons vivement de consulter les versions HTML**.
-En effet, le style CSS appliqué aux versions web est visuellement plus riche et complet. De plus, la navigation inter-fichiers (les liens permettant de passer d'une semaine du Tutoriel à la FAQ associée) y est pleinement fonctionnelle. Pour des raisons de sécurité liées aux lecteurs PDF modernes bloquant l'ouverture de fichiers locaux, ces liens dynamiques ont dû être supprimés de nos versions PDF.
+**Différences de rendu :** Les versions PDF et HTML ne sont pas strictement identiques visuellement. Nous avons adapté le design pour tirer parti des atouts de chaque support. Le PDF intègre par exemple une page de garde et une numérotation des pages, tandis que la version HTML propose un style plus riche et une navigation dynamique.
 ====
 
 == Procédure de conversion
@@ -85,7 +80,12 @@ Pour lancer la compilation, exécutez la commande suivante dans le terminal :
 ----
 ./convertdoc.sh
 ----
-Cela générera 4 fichiers nommés proprement (`SAE203_Tutoriel.pdf`, `SAE203_Tutoriel.html`, `SAE203_FAQ.pdf`, `SAE203_FAQ.html`).
+Cela générera 4 fichiers nommés:
+
+* SAE203_Tutoriel.pdf
+* SAE203_Tutoriel.html
+* SAE203_FAQ.pdf
+* SAE203_FAQ.html
 
 === Outils requis pour la compilation locale
 Afin de pouvoir compiler ce document et générer les diagrammes intégrés, les outils suivants doivent être installés sur la machine :
@@ -102,12 +102,12 @@ Sur les machines de l'IUT, nous avons installé ces outils localement dans notre
 gem install --user-install asciidoctor asciidoctor-pdf rouge asciidoctor-kroki
 ----
 Nous avons ensuite ajouté le chemin des binaires Ruby au `PATH` de notre environnement utilisateur pour rendre les commandes accessibles.
+
 === Troubleshooting
 
-Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert ou du clonage Git.
+Si le script `convertdoc.sh` refuse de s'exécuter avec une erreur du type `Permission denied`, il est fort probable qu'il ait perdu ses droits d'exécution lors du transfert.
 Vous pouvez corriger cela très simplement en lui redonnant les droits d'exécution avec la commande suivante :
 [source,bash]
 ----
 chmod +x convertdoc.sh
-./convertdoc.sh
 ----
