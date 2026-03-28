@@ -586,79 +586,164 @@ Source : <a href="https://www.debian.org/releases/stable/amd64/apbs01.fr.html#pr
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong><br>
-Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation officielle Git - Dépôts distants</a></p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Question</th>
+<th class="tableblock halign-left valign-top">Réponse</th>
+<th class="tableblock halign-left valign-top">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 1 : Quelle est la différence entre Git et les logiciels comme GitHub/GitLab/Forgejo ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Git est l&#8217;outil de contrôle de version local en ligne de commande, alors que GitHub/GitLab/Forgejo sont des forges logicielles collaboratives (des plateformes web) permettant d&#8217;héberger et de gérer les dépôts Git en ligne.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation Git - Dépôts distants</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 2 : Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un dépôt Git, souvent appelé "repo", est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Démarrage-rapide-À-propos-de-la-gestion-de-version">Documentation Git - Le répertoire Git</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 3 : Quelle est la différence entre un commit, une branche et un tag ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.</p>
+</li>
+<li>
+<p>Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).</p>
+</li>
+<li>
+<p>Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les Branches</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 4 : Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise). La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation Git - Commandes Remote</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 5 : Quelle est la différence entre git pull et git fetch ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).</p>
+</li>
+<li>
+<p><code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants">Documentation Git - Fetch vs Pull</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Protocole Local (accès au système de fichiers sans port)</p>
+</li>
+<li>
+<p>Protocole Git</p>
+</li>
+<li>
+<p>Protocole HTTP/HTTPS (mode intelligent et idiot)</p>
+</li>
+<li>
+<p>Protocole SSH.</p>
+</li>
+</ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Question 2 : Qu&#8217;est-ce qu&#8217;un dépôt Git ? Où sont stockées les données d&#8217;un dépôt local ?</strong><br>
-Un dépôt Git, souvent appelé "repo", est un emplacement de stockage pour les fichiers d&#8217;un projet et l&#8217;ensemble de l&#8217;historique de leurs modifications. Ces données sont stockées de façon masquée dans le dossier local <code>.git</code>.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Démarrage-rapide-À-propos-de-la-gestion-de-version">Documentation Git - Le répertoire Git</a></p>
+<p>Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.</p>
 </div>
-<div class="paragraph">
-<p><strong>Question 3 : Quelle est la différence entre un commit, une branche et un tag ?</strong><br>
-Un <strong>commit</strong> est un instantané contenant les différences de chaque fichier par rapport au commit précédent.<br>
-Une <strong>branche</strong> est une ligne de développement indépendante (une suite de commits).<br>
-Un <strong>tag</strong> est une étiquette figée collée sur un commit précis (souvent utilisée pour marquer les versions logicielles).<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les Branches</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 4 : Qu&#8217;est-ce qu&#8217;un dépôt distant (remote) ? Comment lister les remotes configurés ?</strong><br>
-Un dépôt distant est un dépôt accessible par le réseau (via Internet ou un réseau local d&#8217;entreprise). La commande <code>git remote -v</code> permet de lister ceux qui sont configurés sur le projet.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants">Documentation Git - Commandes Remote</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 5 : Quelle est la différence entre git pull et git fetch ?</strong><br>
-<code>git fetch</code> : récupère les données du dépôt distant vers le dépôt local (sans modifier vos fichiers de travail en cours).<br>
-<code>git pull</code> : effectue un <strong>fetch</strong> puis fusionne directement ces nouvelles données avec la branche locale actuelle.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Les-bases-de-Git-Travailler-avec-des-dépôts-distants#_récupérer_et_tirer_depuis_vos_dépôts_distants">Documentation Git - Fetch vs Pull</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 6 : Quels sont les protocoles supportés par Git pour accéder à un dépôt ?</strong><br>
-Protocole Local (accès au système de fichiers sans port)<br>
-Protocole Git<br>
-Protocole HTTP/HTTPS (mode intelligent et idiot) <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup><br>
-Protocole SSH.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles">Livre Git - Les Protocoles</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?</strong><br>
-Le protocole Git fonctionne sur le port <code>9418</code><br>
-HTTP sur le port <code>80</code><br>
-HTTPS sur le port <code>443</code><br>
-SSH sur le port <code>22</code>.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles">Documentation Git - Les protocoles réseau</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 8 : Comment configurer l&#8217;authentification SSH pour Git ?</strong><br>
-Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH">Documentation Git - Génération clé SSH</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 9 : Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong><br>
-La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.<br>
-Source : <a href="https://git-scm.com/docs/git-init">Documentation Git - git init</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 10 : Utilisez git log pour visualiser l&#8217;historique.</strong><br>
-Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.<br>
-Source : <a href="https://git-scm.com/docs/git-log">Documentation Git - git log</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 11 : Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong><br>
-Une branche est une chaine de commits parallèle aux autres branches. La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.<br>
-Source : <a href="https://git-scm.com/docs/git-merge">Documentation Git - git merge</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 12 : Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong><br>
-Un conflit survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit). Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.<br>
-Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion">Documentation Git - Résolution de conflits</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 13 : Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong><br></p>
-</div>
-<div class="listingblock">
+</td>
+</tr>
+</table>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Protocoles">Livre Git - Les Protocoles</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 7 : Sur quels ports réseau fonctionnent ces protocoles ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Le protocole Git fonctionne sur le port <code>9418</code></p>
+</li>
+<li>
+<p>HTTP sur le port <code>80</code></p>
+</li>
+<li>
+<p>HTTPS sur le port <code>443</code></p>
+</li>
+<li>
+<p>SSH sur le port <code>22</code>.</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Les-protocoles">Documentation Git - Les protocoles réseau</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 8 : Comment configurer l&#8217;authentification SSH pour Git ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Il faut générer une paire de clés SSH sur l&#8217;ordinateur avec la commande <code>ssh-keygen -t ed25519 -C "<a href="mailto:exemple@univ-lille.fr">exemple@univ-lille.fr</a>"</code>, puis copier le contenu de la clé publique générée pour l&#8217;ajouter dans les paramètres de sécurité du compte sur la forge logicielle.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Git-sur-le-serveur-Génération-des-clés-publiques-SSH">Documentation Git - Génération clé SSH</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 9 : Créez un nouveau dépôt Git local. Quelle commande utilisez-vous ? Que se passe-t-il ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La commande <code>git init</code> crée un sous-dossier <code>.git</code> qui initialise la structure d&#8217;un dépôt vide dans le répertoire actuel.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/git-init">Documentation Git - git init</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 10 : Utilisez git log pour visualiser l&#8217;historique.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Le résultat est une liste des commits du plus récent au plus ancien avec leurs identifiants (be99f4166&#8230;&#8203;), l&#8217;auteur, la date et le message de commit.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/git-log">Documentation Git - git log</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 11 : Créez une nouvelle branche, faites des modifications, puis fusionnez (merge) cette branche avec la principale. Expliquez.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Une branche est une chaine de commits parallèle aux autres branches. La fusion (merge) permet de combiner les changements d&#8217;une branche dans une autre en rajoutant les commits de la branche source vers la branche cible.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/git-merge">Documentation Git - git merge</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 12 : Qu&#8217;est-ce qu&#8217;un conflit de fusion ? Provoquez-en un et montrez comment le résoudre.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Un conflit survient lorsque deux branches modifient le même fichier de façon différente. Lors de la fusion, Git met le processus en pause et demande une résolution manuelle (choisir le code à garder et supprimer les marqueurs de conflit). Pour résoudre le conflit, on modifie le fichier puis on le <code>git add</code> pour le marquer comme résolu, avant de faire un commit de fusion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-conflits-de-fusion">Documentation Git - Résolution de conflits</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 13 : Utilisez git diff pour comparer deux commits. Expliquez la sortie.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="diff"><span class="gh">diff --git a/texte b/texte
 index 9d600a1..7255def 100644
@@ -671,74 +756,97 @@ index 9d600a1..7255def 100644
 </div>
 <div class="paragraph">
 <p>Les premières lignes indiquent les fichiers comparés (<code>a/texte</code> et <code>b/texte</code>) et les méta-données de la comparaison (<code>index 9d600a1..7255def</code>). Les lignes précédées d&#8217;un <code>-</code> en rouge sont des suppressions et celles avec un <code>+</code> en vert sont des ajouts. Les autres lignes affichées servent de contexte autour du code modifié.</p>
-</div>
-<div class="paragraph">
-<p><strong>Question 14 : Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong><br>
-C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.<br>
-Source : <a href="https://git-scm.com/docs/gitignore">Documentation Git - gitignore</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 15 : Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong><br>
-Il faut faire <code>git clone <a href="mailto:git@gitlab-ssh.univ-lille.fr">git@gitlab-ssh.univ-lille.fr</a>:notthedreamteam/exemple-sae203.git</code>.<br>
-Source : <a href="https://docs.gitlab.com/ee/user/project/repository/">Documentation GitLab - Clonage d&#8217;un dépôt</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 16 : Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong><br>
-Commandes utilisées :</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Pratique / Observation</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 14 : Qu&#8217;est-ce que le fichier .gitignore ? Créez-en un pour ignorer les fichiers Java (.class, .jar).</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>C&#8217;est un fichier texte permettant de lister les motifs des fichiers/dossiers qui ne doivent pas être suivis et versionnés par Git.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/gitignore">Documentation Git - gitignore</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 15 : Création d&#8217;un dépôt privé partagé sur GitLab et clonage par chaque membre.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Il faut faire <code>git clone <a href="mailto:git@gitlab-ssh.univ-lille.fr">git@gitlab-ssh.univ-lille.fr</a>:notthedreamteam/exemple-sae203.git</code>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.gitlab.com/ee/user/project/repository/">Documentation GitLab - Clonage d&#8217;un dépôt</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 16 : Chaque membre crée une branche, ajoute un fichier, et pousse (push) sa branche.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Commandes utilisées :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>git switch --create emilien
-git add
-git commit -m "ajout du fichier"
-git push --set-upstream origin emilien</pre>
+<pre class="rouge highlight"><code data-lang="bash">git switch <span class="nt">--create</span> emilien
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"ajout du fichier"</span>
+git push <span class="nt">--set-upstream</span> origin emilien</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Source : <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les branches</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 17 : Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong><br>
-On a fait des merge requests dans gitlab pour fusionner les branches. Nous n&#8217;avons pas eu de conflits car nous n&#8217;avons pas modifié les mêmes fichiers.<br>
-Source : <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 18 : Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong><br>
-Une pull/merge request sert à demander la fusion d&#8217;une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation.<br>
-Source : <a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 19 : Testez la commande git blame. À quoi sert-elle ?</strong><br>
-La commande <code>git blame fichier</code> permet d&#8217;afficher le fichier ligne par ligne en indiquant pour chaque ligne l&#8217;auteur, la date et le hash du commit qui l&#8217;a modifiée pour la dernière fois. C&#8217;est très utile pour retrouver l&#8217;origine d&#8217;un bout de code ou d&#8217;un bug.<br>
-Source : <a href="https://git-scm.com/docs/git-blame">Documentation officielle Git - git blame</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 20 : Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong><br>
-C&#8217;est un visualiseur graphique pour les dépôts Git. Il permet d&#8217;explorer l&#8217;historique des commits, l&#8217;arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande <code>gitk</code> dans le terminal depuis un dépôt Git.<br>
-Source : <a href="https://git-scm.com/docs/gitk">Documentation officielle Git - gitk</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 21 : Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong><br>
-C&#8217;est une interface graphique pour la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d&#8217;écrire le message de commit et de valider. Il se lance en tapant <code>git gui</code> dans le terminal.<br>
-Source : <a href="https://git-scm.com/docs/git-gui">Documentation officielle Git - git-gui</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 22 : Pourquoi avez-vous choisi ce logiciel (Ungit) ?</strong><br>
-Nous avons choisi <strong>Ungit</strong> pour son approche extrêmement visuelle. Il représente l&#8217;historique de Git sous forme de nœuds interactifs et d&#8217;animations très intuitives.<br>
-Source : <a href="https://github.com/FredrikNoren/ungit">Dépôt officiel GitHub de Ungit</a></p>
-</div>
-<div class="paragraph">
-<p><strong>Question 23 : Comment l&#8217;avez-vous installé (Ungit) ?</strong><br>
-Ungit est un paquet Node.js. Après avoir installé Node.js et <code>npm</code> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
-</div>
-<div class="paragraph">
-<p><strong>Question 24 : Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong><br>
-Par rapport à <code>gitk</code> ou <code>git-gui</code>, l&#8217;interface d&#8217;Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.</p>
-</div>
-<div class="paragraph">
-<p><strong>Question 25 : Analyse comparative approfondie (Opérations)</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref">Documentation Git - Les branches</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 17 : Fusion de toutes les branches dans la principale. Documentez les éventuels conflits.</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>On a fait des merge requests dans gitlab pour fusionner les branches. Nous n&#8217;avons pas eu de conflits car nous n&#8217;avons pas modifié les mêmes fichiers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 18 : Qu&#8217;est-ce qu&#8217;une pull request (ou merge request) ? À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Une pull/merge request sert à demander la fusion d&#8217;une branche source vers une branche destination tout en permettant aux autres membres de vérifier le code avant validation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.gitlab.com/ee/user/project/merge_requests/">Documentation GitLab - Merge Requests</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 19 : Testez la commande git blame. À quoi sert-elle ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La commande <code>git blame fichier</code> permet d&#8217;afficher le fichier ligne par ligne en indiquant pour chaque ligne l&#8217;auteur, la date et le hash du commit qui l&#8217;a modifiée pour la dernière fois. C&#8217;est très utile pour retrouver l&#8217;origine d&#8217;un bout de code ou d&#8217;un bug.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/git-blame">Documentation officielle Git - git blame</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 20 : Qu&#8217;est-ce que le logiciel gitk ? Comment se lance-t-il ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>C&#8217;est un visualiseur graphique pour les dépôts Git. Il permet d&#8217;explorer l&#8217;historique des commits, l&#8217;arborescence des branches, et de lire les diffs plus confortablement. Il se lance simplement en tapant la commande <code>gitk</code> dans le terminal depuis un dépôt Git.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/gitk">Documentation officielle Git - gitk</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 21 : Qu&#8217;est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>C&#8217;est une interface graphique pour la création de commits. Contrairement à gitk, il permet de sélectionner (stage) des fichiers, d&#8217;écrire le message de commit et de valider. Il se lance en tapant <code>git gui</code> dans le terminal.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://git-scm.com/docs/git-gui">Documentation officielle Git - git-gui</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 22 : Pourquoi avez-vous choisi ce logiciel (Ungit) ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Nous avons choisi <strong>Ungit</strong> pour son approche extrêmement visuelle. Il représente l&#8217;historique de Git sous forme de nœuds interactifs et d&#8217;animations très intuitives.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/FredrikNoren/ungit">Dépôt GitHub de Ungit</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 23 : Comment l&#8217;avez-vous installé (Ungit) ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ungit est un paquet Node.js. Après avoir installé Node.js et <code>npm</code> sur le système, nous l&#8217;avons installé via la commande globale : <code>sudo -H npm install -g ungit</code>. Ensuite, il se lance en tapant <code>ungit</code> et s&#8217;ouvre directement sous forme d&#8217;onglet dans le navigateur web.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Documentation d&#8217;installation Ungit</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 24 : Comparaison avec les outils inclus dans Git et la ligne de commande pure :</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Par rapport à <code>gitk</code> ou <code>git-gui</code>, l&#8217;interface d&#8217;Ungit est bien plus moderne et unifie tout (historique, commit, push, merge) au même endroit de manière fluide. Par rapport à la ligne de commande pure, Ungit aide à mieux visualiser la topologie du projet, mais la ligne de commande reste plus rapide pour les opérations basiques et indispensable pour des commandes Git complexes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Analyse comparative</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 25 : Analyse comparative approfondie (Opérations)</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>Visualiser l&#8217;historique des commits :</strong> <code>git log</code> ou <code>git log --oneline --graph</code> en CLI. Sur Ungit, il suffit d&#8217;ouvrir la page web et de scroller pour voir l&#8217;arbre interactif des nœuds colorés.</p>
@@ -753,15 +861,26 @@ Par rapport à <code>gitk</code> ou <code>git-gui</code>, l&#8217;interface d&#8
 <p><strong>Résoudre un conflit de fusion :</strong> Ouvrir le fichier dans un éditeur (nano/vim), effacer les balises, garder le bon code, puis faire <code>git add</code> et <code>git commit</code> en CLI. Ungit signale le conflit en rouge ("Resolve conflicts"). On peut ouvrir un outil de diff visuel ou marquer le fichier comme résolu directement depuis l&#8217;interface après modification.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Question 26 : Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong><br>
-Les opérations courantes, basiques et répétitives (comme le <code>git add</code>, la création de branche, un <code>git commit</code> simple ou un <code>git push</code>) sont beaucoup plus rapides à taper en ligne de commande. + En revanche, comprendre l&#8217;arborescence des branches, visualiser un historique complexe et repérer les modifications dans plusieurs fichiers en même temps est bien plus clair avec l&#8217;interface graphique.</p>
-</div>
-<div class="paragraph">
-<p><strong>Question 27 : Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong><br>
-Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La ligne de commande est privilégiée pour la rapidité des actions quotidiennes et pour l&#8217;automatisation de scripts. L&#8217;interface graphique (Ungit, GitKraken, ou un outil intégré à l&#8217;IDE comme VS Code) est en revanche indispensable pour faire des revues de code, comprendre l&#8217;historique d&#8217;un projet avant une fusion (merge), et résoudre des conflits complexes avec moins de risque d&#8217;erreur.</p>
-</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Expérience personnelle</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 26 : Quelles opérations sont plus rapides en ligne de commande ? Lesquelles sont plus claires avec l&#8217;interface graphique ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Les opérations courantes, basiques et répétitives (comme le <code>git add</code>, la création de branche, un <code>git commit</code> simple ou un <code>git push</code>) sont beaucoup plus rapides à taper en ligne de commande.
+En revanche, comprendre l&#8217;arborescence des branches, visualiser un historique complexe et repérer les modifications dans plusieurs fichiers en même temps est bien plus clair avec l&#8217;interface graphique.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Analyse comparative</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Question 27 : Dans un contexte professionnel, quel outil privilégieriez-vous et pourquoi ?</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Dans un contexte professionnel, l&#8217;idéal est de combiner les deux. La ligne de commande est privilégiée pour la rapidité des actions quotidiennes et pour l&#8217;automatisation de scripts. L&#8217;interface graphique (Ungit, GitKraken, ou un outil intégré à l&#8217;IDE comme VS Code) est en revanche indispensable pour faire des revues de code, comprendre l&#8217;historique d&#8217;un projet avant une fusion (merge), et résoudre des conflits complexes avec moins de risque d&#8217;erreur.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Analyse comparative</em></p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
@@ -1116,15 +1235,9 @@ Source : <a href="https://about.gitlab.com/fr-fr/topics/ci-cd/">GitLab - Guide s
 </div>
 </div>
 </div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Le mode intelligent est un serveur http qui comprend l&#8217;authentification et les push, tandis que le mode idiot est juste un serveur http basique qui distribue le dossier <code>.git</code>.
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-27 23:17:35 +0100
+Last updated 2026-03-28 14:01:33 +0100
 </div>
 </div>
 </body>
