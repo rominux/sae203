@@ -53,6 +53,14 @@ sudo chmod 750 /etc/forgejo && sudo chmod 640 /etc/forgejo/app.ini <7>
 <6> Rechargement du démon systemd, activation au démarrage automatique, et premier lancement du service.
 <7> Après l'installation via l'interface web (sur le port 3000), arrêt du service pour verrouiller drastiquement les permissions du fichier de configuration sensible `app.ini`.
 
+**Accès à l'interface web depuis la machine hôte** +
+Pour pouvoir réaliser l'étape de configuration web depuis le navigateur de notre machine physique (via `http://localhost:3000`), nous avons dû préalablement configurer une redirection de port dans VirtualBox. La carte réseau de notre VM étant configurée en mode NAT, cette étape est indispensable pour faire communiquer l'hôte et l'invité.
+
+Cette opération vient s'ajouter à la redirection du port 2222 que nous avions déjà mise en place précédemment pour notre accès SSH (voir <<forward-ssh>>).
+
+.Redirection du port 3000 dans les paramètres réseau de VirtualBox
+image::img/vbox-forwarding.png[Redirection de port VirtualBox, width=75%, align="center"]
+
 ===  Choix de la base de données et de l'architecture réseau
 
 Pour la base de données, nous avons choisi **SQLite**, une base de données orientée fichier, ultra-légère et ne nécessitant aucune configuration de serveur (pas de service supplémentaire à faire tourner ou à sécuriser). Le fichier se trouve dans le répertoire de travail de l'application. Le propriétaire de ce fichier est l'utilisateur système qui exécute le service Forgejo (`git`), afin qu'il puisse y lire et y écrire les données.
@@ -94,7 +102,6 @@ sudo journalctl -u forgejo -f
 Pour sécuriser l'installation, nous sommes intervenus sur plusieurs points :
 
 * **Permissions :** Le fichier `app.ini` contient des mots de passe en clair (clés secrètes, mail, configuration interne). Ses permissions doivent être très restrictives (généralement `0640` ou `0600`) pour que seul l'utilisateur `forgejo` (et `root`) puisse le lire.
-* **Serveur SSH :** Le port 22 standard est déjà utilisé par le serveur SSH de la machine hôte. Forgejo déploie donc son propre serveur SSH interne qui écoute sur un port alternatif (souvent le port `2222`).
 * **Accès Internet :** Si le serveur était exposé, il faudrait configurer le HTTPS (Let's Encrypt), activer un pare-feu (`ufw`) pour les ports (80, 443, 22, 2222) et installer `Fail2ban`.
 
 .Architecture de redirection de ports (NAT VirtualBox)
@@ -139,7 +146,6 @@ P22G --> SSHD
 @enduml
 ----
 
-<<forward-ssh,le forward ssh>>
 [IMPORTANT]
 ====
 **Sécurité du fichier de configuration (app.ini)** +

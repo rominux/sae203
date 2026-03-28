@@ -142,6 +142,23 @@ img {
     max-width: 100%;
 }
 
+/* Mapping des icônes d'admonition Asciidoctor vers FontAwesome */
+.icon-note::before {
+    content: "\f05a";
+} /* Cercle d'information */
+.icon-tip::before {
+    content: "\f0eb";
+} /* Ampoule */
+.icon-warning::before {
+    content: "\f071";
+} /* Triangle d'avertissement */
+.icon-caution::before {
+    content: "\f06d";
+} /* Symbole de feu */
+.icon-important::before {
+    content: "\f06a";
+} /* Point d'exclamation */
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -914,9 +931,17 @@ Source : <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logicie
 <div class="paragraph">
 <p><strong>Question 3 : Retracez l&#8217;histoire de Forgejo ? Qu’est-ce qui différencie la gouvernance de Forgejo ?</strong><br>
 L&#8217;histoire commence avec <strong>Gogs</strong>, une forge très légère écrite en Go. Gogs évoluant trop lentement au goût de certains contributeurs, ils ont forké le projet pour créer <strong>Gitea</strong>. Plus récemment, l&#8217;entreprise derrière Gitea a pris un virage commercial (création d&#8217;une entreprise à but lucratif, Gitea Ltd). En réaction, la communauté a forké Gitea pour créer <strong>Forgejo</strong>. La grande différence réside dans le fait que Gitea est désormais contrôlé par une entreprise commerciale, tandis que Forgejo garantit une gouvernance 100% communautaire et à but non lucratif, empêchant toute privatisation du code. Les 3 projets existent toujours, mais Forgejo semble être le plus actif et le plus suivi par la communauté.<br>
-Sources :
-- <a href="https://forgejo.org/2024-02-forking-forward/">Article officiel de Forgejo sur l&#8217;histoire du projet</a>
-- <a href="https://blog.gitea.com/welcome-to-gitea/">Annonce officielle de Gitea sur sa création</a></p>
+Sources :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://forgejo.org/2024-02-forking-forward/">Article officiel de Forgejo sur l&#8217;histoire du projet</a></p>
+</li>
+<li>
+<p><a href="https://blog.gitea.com/welcome-to-gitea/">Annonce officielle de Gitea sur sa création</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Question 4 : Par défaut, Forgejo écoute sur le port 3000. Pourquoi pas le port 80 (port standard HTTP) ?</strong><br>
@@ -957,10 +982,12 @@ Le fichier se divise en trois parties :</p>
 <p><code>[Service]</code> qui définit comment exécuter l&#8217;application (l&#8217;utilisateur cible <code>User=git</code>, le chemin vers le binaire <code>ExecStart=&#8230;&#8203;</code>, etc.)</p>
 </li>
 <li>
-<p><code>[Install]</code> qui définit à quel moment de la séquence de démarrage le service doit être lancé.
-Source : <a href="https://manpages.debian.org/trixie/systemd/systemd.service.5.en.html">Documentation systemd - Fichier de service</a></p>
+<p><code>[Install]</code> qui définit à quel moment de la séquence de démarrage le service doit être lancé.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Source : <a href="https://manpages.debian.org/trixie/systemd/systemd.service.5.en.html">Documentation systemd - Fichier de service</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Question 9 : Différence entre start, enable et restart ? Comment visualiser les logs ?</strong><br></p>
@@ -974,10 +1001,12 @@ Source : <a href="https://manpages.debian.org/trixie/systemd/systemd.service.5.e
 <p><code>enable</code> configure le service pour qu&#8217;il se lance automatiquement au démarrage de la machine</p>
 </li>
 <li>
-<p><code>restart</code> arrête puis redémarre le service. Pour visualiser les logs, on utilise la commande <code>sudo journalctl -u forgejo -f</code>.
-Source : <a href="https://manpages.debian.org/trixie/systemd/systemctl.1.en.html">Documentation systemctl - Commandes de gestion des services</a></p>
+<p><code>restart</code> arrête puis redémarre le service. Pour visualiser les logs, on utilise la commande <code>sudo journalctl -u forgejo -f</code>.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Source : <a href="https://manpages.debian.org/trixie/systemd/systemctl.1.en.html">Documentation systemctl - Commandes de gestion des services</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Question 10 : Examinez les permissions de /etc/forgejo et app.ini. Pourquoi sont-elles importantes ?</strong><br>
@@ -998,10 +1027,12 @@ Pour exposer le serveur sur Internet de manière sécurisée, il faudrait:</p>
 <p>Activer un pare-feu (<code>ufw</code>) pour ne laisser passer que les ports nécessaires (80, 443, 22, 2222).</p>
 </li>
 <li>
-<p>Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.
-Source : <a href="https://codeberg.org/forgejo/forgejo/src/commit/e47957e24c4856792b16d43f25bd41c744ddbdc8/custom/conf/app.example.ini#L146">La configuration par défaut ne démarre pas le serveur SSH intégré de Forgejo et utilise donc celui du système</a></p>
+<p>Installer <code>Fail2ban</code> pour bloquer les tentatives d&#8217;attaques par force brute.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Source : <a href="https://codeberg.org/forgejo/forgejo/src/commit/e47957e24c4856792b16d43f25bd41c744ddbdc8/custom/conf/app.example.ini#L146">La configuration par défaut ne démarre pas le serveur SSH intégré de Forgejo et utilise donc celui du système</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Question 12 : Projet privé vs public ? Ajouter des équipiers, lier une issue à un commit.</strong><br>

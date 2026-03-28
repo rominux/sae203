@@ -25,8 +25,8 @@ Voici comment notre espace de travail est organisé pour séparer le code source
 .
 ├── convertdoc.sh                          # Script Bash de compilation automatisée
 ├── css                                    # Dossier contenant nos thèmes personnalisés
-│   ├── mon-theme.yml                      # Feuille de style pour le rendu HTML
-│   └── style.css                          # Fichier de configuration des couleurs PDF
+│   ├── mon-theme.yml                      # Fichier de configuration des couleurs PDF
+│   └── style.css                          # Feuille de style pour le rendu HTML
 ├── faq.adoc                               # Fichier maître n°2 (Foire Aux Questions)
 ├── img                                    # Dossier contenant nos captures d'écran
 │   ├── avec-css.png

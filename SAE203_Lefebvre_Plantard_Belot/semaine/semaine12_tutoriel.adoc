@@ -24,9 +24,6 @@ Pour activer nos personnalisations et extensions, nous avons enrichi l'en-tête 
 
 // Lie le fichier CSS pour le rendu HTML
 :stylesheet: style.css
-
-// Lie le fichier YAML pour le rendu PDF
-:pdf-theme: css/mon-theme.yml
 ----
 
 === Création et structure du fichier CSS (Rendu HTML)

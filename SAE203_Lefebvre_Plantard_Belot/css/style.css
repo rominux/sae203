@@ -131,3 +131,20 @@ table.tableblock tbody tr:nth-child(even) {
 img {
     max-width: 100%;
 }
+
+/* https://docs.asciidoctor.org/asciidoc/latest/macros/icons-font/ */
+.icon-note::before {
+    content: "\f05a";
+} /* Cercle d'information */
+.icon-tip::before {
+    content: "\f0eb";
+} /* Ampoule */
+.icon-warning::before {
+    content: "\f071";
+} /* Triangle d'avertissement */
+.icon-caution::before {
+    content: "\f06d";
+} /* Symbole de feu */
+.icon-important::before {
+    content: "\f06a";
+} /* Point d'exclamation */
